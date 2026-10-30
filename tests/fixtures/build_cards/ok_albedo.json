@@ -1,0 +1,20 @@
+{
+  "character": "알베도",
+  "role": "테스트",
+  "weapons": [
+    "사면"
+  ],
+  "artifact_sets": [
+    "바람이 시작되는 날"
+  ],
+  "main_stats": {
+    "sands": "방어력",
+    "goblet": "바위 원소 피해 보너스",
+    "circlet": "치명타 확률"
+  },
+  "notes": "테스트용 카드 (추천 내용이 아니라 코드 검사용 값)",
+  "source_name": "테스트",
+  "source_url": "https://example.com",
+  "checked_version": "7.1",
+  "author": "test"
+}

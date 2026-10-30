@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+collector/cache/
+collector/out/
+results/
+db/seed_characters.sql
+.env
+checkpoints/
+*.safetensors
+*.bin
+.ipynb_checkpoints/

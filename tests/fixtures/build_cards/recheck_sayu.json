@@ -1,0 +1,15 @@
+{
+  "character": "사유",
+  "role": "테스트",
+  "weapons": [
+    "아쿠오마루"
+  ],
+  "artifact_sets": [
+    "바람이 시작되는 날"
+  ],
+  "notes": "테스트용 카드 (추천 내용이 아니라 코드 검사용 값)",
+  "source_name": "테스트",
+  "source_url": "https://example.com",
+  "checked_version": "6.7",
+  "author": "test"
+}

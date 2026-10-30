@@ -1,0 +1,19 @@
+{
+  "character": "알베도",
+  "role": "테스트",
+  "weapons": [
+    "아쿠오마루",
+    "없는무기"
+  ],
+  "artifact_sets": [
+    "없는 성유물"
+  ],
+  "main_stats": {
+    "hat": "치명타"
+  },
+  "notes": "테스트용 카드 (추천 내용이 아니라 코드 검사용 값)",
+  "source_name": "",
+  "source_url": "",
+  "checked_version": "칠점일",
+  "author": "test"
+}

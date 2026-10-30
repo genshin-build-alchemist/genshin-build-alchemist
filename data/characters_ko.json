@@ -1,0 +1,999 @@
+{
+ "source": "theBowja/genshin-db (MIT) src/data/Korean/characters",
+ "commit": "49a6544 2026-09-21 7.1 assemble",
+ "count": 124,
+ "characters": [
+  {
+   "key": "aether",
+   "name": "아이테르",
+   "element": null,
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "aino",
+   "name": "아이노",
+   "element": "물",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "albedo",
+   "name": "알베도",
+   "element": "바위",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "alhaitham",
+   "name": "알하이탐",
+   "element": "풀",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "aloy",
+   "name": "에일로이",
+   "element": "얼음",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "alyosha",
+   "name": "알료샤",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": null
+  },
+  {
+   "key": "amber",
+   "name": "엠버",
+   "element": "불",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "aratakiitto",
+   "name": "아라타키 이토",
+   "element": "바위",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "arlecchino",
+   "name": "아를레키노",
+   "element": "불",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "스네즈나야"
+  },
+  {
+   "key": "baizhu",
+   "name": "백출",
+   "element": "풀",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "barbara",
+   "name": "바바라",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "beidou",
+   "name": "북두",
+   "element": "번개",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "bennett",
+   "name": "베넷",
+   "element": "불",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "candace",
+   "name": "캔디스",
+   "element": "물",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "charlotte",
+   "name": "샤를로트",
+   "element": "얼음",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "폰타인"
+  },
+  {
+   "key": "chasca",
+   "name": "차스카",
+   "element": "바람",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "chevreuse",
+   "name": "슈브르즈",
+   "element": "불",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "폰타인"
+  },
+  {
+   "key": "chiori",
+   "name": "치오리",
+   "element": "바위",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "chongyun",
+   "name": "중운",
+   "element": "얼음",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "citlali",
+   "name": "시틀라리",
+   "element": "얼음",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "clorinde",
+   "name": "클로린드",
+   "element": "번개",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "collei",
+   "name": "콜레이",
+   "element": "풀",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "columbina",
+   "name": "콜롬비나",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "cyno",
+   "name": "사이노",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "dahlia",
+   "name": "달리아",
+   "element": "물",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "dehya",
+   "name": "데히야",
+   "element": "불",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "diluc",
+   "name": "다이루크",
+   "element": "불",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "diona",
+   "name": "디오나",
+   "element": "얼음",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "dori",
+   "name": "도리",
+   "element": "번개",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "durin",
+   "name": "두린",
+   "element": "불",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "emilie",
+   "name": "에밀리",
+   "element": "풀",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "escoffier",
+   "name": "에스코피에",
+   "element": "얼음",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "eula",
+   "name": "유라",
+   "element": "얼음",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "faruzan",
+   "name": "파루잔",
+   "element": "바람",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "fischl",
+   "name": "피슬",
+   "element": "번개",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "flins",
+   "name": "플린스",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "freminet",
+   "name": "프레미네",
+   "element": "얼음",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "폰타인"
+  },
+  {
+   "key": "furina",
+   "name": "푸리나",
+   "element": "물",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "gaming",
+   "name": "가명",
+   "element": "불",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "ganyu",
+   "name": "감우",
+   "element": "얼음",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "gorou",
+   "name": "고로",
+   "element": "바위",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "hutao",
+   "name": "호두",
+   "element": "불",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "iansan",
+   "name": "얀사",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "나타"
+  },
+  {
+   "key": "ifa",
+   "name": "이파",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "나타"
+  },
+  {
+   "key": "illuga",
+   "name": "일루가",
+   "element": "바위",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "ineffa",
+   "name": "이네파",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "jahoda",
+   "name": "야호다",
+   "element": "바람",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "jean",
+   "name": "진",
+   "element": "바람",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "kachina",
+   "name": "카치나",
+   "element": "바위",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "나타"
+  },
+  {
+   "key": "kaedeharakazuha",
+   "name": "카에데하라 카즈하",
+   "element": "바람",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "kaeya",
+   "name": "케이아",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "kamisatoayaka",
+   "name": "카미사토 아야카",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "kamisatoayato",
+   "name": "카미사토 아야토",
+   "element": "물",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "kaveh",
+   "name": "카베",
+   "element": "풀",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "keqing",
+   "name": "각청",
+   "element": "번개",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "kinich",
+   "name": "키니치",
+   "element": "풀",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "kirara",
+   "name": "키라라",
+   "element": "풀",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "klee",
+   "name": "클레",
+   "element": "불",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "kujousara",
+   "name": "쿠죠 사라",
+   "element": "번개",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "kukishinobu",
+   "name": "쿠키 시노부",
+   "element": "번개",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "lanyan",
+   "name": "남연",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "lauma",
+   "name": "라우마",
+   "element": "풀",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "layla",
+   "name": "레일라",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "linnea",
+   "name": "린네아",
+   "element": "바위",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "lisa",
+   "name": "리사",
+   "element": "번개",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "lohen",
+   "name": "로엔",
+   "element": "얼음",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "lumine",
+   "name": "루미네",
+   "element": null,
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "lynette",
+   "name": "리넷",
+   "element": "바람",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "폰타인"
+  },
+  {
+   "key": "lyney",
+   "name": "리니",
+   "element": "불",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "manekin",
+   "name": "별인형·남성",
+   "element": null,
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "manekina",
+   "name": "별인형·여성",
+   "element": null,
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "mavuika",
+   "name": "마비카",
+   "element": "불",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "mika",
+   "name": "미카",
+   "element": "얼음",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "mona",
+   "name": "모나",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "mualani",
+   "name": "말라니",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "nahida",
+   "name": "나히다",
+   "element": "풀",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "navia",
+   "name": "나비아",
+   "element": "바위",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "nefer",
+   "name": "네페르",
+   "element": "풀",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "노드크라이"
+  },
+  {
+   "key": "neuvillette",
+   "name": "느비예트",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "nicole",
+   "name": "니콜",
+   "element": "불",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "nilou",
+   "name": "닐루",
+   "element": "물",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "ningguang",
+   "name": "응광",
+   "element": "바위",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "noelle",
+   "name": "노엘",
+   "element": "바위",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "odette",
+   "name": "오데트",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "ororon",
+   "name": "올로룬",
+   "element": "번개",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "나타"
+  },
+  {
+   "key": "prune",
+   "name": "프루네",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "qiqi",
+   "name": "치치",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "raidenshogun",
+   "name": "라이덴 쇼군",
+   "element": "번개",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "razor",
+   "name": "레이저",
+   "element": "번개",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "rosaria",
+   "name": "로자리아",
+   "element": "얼음",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "sandrone",
+   "name": "산드로네",
+   "element": "얼음",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "sangonomiyakokomi",
+   "name": "산고노미야 코코미",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "sayu",
+   "name": "사유",
+   "element": "바람",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "sethos",
+   "name": "세토스",
+   "element": "번개",
+   "weapon": "활",
+   "rarity": "4성",
+   "region": "수메르"
+  },
+  {
+   "key": "shenhe",
+   "name": "신학",
+   "element": "얼음",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "shikanoinheizou",
+   "name": "시카노인 헤이조",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "sigewinne",
+   "name": "시그윈",
+   "element": "물",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "skirk",
+   "name": "스커크",
+   "element": "얼음",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "sucrose",
+   "name": "설탕",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "몬드"
+  },
+  {
+   "key": "tartaglia",
+   "name": "타르탈리아",
+   "element": "물",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "스네즈나야"
+  },
+  {
+   "key": "thoma",
+   "name": "토마",
+   "element": "불",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "tighnari",
+   "name": "타이나리",
+   "element": "풀",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "varesa",
+   "name": "바레사",
+   "element": "번개",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "varka",
+   "name": "바르카",
+   "element": "바람",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "venti",
+   "name": "벤티",
+   "element": "바람",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "몬드"
+  },
+  {
+   "key": "vesna",
+   "name": "베스나",
+   "element": "바람",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "vodyanitsa",
+   "name": "보댜니차",
+   "element": "물",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": null
+  },
+  {
+   "key": "wanderer",
+   "name": "방랑자",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "수메르"
+  },
+  {
+   "key": "wriothesley",
+   "name": "라이오슬리",
+   "element": "얼음",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "폰타인"
+  },
+  {
+   "key": "xiangling",
+   "name": "향릉",
+   "element": "불",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "xianyun",
+   "name": "한운",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "xiao",
+   "name": "소",
+   "element": "바람",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "xilonen",
+   "name": "실로닌",
+   "element": "바위",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": "나타"
+  },
+  {
+   "key": "xingqiu",
+   "name": "행추",
+   "element": "물",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "xinyan",
+   "name": "신염",
+   "element": "불",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "yaemiko",
+   "name": "야에 미코",
+   "element": "번개",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "yanfei",
+   "name": "연비",
+   "element": "불",
+   "weapon": "법구",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "yaoyao",
+   "name": "요요",
+   "element": "풀",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "yelan",
+   "name": "야란",
+   "element": "물",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "yoimiya",
+   "name": "요이미야",
+   "element": "불",
+   "weapon": "활",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "yumemizukimizuki",
+   "name": "유메미즈키 미즈키",
+   "element": "바람",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "이나즈마"
+  },
+  {
+   "key": "yunjin",
+   "name": "운근",
+   "element": "바위",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "region": "리월"
+  },
+  {
+   "key": "zhongli",
+   "name": "종려",
+   "element": "바위",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "region": "리월"
+  },
+  {
+   "key": "zibai",
+   "name": "자백",
+   "element": "바위",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "region": null
+  }
+ ]
+}

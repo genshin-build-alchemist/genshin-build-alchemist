@@ -1,0 +1,2489 @@
+{
+ "source": "theBowja/genshin-db (MIT) src/data/Korean/weapons, artifacts",
+ "commit": "49a6544 2026-09-21 7.1 assemble",
+ "weapons": [
+  {
+   "key": "absolution",
+   "name": "사면",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "죽음의 계약"
+  },
+  {
+   "key": "akuoumaru",
+   "name": "아쿠오마루",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "파도를 지배하는 와타츠미의 백성"
+  },
+  {
+   "key": "alleyhunter",
+   "name": "뒷골목 사냥꾼",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "골목의 매복자"
+  },
+  {
+   "key": "amenomakageuchi",
+   "name": "아메노마 카게우치가타나",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "이와쿠라의 후손"
+  },
+  {
+   "key": "amosbow",
+   "name": "아모스의 활",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "잊지 않은 포부"
+  },
+  {
+   "key": "angelosheptades",
+   "name": "일곱빛 계시",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "막내의 왕관"
+  },
+  {
+   "key": "apprenticesnotes",
+   "name": "학도의 노트",
+   "weapon": "법구",
+   "rarity": "1성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "aquasimulacra",
+   "name": "약수",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "만물 정화의 형상"
+  },
+  {
+   "key": "aquilafavonia",
+   "name": "매의 검",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "서풍 매의 투쟁"
+  },
+  {
+   "key": "ashgravendrinkinghorn",
+   "name": "푸른 문양 뿔잔",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "투팍의 손아귀"
+  },
+  {
+   "key": "astralvulturescrimsonplumage",
+   "name": "붉은 깃 별독수리",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "동공 속 달무리"
+  },
+  {
+   "key": "ateaspoonoftranscendence",
+   "name": "초월의 열쇠",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "하얀 여왕의 승급"
+  },
+  {
+   "key": "athameartis",
+   "name": "검은 침식",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "태양의 불빛"
+  },
+  {
+   "key": "athousandblazingsuns",
+   "name": "타오르는 천 개의 태양",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "다시 타오르는 여명"
+  },
+  {
+   "key": "athousandfloatingdreams",
+   "name": "떠오르는 천일 밤의 꿈",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "천 개의 새벽이 부르는 노래"
+  },
+  {
+   "key": "azurelight",
+   "name": "창백한 섬광",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "하얀 산의 선물"
+  },
+  {
+   "key": "balladoftheboundlessblue",
+   "name": "끝없는 쪽빛의 노래",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "푸른 심공"
+  },
+  {
+   "key": "balladofthefjords",
+   "name": "협만의 노래",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "얼음 벌판의 이야기들"
+  },
+  {
+   "key": "beaconofthereedsea",
+   "name": "갈대 바다의 등대",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "모래바다 파수"
+  },
+  {
+   "key": "beginnersprotector",
+   "name": "초보자의 장창",
+   "weapon": "장병기",
+   "rarity": "1성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "beyondthechrysalis",
+   "name": "나비의 우화",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "우화의 춤"
+  },
+  {
+   "key": "blackcliffagate",
+   "name": "흑암 홍옥",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "승승장구"
+  },
+  {
+   "key": "blackclifflongsword",
+   "name": "흑암 장검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "승승장구"
+  },
+  {
+   "key": "blackcliffpole",
+   "name": "흑암창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "승승장구"
+  },
+  {
+   "key": "blackcliffslasher",
+   "name": "흑암참도",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "승승장구"
+  },
+  {
+   "key": "blackcliffwarbow",
+   "name": "흑암 배틀 보우",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "승승장구"
+  },
+  {
+   "key": "blackmarrowlantern",
+   "name": "검은 골수의 등불",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "결맹의 증표"
+  },
+  {
+   "key": "blacktassel",
+   "name": "흑술창",
+   "weapon": "장병기",
+   "rarity": "3성",
+   "main_stat": "HP",
+   "effect_name": "제유"
+  },
+  {
+   "key": "bladeofatonement",
+   "name": "구원의 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "속죄"
+  },
+  {
+   "key": "bloodsoakedruins",
+   "name": "피로 물든 성",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "애도가"
+  },
+  {
+   "key": "bloodtaintedgreatsword",
+   "name": "드래곤 블러드 소드",
+   "weapon": "양손검",
+   "rarity": "3성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "따끈따끈 찌릿찌릿"
+  },
+  {
+   "key": "breezebornerefrain",
+   "name": "산들바람 활",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "살무사의 노래"
+  },
+  {
+   "key": "calamityofeshu",
+   "name": "에슈의 재앙",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "자욱한 경계"
+  },
+  {
+   "key": "calamityqueller",
+   "name": "식재",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "멸각의 계법"
+  },
+  {
+   "key": "cashflowsupervision",
+   "name": "현금 흐름 감독",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "황금 혈조"
+  },
+  {
+   "key": "chainbreaker",
+   "name": "사슬 파괴자",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "꽃과 떨어진 깃털의 노래"
+  },
+  {
+   "key": "cinnabarspindle",
+   "name": "진사의 방추",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "방어력",
+   "effect_name": "무구한 마음"
+  },
+  {
+   "key": "clashofkings",
+   "name": "왕들의 대국",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "잊힌 밤낮"
+  },
+  {
+   "key": "cloudforged",
+   "name": "축운",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "돌을 깎아 만든 공장"
+  },
+  {
+   "key": "compoundbow",
+   "name": "강철궁",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "에너지 주입 화살"
+  },
+  {
+   "key": "coolsteel",
+   "name": "차가운 칼날",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "공격력",
+   "effect_name": "해빙의 물"
+  },
+  {
+   "key": "covenantoffrostandsnow",
+   "name": "서리의 서약",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "방어력",
+   "effect_name": "법의 균형"
+  },
+  {
+   "key": "cranesechoingcall",
+   "name": "학의 여음",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "운급 강림 비법"
+  },
+  {
+   "key": "crescentpike",
+   "name": "유월창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "에너지 주입 바늘"
+  },
+  {
+   "key": "crimsonmoonssemblance",
+   "name": "붉은 달의 형상",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "잿빛 태양의 그림자"
+  },
+  {
+   "key": "darkironsword",
+   "name": "암철검",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "과전류"
+  },
+  {
+   "key": "dawningfrost",
+   "name": "서릿빛 새벽",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "새벽의 태몽"
+  },
+  {
+   "key": "deathmatch",
+   "name": "결투의 창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "검투사"
+  },
+  {
+   "key": "debateclub",
+   "name": "훌륭한 대화수단",
+   "weapon": "양손검",
+   "rarity": "3성",
+   "main_stat": "공격력",
+   "effect_name": "직설"
+  },
+  {
+   "key": "dialoguesofthedesertsages",
+   "name": "위대한 사막 현자의 대답",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "균형 원리"
+  },
+  {
+   "key": "disasterandremorse",
+   "name": "재앙",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "재앙의 일격"
+  },
+  {
+   "key": "dodocotales",
+   "name": "도도코 이야기집",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "도도! 대모험"
+  },
+  {
+   "key": "dragonsbane",
+   "name": "용학살창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "따끈따끈 첨벙첨벙"
+  },
+  {
+   "key": "dragonspinespear",
+   "name": "용의 척추",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "서리의 매장"
+  },
+  {
+   "key": "dullblade",
+   "name": "무인검",
+   "weapon": "한손검",
+   "rarity": "1성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "earthshaker",
+   "name": "대지를 울리는 자",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "푸른 길의 맹세"
+  },
+  {
+   "key": "echoesoftheheart",
+   "name": "충성의 메아리",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "맹세의 메아리"
+  },
+  {
+   "key": "elegyfortheend",
+   "name": "종말 탄식의 노래",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "이별의 그리운 노래"
+  },
+  {
+   "key": "emberwell",
+   "name": "불꽃의 인도자",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "설원의 불꽃"
+  },
+  {
+   "key": "emeraldorb",
+   "name": "비취 오브",
+   "weapon": "법구",
+   "rarity": "3성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "급류"
+  },
+  {
+   "key": "endoftheline",
+   "name": "메마른 연못",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "찢어진 그물"
+  },
+  {
+   "key": "engulfinglightning",
+   "name": "예초의 번개",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "불시의 꿈·영원한 부뚜막"
+  },
+  {
+   "key": "etherlightspindlelute",
+   "name": "금빛 류트",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "최후의 가수"
+  },
+  {
+   "key": "everlastingmoonglow",
+   "name": "불멸의 달빛",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "HP",
+   "effect_name": "백야의 밝은 달"
+  },
+  {
+   "key": "exaiphanesblade",
+   "name": "별빛검",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "여행자의 길"
+  },
+  {
+   "key": "eyeofperception",
+   "name": "소심",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "메아리"
+  },
+  {
+   "key": "fadingtwilight",
+   "name": "노을",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "심연을 비추는 노을"
+  },
+  {
+   "key": "fangofthemountainking",
+   "name": "산왕의 엄니",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "터키석의 사냥"
+  },
+  {
+   "key": "favoniuscodex",
+   "name": "페보니우스 비전",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "바람과 함께"
+  },
+  {
+   "key": "favoniusgreatsword",
+   "name": "페보니우스 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "바람과 함께"
+  },
+  {
+   "key": "favoniuslance",
+   "name": "페보니우스 장창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "바람과 함께"
+  },
+  {
+   "key": "favoniussword",
+   "name": "페보니우스 검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "바람과 함께"
+  },
+  {
+   "key": "favoniuswarbow",
+   "name": "페보니우스 활",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "바람과 함께"
+  },
+  {
+   "key": "ferrousshadow",
+   "name": "강철의 그림자",
+   "weapon": "양손검",
+   "rarity": "3성",
+   "main_stat": "HP",
+   "effect_name": "불굴"
+  },
+  {
+   "key": "festeringdesire",
+   "name": "부식의 검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "끝없는 갈망"
+  },
+  {
+   "key": "filletblade",
+   "name": "흘호 생선회칼",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "공격력",
+   "effect_name": "결"
+  },
+  {
+   "key": "finaleofthedeep",
+   "name": "해연의 피날레",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "최후의 숭고"
+  },
+  {
+   "key": "flameforgedinsight",
+   "name": "불로 벼린 지혜",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "피어나는 사색"
+  },
+  {
+   "key": "fleuvecendreferryman",
+   "name": "잿빛의 강 뱃사공",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "철골"
+  },
+  {
+   "key": "flowerwreathedfeathers",
+   "name": "꽃장식 깃",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "오지 않은 꽃차례"
+  },
+  {
+   "key": "flowingpurity",
+   "name": "순수한 달빛 물결",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "미완의 걸작"
+  },
+  {
+   "key": "fluteofezpitzal",
+   "name": "에스피찰의 피리",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "방어력",
+   "effect_name": "거울과 연기의 수수께끼"
+  },
+  {
+   "key": "footprintoftherainbow",
+   "name": "무지개의 행적",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "방어력",
+   "effect_name": "흐르는 물과 샘의 약속"
+  },
+  {
+   "key": "forestregalia",
+   "name": "숲의 리게일리어",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "숲의 비호"
+  },
+  {
+   "key": "forgedbythegoldenmelody",
+   "name": "황금빛 선율",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "낮과 밤의 교향곡"
+  },
+  {
+   "key": "fracturedhalo",
+   "name": "파멸의 빛고리",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "서리옥 왕관"
+  },
+  {
+   "key": "freedomsworn",
+   "name": "오래된 자유의 서약",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "항쟁의 실천곡"
+  },
+  {
+   "key": "frostbearer",
+   "name": "인동의 열매",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "서리의 매장"
+  },
+  {
+   "key": "frostbreath",
+   "name": "서리 숨결",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "혼신의 투척"
+  },
+  {
+   "key": "fruitfulhook",
+   "name": "수확의 갈고리",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "추락하는 가지의 무게"
+  },
+  {
+   "key": "fruitoffulfillment",
+   "name": "충만의 열매",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "원만의 상"
+  },
+  {
+   "key": "gestofthemightywolf",
+   "name": "늑대의 무용담",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "불멸의 기사도"
+  },
+  {
+   "key": "goldenfrostboundoath",
+   "name": "서리 맺힌 금빛 가지",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "여명의 인사"
+  },
+  {
+   "key": "hakushinring",
+   "name": "하쿠신의 고리",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "벚꽃 재궁"
+  },
+  {
+   "key": "halberd",
+   "name": "미늘창",
+   "weapon": "장병기",
+   "rarity": "3성",
+   "main_stat": "공격력",
+   "effect_name": "무게"
+  },
+  {
+   "key": "hamayumi",
+   "name": "파마궁",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "아사세의 활고자"
+  },
+  {
+   "key": "harangeppakufutsu",
+   "name": "하란 월백의 후츠",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "흐르는 칼날"
+  },
+  {
+   "key": "harbingerofdawn",
+   "name": "여명신검",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "치명타 피해",
+   "effect_name": "격려"
+  },
+  {
+   "key": "hereticsmoltenblade",
+   "name": "이단을 가르는 불꽃",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "고독한 빛의 추락"
+  },
+  {
+   "key": "huntersbow",
+   "name": "사냥활",
+   "weapon": "활",
+   "rarity": "1성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "hunterspath",
+   "name": "사냥꾼의 길",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "동물이 거니는 길의 끝"
+  },
+  {
+   "key": "hymnofthemaelstrom",
+   "name": "파도의 찬송가",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "HP",
+   "effect_name": "꿈의 회선곡"
+  },
+  {
+   "key": "ibispiercer",
+   "name": "꿰뚫는 따오기 부리",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "신비한 지혜의 은총"
+  },
+  {
+   "key": "ironpoint",
+   "name": "철촉창",
+   "weapon": "장병기",
+   "rarity": "2성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "ironsting",
+   "name": "강철 벌침",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "에너지 주입 가시"
+  },
+  {
+   "key": "jadefallssplendor",
+   "name": "벽락의 옥",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "HP",
+   "effect_name": "정토옥규"
+  },
+  {
+   "key": "jadevista",
+   "name": "옥빛 장궁",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "밤을 수놓는 촛불"
+  },
+  {
+   "key": "kagotsurubeisshin",
+   "name": "카고츠루베 잇신",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "투명한 잇신의 기술"
+  },
+  {
+   "key": "kagurasverity",
+   "name": "카구라의 진의",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "신성한 벚나무의 카미아소비 카구라의 춤"
+  },
+  {
+   "key": "katsuragikirinagamasa",
+   "name": "카츠라기를 벤 나가마사",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "명사의 거동"
+  },
+  {
+   "key": "keyofkhajnisut",
+   "name": "성현의 열쇠",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "HP",
+   "effect_name": "모래바다에 잠긴 서사시"
+  },
+  {
+   "key": "kingssquire",
+   "name": "왕의 측근",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "미궁의 왕의 가르침"
+  },
+  {
+   "key": "kitaincrossspear",
+   "name": "키타인 십자창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "명사의 거동"
+  },
+  {
+   "key": "lightbearingmoonshard",
+   "name": "신월의 달빛",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "낭간의 유물"
+  },
+  {
+   "key": "lightoffoliarincision",
+   "name": "잎을 가르는 빛",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "하얀 달 가지"
+  },
+  {
+   "key": "lionsroar",
+   "name": "용의 포효",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "따끈따끈 찌릿찌릿"
+  },
+  {
+   "key": "lithicblade",
+   "name": "천암고검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "천암결·일심"
+  },
+  {
+   "key": "lithicspear",
+   "name": "천암장창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "천암결·일심"
+  },
+  {
+   "key": "lostprayertothesacredwinds",
+   "name": "사풍 원서",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "끝없는 은혜"
+  },
+  {
+   "key": "lumidouceelegy",
+   "name": "등방울꽃의 애가",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "하얀 새벽의 서곡"
+  },
+  {
+   "key": "luxurioussealord",
+   "name": "진주를 문 해황",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "바다의 승리"
+  },
+  {
+   "key": "magicguide",
+   "name": "마도 서론",
+   "weapon": "법구",
+   "rarity": "3성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "첨벙첨벙 찌릿찌릿"
+  },
+  {
+   "key": "mailedflower",
+   "name": "꽃 장식 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "바람과 꽃의 속삭임"
+  },
+  {
+   "key": "makhairaaquamarine",
+   "name": "물빛 마카이라",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "모래 위 누각"
+  },
+  {
+   "key": "mappamare",
+   "name": "만국 항해용해도",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "에너지 주입 두루마리"
+  },
+  {
+   "key": "masterkey",
+   "name": "만능 열쇠",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "단칼에 해결"
+  },
+  {
+   "key": "memoryofdust",
+   "name": "속세의 자물쇠",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "금빛의 옥·제군의 길"
+  },
+  {
+   "key": "messenger",
+   "name": "전령",
+   "weapon": "활",
+   "rarity": "3성",
+   "main_stat": "치명타 피해",
+   "effect_name": "명적 발사"
+  },
+  {
+   "key": "missivewindspear",
+   "name": "날카로운 바람의 서신",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "오지 않는 바람"
+  },
+  {
+   "key": "mistsplitterreforged",
+   "name": "안개를 가르는 회광",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "무절(霧切) 어검"
+  },
+  {
+   "key": "mitternachtswaltz",
+   "name": "유야의 왈츠",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "극야의 2중주"
+  },
+  {
+   "key": "moonpiercer",
+   "name": "달을 꿰뚫는 화살",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "깊은 숲속 달 그림자"
+  },
+  {
+   "key": "moonweaversdawn",
+   "name": "달을 엮는 자의 새벽빛",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "은빛 피의 선언"
+  },
+  {
+   "key": "mountainbracingbolt",
+   "name": "산을 고정하는 못",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "산 너머의 희망"
+  },
+  {
+   "key": "mouunsmoon",
+   "name": "모운의 달",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "파도를 지배하는 와타츠미의 백성"
+  },
+  {
+   "key": "newbough",
+   "name": "새순",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "뻗은 가지"
+  },
+  {
+   "key": "nightweaverslookingglass",
+   "name": "밤을 엮는 거울",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "천 년의 찬송가"
+  },
+  {
+   "key": "nocturnescurtaincall",
+   "name": "막간의 야상곡",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "십자로의 여행 노래"
+  },
+  {
+   "key": "oathsworneye",
+   "name": "맹세의 눈동자",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "은은한 빛의 해연 백성"
+  },
+  {
+   "key": "oldmercspal",
+   "name": "용병 중검",
+   "weapon": "양손검",
+   "rarity": "2성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "otherworldlystory",
+   "name": "이세계 여행기",
+   "weapon": "법구",
+   "rarity": "3성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "에너지 샤워"
+  },
+  {
+   "key": "peakpatrolsong",
+   "name": "바위산을 맴도는 노래",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "방어력",
+   "effect_name": "시들지 않는 생명"
+  },
+  {
+   "key": "pocketgrimoire",
+   "name": "포켓 주술서",
+   "weapon": "법구",
+   "rarity": "2성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "polarstar",
+   "name": "극지의 별",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "백야의 전조자"
+  },
+  {
+   "key": "portablepowersaw",
+   "name": "휴대용 체인톱",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "뱃노래"
+  },
+  {
+   "key": "predator",
+   "name": "포식자",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "강력한 공격"
+  },
+  {
+   "key": "primordialjadecutter",
+   "name": "반암결록",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "수호자의 무구한 마음"
+  },
+  {
+   "key": "primordialjadewingedspear",
+   "name": "화박연",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "정의의 솔개창"
+  },
+  {
+   "key": "prizedisshinblade-01",
+   "name": "「잇신의 기술」 명검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "배회하는 칼날"
+  },
+  {
+   "key": "prizedisshinblade-02",
+   "name": "「잇신의 기술」 명검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "배회하는 칼날"
+  },
+  {
+   "key": "prizedisshinblade",
+   "name": "「잇신의 기술」 명검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "배회하는 칼날"
+  },
+  {
+   "key": "prospectorsdrill",
+   "name": "탐사용 드릴",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "석공의 노래"
+  },
+  {
+   "key": "prospectorsshovel",
+   "name": "채굴의 삽",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "빠른 결단"
+  },
+  {
+   "key": "prototypeamber",
+   "name": "황금 호박 프로토타입",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "도금"
+  },
+  {
+   "key": "prototypearchaic",
+   "name": "고화 프로토타입",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "분쇄"
+  },
+  {
+   "key": "prototypecrescent",
+   "name": "담월 프로토타입",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "이착불귀"
+  },
+  {
+   "key": "prototyperancour",
+   "name": "참암 프로토타입",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "부서진 바위"
+  },
+  {
+   "key": "prototypestarglitter",
+   "name": "별의 낫 프로토타입",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "마력의 갈증"
+  },
+  {
+   "key": "rainbowserpentsrainbow",
+   "name": "무지개뱀의 현",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "성좌 밖의 별빛 속삭임"
+  },
+  {
+   "key": "rainslasher",
+   "name": "빗물 베기",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "첨벙첨벙 찌릿찌릿"
+  },
+  {
+   "key": "rangegauge",
+   "name": "거리 측정기",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "석공의 노래"
+  },
+  {
+   "key": "ravenbow",
+   "name": "까마귀깃 활",
+   "weapon": "활",
+   "rarity": "3성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "따끈따끈 첨벙첨벙"
+  },
+  {
+   "key": "recurvebow",
+   "name": "곡궁",
+   "weapon": "활",
+   "rarity": "3성",
+   "main_stat": "HP",
+   "effect_name": "수확"
+  },
+  {
+   "key": "redhornstonethresher",
+   "name": "쇄석의 붉은 뿔",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "오토기 대왕의 동화"
+  },
+  {
+   "key": "reliquaryoftruth",
+   "name": "진실의 함",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "거짓 속 진실"
+  },
+  {
+   "key": "rightfulreward",
+   "name": "공의의 보상",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "조금만 더 뾰족했다면"
+  },
+  {
+   "key": "ringofyaxche",
+   "name": "약스체의 고리",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "비옥한 땅의 메아리"
+  },
+  {
+   "key": "royalbow",
+   "name": "왕실의 장궁",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "집중"
+  },
+  {
+   "key": "royalgreatsword",
+   "name": "왕실의 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "집중"
+  },
+  {
+   "key": "royalgrimoire",
+   "name": "왕실의 비전록",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "집중"
+  },
+  {
+   "key": "royallongsword",
+   "name": "왕실의 장검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "집중"
+  },
+  {
+   "key": "royalspear",
+   "name": "왕실의 장창",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "집중"
+  },
+  {
+   "key": "rust",
+   "name": "녹슨 활",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "속사 궁술"
+  },
+  {
+   "key": "sacrificersstaff",
+   "name": "신성한 제사의 지팡이",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "아직 물들지 않은 갈망"
+  },
+  {
+   "key": "sacrificialbow",
+   "name": "제례활",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "침착"
+  },
+  {
+   "key": "sacrificialfragments",
+   "name": "제례의 악장",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "침착"
+  },
+  {
+   "key": "sacrificialgreatsword",
+   "name": "제례 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "침착"
+  },
+  {
+   "key": "sacrificialjade",
+   "name": "제사의 옥",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "흐르는 옥"
+  },
+  {
+   "key": "sacrificialsword",
+   "name": "제례검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "침착"
+  },
+  {
+   "key": "sapwoodblade",
+   "name": "원목 검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "숲의 비호"
+  },
+  {
+   "key": "scionoftheblazingsun",
+   "name": "뜨거운 태양의 후손",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "옛길에 내리쬐는 태양"
+  },
+  {
+   "key": "seasonedhuntersbow",
+   "name": "노련의 사냥활",
+   "weapon": "활",
+   "rarity": "2성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "sequenceofsolitude",
+   "name": "침묵의 사격",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "조용한 사격"
+  },
+  {
+   "key": "serenityscall",
+   "name": "고요한 휘파람",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "침묵의 속삭임"
+  },
+  {
+   "key": "serpentspine",
+   "name": "이무기 검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "파도 가르기"
+  },
+  {
+   "key": "sharpshootersoath",
+   "name": "신궁의 서약",
+   "weapon": "활",
+   "rarity": "3성",
+   "main_stat": "치명타 피해",
+   "effect_name": "정확"
+  },
+  {
+   "key": "silverlight",
+   "name": "은강검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "물에 비친 제비"
+  },
+  {
+   "key": "silvershowerheartstrings",
+   "name": "심금을 울리는 하얀 비",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "HP",
+   "effect_name": "드리아스의 야상곡"
+  },
+  {
+   "key": "silversword",
+   "name": "실버 소드",
+   "weapon": "한손검",
+   "rarity": "2성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "skyridergreatsword",
+   "name": "비천대어검",
+   "weapon": "양손검",
+   "rarity": "3성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "용기"
+  },
+  {
+   "key": "skyridersword",
+   "name": "비천어검",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "결심"
+  },
+  {
+   "key": "skywardatlas",
+   "name": "천공의 두루마리",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "사방을 떠다니는 뭉게구름"
+  },
+  {
+   "key": "skywardblade",
+   "name": "천공의 검",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "높은 하늘을 뚫는 이빨"
+  },
+  {
+   "key": "skywardharp",
+   "name": "천공의 날개",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "하늘에 메아리치는 노래"
+  },
+  {
+   "key": "skywardpride",
+   "name": "천공의 긍지",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "맑은 하늘을 가르는 용의 척추"
+  },
+  {
+   "key": "skywardspine",
+   "name": "천공의 마루",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "검은 날개를 절단하는 이빨"
+  },
+  {
+   "key": "slingshot",
+   "name": "탄궁",
+   "weapon": "활",
+   "rarity": "3성",
+   "main_stat": "치명타 확률",
+   "effect_name": "탄궁"
+  },
+  {
+   "key": "snarehook",
+   "name": "그물을 뚫는 화살",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "민첩한 그림자"
+  },
+  {
+   "key": "snowtombedstarsilver",
+   "name": "설장의 성은",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "서리의 매장"
+  },
+  {
+   "key": "solarpearl",
+   "name": "일월의 정수",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "해와 달의 광휘"
+  },
+  {
+   "key": "songofbrokenpines",
+   "name": "송뢰가 울릴 무렵",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "물리 피해 보너스",
+   "effect_name": "깃발을 든 반항의 노래"
+  },
+  {
+   "key": "songofstillness",
+   "name": "고요한 노래",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "심해의 활시위"
+  },
+  {
+   "key": "songofthevigil",
+   "name": "수호의 노래",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "과거의 화음"
+  },
+  {
+   "key": "splendoroftranquilwaters",
+   "name": "고요히 샘솟는 빛",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "호숫빛의 여명과 황혼"
+  },
+  {
+   "key": "staffofhoma",
+   "name": "호마의 지팡이",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "자유의 붉은 나비"
+  },
+  {
+   "key": "staffofthescarletsands",
+   "name": "적색 사막의 지팡이",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "신기루 끝의 뜨거운 꿈"
+  },
+  {
+   "key": "starcallerswatch",
+   "name": "별지기의 시선",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "바람과 태양에 바치는 연기 제사"
+  },
+  {
+   "key": "sturdybone",
+   "name": "견고한 골검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "돌격자의 자부심"
+  },
+  {
+   "key": "summitshaper",
+   "name": "참봉의 칼날",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "금빛의 옥·제군의 길"
+  },
+  {
+   "key": "sunnymorningsleepin",
+   "name": "나른한 새해",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "온천과 매 그리고 나루카미"
+  },
+  {
+   "key": "surfsup",
+   "name": "서핑 타임",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "물빛 추억"
+  },
+  {
+   "key": "swordofdescension",
+   "name": "강림의 검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "현세 강림"
+  },
+  {
+   "key": "swordofnarzissenkreuz",
+   "name": "수선화 십자검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "용자의 검"
+  },
+  {
+   "key": "symphonistofscents",
+   "name": "맛의 지휘자",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "맛의 교향곡"
+  },
+  {
+   "key": "talkingstick",
+   "name": "대화봉",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "「설득력」"
+  },
+  {
+   "key": "tamayurateinoohanashi",
+   "name": "쉼터의 이야기꾼",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "떠도는 이야기꾼"
+  },
+  {
+   "key": "thealleyflash",
+   "name": "뒷골목의 섬광",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "골목의 레인저"
+  },
+  {
+   "key": "thebell",
+   "name": "시간의 검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "반역의 수호자"
+  },
+  {
+   "key": "theblacksword",
+   "name": "칠흑검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "「정의」"
+  },
+  {
+   "key": "thecatch",
+   "name": "「어획」",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "뱃노래"
+  },
+  {
+   "key": "thedaybreakchronicles",
+   "name": "여명이 트는 역사",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "아득한 찬송의 노래"
+  },
+  {
+   "key": "thedockhandsassistant",
+   "name": "뱃도랑 장검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "HP",
+   "effect_name": "뱃노래"
+  },
+  {
+   "key": "thefirstgreatmagic",
+   "name": "최초의 대마술",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "위대한 자·파르치팔"
+  },
+  {
+   "key": "theflute",
+   "name": "피리검",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "화음"
+  },
+  {
+   "key": "thestringless",
+   "name": "절현",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "무형 화살의 노래"
+  },
+  {
+   "key": "theunforged",
+   "name": "무공의 검",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "금빛의 옥·제군의 길"
+  },
+  {
+   "key": "theviridescenthunt",
+   "name": "청록의 사냥활",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "청록색의 바람"
+  },
+  {
+   "key": "thewidsith",
+   "name": "음유시인의 악장",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "등장 음악"
+  },
+  {
+   "key": "thrillingtalesofdragonslayers",
+   "name": "드래곤 슬레이어 영웅담",
+   "weapon": "법구",
+   "rarity": "3성",
+   "main_stat": "HP",
+   "effect_name": "전승"
+  },
+  {
+   "key": "thunderingpulse",
+   "name": "비뢰의 고동",
+   "weapon": "활",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "비뢰 어궁"
+  },
+  {
+   "key": "tidalshadow",
+   "name": "파도 그림자 대검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "순항하는 흰 파도"
+  },
+  {
+   "key": "tomeoftheeternalflow",
+   "name": "영원히 샘솟는 법전",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "영원한 파도"
+  },
+  {
+   "key": "toukaboushigure",
+   "name": "꽃잎비",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "괴담·빗속을 거니는 외다리"
+  },
+  {
+   "key": "travelershandysword",
+   "name": "여행자의 검",
+   "weapon": "한손검",
+   "rarity": "3성",
+   "main_stat": "방어력",
+   "effect_name": "여정"
+  },
+  {
+   "key": "tulaytullahsremembrance",
+   "name": "툴레이툴라의 기억",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "파묻힌 사파이어의 눈물"
+  },
+  {
+   "key": "twinnephrite",
+   "name": "1급 보옥",
+   "weapon": "법구",
+   "rarity": "3성",
+   "main_stat": "치명타 확률",
+   "effect_name": "급습 전술"
+  },
+  {
+   "key": "ultimateoverlordsmegamagicsword",
+   "name": "「슈퍼 울트라 패왕 마검」",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "파이팅!"
+  },
+  {
+   "key": "urakumisugiri",
+   "name": "우라쿠의 미스기리",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "비단 꽃과 감실 검"
+  },
+  {
+   "key": "verdict",
+   "name": "판정",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "수많은 여명과 황혼의 맹세"
+  },
+  {
+   "key": "vividnotions",
+   "name": "빛나는 마음",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "무지개의 소원"
+  },
+  {
+   "key": "vortexvanquisher",
+   "name": "관홍의 창",
+   "weapon": "장병기",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "금빛의 옥·제군의 길"
+  },
+  {
+   "key": "wanderingevenstar",
+   "name": "방랑하는 저녁별",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "숲과 들의 저녁별"
+  },
+  {
+   "key": "wastergreatsword",
+   "name": "훈련용 대검",
+   "weapon": "양손검",
+   "rarity": "1성",
+   "main_stat": null,
+   "effect_name": null
+  },
+  {
+   "key": "wavebreakersfin",
+   "name": "파도 베는 지느러미",
+   "weapon": "장병기",
+   "rarity": "4성",
+   "main_stat": "공격력",
+   "effect_name": "파도를 지배하는 와타츠미의 백성"
+  },
+  {
+   "key": "waveridingwhirl",
+   "name": "돌아오는 파도",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "회전하는 송곳니"
+  },
+  {
+   "key": "whiteblind",
+   "name": "백영검",
+   "weapon": "양손검",
+   "rarity": "4성",
+   "main_stat": "방어력",
+   "effect_name": "에너지 주입 칼날"
+  },
+  {
+   "key": "whiteirongreatsword",
+   "name": "백철 대검",
+   "weapon": "양손검",
+   "rarity": "3성",
+   "main_stat": "방어력",
+   "effect_name": "수확"
+  },
+  {
+   "key": "whitelakefrostfeather",
+   "name": "백조의 호수",
+   "weapon": "한손검",
+   "rarity": "5성",
+   "main_stat": "치명타 확률",
+   "effect_name": "백조의 피날레"
+  },
+  {
+   "key": "whitetassel",
+   "name": "백술창",
+   "weapon": "장병기",
+   "rarity": "3성",
+   "main_stat": "치명타 확률",
+   "effect_name": "예리"
+  },
+  {
+   "key": "windblumeode",
+   "name": "바람 꽃의 노래",
+   "weapon": "활",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "바람 꽃의 염원"
+  },
+  {
+   "key": "wineandsong",
+   "name": "뒷골목의 술과 시",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "원소 충전 효율",
+   "effect_name": "변화무쌍"
+  },
+  {
+   "key": "wintersheavyheart",
+   "name": "얼어붙은 심장",
+   "weapon": "법구",
+   "rarity": "4성",
+   "main_stat": "치명타 피해",
+   "effect_name": "서리의 비밀"
+  },
+  {
+   "key": "wolffang",
+   "name": "늑대 송곳니",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "치명타 확률",
+   "effect_name": "북풍의 푸른 늑대"
+  },
+  {
+   "key": "wolfsgravestone",
+   "name": "늑대의 말로",
+   "weapon": "양손검",
+   "rarity": "5성",
+   "main_stat": "공격력",
+   "effect_name": "늑대 같은 사냥꾼"
+  },
+  {
+   "key": "xiphosmoonlight",
+   "name": "크시포스의 달빛",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "main_stat": "원소 마스터리",
+   "effect_name": "지니의 속삭임"
+  }
+ ],
+ "artifacts": [
+  {
+   "key": "adaycarvedfromrisingwinds",
+   "name": "바람이 시작되는 날",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "일반 공격, 강공격, 원소전투 스킬 또는 원소폭발이 적 명중 후, 6초 동안 지속되는 「바람과 목가의 가호」를 획득한다: 공격력이 25% 증가한다. 장착 캐릭터가 「마녀의 과제」를 완료했을 경우, 「바람과 목가의 가호」가 「바람과 목가의 결의」로 강화되어, 과제를 통과한 장착 캐릭터의 치명타 확률이 추가로 20% 증가한다. 상술한 효과는 장착 캐릭터가 대기 상태일 때에도 발동된다"
+  },
+  {
+   "key": "adventurer",
+   "name": "모험가",
+   "effect_1pc": null,
+   "effect_2pc": "HP 최대치+1000pt",
+   "effect_4pc": "각종 보물상자를 오픈 후 5초 동안 30%의 HP를 지속해서 회복한다"
+  },
+  {
+   "key": "archaicpetra",
+   "name": "유구한 반암",
+   "effect_1pc": null,
+   "effect_2pc": "바위 원소 피해 보너스+15%",
+   "effect_4pc": "결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 파티 내 모든 캐릭터가 상응하는 원소 피해 보너스를 35% 획득한다. 지속 시간: 10초. 해당 효과로 동시에 한 가지 타입의 원소 피해 보너스만 획득할 수 있다"
+  },
+  {
+   "key": "aubadeofmorningstarandmoon",
+   "name": "샛별과 달의 여명",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "장착 캐릭터가 대기 상태일 경우, 주는 달빛 반응 피해가 20% 증가한다. 파티의 달빛 징조 레벨이 최소 보름일 경우, 주는 달빛 반응 피해가 40% 더 증가한다. 상술한 효과는 장착 캐릭터가 필드에 등장 후 3초가 지나면 사라진다"
+  },
+  {
+   "key": "berserker",
+   "name": "전투광",
+   "effect_1pc": null,
+   "effect_2pc": "치명타 확률+12%",
+   "effect_4pc": "HP 70% 미만 시 치명타 확률이 추가로 24% 증가한다"
+  },
+  {
+   "key": "blizzardstrayer",
+   "name": "얼음바람 속에서 길잃은 용사",
+   "effect_1pc": null,
+   "effect_2pc": "얼음 원소 피해 보너스+15%",
+   "effect_4pc": "얼음 원소의 영향을 받은 적을 공격 시 치명타 확률이 20% 증가한다. 만약 적이 빙결 상태라면 치명타 확률이 추가로 20% 증가한다"
+  },
+  {
+   "key": "bloodstainedchivalry",
+   "name": "피에 물든 기사도",
+   "effect_1pc": null,
+   "effect_2pc": "주는 물리 피해+25%",
+   "effect_4pc": "적을 처치한 후 10초 동안 강공격 사용 시 스태미나를 소모하지 않고 강공격으로 주는 피해가 50% 증가한다"
+  },
+  {
+   "key": "braveheart",
+   "name": "용사의 마음",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "HP가 50%를 초과하는 적에게 주는 피해가 30% 증가한다"
+  },
+  {
+   "key": "celestialgift",
+   "name": "하늘의 은총",
+   "effect_1pc": null,
+   "effect_2pc": "원소 충전 효율+20%",
+   "effect_4pc": "장착 캐릭터가 마녀의 과제를 완료한 경우, 원소전투 스킬 발동 후 「하늘의 인도」 효과를 획득한다: 장착 캐릭터의 원소 타입에 따라 주변에 있는 파티 내 모든 캐릭터가 상응하는 원소 피해 보너스를 20% 획득한다. 지속 시간: 20초. 장착 캐릭터가 대기 상태일 때도 상술한 효과가 발동되며, 동명의 성유물 세트가 생성한 피해 보너스 효과는 중첩되지 않는다.\n·파티가 「마도·비밀 의식」 효과 보유 시, 「하늘의 인도」 효과가 「속세의 송가」로 강화된다. 장착 캐릭터의 원소 타입 외에도 현재 필드 위에 있는 파티 내 자신의 캐릭터의 원소 타입에 따라 주변에 있는 파티 내 모든 캐릭터가 상응하는 원소 피해 보너스를 획득하며, 상술한 두 가지 원소 피해 보너스가 40%로 증가한다. 같은 원소 타입의 원소 피해 보너스 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "crimsonwitchofflames",
+   "name": "불타오르는 화염의 마녀",
+   "effect_1pc": null,
+   "effect_2pc": "불 원소 피해 보너스+15%",
+   "effect_4pc": "과부하, 연소, 발화 반응으로 주는 피해가 40% 증가하고 증발, 융해 반응의 보너스 계수가 15% 증가한다. 원소전투 스킬 발동 후 10초 동안 2세트의 효과가 50% 증가한다. 최대 중첩수: 3회"
+  },
+  {
+   "key": "deepwoodmemories",
+   "name": "숲의 기억",
+   "effect_1pc": null,
+   "effect_2pc": "풀 원소 피해 보너스+15%",
+   "effect_4pc": "원소전투 스킬 또는 원소폭발 공격에 명중된 적은 풀 원소 내성이 30% 감소한다. 지속 시간: 8초. 장착 캐릭터가 대기 상태일 때도 해당 효과는 발동된다"
+  },
+  {
+   "key": "defenderswill",
+   "name": "수호자의 마음",
+   "effect_1pc": null,
+   "effect_2pc": "방어력+30%",
+   "effect_4pc": "파티 내에 다른 원소 타입의 자신의 캐릭터가 1명 존재할 때마다 자신은 대응하는 원소의 내성을 30% 획득한다"
+  },
+  {
+   "key": "desertpavilionchronicle",
+   "name": "모래 위 누각의 역사",
+   "effect_1pc": null,
+   "effect_2pc": "바람 원소 피해 보너스+15%",
+   "effect_4pc": "강공격이 적을 명중 후, 해당 캐릭터의 일반 공격 속도가 10% 증가하고 일반 공격, 강공격, 낙하 공격으로 주는 피해가 40% 증가한다. 지속 시간: 15초"
+  },
+  {
+   "key": "disenchantmentindeepshadow",
+   "name": "그림자 속 산산조각 난 꿈",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "초전도 반응으로 주는 피해가 80% 증가하고, 별 초전도 반응으로 주는 피해가 40% 증가한다. 장착 캐릭터가 초전도 또는 별 초전도 반응의 영향을 받은 적 공격 시, 해당 공격의 치명타 확률이 16% 증가한다"
+  },
+  {
+   "key": "echoesofanoffering",
+   "name": "제사의 여운",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "일반 공격이 적 명중 시, 36%의 확률로 「유곡의 축사」를 발동한다. 「유곡의 축사」: 일반 공격으로 주는 피해가 공격력의 70%만큼 증가한다. 해당 효과는 일반 공격으로 피해를 준 다음 0.05초 후에 사라진다. 일반 공격으로 「유곡의 축사」가 발동되지 않을 때, 다음 공격에서 발동될 확률이 20% 증가한다. 0.2초 내 최대 1회 발동 여부를 판정한다"
+  },
+  {
+   "key": "emblemofseveredfate",
+   "name": "절연의 기치",
+   "effect_1pc": null,
+   "effect_2pc": "원소 충전 효율+20%",
+   "effect_4pc": "원소폭발로 주는 피해가 원소 충전 효율의 25%만큼 증가한다. 해당 방식으로 최대 75%까지 증가할 수 있다"
+  },
+  {
+   "key": "finaleofthedeepgalleries",
+   "name": "깊은 회랑의 피날레",
+   "effect_1pc": null,
+   "effect_2pc": "얼음 원소 피해 보너스+15%",
+   "effect_4pc": "장착 캐릭터의 원소 에너지가 0pt일 시, 일반 공격으로 주는 피해가 60%, 원소폭발로 주는 피해가 60% 증가한다. 장착 캐릭터가 일반 공격으로 피해를 주면 상술한 원소폭발 피해 증가 효과는 6초 동안 적용되지 않는다. 장착 캐릭터가 원소폭발로 피해를 주면 상술한 일반 공격 피해 증가 효과는 6초 동안 적용되지 않는다. 장착 캐릭터가 대기 상태 시에도 발동된다"
+  },
+  {
+   "key": "flowerofparadiselost",
+   "name": "잃어버린 낙원의 꽃",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "장착 캐릭터가 개화, 만개, 발화 반응으로 주는 피해가 40%, 달 개화 반응으로 주는 피해가 10% 증가한다. 또한 장착 캐릭터가 개화, 만개, 발화, 달 개화 발동 후 상술한 효과로 증가한 보너스가 25% 증가한다. 지속 시간: 10초. 최대 중첩수: 4회. 해당 효과는 1초마다 최대 1회 발동되며, 장착 캐릭터가 대기 상태일 때도 발동된다"
+  },
+  {
+   "key": "fragmentofharmonicwhimsy",
+   "name": "조화로운 공상의 단편",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "생명의 계약의 수치가 증가 또는 감소 시, 캐릭터가 주는 피해가 18% 증가한다. 지속 시간: 6초, 최대 중첩수: 3회"
+  },
+  {
+   "key": "gambler",
+   "name": "노름꾼",
+   "effect_1pc": null,
+   "effect_2pc": "원소전투 스킬로 주는 피해+20%",
+   "effect_4pc": "적을 처치하면 100%의 확률로 원소전투 스킬의 재사용 대기시간이 초기화된다. 해당 효과는 15초마다 1번 발동한다"
+  },
+  {
+   "key": "gildeddreams",
+   "name": "도금된 꿈",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "원소 반응 발동 후 8초 동안 파티 내 다른 캐릭터의 원소 타입에 따라 장착 캐릭터가 강화 효과를 받는다: 파티 내 장착 캐릭터와 동일한 원소 타입의 캐릭터가 1명 존재할 때마다 공격력이 14% 증가한다. 파티 내 장착 캐릭터와 다른 원소 타입의 캐릭터가 1명 존재할 때마다 원소 마스터리가 50pt 증가한다. 해당 효과는 각각 최대 3명의 캐릭터까지 계산한다. 해당 효과는 8초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과는 발동된다"
+  },
+  {
+   "key": "gladiatorsfinale",
+   "name": "검투사의 피날레",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "해당 성유물 세트를 장착한 캐릭터가 한손검, 양손검, 장병기를 사용 시 캐릭터의 일반 공격으로 주는 피해가 35% 증가한다"
+  },
+  {
+   "key": "goldentroupe",
+   "name": "황금 극단",
+   "effect_1pc": null,
+   "effect_2pc": "원소전투 스킬로 주는 피해+20%",
+   "effect_4pc": "원소전투 스킬로 주는 피해가 25% 증가한다. 또한 대기 상태 시 원소전투 스킬로 주는 피해가 추가로 25% 증가하며, 해당 효과는 등장 후 2초가 지나면 사라진다"
+  },
+  {
+   "key": "heartofdepth",
+   "name": "몰락한 마음",
+   "effect_1pc": null,
+   "effect_2pc": "물 원소 피해 보너스+15%",
+   "effect_4pc": "원소전투 스킬 발동 후 15초 동안 일반 공격과 강공격으로 주는 피해가 30% 증가한다"
+  },
+  {
+   "key": "heartofthefurnace",
+   "name": "용광로가 빚은 심장",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "장착 캐릭터가 별빛 반응을 발동하거나 별빛 반응 피해를 준 후 12초 동안 공격력이 12% 증가하고, 주변에 있는 파티 내 모든 캐릭터가 주는 별빛 반응 피해가 50% 증가한다. 장착 캐릭터가 대기 상태일 때도 상술한 효과가 발동된다. 동명의 성유물 세트가 생성한 피해 보너스 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "huskofopulentdreams",
+   "name": "풍요로운 꿈의 껍데기",
+   "effect_1pc": null,
+   "effect_2pc": "방어력+30%",
+   "effect_4pc": "해당 성유물 세트를 장착한 캐릭터는 아래 상황에서 「문답」 효과를 얻는다: 필드 위에서 바위 원소 공격으로 적 명중 시 1스택 획득, 0.3초마다 최대 1회 발동된다. 대기 상태일 때 3초마다 1스택 획득. 문답 효과는 최대 4스택까지 중첩 가능하고, 스택 당 6%의 방어력과 6%의 바위 원소 피해 보너스를 제공한다. 6초마다 문답 효과를 획득하지 못할 경우, 1스택이 차감된다"
+  },
+  {
+   "key": "instructor",
+   "name": "교관",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "원소 반응 후 파티 내 모든 캐릭터의 원소 마스터리가 120pt 증가한다. 지속 시간: 8초"
+  },
+  {
+   "key": "lavawalker",
+   "name": "불 위를 걷는 현인",
+   "effect_1pc": null,
+   "effect_2pc": "불 원소 내성+40%",
+   "effect_4pc": "불 원소의 영향을 받은 적에게 주는 피해가 35% 증가한다"
+  },
+  {
+   "key": "longnightsoath",
+   "name": "긴 밤의 맹세",
+   "effect_1pc": null,
+   "effect_2pc": "낙하 공격으로 주는 피해+25%",
+   "effect_4pc": "장착 캐릭터의 낙하 공격/강공격/원소전투 스킬이 적에게 명중 후, 「영원한 광휘」를 1/2/2스택 획득한다. 해당 효과는 낙하 공격, 강공격 또는 원소전투 스킬로 1초마다 각각 최대 1회 발동된다. 「영원한 광휘」: 낙하 공격으로 주는 피해가 15% 증가한다. 지속 시간: 6초, 최대 중첩수: 5스택, 스택마다 지속 시간은 독립적으로 계산한다"
+  },
+  {
+   "key": "luckydog",
+   "name": "행운아",
+   "effect_1pc": null,
+   "effect_2pc": "방어력+100pt",
+   "effect_4pc": "모라 획득 시 HP를 300pt 회복한다"
+  },
+  {
+   "key": "maidenbeloved",
+   "name": "사랑받는 소녀",
+   "effect_1pc": null,
+   "effect_2pc": "캐릭터가 주는 치유 효과+15%",
+   "effect_4pc": "원소전투 스킬 또는 원소폭발 발동 후 10초 동안 파티 내 모든 캐릭터가 받는 치유 효과가 20% 증가한다"
+  },
+  {
+   "key": "marechausseehunter",
+   "name": "그림자 사냥꾼",
+   "effect_1pc": null,
+   "effect_2pc": "일반 공격과 강공격으로 주는 피해+15%",
+   "effect_4pc": "현재 HP가 증가 또는 감소 시, 치명타 확률이 12% 증가한다. 지속 시간: 5초, 최대 중첩수: 3회"
+  },
+  {
+   "key": "martialartist",
+   "name": "무인",
+   "effect_1pc": null,
+   "effect_2pc": "일반 공격과 강공격으로 주는 피해+15%",
+   "effect_4pc": "원소전투 스킬 발동 후 8초 동안 일반 공격과 강공격으로 주는 피해가 25% 증가한다"
+  },
+  {
+   "key": "nightoftheskysunveiling",
+   "name": "하늘 경계가 드러난 밤",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "주변에 있는 파티 내 캐릭터가 달빛 반응 발동 시, 장착 캐릭터가 필드 위에 있을 경우 4초 동안 지속되는 「월광·음모」 효과를 획득한다: 파티의 달빛 징조가 초승/보름인 경우, 치명타 확률이 15%/30% 증가한다. 파티 내 캐릭터가 서로 다른 「월광」 효과를 1개 보유할 때마다, 파티 내 모든 캐릭터가 발동한 달빛 반응으로 주는 피해가 10% 증가한다. 「월광」으로 생성된 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "nighttimewhispersintheechoingwoods",
+   "name": "메아리숲의 야화",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "원소전투 스킬 발동 후 10초 동안 바위 원소 피해 보너스가 20% 증가한다. 만약 결정 반응으로 생성된 보호막의 보호를 받고 있거나 주변에 달 결정 반응으로 생성된 달빛 조각이 존재하면 상술한 효과가 150% 증가한다. 상술한 조건이 충족되지 않으면 추가로 증가한 효과는 1초 후에 사라진다"
+  },
+  {
+   "key": "noblesseoblige",
+   "name": "옛 왕실의 의식",
+   "effect_1pc": null,
+   "effect_2pc": "원소폭발로 주는 피해+20%",
+   "effect_4pc": "원소폭발 발동 후 파티 내 모든 캐릭터의 공격력이 20% 증가한다. 지속 시간: 12초. 해당 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "nymphsdream",
+   "name": "님프의 꿈",
+   "effect_1pc": null,
+   "effect_2pc": "물 원소 피해 보너스+15%",
+   "effect_4pc": "일반 공격, 강공격, 낙하 공격, 원소전투 스킬 또는 원소폭발이 적에게 명중한 후, 8초 동안 지속되는 「거울 속 님프」 효과가 1스택 생성된다. 「거울 속 님프」 효과가 1/2/3스택 이상일 시, 공격력이 7%/16%/25% 증가하고 물 원소 피해 보너스가 4%/9%/15% 증가한다. 일반 공격, 강공격, 낙하 공격, 원소전투 스킬 또는 원소폭발이 생성한 「거울 속 님프」는 각각 독립적으로 존재한다"
+  },
+  {
+   "key": "obsidiancodex",
+   "name": "흑요석 비전",
+   "effect_1pc": null,
+   "effect_2pc": "밤혼 가호 상태의 장착 캐릭터가 필드 위에 있을 시, 주는 피해가 15% 증가한다",
+   "effect_4pc": "장착 캐릭터가 필드 위에서 밤혼을 1pt 소모한 후, 치명타 확률이 40% 증가한다. 지속 시간: 6초. 해당 효과는 1초마다 최대 1회 발동된다"
+  },
+  {
+   "key": "oceanhuedclam",
+   "name": "바다에 물든 거대 조개",
+   "effect_1pc": null,
+   "effect_2pc": "치유 보너스+15%",
+   "effect_4pc": "해당 성유물 세트를 장착한 캐릭터가 파티 내 캐릭터를 치유하면, 3초간 지속되는 바다에 물든 거품을 생성해 치유한 HP의 회복량을 기록한다(초과된 수치 포함). 지속 시간 종료 후 바다에 물든 거품이 폭발해 주변의 적에게 누적 회복량의 90%에 해당하는 피해를 준다(해당 피해 계산 방식은 감전, 초전도 등 원소 반응의 방식과 같지만, 원소 마스터리, 레벨 또는 반응 피해 보너스 효과의 영향을 받지 않는다). 3.5초마다 최대 1개의 바다에 물든 거품이 생성되며, 바다에 물든 거품은 초과한 부분의 치유량을 포함해 최대 30,000pt의 회복량을 기록할 수 있다. 자신의 파티에 바다에 물든 거품은 동시에 1개만 존재할 수 있다. 해당 성유물 세트를 장착한 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+  },
+  {
+   "key": "paleflame",
+   "name": "창백의 화염",
+   "effect_1pc": null,
+   "effect_2pc": "주는 물리 피해+25%",
+   "effect_4pc": "원소전투 스킬로 적을 명중하면 공격력이 9% 증가한다. 지속 시간: 7초, 최대 중첩수: 2회. 해당 효과는 0.3초마다 1회 발동되며, 2회 중첩 시 2세트의 효과가 100% 증가한다"
+  },
+  {
+   "key": "prayersfordestiny",
+   "name": "물을 모시는 자",
+   "effect_1pc": "받는 물 원소 부착 효과 지속 시간이 40% 감소한다",
+   "effect_2pc": null,
+   "effect_4pc": null
+  },
+  {
+   "key": "prayersforillumination",
+   "name": "불을 모시는 자",
+   "effect_1pc": "받는 불 원소 부착 효과 지속 시간이 40% 감소한다",
+   "effect_2pc": null,
+   "effect_4pc": null
+  },
+  {
+   "key": "prayersforwisdom",
+   "name": "뇌명을 모시는 자",
+   "effect_1pc": "받는 번개 원소 부착 효과 지속 시간이 40% 감소한다",
+   "effect_2pc": null,
+   "effect_4pc": null
+  },
+  {
+   "key": "prayerstospringtime",
+   "name": "얼음을 모시는 자",
+   "effect_1pc": "받는 얼음 원소 부착 효과 지속 시간이 40% 감소한다",
+   "effect_2pc": null,
+   "effect_4pc": null
+  },
+  {
+   "key": "resolutionofsojourner",
+   "name": "행자의 마음",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "강공격의 치명타 확률+30%"
+  },
+  {
+   "key": "retracingbolide",
+   "name": "날아오르는 유성",
+   "effect_1pc": null,
+   "effect_2pc": "보호막 강화 효과+35%",
+   "effect_4pc": "보호막이 존재 시 추가로 일반 공격과 강공격 보너스를 40% 획득한다"
+  },
+  {
+   "key": "scarletproof",
+   "name": "핏빛 증표",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "장착 캐릭터가 별 확산 반응 발동 후 10초 동안 치명타 확률이 16% 증가하고, 별 확산 반응 피해가 40% 증가한다"
+  },
+  {
+   "key": "scholar",
+   "name": "학사",
+   "effect_1pc": null,
+   "effect_2pc": "원소 충전 효율+20%",
+   "effect_4pc": "원소 입자 혹은 원소 구슬 획득 시 파티 내 모든 활과 법구를 사용하는 캐릭터는 원소 에너지를 추가로 3pt 회복한다. 해당 효과는 3초마다 1번 발동한다"
+  },
+  {
+   "key": "scrolloftheheroofcindercity",
+   "name": "잿더미성 용사의 두루마리",
+   "effect_1pc": null,
+   "effect_2pc": "주변에 있는 파티 내 캐릭터가 「밤혼 발산」 발동 시, 장착 캐릭터가 원소 에너지를 6pt 회복한다",
+   "effect_4pc": "장착 캐릭터가 상응하는 원소 타입 관련 반응 발동 후, 주변에 있는 파티 내 모든 캐릭터의 해당 원소 반응과 관련된 원소 피해 보너스가 12% 증가한다. 지속 시간: 15초. 해당 효과 발동 시 장착 캐릭터가 밤혼 가호 상태일 경우, 추가로 주변에 있는 파티 내 모든 캐릭터의 해당 원소 반응과 관련된 원소 피해 보너스가 28% 증가한다. 지속 시간: 20초. 장착 캐릭터가 대기 상태일 때도 상술한 효과를 발동할 수 있다. 동명의 성유물 세트가 생성한 피해 보너스 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "shimenawasreminiscence",
+   "name": "추억의 시메나와",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "원소전투 스킬 발동 후 캐릭터의 원소 에너지가 15pt 이상일 경우, 15pt의 원소 에너지를 잃는다. 그 후 10초 동안 일반 공격, 강공격, 낙하 공격으로 주는 피해가 50% 증가한다. 지속 기간 내에 해당 효과는 다시 발동하지 않는다"
+  },
+  {
+   "key": "silkenmoonsserenade",
+   "name": "달을 엮는 밤노래",
+   "effect_1pc": null,
+   "effect_2pc": "원소 충전 효율+20%",
+   "effect_4pc": "원소 피해를 줄 시, 8초 동안 지속되는 「월광·신앙」 효과를 획득한다: 파티의 달빛 징조가 초승/보름인 경우, 파티 내 모든 캐릭터의 원소 마스터리가 60pt/120pt 증가한다. 상술한 효과는 장착 캐릭터가 대기 상태일 때도 발동한다. 파티 내 캐릭터가 서로 다른 「월광」 효과를 1개 보유할 때마다, 파티 내 모든 캐릭터가 발동한 달빛 반응으로 주는 피해가 10% 증가한다. 「월광」으로 생성된 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "songofdayspast",
+   "name": "지난날의 노래",
+   "effect_1pc": null,
+   "effect_2pc": "치유 보너스+15%",
+   "effect_4pc": "장착 캐릭터가 파티 내 캐릭터 치유 시 6초 동안 지속되는 갈망 효과를 생성해 치유한 HP 회복량(초과치 포함)을 기록한다. 지속 시간 종료 시 갈망 효과는 「그때의 파도」 효과로 전환되어 아래 효과를 얻는다: 파티 내 자신의 현재 필드 위 캐릭터의 일반 공격, 강공격, 낙하 공격, 원소전투 스킬, 원소폭발이 적에게 명중 시 갈망 효과가 기록한 회복량의 8%에 기반해 주는 피해가 증가한다. 「그때의 파도」는 5회 발동 또는 10초 후 사라진다. 한 번의 갈망 효과는 회복량을 최대 15000pt 기록하며 동시에 최대 1개만 존재할 수 있으나, 여러 장착 캐릭터가 생성한 회복량을 기록할 수 있다. 장착 캐릭터가 대기 상태일 때도 해당 효과는 발동된다"
+  },
+  {
+   "key": "tenacityofthemillelith",
+   "name": "견고한 천암",
+   "effect_1pc": null,
+   "effect_2pc": "HP+20%",
+   "effect_4pc": "원소전투 스킬이 적을 명중하면 파티 내 주변 모든 캐릭터의 공격력이 20% 증가하고, 보호막 강화 효과가 30% 증가한다. 지속 시간: 3초. 해당 효과는 0.5초마다 최대 1회 발동되며, 해당 성유물을 장착한 캐릭터가 대기 상태일 때도 발동된다"
+  },
+  {
+   "key": "theexile",
+   "name": "유배자",
+   "effect_1pc": null,
+   "effect_2pc": "원소 충전 효율+20%",
+   "effect_4pc": "원소폭발 발동 후 2초마다 파티 내 모든 캐릭터(자신을 포함하지 않음)의 원소 에너지를 2pt 회복한다. 해당 효과는 6초간 지속하며 중첩되지 않는다"
+  },
+  {
+   "key": "thunderingfury",
+   "name": "번개 같은 분노",
+   "effect_1pc": null,
+   "effect_2pc": "번개 원소 피해 보너스+15%",
+   "effect_4pc": "과부하, 감전, 초전도, 만개 반응으로 주는 피해가 40% 증가하고, 촉진 반응이 주는 피해가 20% 증가하며, 달 감전과 별 초전도 반응으로 주는 피해가 20% 증가한다. 위와 같은 원소 반응 또는 활성 반응 발동 시, 원소전투 스킬의 재사용 대기시간이 1초 줄어든다. 해당 효과는 0.8초마다 최대 1회 발동된다"
+  },
+  {
+   "key": "thundersoother",
+   "name": "뇌명을 평정한 존자",
+   "effect_1pc": null,
+   "effect_2pc": "번개 원소 내성+40%",
+   "effect_4pc": "번개 원소의 영향을 받은 적에게 주는 피해가 35% 증가한다"
+  },
+  {
+   "key": "tinymiracle",
+   "name": "기적",
+   "effect_1pc": null,
+   "effect_2pc": "모든 원소 내성+20%",
+   "effect_4pc": "받은 원소 공격에 대응하는 원소의 내성이 30% 증가한다. 지속 시간: 10초. 해당 효과는 10초마다 1번 발동한다"
+  },
+  {
+   "key": "travelingdoctor",
+   "name": "떠돌이 의사",
+   "effect_1pc": null,
+   "effect_2pc": "캐릭터가 받는 치유 효과+20%",
+   "effect_4pc": "원소폭발 발동 시 HP를 20% 회복한다"
+  },
+  {
+   "key": "unfinishedreverie",
+   "name": "미완의 몽상",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "전투 상태 이탈 3초 후, 주는 피해가 50% 증가한다. 전투 상태에서 6초 넘게 주변에 연소 상태의 적이 없으면, 상술한 피해 증가 효과는 0%에 이를 때까지 초당 10%씩 감소한다. 연소 상태의 적이 있을 시, 50%에 이를 때까지 초당 10%씩 증가한다. 해당 성유물 세트를 장착한 캐릭터가 대기 상태 시에도 해당 효과는 발동된다"
+  },
+  {
+   "key": "vermillionhereafter",
+   "name": "진사 왕생록",
+   "effect_1pc": null,
+   "effect_2pc": "공격력+18%",
+   "effect_4pc": "원소폭발 발동 후 16초 동안 「숨겨진 빛」 효과가 생성되고, 공격력이 8% 증가한다. 캐릭터 HP가 감소할 때 공격력이 10% 더 증가한다. 이러한 방식으로 최대 4회 증가할 수 있으며, 0.8초마다 1회 발동한다. 「숨겨진 빛」 효과는 캐릭터 퇴장 시 사라진다. 지속 시간 동안 다시 원소폭발 발동 시 기존의 「숨겨진 빛」이 사라진다"
+  },
+  {
+   "key": "viridescentvenerer",
+   "name": "청록색 그림자",
+   "effect_1pc": null,
+   "effect_2pc": "바람 원소 피해 보너스+15%",
+   "effect_4pc": "확산 반응으로 주는 피해가 60% 증가하고, 별 확산 반응으로 주는 피해가 20% 증가한다. 확산된 원소 타입에 따라 영향을 받은 적의 해당 원소 내성이 40% 감소한다. 지속 시간: 10초. 적에게 별 확산 반응 발동 시 얼음 원소 내성도 40% 감소한다. 동일한 원소 타입의 내성 감소 효과는 중첩되지 않는다"
+  },
+  {
+   "key": "vourukashasglow",
+   "name": "감로빛 꽃바다",
+   "effect_1pc": null,
+   "effect_2pc": "HP+20%",
+   "effect_4pc": "원소전투 스킬 및 원소폭발로 주는 피해가 10% 증가한다. 장착 캐릭터가 피해를 입은 후 5초 동안 해당 피해 증가 효과가 80% 증가한다. 최대 중첩수: 5스택. 스택마다 지속 시간은 독립적으로 계산한다. 해당 효과는 장착 캐릭터가 대기 상태일 때도 발동된다"
+  },
+  {
+   "key": "wandererstroupe",
+   "name": "대지를 유랑하는 악단",
+   "effect_1pc": null,
+   "effect_2pc": "원소 마스터리+80pt",
+   "effect_4pc": "해당 성유물 세트를 장착한 캐릭터가 법구 또는 활을 사용 시 캐릭터의 강공격으로 주는 피해가 35% 증가한다"
+  }
+ ]
+}

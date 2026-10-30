@@ -1,0 +1,17 @@
+{
+  "character": "캐릭터 이름 (characters_ko.json과 똑같이)",
+  "role": "메인 딜러 / 서브 딜러 / 서포터 / 힐러 중 하나",
+  "weapons": ["무기 이름 1", "무기 이름 2"],
+  "artifact_sets": ["성유물 세트 이름"],
+  "main_stats": {
+    "sands": "시간의 모래 주옵션",
+    "goblet": "공간의 성배 주옵션",
+    "circlet": "이성의 왕관 주옵션"
+  },
+  "substats": ["부옵션 우선순위 1", "부옵션 우선순위 2"],
+  "notes": "한두 줄 설명 (참고한 가이드를 그대로 복사하지 말고 직접 요약)",
+  "source_name": "참고한 가이드 이름",
+  "source_url": "참고한 가이드 링크",
+  "checked_version": "7.1",
+  "author": "작성자"
+}
