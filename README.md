@@ -33,6 +33,14 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 
 `notebooks/`, `dashboard/`, `demo/`는 다음 단계에서 채웁니다.
 
+## 작업 규칙
+
+- **main에 직접 push하지 않습니다.** 각자 브랜치에서 작업하고 PR로 합칩니다.
+- 브랜치 이름: `파트/작업내용` (예: `rag/embedding-search`, `model/lora-train`, `service/dashboard`)
+- PR을 올리기 전에 테스트를 통과시킵니다: `python3 -m unittest discover -s tests -t .`
+- 결과 JSON과 LoRA 체크포인트는 깃에 올리지 않고 구글 드라이브 팀 폴더(`results/`, `checkpoints/`)에 저장합니다.
+- API 응답과 결과 JSON의 칸 이름은 바꾸지 말고 필요하면 추가만 합니다.
+
 ## 질문이 처리되는 흐름
 
 ```
