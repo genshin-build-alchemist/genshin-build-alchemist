@@ -1,0 +1,7401 @@
+{
+ "dataset_version": "info_v1",
+ "sha256": "2e5f54373b7ba38551cf401042df1efcde916fba2e0f9df48462c2f3cb5b50c7",
+ "data_source": "theBowja/genshin-db (MIT) src/data/Korean/characters 49a6544 2026-09-21 7.1 assemble",
+ "counts": {
+  "train_lookup": 397,
+  "train_filter": 91,
+  "train_unknown": 8,
+  "eval_lookup": 82,
+  "eval_filter": 25,
+  "eval_unknown": 8
+ },
+ "eval_characters": [
+  "나히다",
+  "니콜",
+  "달리아",
+  "라이오슬리",
+  "로자리아",
+  "루미네",
+  "린네아",
+  "별인형·남성",
+  "북두",
+  "아를레키노",
+  "알료샤",
+  "알하이탐",
+  "야란",
+  "에스코피에",
+  "올로룬",
+  "요이미야",
+  "카에데하라 카즈하",
+  "케이아",
+  "푸리나",
+  "프레미네",
+  "플린스",
+  "피슬"
+ ],
+ "questions": [
+  {
+   "id": "lookup_weapon_aether",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "아이테르는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "아이테르"
+  },
+  {
+   "id": "lookup_rarity_aether",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "아이테르는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "아이테르"
+  },
+  {
+   "id": "lookup_element_aino",
+   "type": "lookup",
+   "field": "element",
+   "question": "아이노의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "아이노"
+  },
+  {
+   "id": "lookup_weapon_aino",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "아이노는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "아이노"
+  },
+  {
+   "id": "lookup_rarity_aino",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "아이노는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "아이노"
+  },
+  {
+   "id": "lookup_region_aino",
+   "type": "lookup",
+   "field": "region",
+   "question": "아이노의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "아이노"
+  },
+  {
+   "id": "lookup_element_albedo",
+   "type": "lookup",
+   "field": "element",
+   "question": "알베도의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "알베도"
+  },
+  {
+   "id": "lookup_weapon_albedo",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "알베도는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "알베도"
+  },
+  {
+   "id": "lookup_rarity_albedo",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "알베도는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "알베도"
+  },
+  {
+   "id": "lookup_region_albedo",
+   "type": "lookup",
+   "field": "region",
+   "question": "알베도의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "알베도"
+  },
+  {
+   "id": "lookup_element_alhaitham",
+   "type": "lookup",
+   "field": "element",
+   "question": "알하이탐의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "eval",
+   "character": "알하이탐"
+  },
+  {
+   "id": "lookup_weapon_alhaitham",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "알하이탐은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "알하이탐"
+  },
+  {
+   "id": "lookup_rarity_alhaitham",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "알하이탐은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "알하이탐"
+  },
+  {
+   "id": "lookup_region_alhaitham",
+   "type": "lookup",
+   "field": "region",
+   "question": "알하이탐의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "eval",
+   "character": "알하이탐"
+  },
+  {
+   "id": "lookup_element_aloy",
+   "type": "lookup",
+   "field": "element",
+   "question": "에일로이의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "에일로이"
+  },
+  {
+   "id": "lookup_weapon_aloy",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "에일로이는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "에일로이"
+  },
+  {
+   "id": "lookup_rarity_aloy",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "에일로이는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "에일로이"
+  },
+  {
+   "id": "lookup_element_alyosha",
+   "type": "lookup",
+   "field": "element",
+   "question": "알료샤의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "eval",
+   "character": "알료샤"
+  },
+  {
+   "id": "lookup_weapon_alyosha",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "알료샤는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "eval",
+   "character": "알료샤"
+  },
+  {
+   "id": "lookup_rarity_alyosha",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "알료샤는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "알료샤"
+  },
+  {
+   "id": "lookup_element_amber",
+   "type": "lookup",
+   "field": "element",
+   "question": "엠버의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "엠버"
+  },
+  {
+   "id": "lookup_weapon_amber",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "엠버는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "엠버"
+  },
+  {
+   "id": "lookup_rarity_amber",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "엠버는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "엠버"
+  },
+  {
+   "id": "lookup_region_amber",
+   "type": "lookup",
+   "field": "region",
+   "question": "엠버의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "엠버"
+  },
+  {
+   "id": "lookup_element_aratakiitto",
+   "type": "lookup",
+   "field": "element",
+   "question": "아라타키 이토의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "아라타키 이토"
+  },
+  {
+   "id": "lookup_weapon_aratakiitto",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "아라타키 이토는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "아라타키 이토"
+  },
+  {
+   "id": "lookup_rarity_aratakiitto",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "아라타키 이토는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "아라타키 이토"
+  },
+  {
+   "id": "lookup_region_aratakiitto",
+   "type": "lookup",
+   "field": "region",
+   "question": "아라타키 이토의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "아라타키 이토"
+  },
+  {
+   "id": "lookup_element_arlecchino",
+   "type": "lookup",
+   "field": "element",
+   "question": "아를레키노의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "eval",
+   "character": "아를레키노"
+  },
+  {
+   "id": "lookup_weapon_arlecchino",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "아를레키노는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "eval",
+   "character": "아를레키노"
+  },
+  {
+   "id": "lookup_rarity_arlecchino",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "아를레키노는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "아를레키노"
+  },
+  {
+   "id": "lookup_region_arlecchino",
+   "type": "lookup",
+   "field": "region",
+   "question": "아를레키노의 출신 지역은 어디야?",
+   "gold": [
+    "스네즈나야"
+   ],
+   "split": "eval",
+   "character": "아를레키노"
+  },
+  {
+   "id": "lookup_element_baizhu",
+   "type": "lookup",
+   "field": "element",
+   "question": "백출의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "백출"
+  },
+  {
+   "id": "lookup_weapon_baizhu",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "백출은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "백출"
+  },
+  {
+   "id": "lookup_rarity_baizhu",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "백출은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "백출"
+  },
+  {
+   "id": "lookup_region_baizhu",
+   "type": "lookup",
+   "field": "region",
+   "question": "백출의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "백출"
+  },
+  {
+   "id": "lookup_element_barbara",
+   "type": "lookup",
+   "field": "element",
+   "question": "바바라의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "바바라"
+  },
+  {
+   "id": "lookup_weapon_barbara",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "바바라는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "바바라"
+  },
+  {
+   "id": "lookup_rarity_barbara",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "바바라는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "바바라"
+  },
+  {
+   "id": "lookup_region_barbara",
+   "type": "lookup",
+   "field": "region",
+   "question": "바바라의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "바바라"
+  },
+  {
+   "id": "lookup_element_beidou",
+   "type": "lookup",
+   "field": "element",
+   "question": "북두의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "eval",
+   "character": "북두"
+  },
+  {
+   "id": "lookup_weapon_beidou",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "북두는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "eval",
+   "character": "북두"
+  },
+  {
+   "id": "lookup_rarity_beidou",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "북두는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "북두"
+  },
+  {
+   "id": "lookup_region_beidou",
+   "type": "lookup",
+   "field": "region",
+   "question": "북두의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "eval",
+   "character": "북두"
+  },
+  {
+   "id": "lookup_element_bennett",
+   "type": "lookup",
+   "field": "element",
+   "question": "베넷의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "베넷"
+  },
+  {
+   "id": "lookup_weapon_bennett",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "베넷은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "베넷"
+  },
+  {
+   "id": "lookup_rarity_bennett",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "베넷은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "베넷"
+  },
+  {
+   "id": "lookup_region_bennett",
+   "type": "lookup",
+   "field": "region",
+   "question": "베넷의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "베넷"
+  },
+  {
+   "id": "lookup_element_candace",
+   "type": "lookup",
+   "field": "element",
+   "question": "캔디스의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "캔디스"
+  },
+  {
+   "id": "lookup_weapon_candace",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "캔디스는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "캔디스"
+  },
+  {
+   "id": "lookup_rarity_candace",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "캔디스는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "캔디스"
+  },
+  {
+   "id": "lookup_region_candace",
+   "type": "lookup",
+   "field": "region",
+   "question": "캔디스의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "캔디스"
+  },
+  {
+   "id": "lookup_element_charlotte",
+   "type": "lookup",
+   "field": "element",
+   "question": "샤를로트의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "샤를로트"
+  },
+  {
+   "id": "lookup_weapon_charlotte",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "샤를로트는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "샤를로트"
+  },
+  {
+   "id": "lookup_rarity_charlotte",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "샤를로트는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "샤를로트"
+  },
+  {
+   "id": "lookup_region_charlotte",
+   "type": "lookup",
+   "field": "region",
+   "question": "샤를로트의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "샤를로트"
+  },
+  {
+   "id": "lookup_element_chasca",
+   "type": "lookup",
+   "field": "element",
+   "question": "차스카의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "차스카"
+  },
+  {
+   "id": "lookup_weapon_chasca",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "차스카는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "차스카"
+  },
+  {
+   "id": "lookup_rarity_chasca",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "차스카는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "차스카"
+  },
+  {
+   "id": "lookup_region_chasca",
+   "type": "lookup",
+   "field": "region",
+   "question": "차스카의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "차스카"
+  },
+  {
+   "id": "lookup_element_chevreuse",
+   "type": "lookup",
+   "field": "element",
+   "question": "슈브르즈의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "슈브르즈"
+  },
+  {
+   "id": "lookup_weapon_chevreuse",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "슈브르즈는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "슈브르즈"
+  },
+  {
+   "id": "lookup_rarity_chevreuse",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "슈브르즈는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "슈브르즈"
+  },
+  {
+   "id": "lookup_region_chevreuse",
+   "type": "lookup",
+   "field": "region",
+   "question": "슈브르즈의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "슈브르즈"
+  },
+  {
+   "id": "lookup_element_chiori",
+   "type": "lookup",
+   "field": "element",
+   "question": "치오리의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "치오리"
+  },
+  {
+   "id": "lookup_weapon_chiori",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "치오리는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "치오리"
+  },
+  {
+   "id": "lookup_rarity_chiori",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "치오리는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "치오리"
+  },
+  {
+   "id": "lookup_region_chiori",
+   "type": "lookup",
+   "field": "region",
+   "question": "치오리의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "치오리"
+  },
+  {
+   "id": "lookup_element_chongyun",
+   "type": "lookup",
+   "field": "element",
+   "question": "중운의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "중운"
+  },
+  {
+   "id": "lookup_weapon_chongyun",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "중운은 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "중운"
+  },
+  {
+   "id": "lookup_rarity_chongyun",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "중운은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "중운"
+  },
+  {
+   "id": "lookup_region_chongyun",
+   "type": "lookup",
+   "field": "region",
+   "question": "중운의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "중운"
+  },
+  {
+   "id": "lookup_element_citlali",
+   "type": "lookup",
+   "field": "element",
+   "question": "시틀라리의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "시틀라리"
+  },
+  {
+   "id": "lookup_weapon_citlali",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "시틀라리는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "시틀라리"
+  },
+  {
+   "id": "lookup_rarity_citlali",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "시틀라리는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "시틀라리"
+  },
+  {
+   "id": "lookup_region_citlali",
+   "type": "lookup",
+   "field": "region",
+   "question": "시틀라리의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "시틀라리"
+  },
+  {
+   "id": "lookup_element_clorinde",
+   "type": "lookup",
+   "field": "element",
+   "question": "클로린드의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "클로린드"
+  },
+  {
+   "id": "lookup_weapon_clorinde",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "클로린드는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "클로린드"
+  },
+  {
+   "id": "lookup_rarity_clorinde",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "클로린드는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "클로린드"
+  },
+  {
+   "id": "lookup_region_clorinde",
+   "type": "lookup",
+   "field": "region",
+   "question": "클로린드의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "클로린드"
+  },
+  {
+   "id": "lookup_element_collei",
+   "type": "lookup",
+   "field": "element",
+   "question": "콜레이의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "콜레이"
+  },
+  {
+   "id": "lookup_weapon_collei",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "콜레이는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "콜레이"
+  },
+  {
+   "id": "lookup_rarity_collei",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "콜레이는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "콜레이"
+  },
+  {
+   "id": "lookup_region_collei",
+   "type": "lookup",
+   "field": "region",
+   "question": "콜레이의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "콜레이"
+  },
+  {
+   "id": "lookup_element_columbina",
+   "type": "lookup",
+   "field": "element",
+   "question": "콜롬비나의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "콜롬비나"
+  },
+  {
+   "id": "lookup_weapon_columbina",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "콜롬비나는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "콜롬비나"
+  },
+  {
+   "id": "lookup_rarity_columbina",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "콜롬비나는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "콜롬비나"
+  },
+  {
+   "id": "lookup_region_columbina",
+   "type": "lookup",
+   "field": "region",
+   "question": "콜롬비나의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "콜롬비나"
+  },
+  {
+   "id": "lookup_element_cyno",
+   "type": "lookup",
+   "field": "element",
+   "question": "사이노의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "사이노"
+  },
+  {
+   "id": "lookup_weapon_cyno",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "사이노는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "사이노"
+  },
+  {
+   "id": "lookup_rarity_cyno",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "사이노는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "사이노"
+  },
+  {
+   "id": "lookup_region_cyno",
+   "type": "lookup",
+   "field": "region",
+   "question": "사이노의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "사이노"
+  },
+  {
+   "id": "lookup_element_dahlia",
+   "type": "lookup",
+   "field": "element",
+   "question": "달리아의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "eval",
+   "character": "달리아"
+  },
+  {
+   "id": "lookup_weapon_dahlia",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "달리아는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "달리아"
+  },
+  {
+   "id": "lookup_rarity_dahlia",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "달리아는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "달리아"
+  },
+  {
+   "id": "lookup_region_dahlia",
+   "type": "lookup",
+   "field": "region",
+   "question": "달리아의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "eval",
+   "character": "달리아"
+  },
+  {
+   "id": "lookup_element_dehya",
+   "type": "lookup",
+   "field": "element",
+   "question": "데히야의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "데히야"
+  },
+  {
+   "id": "lookup_weapon_dehya",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "데히야는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "데히야"
+  },
+  {
+   "id": "lookup_rarity_dehya",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "데히야는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "데히야"
+  },
+  {
+   "id": "lookup_region_dehya",
+   "type": "lookup",
+   "field": "region",
+   "question": "데히야의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "데히야"
+  },
+  {
+   "id": "lookup_element_diluc",
+   "type": "lookup",
+   "field": "element",
+   "question": "다이루크의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "다이루크"
+  },
+  {
+   "id": "lookup_weapon_diluc",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "다이루크는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "다이루크"
+  },
+  {
+   "id": "lookup_rarity_diluc",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "다이루크는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "다이루크"
+  },
+  {
+   "id": "lookup_region_diluc",
+   "type": "lookup",
+   "field": "region",
+   "question": "다이루크의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "다이루크"
+  },
+  {
+   "id": "lookup_element_diona",
+   "type": "lookup",
+   "field": "element",
+   "question": "디오나의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "디오나"
+  },
+  {
+   "id": "lookup_weapon_diona",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "디오나는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "디오나"
+  },
+  {
+   "id": "lookup_rarity_diona",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "디오나는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "디오나"
+  },
+  {
+   "id": "lookup_region_diona",
+   "type": "lookup",
+   "field": "region",
+   "question": "디오나의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "디오나"
+  },
+  {
+   "id": "lookup_element_dori",
+   "type": "lookup",
+   "field": "element",
+   "question": "도리의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "도리"
+  },
+  {
+   "id": "lookup_weapon_dori",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "도리는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "도리"
+  },
+  {
+   "id": "lookup_rarity_dori",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "도리는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "도리"
+  },
+  {
+   "id": "lookup_region_dori",
+   "type": "lookup",
+   "field": "region",
+   "question": "도리의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "도리"
+  },
+  {
+   "id": "lookup_element_durin",
+   "type": "lookup",
+   "field": "element",
+   "question": "두린의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "두린"
+  },
+  {
+   "id": "lookup_weapon_durin",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "두린은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "두린"
+  },
+  {
+   "id": "lookup_rarity_durin",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "두린은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "두린"
+  },
+  {
+   "id": "lookup_region_durin",
+   "type": "lookup",
+   "field": "region",
+   "question": "두린의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "두린"
+  },
+  {
+   "id": "lookup_element_emilie",
+   "type": "lookup",
+   "field": "element",
+   "question": "에밀리의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "에밀리"
+  },
+  {
+   "id": "lookup_weapon_emilie",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "에밀리는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "에밀리"
+  },
+  {
+   "id": "lookup_rarity_emilie",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "에밀리는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "에밀리"
+  },
+  {
+   "id": "lookup_region_emilie",
+   "type": "lookup",
+   "field": "region",
+   "question": "에밀리의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "에밀리"
+  },
+  {
+   "id": "lookup_element_escoffier",
+   "type": "lookup",
+   "field": "element",
+   "question": "에스코피에의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "eval",
+   "character": "에스코피에"
+  },
+  {
+   "id": "lookup_weapon_escoffier",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "에스코피에는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "eval",
+   "character": "에스코피에"
+  },
+  {
+   "id": "lookup_rarity_escoffier",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "에스코피에는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "에스코피에"
+  },
+  {
+   "id": "lookup_region_escoffier",
+   "type": "lookup",
+   "field": "region",
+   "question": "에스코피에의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "eval",
+   "character": "에스코피에"
+  },
+  {
+   "id": "lookup_element_eula",
+   "type": "lookup",
+   "field": "element",
+   "question": "유라의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "유라"
+  },
+  {
+   "id": "lookup_weapon_eula",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "유라는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "유라"
+  },
+  {
+   "id": "lookup_rarity_eula",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "유라는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "유라"
+  },
+  {
+   "id": "lookup_region_eula",
+   "type": "lookup",
+   "field": "region",
+   "question": "유라의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "유라"
+  },
+  {
+   "id": "lookup_element_faruzan",
+   "type": "lookup",
+   "field": "element",
+   "question": "파루잔의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "파루잔"
+  },
+  {
+   "id": "lookup_weapon_faruzan",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "파루잔은 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "파루잔"
+  },
+  {
+   "id": "lookup_rarity_faruzan",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "파루잔은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "파루잔"
+  },
+  {
+   "id": "lookup_region_faruzan",
+   "type": "lookup",
+   "field": "region",
+   "question": "파루잔의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "파루잔"
+  },
+  {
+   "id": "lookup_element_fischl",
+   "type": "lookup",
+   "field": "element",
+   "question": "피슬의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "eval",
+   "character": "피슬"
+  },
+  {
+   "id": "lookup_weapon_fischl",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "피슬은 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "eval",
+   "character": "피슬"
+  },
+  {
+   "id": "lookup_rarity_fischl",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "피슬은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "피슬"
+  },
+  {
+   "id": "lookup_region_fischl",
+   "type": "lookup",
+   "field": "region",
+   "question": "피슬의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "eval",
+   "character": "피슬"
+  },
+  {
+   "id": "lookup_element_flins",
+   "type": "lookup",
+   "field": "element",
+   "question": "플린스의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "eval",
+   "character": "플린스"
+  },
+  {
+   "id": "lookup_weapon_flins",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "플린스는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "eval",
+   "character": "플린스"
+  },
+  {
+   "id": "lookup_rarity_flins",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "플린스는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "플린스"
+  },
+  {
+   "id": "lookup_region_flins",
+   "type": "lookup",
+   "field": "region",
+   "question": "플린스의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "eval",
+   "character": "플린스"
+  },
+  {
+   "id": "lookup_element_freminet",
+   "type": "lookup",
+   "field": "element",
+   "question": "프레미네의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "eval",
+   "character": "프레미네"
+  },
+  {
+   "id": "lookup_weapon_freminet",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "프레미네는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "eval",
+   "character": "프레미네"
+  },
+  {
+   "id": "lookup_rarity_freminet",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "프레미네는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "프레미네"
+  },
+  {
+   "id": "lookup_region_freminet",
+   "type": "lookup",
+   "field": "region",
+   "question": "프레미네의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "eval",
+   "character": "프레미네"
+  },
+  {
+   "id": "lookup_element_furina",
+   "type": "lookup",
+   "field": "element",
+   "question": "푸리나의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "eval",
+   "character": "푸리나"
+  },
+  {
+   "id": "lookup_weapon_furina",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "푸리나는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "푸리나"
+  },
+  {
+   "id": "lookup_rarity_furina",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "푸리나는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "푸리나"
+  },
+  {
+   "id": "lookup_region_furina",
+   "type": "lookup",
+   "field": "region",
+   "question": "푸리나의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "eval",
+   "character": "푸리나"
+  },
+  {
+   "id": "lookup_element_gaming",
+   "type": "lookup",
+   "field": "element",
+   "question": "가명의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "가명"
+  },
+  {
+   "id": "lookup_weapon_gaming",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "가명은 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "가명"
+  },
+  {
+   "id": "lookup_rarity_gaming",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "가명은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "가명"
+  },
+  {
+   "id": "lookup_region_gaming",
+   "type": "lookup",
+   "field": "region",
+   "question": "가명의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "가명"
+  },
+  {
+   "id": "lookup_element_ganyu",
+   "type": "lookup",
+   "field": "element",
+   "question": "감우의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "감우"
+  },
+  {
+   "id": "lookup_weapon_ganyu",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "감우는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "감우"
+  },
+  {
+   "id": "lookup_rarity_ganyu",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "감우는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "감우"
+  },
+  {
+   "id": "lookup_region_ganyu",
+   "type": "lookup",
+   "field": "region",
+   "question": "감우의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "감우"
+  },
+  {
+   "id": "lookup_element_gorou",
+   "type": "lookup",
+   "field": "element",
+   "question": "고로의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "고로"
+  },
+  {
+   "id": "lookup_weapon_gorou",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "고로는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "고로"
+  },
+  {
+   "id": "lookup_rarity_gorou",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "고로는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "고로"
+  },
+  {
+   "id": "lookup_region_gorou",
+   "type": "lookup",
+   "field": "region",
+   "question": "고로의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "고로"
+  },
+  {
+   "id": "lookup_element_hutao",
+   "type": "lookup",
+   "field": "element",
+   "question": "호두의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "호두"
+  },
+  {
+   "id": "lookup_weapon_hutao",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "호두는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "호두"
+  },
+  {
+   "id": "lookup_rarity_hutao",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "호두는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "호두"
+  },
+  {
+   "id": "lookup_region_hutao",
+   "type": "lookup",
+   "field": "region",
+   "question": "호두의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "호두"
+  },
+  {
+   "id": "lookup_element_iansan",
+   "type": "lookup",
+   "field": "element",
+   "question": "얀사의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "얀사"
+  },
+  {
+   "id": "lookup_weapon_iansan",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "얀사는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "얀사"
+  },
+  {
+   "id": "lookup_rarity_iansan",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "얀사는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "얀사"
+  },
+  {
+   "id": "lookup_region_iansan",
+   "type": "lookup",
+   "field": "region",
+   "question": "얀사의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "얀사"
+  },
+  {
+   "id": "lookup_element_ifa",
+   "type": "lookup",
+   "field": "element",
+   "question": "이파의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "이파"
+  },
+  {
+   "id": "lookup_weapon_ifa",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "이파는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "이파"
+  },
+  {
+   "id": "lookup_rarity_ifa",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "이파는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "이파"
+  },
+  {
+   "id": "lookup_region_ifa",
+   "type": "lookup",
+   "field": "region",
+   "question": "이파의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "이파"
+  },
+  {
+   "id": "lookup_element_illuga",
+   "type": "lookup",
+   "field": "element",
+   "question": "일루가의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "일루가"
+  },
+  {
+   "id": "lookup_weapon_illuga",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "일루가는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "일루가"
+  },
+  {
+   "id": "lookup_rarity_illuga",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "일루가는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "일루가"
+  },
+  {
+   "id": "lookup_region_illuga",
+   "type": "lookup",
+   "field": "region",
+   "question": "일루가의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "일루가"
+  },
+  {
+   "id": "lookup_element_ineffa",
+   "type": "lookup",
+   "field": "element",
+   "question": "이네파의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "이네파"
+  },
+  {
+   "id": "lookup_weapon_ineffa",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "이네파는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "이네파"
+  },
+  {
+   "id": "lookup_rarity_ineffa",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "이네파는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "이네파"
+  },
+  {
+   "id": "lookup_region_ineffa",
+   "type": "lookup",
+   "field": "region",
+   "question": "이네파의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "이네파"
+  },
+  {
+   "id": "lookup_element_jahoda",
+   "type": "lookup",
+   "field": "element",
+   "question": "야호다의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "야호다"
+  },
+  {
+   "id": "lookup_weapon_jahoda",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "야호다는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "야호다"
+  },
+  {
+   "id": "lookup_rarity_jahoda",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "야호다는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "야호다"
+  },
+  {
+   "id": "lookup_region_jahoda",
+   "type": "lookup",
+   "field": "region",
+   "question": "야호다의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "야호다"
+  },
+  {
+   "id": "lookup_element_jean",
+   "type": "lookup",
+   "field": "element",
+   "question": "진의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "진"
+  },
+  {
+   "id": "lookup_weapon_jean",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "진은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "진"
+  },
+  {
+   "id": "lookup_rarity_jean",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "진은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "진"
+  },
+  {
+   "id": "lookup_region_jean",
+   "type": "lookup",
+   "field": "region",
+   "question": "진의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "진"
+  },
+  {
+   "id": "lookup_element_kachina",
+   "type": "lookup",
+   "field": "element",
+   "question": "카치나의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "카치나"
+  },
+  {
+   "id": "lookup_weapon_kachina",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "카치나는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "카치나"
+  },
+  {
+   "id": "lookup_rarity_kachina",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "카치나는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "카치나"
+  },
+  {
+   "id": "lookup_region_kachina",
+   "type": "lookup",
+   "field": "region",
+   "question": "카치나의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "카치나"
+  },
+  {
+   "id": "lookup_element_kaedeharakazuha",
+   "type": "lookup",
+   "field": "element",
+   "question": "카에데하라 카즈하의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "eval",
+   "character": "카에데하라 카즈하"
+  },
+  {
+   "id": "lookup_weapon_kaedeharakazuha",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "카에데하라 카즈하는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "카에데하라 카즈하"
+  },
+  {
+   "id": "lookup_rarity_kaedeharakazuha",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "카에데하라 카즈하는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "카에데하라 카즈하"
+  },
+  {
+   "id": "lookup_region_kaedeharakazuha",
+   "type": "lookup",
+   "field": "region",
+   "question": "카에데하라 카즈하의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "eval",
+   "character": "카에데하라 카즈하"
+  },
+  {
+   "id": "lookup_element_kaeya",
+   "type": "lookup",
+   "field": "element",
+   "question": "케이아의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "eval",
+   "character": "케이아"
+  },
+  {
+   "id": "lookup_weapon_kaeya",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "케이아는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "케이아"
+  },
+  {
+   "id": "lookup_rarity_kaeya",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "케이아는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "케이아"
+  },
+  {
+   "id": "lookup_region_kaeya",
+   "type": "lookup",
+   "field": "region",
+   "question": "케이아의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "eval",
+   "character": "케이아"
+  },
+  {
+   "id": "lookup_element_kamisatoayaka",
+   "type": "lookup",
+   "field": "element",
+   "question": "카미사토 아야카의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "카미사토 아야카"
+  },
+  {
+   "id": "lookup_weapon_kamisatoayaka",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "카미사토 아야카는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "카미사토 아야카"
+  },
+  {
+   "id": "lookup_rarity_kamisatoayaka",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "카미사토 아야카는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "카미사토 아야카"
+  },
+  {
+   "id": "lookup_region_kamisatoayaka",
+   "type": "lookup",
+   "field": "region",
+   "question": "카미사토 아야카의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "카미사토 아야카"
+  },
+  {
+   "id": "lookup_element_kamisatoayato",
+   "type": "lookup",
+   "field": "element",
+   "question": "카미사토 아야토의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "카미사토 아야토"
+  },
+  {
+   "id": "lookup_weapon_kamisatoayato",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "카미사토 아야토는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "카미사토 아야토"
+  },
+  {
+   "id": "lookup_rarity_kamisatoayato",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "카미사토 아야토는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "카미사토 아야토"
+  },
+  {
+   "id": "lookup_region_kamisatoayato",
+   "type": "lookup",
+   "field": "region",
+   "question": "카미사토 아야토의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "카미사토 아야토"
+  },
+  {
+   "id": "lookup_element_kaveh",
+   "type": "lookup",
+   "field": "element",
+   "question": "카베의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "카베"
+  },
+  {
+   "id": "lookup_weapon_kaveh",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "카베는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "카베"
+  },
+  {
+   "id": "lookup_rarity_kaveh",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "카베는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "카베"
+  },
+  {
+   "id": "lookup_region_kaveh",
+   "type": "lookup",
+   "field": "region",
+   "question": "카베의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "카베"
+  },
+  {
+   "id": "lookup_element_keqing",
+   "type": "lookup",
+   "field": "element",
+   "question": "각청의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "각청"
+  },
+  {
+   "id": "lookup_weapon_keqing",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "각청은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "각청"
+  },
+  {
+   "id": "lookup_rarity_keqing",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "각청은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "각청"
+  },
+  {
+   "id": "lookup_region_keqing",
+   "type": "lookup",
+   "field": "region",
+   "question": "각청의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "각청"
+  },
+  {
+   "id": "lookup_element_kinich",
+   "type": "lookup",
+   "field": "element",
+   "question": "키니치의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "키니치"
+  },
+  {
+   "id": "lookup_weapon_kinich",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "키니치는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "키니치"
+  },
+  {
+   "id": "lookup_rarity_kinich",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "키니치는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "키니치"
+  },
+  {
+   "id": "lookup_region_kinich",
+   "type": "lookup",
+   "field": "region",
+   "question": "키니치의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "키니치"
+  },
+  {
+   "id": "lookup_element_kirara",
+   "type": "lookup",
+   "field": "element",
+   "question": "키라라의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "키라라"
+  },
+  {
+   "id": "lookup_weapon_kirara",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "키라라는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "키라라"
+  },
+  {
+   "id": "lookup_rarity_kirara",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "키라라는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "키라라"
+  },
+  {
+   "id": "lookup_region_kirara",
+   "type": "lookup",
+   "field": "region",
+   "question": "키라라의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "키라라"
+  },
+  {
+   "id": "lookup_element_klee",
+   "type": "lookup",
+   "field": "element",
+   "question": "클레의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "클레"
+  },
+  {
+   "id": "lookup_weapon_klee",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "클레는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "클레"
+  },
+  {
+   "id": "lookup_rarity_klee",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "클레는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "클레"
+  },
+  {
+   "id": "lookup_region_klee",
+   "type": "lookup",
+   "field": "region",
+   "question": "클레의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "클레"
+  },
+  {
+   "id": "lookup_element_kujousara",
+   "type": "lookup",
+   "field": "element",
+   "question": "쿠죠 사라의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "쿠죠 사라"
+  },
+  {
+   "id": "lookup_weapon_kujousara",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "쿠죠 사라는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "쿠죠 사라"
+  },
+  {
+   "id": "lookup_rarity_kujousara",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "쿠죠 사라는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "쿠죠 사라"
+  },
+  {
+   "id": "lookup_region_kujousara",
+   "type": "lookup",
+   "field": "region",
+   "question": "쿠죠 사라의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "쿠죠 사라"
+  },
+  {
+   "id": "lookup_element_kukishinobu",
+   "type": "lookup",
+   "field": "element",
+   "question": "쿠키 시노부의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "쿠키 시노부"
+  },
+  {
+   "id": "lookup_weapon_kukishinobu",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "쿠키 시노부는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "쿠키 시노부"
+  },
+  {
+   "id": "lookup_rarity_kukishinobu",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "쿠키 시노부는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "쿠키 시노부"
+  },
+  {
+   "id": "lookup_region_kukishinobu",
+   "type": "lookup",
+   "field": "region",
+   "question": "쿠키 시노부의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "쿠키 시노부"
+  },
+  {
+   "id": "lookup_element_lanyan",
+   "type": "lookup",
+   "field": "element",
+   "question": "남연의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "남연"
+  },
+  {
+   "id": "lookup_weapon_lanyan",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "남연은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "남연"
+  },
+  {
+   "id": "lookup_rarity_lanyan",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "남연은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "남연"
+  },
+  {
+   "id": "lookup_region_lanyan",
+   "type": "lookup",
+   "field": "region",
+   "question": "남연의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "남연"
+  },
+  {
+   "id": "lookup_element_lauma",
+   "type": "lookup",
+   "field": "element",
+   "question": "라우마의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "라우마"
+  },
+  {
+   "id": "lookup_weapon_lauma",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "라우마는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "라우마"
+  },
+  {
+   "id": "lookup_rarity_lauma",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "라우마는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "라우마"
+  },
+  {
+   "id": "lookup_region_lauma",
+   "type": "lookup",
+   "field": "region",
+   "question": "라우마의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "라우마"
+  },
+  {
+   "id": "lookup_element_layla",
+   "type": "lookup",
+   "field": "element",
+   "question": "레일라의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "레일라"
+  },
+  {
+   "id": "lookup_weapon_layla",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "레일라는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "레일라"
+  },
+  {
+   "id": "lookup_rarity_layla",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "레일라는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "레일라"
+  },
+  {
+   "id": "lookup_region_layla",
+   "type": "lookup",
+   "field": "region",
+   "question": "레일라의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "레일라"
+  },
+  {
+   "id": "lookup_element_linnea",
+   "type": "lookup",
+   "field": "element",
+   "question": "린네아의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "eval",
+   "character": "린네아"
+  },
+  {
+   "id": "lookup_weapon_linnea",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "린네아는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "eval",
+   "character": "린네아"
+  },
+  {
+   "id": "lookup_rarity_linnea",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "린네아는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "린네아"
+  },
+  {
+   "id": "lookup_region_linnea",
+   "type": "lookup",
+   "field": "region",
+   "question": "린네아의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "eval",
+   "character": "린네아"
+  },
+  {
+   "id": "lookup_element_lisa",
+   "type": "lookup",
+   "field": "element",
+   "question": "리사의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "리사"
+  },
+  {
+   "id": "lookup_weapon_lisa",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "리사는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "리사"
+  },
+  {
+   "id": "lookup_rarity_lisa",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "리사는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "리사"
+  },
+  {
+   "id": "lookup_region_lisa",
+   "type": "lookup",
+   "field": "region",
+   "question": "리사의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "리사"
+  },
+  {
+   "id": "lookup_element_lohen",
+   "type": "lookup",
+   "field": "element",
+   "question": "로엔의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "로엔"
+  },
+  {
+   "id": "lookup_weapon_lohen",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "로엔은 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "로엔"
+  },
+  {
+   "id": "lookup_rarity_lohen",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "로엔은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "로엔"
+  },
+  {
+   "id": "lookup_region_lohen",
+   "type": "lookup",
+   "field": "region",
+   "question": "로엔의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "로엔"
+  },
+  {
+   "id": "lookup_weapon_lumine",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "루미네는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "루미네"
+  },
+  {
+   "id": "lookup_rarity_lumine",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "루미네는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "루미네"
+  },
+  {
+   "id": "lookup_element_lynette",
+   "type": "lookup",
+   "field": "element",
+   "question": "리넷의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "리넷"
+  },
+  {
+   "id": "lookup_weapon_lynette",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "리넷은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "리넷"
+  },
+  {
+   "id": "lookup_rarity_lynette",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "리넷은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "리넷"
+  },
+  {
+   "id": "lookup_region_lynette",
+   "type": "lookup",
+   "field": "region",
+   "question": "리넷의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "리넷"
+  },
+  {
+   "id": "lookup_element_lyney",
+   "type": "lookup",
+   "field": "element",
+   "question": "리니의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "리니"
+  },
+  {
+   "id": "lookup_weapon_lyney",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "리니는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "리니"
+  },
+  {
+   "id": "lookup_rarity_lyney",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "리니는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "리니"
+  },
+  {
+   "id": "lookup_region_lyney",
+   "type": "lookup",
+   "field": "region",
+   "question": "리니의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "리니"
+  },
+  {
+   "id": "lookup_weapon_manekin",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "별인형·남성은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "eval",
+   "character": "별인형·남성"
+  },
+  {
+   "id": "lookup_rarity_manekin",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "별인형·남성은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "별인형·남성"
+  },
+  {
+   "id": "lookup_weapon_manekina",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "별인형·여성은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "별인형·여성"
+  },
+  {
+   "id": "lookup_rarity_manekina",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "별인형·여성은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "별인형·여성"
+  },
+  {
+   "id": "lookup_element_mavuika",
+   "type": "lookup",
+   "field": "element",
+   "question": "마비카의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "마비카"
+  },
+  {
+   "id": "lookup_weapon_mavuika",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "마비카는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "마비카"
+  },
+  {
+   "id": "lookup_rarity_mavuika",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "마비카는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "마비카"
+  },
+  {
+   "id": "lookup_region_mavuika",
+   "type": "lookup",
+   "field": "region",
+   "question": "마비카의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "마비카"
+  },
+  {
+   "id": "lookup_element_mika",
+   "type": "lookup",
+   "field": "element",
+   "question": "미카의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "미카"
+  },
+  {
+   "id": "lookup_weapon_mika",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "미카는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "미카"
+  },
+  {
+   "id": "lookup_rarity_mika",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "미카는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "미카"
+  },
+  {
+   "id": "lookup_region_mika",
+   "type": "lookup",
+   "field": "region",
+   "question": "미카의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "미카"
+  },
+  {
+   "id": "lookup_element_mona",
+   "type": "lookup",
+   "field": "element",
+   "question": "모나의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "모나"
+  },
+  {
+   "id": "lookup_weapon_mona",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "모나는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "모나"
+  },
+  {
+   "id": "lookup_rarity_mona",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "모나는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "모나"
+  },
+  {
+   "id": "lookup_region_mona",
+   "type": "lookup",
+   "field": "region",
+   "question": "모나의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "모나"
+  },
+  {
+   "id": "lookup_element_mualani",
+   "type": "lookup",
+   "field": "element",
+   "question": "말라니의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "말라니"
+  },
+  {
+   "id": "lookup_weapon_mualani",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "말라니는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "말라니"
+  },
+  {
+   "id": "lookup_rarity_mualani",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "말라니는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "말라니"
+  },
+  {
+   "id": "lookup_region_mualani",
+   "type": "lookup",
+   "field": "region",
+   "question": "말라니의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "말라니"
+  },
+  {
+   "id": "lookup_element_nahida",
+   "type": "lookup",
+   "field": "element",
+   "question": "나히다의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "eval",
+   "character": "나히다"
+  },
+  {
+   "id": "lookup_weapon_nahida",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "나히다는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "eval",
+   "character": "나히다"
+  },
+  {
+   "id": "lookup_rarity_nahida",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "나히다는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "나히다"
+  },
+  {
+   "id": "lookup_region_nahida",
+   "type": "lookup",
+   "field": "region",
+   "question": "나히다의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "eval",
+   "character": "나히다"
+  },
+  {
+   "id": "lookup_element_navia",
+   "type": "lookup",
+   "field": "element",
+   "question": "나비아의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "나비아"
+  },
+  {
+   "id": "lookup_weapon_navia",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "나비아는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "나비아"
+  },
+  {
+   "id": "lookup_rarity_navia",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "나비아는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "나비아"
+  },
+  {
+   "id": "lookup_region_navia",
+   "type": "lookup",
+   "field": "region",
+   "question": "나비아의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "나비아"
+  },
+  {
+   "id": "lookup_element_nefer",
+   "type": "lookup",
+   "field": "element",
+   "question": "네페르의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "네페르"
+  },
+  {
+   "id": "lookup_weapon_nefer",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "네페르는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "네페르"
+  },
+  {
+   "id": "lookup_rarity_nefer",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "네페르는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "네페르"
+  },
+  {
+   "id": "lookup_region_nefer",
+   "type": "lookup",
+   "field": "region",
+   "question": "네페르의 출신 지역은 어디야?",
+   "gold": [
+    "노드크라이"
+   ],
+   "split": "train",
+   "character": "네페르"
+  },
+  {
+   "id": "lookup_element_neuvillette",
+   "type": "lookup",
+   "field": "element",
+   "question": "느비예트의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "느비예트"
+  },
+  {
+   "id": "lookup_weapon_neuvillette",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "느비예트는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "느비예트"
+  },
+  {
+   "id": "lookup_rarity_neuvillette",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "느비예트는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "느비예트"
+  },
+  {
+   "id": "lookup_region_neuvillette",
+   "type": "lookup",
+   "field": "region",
+   "question": "느비예트의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "느비예트"
+  },
+  {
+   "id": "lookup_element_nicole",
+   "type": "lookup",
+   "field": "element",
+   "question": "니콜의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "eval",
+   "character": "니콜"
+  },
+  {
+   "id": "lookup_weapon_nicole",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "니콜은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "eval",
+   "character": "니콜"
+  },
+  {
+   "id": "lookup_rarity_nicole",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "니콜은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "니콜"
+  },
+  {
+   "id": "lookup_element_nilou",
+   "type": "lookup",
+   "field": "element",
+   "question": "닐루의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "닐루"
+  },
+  {
+   "id": "lookup_weapon_nilou",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "닐루는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "닐루"
+  },
+  {
+   "id": "lookup_rarity_nilou",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "닐루는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "닐루"
+  },
+  {
+   "id": "lookup_region_nilou",
+   "type": "lookup",
+   "field": "region",
+   "question": "닐루의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "닐루"
+  },
+  {
+   "id": "lookup_element_ningguang",
+   "type": "lookup",
+   "field": "element",
+   "question": "응광의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "응광"
+  },
+  {
+   "id": "lookup_weapon_ningguang",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "응광은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "응광"
+  },
+  {
+   "id": "lookup_rarity_ningguang",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "응광은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "응광"
+  },
+  {
+   "id": "lookup_region_ningguang",
+   "type": "lookup",
+   "field": "region",
+   "question": "응광의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "응광"
+  },
+  {
+   "id": "lookup_element_noelle",
+   "type": "lookup",
+   "field": "element",
+   "question": "노엘의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "노엘"
+  },
+  {
+   "id": "lookup_weapon_noelle",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "노엘은 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "노엘"
+  },
+  {
+   "id": "lookup_rarity_noelle",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "노엘은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "노엘"
+  },
+  {
+   "id": "lookup_region_noelle",
+   "type": "lookup",
+   "field": "region",
+   "question": "노엘의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "노엘"
+  },
+  {
+   "id": "lookup_element_odette",
+   "type": "lookup",
+   "field": "element",
+   "question": "오데트의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "오데트"
+  },
+  {
+   "id": "lookup_weapon_odette",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "오데트는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "오데트"
+  },
+  {
+   "id": "lookup_rarity_odette",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "오데트는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "오데트"
+  },
+  {
+   "id": "lookup_element_ororon",
+   "type": "lookup",
+   "field": "element",
+   "question": "올로룬의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "eval",
+   "character": "올로룬"
+  },
+  {
+   "id": "lookup_weapon_ororon",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "올로룬은 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "eval",
+   "character": "올로룬"
+  },
+  {
+   "id": "lookup_rarity_ororon",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "올로룬은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "올로룬"
+  },
+  {
+   "id": "lookup_region_ororon",
+   "type": "lookup",
+   "field": "region",
+   "question": "올로룬의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "eval",
+   "character": "올로룬"
+  },
+  {
+   "id": "lookup_element_prune",
+   "type": "lookup",
+   "field": "element",
+   "question": "프루네의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "프루네"
+  },
+  {
+   "id": "lookup_weapon_prune",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "프루네는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "프루네"
+  },
+  {
+   "id": "lookup_rarity_prune",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "프루네는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "프루네"
+  },
+  {
+   "id": "lookup_region_prune",
+   "type": "lookup",
+   "field": "region",
+   "question": "프루네의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "프루네"
+  },
+  {
+   "id": "lookup_element_qiqi",
+   "type": "lookup",
+   "field": "element",
+   "question": "치치의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "치치"
+  },
+  {
+   "id": "lookup_weapon_qiqi",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "치치는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "치치"
+  },
+  {
+   "id": "lookup_rarity_qiqi",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "치치는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "치치"
+  },
+  {
+   "id": "lookup_region_qiqi",
+   "type": "lookup",
+   "field": "region",
+   "question": "치치의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "치치"
+  },
+  {
+   "id": "lookup_element_raidenshogun",
+   "type": "lookup",
+   "field": "element",
+   "question": "라이덴 쇼군의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "라이덴 쇼군"
+  },
+  {
+   "id": "lookup_weapon_raidenshogun",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "라이덴 쇼군은 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "라이덴 쇼군"
+  },
+  {
+   "id": "lookup_rarity_raidenshogun",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "라이덴 쇼군은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "라이덴 쇼군"
+  },
+  {
+   "id": "lookup_region_raidenshogun",
+   "type": "lookup",
+   "field": "region",
+   "question": "라이덴 쇼군의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "라이덴 쇼군"
+  },
+  {
+   "id": "lookup_element_razor",
+   "type": "lookup",
+   "field": "element",
+   "question": "레이저의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "레이저"
+  },
+  {
+   "id": "lookup_weapon_razor",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "레이저는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "레이저"
+  },
+  {
+   "id": "lookup_rarity_razor",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "레이저는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "레이저"
+  },
+  {
+   "id": "lookup_region_razor",
+   "type": "lookup",
+   "field": "region",
+   "question": "레이저의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "레이저"
+  },
+  {
+   "id": "lookup_element_rosaria",
+   "type": "lookup",
+   "field": "element",
+   "question": "로자리아의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "eval",
+   "character": "로자리아"
+  },
+  {
+   "id": "lookup_weapon_rosaria",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "로자리아는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "eval",
+   "character": "로자리아"
+  },
+  {
+   "id": "lookup_rarity_rosaria",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "로자리아는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "eval",
+   "character": "로자리아"
+  },
+  {
+   "id": "lookup_region_rosaria",
+   "type": "lookup",
+   "field": "region",
+   "question": "로자리아의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "eval",
+   "character": "로자리아"
+  },
+  {
+   "id": "lookup_element_sandrone",
+   "type": "lookup",
+   "field": "element",
+   "question": "산드로네의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "산드로네"
+  },
+  {
+   "id": "lookup_weapon_sandrone",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "산드로네는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "산드로네"
+  },
+  {
+   "id": "lookup_rarity_sandrone",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "산드로네는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "산드로네"
+  },
+  {
+   "id": "lookup_element_sangonomiyakokomi",
+   "type": "lookup",
+   "field": "element",
+   "question": "산고노미야 코코미의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "산고노미야 코코미"
+  },
+  {
+   "id": "lookup_weapon_sangonomiyakokomi",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "산고노미야 코코미는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "산고노미야 코코미"
+  },
+  {
+   "id": "lookup_rarity_sangonomiyakokomi",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "산고노미야 코코미는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "산고노미야 코코미"
+  },
+  {
+   "id": "lookup_region_sangonomiyakokomi",
+   "type": "lookup",
+   "field": "region",
+   "question": "산고노미야 코코미의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "산고노미야 코코미"
+  },
+  {
+   "id": "lookup_element_sayu",
+   "type": "lookup",
+   "field": "element",
+   "question": "사유의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "사유"
+  },
+  {
+   "id": "lookup_weapon_sayu",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "사유는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "사유"
+  },
+  {
+   "id": "lookup_rarity_sayu",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "사유는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "사유"
+  },
+  {
+   "id": "lookup_region_sayu",
+   "type": "lookup",
+   "field": "region",
+   "question": "사유의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "사유"
+  },
+  {
+   "id": "lookup_element_sethos",
+   "type": "lookup",
+   "field": "element",
+   "question": "세토스의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "세토스"
+  },
+  {
+   "id": "lookup_weapon_sethos",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "세토스는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "세토스"
+  },
+  {
+   "id": "lookup_rarity_sethos",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "세토스는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "세토스"
+  },
+  {
+   "id": "lookup_region_sethos",
+   "type": "lookup",
+   "field": "region",
+   "question": "세토스의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "세토스"
+  },
+  {
+   "id": "lookup_element_shenhe",
+   "type": "lookup",
+   "field": "element",
+   "question": "신학의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "신학"
+  },
+  {
+   "id": "lookup_weapon_shenhe",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "신학은 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "신학"
+  },
+  {
+   "id": "lookup_rarity_shenhe",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "신학은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "신학"
+  },
+  {
+   "id": "lookup_region_shenhe",
+   "type": "lookup",
+   "field": "region",
+   "question": "신학의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "신학"
+  },
+  {
+   "id": "lookup_element_shikanoinheizou",
+   "type": "lookup",
+   "field": "element",
+   "question": "시카노인 헤이조의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "시카노인 헤이조"
+  },
+  {
+   "id": "lookup_weapon_shikanoinheizou",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "시카노인 헤이조는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "시카노인 헤이조"
+  },
+  {
+   "id": "lookup_rarity_shikanoinheizou",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "시카노인 헤이조는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "시카노인 헤이조"
+  },
+  {
+   "id": "lookup_region_shikanoinheizou",
+   "type": "lookup",
+   "field": "region",
+   "question": "시카노인 헤이조의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "시카노인 헤이조"
+  },
+  {
+   "id": "lookup_element_sigewinne",
+   "type": "lookup",
+   "field": "element",
+   "question": "시그윈의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "시그윈"
+  },
+  {
+   "id": "lookup_weapon_sigewinne",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "시그윈은 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "시그윈"
+  },
+  {
+   "id": "lookup_rarity_sigewinne",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "시그윈은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "시그윈"
+  },
+  {
+   "id": "lookup_region_sigewinne",
+   "type": "lookup",
+   "field": "region",
+   "question": "시그윈의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "train",
+   "character": "시그윈"
+  },
+  {
+   "id": "lookup_element_skirk",
+   "type": "lookup",
+   "field": "element",
+   "question": "스커크의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "train",
+   "character": "스커크"
+  },
+  {
+   "id": "lookup_weapon_skirk",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "스커크는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "스커크"
+  },
+  {
+   "id": "lookup_rarity_skirk",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "스커크는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "스커크"
+  },
+  {
+   "id": "lookup_element_sucrose",
+   "type": "lookup",
+   "field": "element",
+   "question": "설탕의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "설탕"
+  },
+  {
+   "id": "lookup_weapon_sucrose",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "설탕은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "설탕"
+  },
+  {
+   "id": "lookup_rarity_sucrose",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "설탕은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "설탕"
+  },
+  {
+   "id": "lookup_region_sucrose",
+   "type": "lookup",
+   "field": "region",
+   "question": "설탕의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "설탕"
+  },
+  {
+   "id": "lookup_element_tartaglia",
+   "type": "lookup",
+   "field": "element",
+   "question": "타르탈리아의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "타르탈리아"
+  },
+  {
+   "id": "lookup_weapon_tartaglia",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "타르탈리아는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "타르탈리아"
+  },
+  {
+   "id": "lookup_rarity_tartaglia",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "타르탈리아는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "타르탈리아"
+  },
+  {
+   "id": "lookup_region_tartaglia",
+   "type": "lookup",
+   "field": "region",
+   "question": "타르탈리아의 출신 지역은 어디야?",
+   "gold": [
+    "스네즈나야"
+   ],
+   "split": "train",
+   "character": "타르탈리아"
+  },
+  {
+   "id": "lookup_element_thoma",
+   "type": "lookup",
+   "field": "element",
+   "question": "토마의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "토마"
+  },
+  {
+   "id": "lookup_weapon_thoma",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "토마는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "토마"
+  },
+  {
+   "id": "lookup_rarity_thoma",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "토마는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "토마"
+  },
+  {
+   "id": "lookup_region_thoma",
+   "type": "lookup",
+   "field": "region",
+   "question": "토마의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "토마"
+  },
+  {
+   "id": "lookup_element_tighnari",
+   "type": "lookup",
+   "field": "element",
+   "question": "타이나리의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "타이나리"
+  },
+  {
+   "id": "lookup_weapon_tighnari",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "타이나리는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "타이나리"
+  },
+  {
+   "id": "lookup_rarity_tighnari",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "타이나리는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "타이나리"
+  },
+  {
+   "id": "lookup_region_tighnari",
+   "type": "lookup",
+   "field": "region",
+   "question": "타이나리의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "타이나리"
+  },
+  {
+   "id": "lookup_element_varesa",
+   "type": "lookup",
+   "field": "element",
+   "question": "바레사의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "바레사"
+  },
+  {
+   "id": "lookup_weapon_varesa",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "바레사는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "바레사"
+  },
+  {
+   "id": "lookup_rarity_varesa",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "바레사는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "바레사"
+  },
+  {
+   "id": "lookup_region_varesa",
+   "type": "lookup",
+   "field": "region",
+   "question": "바레사의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "바레사"
+  },
+  {
+   "id": "lookup_element_varka",
+   "type": "lookup",
+   "field": "element",
+   "question": "바르카의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "바르카"
+  },
+  {
+   "id": "lookup_weapon_varka",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "바르카는 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "바르카"
+  },
+  {
+   "id": "lookup_rarity_varka",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "바르카는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "바르카"
+  },
+  {
+   "id": "lookup_region_varka",
+   "type": "lookup",
+   "field": "region",
+   "question": "바르카의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "바르카"
+  },
+  {
+   "id": "lookup_element_venti",
+   "type": "lookup",
+   "field": "element",
+   "question": "벤티의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "벤티"
+  },
+  {
+   "id": "lookup_weapon_venti",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "벤티는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "train",
+   "character": "벤티"
+  },
+  {
+   "id": "lookup_rarity_venti",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "벤티는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "벤티"
+  },
+  {
+   "id": "lookup_region_venti",
+   "type": "lookup",
+   "field": "region",
+   "question": "벤티의 출신 지역은 어디야?",
+   "gold": [
+    "몬드"
+   ],
+   "split": "train",
+   "character": "벤티"
+  },
+  {
+   "id": "lookup_element_vesna",
+   "type": "lookup",
+   "field": "element",
+   "question": "베스나의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "베스나"
+  },
+  {
+   "id": "lookup_weapon_vesna",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "베스나는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "베스나"
+  },
+  {
+   "id": "lookup_rarity_vesna",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "베스나는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "베스나"
+  },
+  {
+   "id": "lookup_element_vodyanitsa",
+   "type": "lookup",
+   "field": "element",
+   "question": "보댜니차의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "보댜니차"
+  },
+  {
+   "id": "lookup_weapon_vodyanitsa",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "보댜니차는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "보댜니차"
+  },
+  {
+   "id": "lookup_rarity_vodyanitsa",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "보댜니차는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "보댜니차"
+  },
+  {
+   "id": "lookup_element_wanderer",
+   "type": "lookup",
+   "field": "element",
+   "question": "방랑자의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "방랑자"
+  },
+  {
+   "id": "lookup_weapon_wanderer",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "방랑자는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "방랑자"
+  },
+  {
+   "id": "lookup_rarity_wanderer",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "방랑자는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "방랑자"
+  },
+  {
+   "id": "lookup_region_wanderer",
+   "type": "lookup",
+   "field": "region",
+   "question": "방랑자의 출신 지역은 어디야?",
+   "gold": [
+    "수메르"
+   ],
+   "split": "train",
+   "character": "방랑자"
+  },
+  {
+   "id": "lookup_element_wriothesley",
+   "type": "lookup",
+   "field": "element",
+   "question": "라이오슬리의 원소는 뭐야?",
+   "gold": [
+    "얼음"
+   ],
+   "split": "eval",
+   "character": "라이오슬리"
+  },
+  {
+   "id": "lookup_weapon_wriothesley",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "라이오슬리는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "eval",
+   "character": "라이오슬리"
+  },
+  {
+   "id": "lookup_rarity_wriothesley",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "라이오슬리는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "라이오슬리"
+  },
+  {
+   "id": "lookup_region_wriothesley",
+   "type": "lookup",
+   "field": "region",
+   "question": "라이오슬리의 출신 지역은 어디야?",
+   "gold": [
+    "폰타인"
+   ],
+   "split": "eval",
+   "character": "라이오슬리"
+  },
+  {
+   "id": "lookup_element_xiangling",
+   "type": "lookup",
+   "field": "element",
+   "question": "향릉의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "향릉"
+  },
+  {
+   "id": "lookup_weapon_xiangling",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "향릉은 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "향릉"
+  },
+  {
+   "id": "lookup_rarity_xiangling",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "향릉은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "향릉"
+  },
+  {
+   "id": "lookup_region_xiangling",
+   "type": "lookup",
+   "field": "region",
+   "question": "향릉의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "향릉"
+  },
+  {
+   "id": "lookup_element_xianyun",
+   "type": "lookup",
+   "field": "element",
+   "question": "한운의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "한운"
+  },
+  {
+   "id": "lookup_weapon_xianyun",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "한운은 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "한운"
+  },
+  {
+   "id": "lookup_rarity_xianyun",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "한운은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "한운"
+  },
+  {
+   "id": "lookup_region_xianyun",
+   "type": "lookup",
+   "field": "region",
+   "question": "한운의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "한운"
+  },
+  {
+   "id": "lookup_element_xiao",
+   "type": "lookup",
+   "field": "element",
+   "question": "소의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "소"
+  },
+  {
+   "id": "lookup_weapon_xiao",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "소는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "소"
+  },
+  {
+   "id": "lookup_rarity_xiao",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "소는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "소"
+  },
+  {
+   "id": "lookup_region_xiao",
+   "type": "lookup",
+   "field": "region",
+   "question": "소의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "소"
+  },
+  {
+   "id": "lookup_element_xilonen",
+   "type": "lookup",
+   "field": "element",
+   "question": "실로닌의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "실로닌"
+  },
+  {
+   "id": "lookup_weapon_xilonen",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "실로닌은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "실로닌"
+  },
+  {
+   "id": "lookup_rarity_xilonen",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "실로닌은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "실로닌"
+  },
+  {
+   "id": "lookup_region_xilonen",
+   "type": "lookup",
+   "field": "region",
+   "question": "실로닌의 출신 지역은 어디야?",
+   "gold": [
+    "나타"
+   ],
+   "split": "train",
+   "character": "실로닌"
+  },
+  {
+   "id": "lookup_element_xingqiu",
+   "type": "lookup",
+   "field": "element",
+   "question": "행추의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "train",
+   "character": "행추"
+  },
+  {
+   "id": "lookup_weapon_xingqiu",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "행추는 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "행추"
+  },
+  {
+   "id": "lookup_rarity_xingqiu",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "행추는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "행추"
+  },
+  {
+   "id": "lookup_region_xingqiu",
+   "type": "lookup",
+   "field": "region",
+   "question": "행추의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "행추"
+  },
+  {
+   "id": "lookup_element_xinyan",
+   "type": "lookup",
+   "field": "element",
+   "question": "신염의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "신염"
+  },
+  {
+   "id": "lookup_weapon_xinyan",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "신염은 어떤 무기를 써?",
+   "gold": [
+    "양손검"
+   ],
+   "split": "train",
+   "character": "신염"
+  },
+  {
+   "id": "lookup_rarity_xinyan",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "신염은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "신염"
+  },
+  {
+   "id": "lookup_region_xinyan",
+   "type": "lookup",
+   "field": "region",
+   "question": "신염의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "신염"
+  },
+  {
+   "id": "lookup_element_yaemiko",
+   "type": "lookup",
+   "field": "element",
+   "question": "야에 미코의 원소는 뭐야?",
+   "gold": [
+    "번개"
+   ],
+   "split": "train",
+   "character": "야에 미코"
+  },
+  {
+   "id": "lookup_weapon_yaemiko",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "야에 미코는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "야에 미코"
+  },
+  {
+   "id": "lookup_rarity_yaemiko",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "야에 미코는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "야에 미코"
+  },
+  {
+   "id": "lookup_region_yaemiko",
+   "type": "lookup",
+   "field": "region",
+   "question": "야에 미코의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "야에 미코"
+  },
+  {
+   "id": "lookup_element_yanfei",
+   "type": "lookup",
+   "field": "element",
+   "question": "연비의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "train",
+   "character": "연비"
+  },
+  {
+   "id": "lookup_weapon_yanfei",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "연비는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "연비"
+  },
+  {
+   "id": "lookup_rarity_yanfei",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "연비는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "연비"
+  },
+  {
+   "id": "lookup_region_yanfei",
+   "type": "lookup",
+   "field": "region",
+   "question": "연비의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "연비"
+  },
+  {
+   "id": "lookup_element_yaoyao",
+   "type": "lookup",
+   "field": "element",
+   "question": "요요의 원소는 뭐야?",
+   "gold": [
+    "풀"
+   ],
+   "split": "train",
+   "character": "요요"
+  },
+  {
+   "id": "lookup_weapon_yaoyao",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "요요는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "요요"
+  },
+  {
+   "id": "lookup_rarity_yaoyao",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "요요는 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "요요"
+  },
+  {
+   "id": "lookup_region_yaoyao",
+   "type": "lookup",
+   "field": "region",
+   "question": "요요의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "요요"
+  },
+  {
+   "id": "lookup_element_yelan",
+   "type": "lookup",
+   "field": "element",
+   "question": "야란의 원소는 뭐야?",
+   "gold": [
+    "물"
+   ],
+   "split": "eval",
+   "character": "야란"
+  },
+  {
+   "id": "lookup_weapon_yelan",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "야란은 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "eval",
+   "character": "야란"
+  },
+  {
+   "id": "lookup_rarity_yelan",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "야란은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "야란"
+  },
+  {
+   "id": "lookup_region_yelan",
+   "type": "lookup",
+   "field": "region",
+   "question": "야란의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "eval",
+   "character": "야란"
+  },
+  {
+   "id": "lookup_element_yoimiya",
+   "type": "lookup",
+   "field": "element",
+   "question": "요이미야의 원소는 뭐야?",
+   "gold": [
+    "불"
+   ],
+   "split": "eval",
+   "character": "요이미야"
+  },
+  {
+   "id": "lookup_weapon_yoimiya",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "요이미야는 어떤 무기를 써?",
+   "gold": [
+    "활"
+   ],
+   "split": "eval",
+   "character": "요이미야"
+  },
+  {
+   "id": "lookup_rarity_yoimiya",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "요이미야는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "eval",
+   "character": "요이미야"
+  },
+  {
+   "id": "lookup_region_yoimiya",
+   "type": "lookup",
+   "field": "region",
+   "question": "요이미야의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "eval",
+   "character": "요이미야"
+  },
+  {
+   "id": "lookup_element_yumemizukimizuki",
+   "type": "lookup",
+   "field": "element",
+   "question": "유메미즈키 미즈키의 원소는 뭐야?",
+   "gold": [
+    "바람"
+   ],
+   "split": "train",
+   "character": "유메미즈키 미즈키"
+  },
+  {
+   "id": "lookup_weapon_yumemizukimizuki",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "유메미즈키 미즈키는 어떤 무기를 써?",
+   "gold": [
+    "법구"
+   ],
+   "split": "train",
+   "character": "유메미즈키 미즈키"
+  },
+  {
+   "id": "lookup_rarity_yumemizukimizuki",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "유메미즈키 미즈키는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "유메미즈키 미즈키"
+  },
+  {
+   "id": "lookup_region_yumemizukimizuki",
+   "type": "lookup",
+   "field": "region",
+   "question": "유메미즈키 미즈키의 출신 지역은 어디야?",
+   "gold": [
+    "이나즈마"
+   ],
+   "split": "train",
+   "character": "유메미즈키 미즈키"
+  },
+  {
+   "id": "lookup_element_yunjin",
+   "type": "lookup",
+   "field": "element",
+   "question": "운근의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "운근"
+  },
+  {
+   "id": "lookup_weapon_yunjin",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "운근은 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "운근"
+  },
+  {
+   "id": "lookup_rarity_yunjin",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "운근은 몇 성 캐릭터야?",
+   "gold": [
+    "4성"
+   ],
+   "split": "train",
+   "character": "운근"
+  },
+  {
+   "id": "lookup_region_yunjin",
+   "type": "lookup",
+   "field": "region",
+   "question": "운근의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "운근"
+  },
+  {
+   "id": "lookup_element_zhongli",
+   "type": "lookup",
+   "field": "element",
+   "question": "종려의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "종려"
+  },
+  {
+   "id": "lookup_weapon_zhongli",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "종려는 어떤 무기를 써?",
+   "gold": [
+    "장병기"
+   ],
+   "split": "train",
+   "character": "종려"
+  },
+  {
+   "id": "lookup_rarity_zhongli",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "종려는 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "종려"
+  },
+  {
+   "id": "lookup_region_zhongli",
+   "type": "lookup",
+   "field": "region",
+   "question": "종려의 출신 지역은 어디야?",
+   "gold": [
+    "리월"
+   ],
+   "split": "train",
+   "character": "종려"
+  },
+  {
+   "id": "lookup_element_zibai",
+   "type": "lookup",
+   "field": "element",
+   "question": "자백의 원소는 뭐야?",
+   "gold": [
+    "바위"
+   ],
+   "split": "train",
+   "character": "자백"
+  },
+  {
+   "id": "lookup_weapon_zibai",
+   "type": "lookup",
+   "field": "weapon",
+   "question": "자백은 어떤 무기를 써?",
+   "gold": [
+    "한손검"
+   ],
+   "split": "train",
+   "character": "자백"
+  },
+  {
+   "id": "lookup_rarity_zibai",
+   "type": "lookup",
+   "field": "rarity",
+   "question": "자백은 몇 성 캐릭터야?",
+   "gold": [
+    "5성"
+   ],
+   "split": "train",
+   "character": "자백"
+  },
+  {
+   "id": "filter_element-물_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "바바라",
+    "아이노",
+    "캔디스",
+    "행추"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-물_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "느비예트",
+    "닐루",
+    "말라니",
+    "모나",
+    "보댜니차",
+    "산고노미야 코코미",
+    "시그윈",
+    "카미사토 아야토",
+    "콜롬비나",
+    "타르탈리아"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-바람_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "남연",
+    "리넷",
+    "사유",
+    "설탕",
+    "시카노인 헤이조",
+    "야호다",
+    "이파",
+    "파루잔",
+    "프루네"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "바람",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-바람_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "바르카",
+    "방랑자",
+    "베스나",
+    "벤티",
+    "소",
+    "유메미즈키 미즈키",
+    "진",
+    "차스카",
+    "한운"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-바위_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "고로",
+    "노엘",
+    "운근",
+    "응광",
+    "일루가",
+    "카치나"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바위",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-바위_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "나비아",
+    "린네아",
+    "실로닌",
+    "아라타키 이토",
+    "알베도",
+    "자백",
+    "종려",
+    "치오리"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "바위",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-번개_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "도리",
+    "레이저",
+    "리사",
+    "세토스",
+    "얀사",
+    "쿠죠 사라",
+    "쿠키 시노부"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-번개_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "각청",
+    "라이덴 쇼군",
+    "바레사",
+    "사이노",
+    "야에 미코",
+    "이네파",
+    "클로린드",
+    "플린스"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "번개",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-불_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "가명",
+    "베넷",
+    "슈브르즈",
+    "신염",
+    "엠버",
+    "연비",
+    "토마",
+    "향릉"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-불_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "다이루크",
+    "데히야",
+    "두린",
+    "리니",
+    "마비카",
+    "클레",
+    "호두"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-얼음_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "디오나",
+    "레일라",
+    "미카",
+    "샤를로트",
+    "중운"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-풀_rarity-4성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "4성 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "요요",
+    "카베",
+    "콜레이",
+    "키라라"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "풀",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_element-풀_rarity-5성",
+   "type": "filter",
+   "field": "element+rarity",
+   "question": "5성 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "네페르",
+    "라우마",
+    "백출",
+    "에밀리",
+    "키니치",
+    "타이나리"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "풀",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_weapon-법구_rarity-4성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "법구를 쓰는 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "남연",
+    "리사",
+    "바바라",
+    "샤를로트",
+    "설탕",
+    "시카노인 헤이조",
+    "연비",
+    "응광",
+    "이파",
+    "프루네"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "법구",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_weapon-양손검_rarity-4성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "양손검을 쓰는 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "가명",
+    "노엘",
+    "도리",
+    "레이저",
+    "사유",
+    "신염",
+    "아이노",
+    "중운",
+    "카베"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "양손검",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_weapon-양손검_rarity-5성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "양손검을 쓰는 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "나비아",
+    "다이루크",
+    "데히야",
+    "마비카",
+    "바르카",
+    "산드로네",
+    "아라타키 이토",
+    "유라",
+    "키니치"
+   ],
+   "split": "eval",
+   "conditions": {
+    "weapon": "양손검",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_weapon-장병기_rarity-5성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "장병기를 쓰는 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "라이덴 쇼군",
+    "로엔",
+    "사이노",
+    "소",
+    "신학",
+    "에밀리",
+    "이네파",
+    "종려",
+    "호두"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "장병기",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_weapon-한손검_rarity-4성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "한손검을 쓰는 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "레일라",
+    "리넷",
+    "베넷",
+    "쿠키 시노부",
+    "키라라",
+    "행추"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "한손검",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_weapon-활_rarity-4성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "활을 쓰는 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "고로",
+    "디오나",
+    "세토스",
+    "야호다",
+    "엠버",
+    "콜레이",
+    "쿠죠 사라",
+    "파루잔"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "활",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_weapon-활_rarity-5성",
+   "type": "filter",
+   "field": "weapon+rarity",
+   "question": "활을 쓰는 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "감우",
+    "리니",
+    "벤티",
+    "시그윈",
+    "에일로이",
+    "차스카",
+    "타르탈리아",
+    "타이나리"
+   ],
+   "split": "train",
+   "conditions": {
+    "weapon": "활",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_element-물_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "느비예트",
+    "말라니",
+    "모나",
+    "바바라",
+    "보댜니차",
+    "산고노미야 코코미",
+    "콜롬비나"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-물_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "아이노"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-물_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "캔디스"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-물_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "닐루",
+    "카미사토 아야토",
+    "행추"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-물_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "시그윈",
+    "타르탈리아"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "물",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-바람_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "남연",
+    "방랑자",
+    "설탕",
+    "시카노인 헤이조",
+    "유메미즈키 미즈키",
+    "이파",
+    "프루네",
+    "한운"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-바람_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "바르카",
+    "사유"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-바람_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "소"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-바람_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "리넷",
+    "베스나",
+    "진"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-바람_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "벤티",
+    "야호다",
+    "차스카",
+    "파루잔"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바람",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-바위_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "응광"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바위",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-바위_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "나비아",
+    "노엘",
+    "아라타키 이토"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바위",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-바위_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "운근",
+    "일루가",
+    "종려",
+    "카치나"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "바위",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-바위_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "실로닌",
+    "알베도",
+    "자백",
+    "치오리"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "바위",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-바위_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "고로"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "바위",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-번개_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "리사",
+    "바레사",
+    "야에 미코"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-번개_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "도리",
+    "레이저"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-번개_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "라이덴 쇼군",
+    "사이노",
+    "얀사",
+    "이네파"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-번개_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "각청",
+    "쿠키 시노부",
+    "클로린드"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-번개_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "세토스",
+    "쿠죠 사라"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "번개",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-불_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "연비",
+    "클레"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-불_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "가명",
+    "다이루크",
+    "데히야",
+    "마비카",
+    "신염"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-불_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "슈브르즈",
+    "토마",
+    "향릉",
+    "호두"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-불_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "두린",
+    "베넷"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-불_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "리니",
+    "엠버"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "불",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-얼음_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "샤를로트",
+    "시틀라리"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-얼음_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "산드로네",
+    "유라",
+    "중운"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-얼음_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "로엔",
+    "미카",
+    "신학"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-얼음_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "레일라",
+    "스커크",
+    "오데트",
+    "치치",
+    "카미사토 아야카"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-얼음_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "감우",
+    "디오나",
+    "에일로이"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "얼음",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_element-풀_weapon-법구",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "법구를 쓰는 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "네페르",
+    "라우마",
+    "백출"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "풀",
+    "weapon": "법구"
+   }
+  },
+  {
+   "id": "filter_element-풀_weapon-양손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "양손검을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "카베",
+    "키니치"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "풀",
+    "weapon": "양손검"
+   }
+  },
+  {
+   "id": "filter_element-풀_weapon-장병기",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "장병기를 쓰는 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "에밀리",
+    "요요"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "풀",
+    "weapon": "장병기"
+   }
+  },
+  {
+   "id": "filter_element-풀_weapon-한손검",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "한손검을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "알하이탐",
+    "키라라"
+   ],
+   "split": "eval",
+   "conditions": {
+    "element": "풀",
+    "weapon": "한손검"
+   }
+  },
+  {
+   "id": "filter_element-풀_weapon-활",
+   "type": "filter",
+   "field": "element+weapon",
+   "question": "활을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "콜레이",
+    "타이나리"
+   ],
+   "split": "train",
+   "conditions": {
+    "element": "풀",
+    "weapon": "활"
+   }
+  },
+  {
+   "id": "filter_region-나타_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "나타 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "얀사",
+    "이파",
+    "카치나"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-나타_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "나타 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "마비카",
+    "말라니",
+    "바레사",
+    "시틀라리",
+    "실로닌",
+    "차스카",
+    "키니치"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "나타",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "노드크라이 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "아이노",
+    "야호다",
+    "일루가"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "노드크라이 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "네페르",
+    "라우마",
+    "이네파",
+    "콜롬비나"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-리월_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "리월 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "가명",
+    "남연",
+    "신염",
+    "연비",
+    "요요",
+    "운근",
+    "응광",
+    "중운",
+    "행추",
+    "향릉"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "리월",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-리월_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "리월 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "각청",
+    "감우",
+    "백출",
+    "소",
+    "신학",
+    "야란",
+    "종려",
+    "치치",
+    "한운",
+    "호두"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "리월",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-몬드_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "몬드 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "노엘",
+    "디오나",
+    "레이저",
+    "리사",
+    "미카",
+    "바바라",
+    "베넷",
+    "설탕",
+    "엠버",
+    "프루네"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-몬드_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "몬드 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "다이루크",
+    "두린",
+    "로엔",
+    "모나",
+    "바르카",
+    "벤티",
+    "알베도",
+    "유라",
+    "진",
+    "클레"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-수메르_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "수메르 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "도리",
+    "레일라",
+    "세토스",
+    "카베",
+    "캔디스",
+    "콜레이",
+    "파루잔"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-수메르_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "수메르 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "닐루",
+    "데히야",
+    "방랑자",
+    "사이노",
+    "타이나리"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-스네즈나야_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "스네즈나야 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "타르탈리아"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "스네즈나야",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "이나즈마 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "고로",
+    "사유",
+    "시카노인 헤이조",
+    "쿠죠 사라",
+    "쿠키 시노부",
+    "키라라",
+    "토마"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "이나즈마 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "라이덴 쇼군",
+    "산고노미야 코코미",
+    "아라타키 이토",
+    "야에 미코",
+    "유메미즈키 미즈키",
+    "치오리",
+    "카미사토 아야카",
+    "카미사토 아야토"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_rarity-4성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "폰타인 출신 4성 캐릭터를 모두 알려줘",
+   "gold": [
+    "리넷",
+    "샤를로트",
+    "슈브르즈",
+    "프레미네"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "폰타인",
+    "rarity": "4성"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_rarity-5성",
+   "type": "filter",
+   "field": "region+rarity",
+   "question": "폰타인 출신 5성 캐릭터를 모두 알려줘",
+   "gold": [
+    "나비아",
+    "느비예트",
+    "리니",
+    "시그윈",
+    "에밀리",
+    "클로린드"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "rarity": "5성"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "말라니"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "나타",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "이파",
+    "차스카"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "실로닌",
+    "카치나"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "바레사",
+    "얀사"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "마비카"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "나타",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "시틀라리"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-나타_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "나타 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "키니치"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "나타",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "노드크라이 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "아이노",
+    "콜롬비나"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "노드크라이 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "야호다"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "노드크라이 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "린네아",
+    "일루가"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "노드크라이",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "노드크라이 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "이네파"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-노드크라이_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "노드크라이 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "네페르",
+    "라우마"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "노드크라이",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "행추"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "리월",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "남연",
+    "소",
+    "한운"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "리월",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "운근",
+    "응광",
+    "종려"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "리월",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "각청"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "리월",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "가명",
+    "신염",
+    "연비",
+    "향릉",
+    "호두"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "리월",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "감우",
+    "신학",
+    "중운",
+    "치치"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "리월",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-리월_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "리월 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "백출",
+    "요요"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "리월",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "모나",
+    "바바라"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "바르카",
+    "벤티",
+    "설탕",
+    "진",
+    "프루네"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "몬드",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "노엘",
+    "알베도"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "몬드",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "레이저",
+    "리사"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "다이루크",
+    "두린",
+    "베넷",
+    "엠버",
+    "클레"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-몬드_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "몬드 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "디오나",
+    "로엔",
+    "미카",
+    "유라"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "몬드",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "닐루",
+    "캔디스"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "방랑자",
+    "파루잔"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "도리",
+    "사이노",
+    "세토스"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "데히야"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "수메르",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "레일라"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-수메르_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "수메르 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "카베",
+    "콜레이",
+    "타이나리"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "수메르",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "filter_region-스네즈나야_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "스네즈나야 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "타르탈리아"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "스네즈나야",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "산고노미야 코코미",
+    "카미사토 아야토"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "사유",
+    "시카노인 헤이조",
+    "유메미즈키 미즈키",
+    "카에데하라 카즈하"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "고로",
+    "아라타키 이토",
+    "치오리"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "라이덴 쇼군",
+    "야에 미코",
+    "쿠죠 사라",
+    "쿠키 시노부"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "토마"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "카미사토 아야카"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-이나즈마_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "이나즈마 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "키라라"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "이나즈마",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-물",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 물 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "느비예트",
+    "시그윈"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "element": "물"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-바람",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 바람 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "리넷"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "폰타인",
+    "element": "바람"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-바위",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 바위 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "나비아"
+   ],
+   "split": "eval",
+   "conditions": {
+    "region": "폰타인",
+    "element": "바위"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-번개",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 번개 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "클로린드"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "element": "번개"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-불",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 불 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "리니",
+    "슈브르즈"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "element": "불"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-얼음",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 얼음 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "샤를로트"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "element": "얼음"
+   }
+  },
+  {
+   "id": "filter_region-폰타인_element-풀",
+   "type": "filter",
+   "field": "region+element",
+   "question": "폰타인 출신 풀 원소 캐릭터를 모두 알려줘",
+   "gold": [
+    "에밀리"
+   ],
+   "split": "train",
+   "conditions": {
+    "region": "폰타인",
+    "element": "풀"
+   }
+  },
+  {
+   "id": "unknown_00",
+   "type": "unknown",
+   "field": "element",
+   "question": "아르셀리아의 원소는 뭐야?",
+   "gold": [],
+   "split": "train",
+   "character": "아르셀리아"
+  },
+  {
+   "id": "unknown_01",
+   "type": "unknown",
+   "field": "weapon",
+   "question": "카덴로우는 어떤 무기를 써?",
+   "gold": [],
+   "split": "train",
+   "character": "카덴로우"
+  },
+  {
+   "id": "unknown_02",
+   "type": "unknown",
+   "field": "rarity",
+   "question": "미르하젤은 몇 성 캐릭터야?",
+   "gold": [],
+   "split": "train",
+   "character": "미르하젤"
+  },
+  {
+   "id": "unknown_03",
+   "type": "unknown",
+   "field": "region",
+   "question": "토바린의 출신 지역은 어디야?",
+   "gold": [],
+   "split": "train",
+   "character": "토바린"
+  },
+  {
+   "id": "unknown_04",
+   "type": "unknown",
+   "field": "element",
+   "question": "엘렌시아의 원소는 뭐야?",
+   "gold": [],
+   "split": "train",
+   "character": "엘렌시아"
+  },
+  {
+   "id": "unknown_05",
+   "type": "unknown",
+   "field": "weapon",
+   "question": "루카르도는 어떤 무기를 써?",
+   "gold": [],
+   "split": "train",
+   "character": "루카르도"
+  },
+  {
+   "id": "unknown_06",
+   "type": "unknown",
+   "field": "rarity",
+   "question": "세이렌하는 몇 성 캐릭터야?",
+   "gold": [],
+   "split": "train",
+   "character": "세이렌하"
+  },
+  {
+   "id": "unknown_07",
+   "type": "unknown",
+   "field": "region",
+   "question": "벨트라움의 출신 지역은 어디야?",
+   "gold": [],
+   "split": "train",
+   "character": "벨트라움"
+  },
+  {
+   "id": "unknown_08",
+   "type": "unknown",
+   "field": "element",
+   "question": "오르페아의 원소는 뭐야?",
+   "gold": [],
+   "split": "eval",
+   "character": "오르페아"
+  },
+  {
+   "id": "unknown_09",
+   "type": "unknown",
+   "field": "weapon",
+   "question": "키리안테는 어떤 무기를 써?",
+   "gold": [],
+   "split": "eval",
+   "character": "키리안테"
+  },
+  {
+   "id": "unknown_10",
+   "type": "unknown",
+   "field": "rarity",
+   "question": "나디르는 몇 성 캐릭터야?",
+   "gold": [],
+   "split": "eval",
+   "character": "나디르"
+  },
+  {
+   "id": "unknown_11",
+   "type": "unknown",
+   "field": "region",
+   "question": "솔베른의 출신 지역은 어디야?",
+   "gold": [],
+   "split": "eval",
+   "character": "솔베른"
+  },
+  {
+   "id": "unknown_12",
+   "type": "unknown",
+   "field": "element",
+   "question": "하이델린의 원소는 뭐야?",
+   "gold": [],
+   "split": "eval",
+   "character": "하이델린"
+  },
+  {
+   "id": "unknown_13",
+   "type": "unknown",
+   "field": "weapon",
+   "question": "마르코사는 어떤 무기를 써?",
+   "gold": [],
+   "split": "eval",
+   "character": "마르코사"
+  },
+  {
+   "id": "unknown_14",
+   "type": "unknown",
+   "field": "rarity",
+   "question": "티엔류는 몇 성 캐릭터야?",
+   "gold": [],
+   "split": "eval",
+   "character": "티엔류"
+  },
+  {
+   "id": "unknown_15",
+   "type": "unknown",
+   "field": "region",
+   "question": "이스벨라의 출신 지역은 어디야?",
+   "gold": [],
+   "split": "eval",
+   "character": "이스벨라"
+  }
+ ]
+}
