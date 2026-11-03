@@ -19,10 +19,9 @@
 
 ## 어디에 있나
 
-- **저장소** `data/eval/questions_info_v1.json`: 원본. 테스트(`tests/test_evalset.py`)가 지문과 분리 규칙을 검사합니다.
-- **드라이브** `data/questions_info_v1.json`: 코랩용 사본. 노트북을 처음 실행할 때 자동으로 만들어지고, 저장소 파일과 내용이 똑같습니다.
-
-노트북(`notebooks/01_eval_info.ipynb`)은 드라이브에 고정본이 있으면 그 파일을 읽고, 지문이 다르면 멈춥니다.
+- **저장소** `data/eval/questions_info_v1.json`: 유일한 원본. 테스트(`tests/test_evalset.py`, `tests/test_eval_routing.py`)가 지문, 분리 규칙, 라우터·검색 결과를 검사합니다.
+- 노트북(`notebooks/01_eval_info.ipynb`)은 셀 1에서 저장소를 받아 와 이 파일을 읽고, 지문이 다르면 멈춥니다.
+- 새 버전 고정본이 아직 저장소에 없을 때만 노트북이 만들어 드라이브 `data/`에 저장합니다. 그 파일을 PR로 이 폴더에 올립니다.
 
 ## 규칙
 
