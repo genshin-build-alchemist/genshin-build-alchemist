@@ -10,3 +10,4 @@ checkpoints/
 *.safetensors
 *.bin
 .ipynb_checkpoints/
+db/seed_documents.sql
