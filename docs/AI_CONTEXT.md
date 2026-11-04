@@ -30,7 +30,7 @@
 core/        kb.py(데이터 로드) router.py(경로 판별) retrieval.py(근거 검색)
              answer.py(모의/LLM 답변기, 프롬프트) validate.py(빌드 카드 검사) pipeline.py(ask)
 api/         main.py  FastAPI: POST /ask, GET /health
-db/          schema.sql(PostgreSQL), make_seed.py
+db/          schema.sql(PostgreSQL + pgvector: documents, chunks vector(768), chat_logs), make_*seed.py, queries.sql
 data/        characters_ko.json(124명) items_ko.json(무기 255, 성유물 63)
              patch_changes.json(패치 변경 기록) build_cards/(빌드 카드, _로 시작하면 양식)
 collector/   genshin-db 깃 이력에서 패치 변경 추출

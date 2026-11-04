@@ -87,15 +87,16 @@ python3 -m core.validate
 
 외부 가이드는 참고·링크만 하고, 내용은 직접 요약해서 씁니다. 이름이 `_`로 시작하는 파일은 양식이라 챗봇이 읽지 않습니다.
 
-## DB (FR-09, PostgreSQL)
+## DB (PostgreSQL + pgvector)
+
+벡터 DB와 대화 기록을 PostgreSQL 하나에서 관리합니다. 코랩에서도 접속해야 해서 클라우드 DB(Supabase 또는 Neon)에 둡니다. 자세한 건 [db/README.md](db/README.md).
 
 ```bash
-python3 db/make_seed.py && psql "$DATABASE_URL" -f db/schema.sql && psql "$DATABASE_URL" -f db/seed_characters.sql
+python3 db/make_seed.py && python3 db/make_documents_seed.py && psql "$DATABASE_URL" -f db/schema.sql && psql "$DATABASE_URL" -f db/seed_characters.sql && psql "$DATABASE_URL" -f db/seed_documents.sql
 ```
 
-- `characters`: 캐릭터 표 (조건 검색을 SQL로 할 수 있음)
-- `chat_logs`: 대화 기록 (API 응답과 칸 이름을 맞춤)
-- pgvector용 `documents` 표는 검색 방식이 정해지면 `schema.sql`의 주석을 풉니다.
+- `documents`: 검색용 문서 1,430개 (`data/docs/documents_ko.jsonl`), `chunks`: 청크 + 임베딩 `vector(768)`
+- `characters`: 캐릭터 표, `chat_logs`: 대화 기록 (API 응답과 칸 이름을 맞춤)
 - API에서 대화 기록을 DB에 저장하는 부분은 아직 연결하지 않았습니다 (`api/main.py`의 TODO).
 
 ## 코랩에서 실제 LLM 연결하기
