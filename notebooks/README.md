@@ -38,6 +38,7 @@
 - 평가셋은 고정돼 있습니다 (`data/eval/README.md`). 셀 2에서 지문이 다르다고 멈추면 고정본이 바뀐 것이니 손대지 말고 알려 주세요.
 - 결과 JSON의 `config.code_version`에 어느 브랜치·커밋 코드로 돌렸는지 자동으로 남습니다.
 - PR 브랜치의 코드로 평가해 보고 싶으면 셀 1의 `REPO_BRANCH`를 그 브랜치 이름으로 바꿉니다.
+- 사람이 만든 질문은 드라이브 `data/human_questions.csv`에 두면 셀 12가 평가합니다. `question,target` 형식이면 정답을 데이터에서 자동으로 채웁니다 (`data/eval/README.md`).
 - 파인튜닝용 학습 질문은 셀 13에서 드라이브 `data/train_questions_info_v1.json`으로 저장됩니다.
 - 같은 `experiment_id`로 다시 돌리면 드라이브의 결과 파일을 덮어씁니다. 남기고 싶으면 ID를 바꿉니다.
 - 코랩에서 고친 노트북은 "드라이브에 사본 저장" 후 내려받아 PR로 올립니다 (main 직접 push 금지).
