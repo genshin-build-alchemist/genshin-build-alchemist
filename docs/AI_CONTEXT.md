@@ -93,10 +93,11 @@ tests/       PRD 9장 테스트 시나리오
   "seconds": 312.4,
   "limit": null,
   "config": {},
-  "metrics": {"n": 115, "macro_f1": 0.0, "micro_precision": 0.0, "micro_recall": 0.0, "micro_f1": 0.0, "empty_answers": 0},
+  "metrics": {"n": 115, "macro_f1": 0.0, "micro_precision": 0.0, "micro_recall": 0.0, "micro_f1": 0.0, "empty_answers": 0,
+              "avg_seconds": 0.0, "max_seconds": 0.0},
   "by_type": {},
   "by_field": {},
-  "per_question": [{"id": "...", "question": "...", "type": "lookup", "field": "element", "gold": [], "pred": [], "raw": "...", "f1": 1.0}],
+  "per_question": [{"id": "...", "question": "...", "type": "lookup", "field": "element", "gold": [], "pred": [], "raw": "...", "f1": 1.0, "seconds": 1.2}],
   "notes": ""
 }
 ```
@@ -110,6 +111,7 @@ tests/       PRD 9장 테스트 시나리오
 2. **학습/평가 분리**: 평가용 캐릭터(22명)는 프롬프트 예시, 파인튜닝 데이터 어디에도 넣지 않는다. 캐릭터 단위로 나눈다.
 3. **사람이 만든 질문**은 평가에만 쓴다. 학습·프롬프트 고르기에 쓰지 않는다.
 3-1. **평가셋은 고정본**(`data/eval/questions_info_v1.json`, 지문 sha256 `2e5f5437…`)을 쓴다. 파일을 손으로 고치지 않고, 생성 규칙을 바꾸려면 `DATASET_VERSION`을 올린다.
+3-2. **프롬프트·설정은 DEV 세트(학습 질문 60개)로만 고른다.** 평가 115문항과 사람 질문은 최종 버전을 한 번 돌릴 때만 본다.
 4. 정답은 **집합 F1**로 채점한다 (macro F1이 주 지표). 보조 지표: 거절 정확도, 환각률, 검색 Hit@k, 경로 판별 정확도.
 5. 빌드 카드는 외부 가이드를 복사하지 않고 팀이 요약해서 쓴다. 출처 링크와 확인 버전을 꼭 적는다.
 
