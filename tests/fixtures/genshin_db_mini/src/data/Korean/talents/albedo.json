@@ -1,0 +1,20 @@
+{
+ "id": 1,
+ "name": "알베도",
+ "combat1": {
+  "name": "페보니우스 검술·백",
+  "descriptionRaw": "<color=#FFD780FF>일반 공격</color>\n검으로 최대 5번 공격한다.",
+  "description": "일반 공격\n검으로 최대 5번 공격한다."
+ },
+ "combat2": {
+  "name": "창생법·모조 태양꽃",
+  "descriptionRaw": "태양꽃을 생성해 <color=#FFE699FF>바위 원소 범위 피해</color>를 준다.",
+  "description": "태양꽃을 생성해 바위 원소 범위 피해를 준다."
+ },
+ "passive1": {
+  "name": "백악색의 위압",
+  "descriptionRaw": "<color=#FFD780FF>창생법</color>의 피해가 25% 증가한다",
+  "description": "창생법의 피해가 25% 증가한다"
+ },
+ "costs": {}
+}

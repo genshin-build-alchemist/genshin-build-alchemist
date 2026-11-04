@@ -1,0 +1,14 @@
+{
+ "id": 1,
+ "name": "검투사의 피날레",
+ "rarityList": [
+  4,
+  5
+ ],
+ "effect2Pc": "공격력+18%",
+ "effect4Pc": "<color=#FFD780FF>한손검</color> 장착 시 일반 공격 피해 35% 증가",
+ "flower": {
+  "name": "검투사의 미련",
+  "story": "긴 이야기"
+ }
+}

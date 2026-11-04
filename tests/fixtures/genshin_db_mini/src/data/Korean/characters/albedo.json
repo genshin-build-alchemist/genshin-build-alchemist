@@ -1,0 +1,26 @@
+{
+ "id": 1,
+ "name": "알베도",
+ "title": "백악의 아이",
+ "description": "페보니우스 기사단 수석 연금술사",
+ "weaponText": "한손검",
+ "rarity": 5,
+ "elementType": "ELEMENT_GEO",
+ "elementText": "바위",
+ "affiliation": "페보니우스 기사단",
+ "region": "몬드",
+ "substatText": "바위 원소 피해 보너스",
+ "constellation": "백악의 아이 자리",
+ "birthday": "9월 13일",
+ "cv": {
+  "korean": "테스트성우"
+ },
+ "costs": {
+  "ascend1": [
+   {
+    "name": "모라",
+    "count": 20000
+   }
+  ]
+ }
+}
