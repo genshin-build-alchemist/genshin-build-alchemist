@@ -1,0 +1,9 @@
+{
+ "id": 1,
+ "name": "알베도",
+ "c1": {
+  "name": "에덴의 꽃",
+  "descriptionRaw": "<color=#FFD780FF>찰나의 꽃</color>이 피어날 때 원소 에너지 1.2pt 회복",
+  "description": "찰나의 꽃이 피어날 때 원소 에너지 1.2pt 회복"
+ }
+}

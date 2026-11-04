@@ -1,0 +1,13 @@
+[
+ {
+  "version": "7.0",
+  "from_version": "6.7",
+  "data_commit": "7c5cf17",
+  "data_date": "2026-08-01",
+  "folder": "characters",
+  "entity_id": "alyosha",
+  "entity_name": "알료샤",
+  "change_type": "added",
+  "changes": []
+ }
+]

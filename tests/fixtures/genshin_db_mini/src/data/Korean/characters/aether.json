@@ -1,0 +1,17 @@
+{
+ "id": 2,
+ "name": "아이테르",
+ "title": "",
+ "description": "다른 세계에서 건너온 여행자",
+ "weaponText": "한손검",
+ "rarity": 5,
+ "elementType": "ELEMENT_NONE",
+ "elementText": "없음",
+ "affiliation": "",
+ "region": "",
+ "substatText": "공격력",
+ "constellation": "나그네자리",
+ "cv": {
+  "korean": "테스트성우2"
+ }
+}
