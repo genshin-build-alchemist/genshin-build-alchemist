@@ -1,8 +1,8 @@
 # Genshin Build Alchemist
 
 원신 캐릭터 데이터를 묻고 답하는 **챗봇형 백과사전**에서 시작해, 패치 변경을 반영한 **빌드 가이드**까지 답하는 RAG 챗봇입니다.
-오픈소스 LLM(Qwen2.5-3B-Instruct)에 질문에 맞는 근거를 찾아 함께 넘겨 주는 방식(RAG)으로 동작하고, 프롬프트 개선과 LoRA 파인튜닝으로 답변 품질을 단계별로 올립니다.
-단계: baseline → prompt_v2 → rag → rag_v3 → rag+lora (같은 평가셋으로 비교, 결과는 JSON).
+오픈소스 LLM(Qwen2.5-3B-Instruct)에 질문에 맞는 근거를 찾아 함께 넘겨 주는 방식(RAG)으로 동작하고, 프롬프트와 검색을 개선하며 답변 품질을 단계별로 올립니다 (LoRA 파인튜닝은 하지 않기로 함).
+단계: baseline → prompt_v2 → rag → rag_v3 → rag_v4 (같은 평가셋으로 비교, 결과는 JSON). 지금 챗봇은 rag_v4.
 
 ## 빠르게 실행해 보기 (GPU 없이 로컬 PC에서)
 
@@ -26,7 +26,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 | `core/pipeline.py` | 위를 이어 붙인 `ask()` → API 응답 형식 | FR-08 | B. RAG |
 | `api/main.py` | FastAPI `POST /ask`, `GET /health` | FR-07 | D. 서비스 |
 | `db/` | PostgreSQL 스키마, 캐릭터 시드 SQL 생성 | FR-09 | D. 서비스 |
-| `notebooks/` | 코랩 단계별 평가, 파인튜닝 데이터 준비, LoRA 학습 (결과 JSON) | FR-E1~E3, FR-M1~M3 | C. 모델 실험 |
+| `notebooks/` | 코랩 단계별 평가, 프롬프트·모델 비교 (결과 JSON) | FR-E1~E3, FR-M1~M3 | C. 모델 실험 |
 | `dashboard/` | 결과 JSON을 읽는 전후 비교 화면 | FR-E4 | D. 서비스 |
 | `demo/` | Gradio 시연 화면 (코랩, 실제 모델) | FR-M4 | D. 서비스 |
 | `tests/` | PRD 9장 테스트 시나리오 | 9장 | 전원 |
@@ -35,12 +35,12 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 
 ## 할 일 (TODO)
 
-각자 할 일은 **작업할 파일 안에 `TODO(파트)` 주석**으로 적어 두었습니다. 위에서부터 순서대로 하고, 끝난 항목은 `[ ]`를 `[x]`로 바꿔 PR에 같이 올립니다.
+각자 할 일은 **작업할 파일 안에 `TODO(파트)` 주석**으로 적어 두었습니다. 위에서부터 순서대로 하고, 끝난 항목은 `[ ]`를 `[x]`로 바꿔 PR에 같이 올립니다. `[-]`는 하지 않기로 했거나 다른 파트로 넘긴 항목입니다.
 
 | 파트 | 어디에 있나 |
 |---|---|
 | B. RAG | `core/retrieval.py` 맨 위 (벡터 검색), `core/router.py` (나중: 이름 인식) |
-| C. 모델 실험 | `core/answer.py` 맨 위 (프롬프트 개선, LoRA) |
+| C. 모델 실험 | `core/answer.py` 맨 위 (프롬프트 후처리, 모델 비교) |
 | D. 서비스 | `api/main.py` 맨 위와 `ask()` 안 (DB, 웹 화면), `dashboard/README.md` |
 
 찾는 법: VS Code에서 전체 검색(맥 `Cmd+Shift+F`, 윈도우 `Ctrl+Shift+F`)에 `TODO(B)`처럼 자기 파트를 넣으면 다 나옵니다.
@@ -48,9 +48,9 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 ## 작업 규칙
 
 - **main에 직접 push하지 않습니다.** 각자 브랜치에서 작업하고 PR로 합칩니다.
-- 브랜치 이름: `파트/작업내용` (예: `rag/embedding-search`, `model/lora-train`, `service/dashboard`)
+- 브랜치 이름: `파트/작업내용` (예: `rag/embedding-search`, `model/model-compare`, `service/dashboard`)
 - PR을 올리기 전에 테스트를 통과시킵니다: `python3 -m unittest discover -s tests -t .`
-- 결과 JSON과 LoRA 체크포인트는 깃에 올리지 않고 구글 드라이브 팀 폴더(`results/`, `checkpoints/`)에 저장합니다.
+- 결과 JSON은 깃에 올리지 않고 구글 드라이브 팀 폴더 `results/`에 저장합니다.
 - API 응답과 결과 JSON의 칸 이름은 바꾸지 말고 필요하면 추가만 합니다.
 - AI(Claude, ChatGPT 등)에게 작업을 시킬 때는 [docs/AI_CONTEXT.md](docs/AI_CONTEXT.md)를 맨 앞에 붙여 넣습니다.
 
