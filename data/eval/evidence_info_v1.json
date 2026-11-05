@@ -1,0 +1,2200 @@
+{
+ "dataset_version": "info_v1",
+ "questions_sha256": "2e5f54373b7ba38551cf401042df1efcde916fba2e0f9df48462c2f3cb5b50c7",
+ "rule": "lookup = 질문한 캐릭터 문서 1개, filter = 정답 캐릭터 전부의 문서, unknown = 없음. doc_id는 data/docs/documents_ko.jsonl 기준. 만드는 코드: core/retrieval_eval.py",
+ "counts": {
+  "lookup": 479,
+  "filter": 116,
+  "unknown": 16
+ },
+ "dev_ids": [
+  "filter_element-번개_weapon-한손검",
+  "lookup_region_barbara",
+  "filter_element-얼음_weapon-한손검",
+  "unknown_06",
+  "lookup_region_lisa",
+  "lookup_region_citlali",
+  "filter_element-번개_rarity-4성",
+  "lookup_rarity_sethos",
+  "filter_element-바람_weapon-한손검",
+  "lookup_region_lauma",
+  "lookup_region_navia",
+  "lookup_element_kachina",
+  "lookup_rarity_lyney",
+  "lookup_element_albedo",
+  "lookup_element_sandrone",
+  "lookup_element_mona",
+  "lookup_region_sucrose",
+  "lookup_element_prune",
+  "lookup_rarity_amber",
+  "filter_region-몬드_element-물",
+  "lookup_rarity_baizhu",
+  "lookup_rarity_gorou",
+  "lookup_weapon_kinich",
+  "unknown_07",
+  "lookup_element_mika",
+  "lookup_weapon_hutao",
+  "lookup_weapon_emilie",
+  "lookup_element_keqing",
+  "filter_element-풀_weapon-법구",
+  "lookup_weapon_aether",
+  "lookup_weapon_clorinde",
+  "lookup_region_tighnari",
+  "lookup_weapon_kirara",
+  "lookup_rarity_albedo",
+  "lookup_weapon_noelle",
+  "lookup_weapon_zhongli",
+  "filter_region-나타_rarity-4성",
+  "lookup_region_mika",
+  "lookup_rarity_mika",
+  "lookup_region_xiao",
+  "lookup_weapon_kujousara",
+  "unknown_04",
+  "filter_element-물_weapon-활",
+  "filter_weapon-활_rarity-4성",
+  "lookup_weapon_lisa",
+  "lookup_element_sucrose",
+  "lookup_region_charlotte",
+  "lookup_element_faruzan",
+  "lookup_rarity_candace",
+  "filter_element-불_weapon-양손검",
+  "lookup_rarity_yaemiko",
+  "lookup_element_noelle",
+  "lookup_rarity_aether",
+  "unknown_02",
+  "filter_element-얼음_weapon-활",
+  "filter_element-바위_weapon-활",
+  "filter_element-풀_weapon-양손검",
+  "filter_weapon-활_rarity-5성",
+  "filter_region-나타_element-바람",
+  "filter_region-수메르_element-번개"
+ ],
+ "evidence": {
+  "lookup_weapon_aether": [
+   "character:aether"
+  ],
+  "lookup_rarity_aether": [
+   "character:aether"
+  ],
+  "lookup_element_aino": [
+   "character:aino"
+  ],
+  "lookup_weapon_aino": [
+   "character:aino"
+  ],
+  "lookup_rarity_aino": [
+   "character:aino"
+  ],
+  "lookup_region_aino": [
+   "character:aino"
+  ],
+  "lookup_element_albedo": [
+   "character:albedo"
+  ],
+  "lookup_weapon_albedo": [
+   "character:albedo"
+  ],
+  "lookup_rarity_albedo": [
+   "character:albedo"
+  ],
+  "lookup_region_albedo": [
+   "character:albedo"
+  ],
+  "lookup_element_alhaitham": [
+   "character:alhaitham"
+  ],
+  "lookup_weapon_alhaitham": [
+   "character:alhaitham"
+  ],
+  "lookup_rarity_alhaitham": [
+   "character:alhaitham"
+  ],
+  "lookup_region_alhaitham": [
+   "character:alhaitham"
+  ],
+  "lookup_element_aloy": [
+   "character:aloy"
+  ],
+  "lookup_weapon_aloy": [
+   "character:aloy"
+  ],
+  "lookup_rarity_aloy": [
+   "character:aloy"
+  ],
+  "lookup_element_alyosha": [
+   "character:alyosha"
+  ],
+  "lookup_weapon_alyosha": [
+   "character:alyosha"
+  ],
+  "lookup_rarity_alyosha": [
+   "character:alyosha"
+  ],
+  "lookup_element_amber": [
+   "character:amber"
+  ],
+  "lookup_weapon_amber": [
+   "character:amber"
+  ],
+  "lookup_rarity_amber": [
+   "character:amber"
+  ],
+  "lookup_region_amber": [
+   "character:amber"
+  ],
+  "lookup_element_aratakiitto": [
+   "character:aratakiitto"
+  ],
+  "lookup_weapon_aratakiitto": [
+   "character:aratakiitto"
+  ],
+  "lookup_rarity_aratakiitto": [
+   "character:aratakiitto"
+  ],
+  "lookup_region_aratakiitto": [
+   "character:aratakiitto"
+  ],
+  "lookup_element_arlecchino": [
+   "character:arlecchino"
+  ],
+  "lookup_weapon_arlecchino": [
+   "character:arlecchino"
+  ],
+  "lookup_rarity_arlecchino": [
+   "character:arlecchino"
+  ],
+  "lookup_region_arlecchino": [
+   "character:arlecchino"
+  ],
+  "lookup_element_baizhu": [
+   "character:baizhu"
+  ],
+  "lookup_weapon_baizhu": [
+   "character:baizhu"
+  ],
+  "lookup_rarity_baizhu": [
+   "character:baizhu"
+  ],
+  "lookup_region_baizhu": [
+   "character:baizhu"
+  ],
+  "lookup_element_barbara": [
+   "character:barbara"
+  ],
+  "lookup_weapon_barbara": [
+   "character:barbara"
+  ],
+  "lookup_rarity_barbara": [
+   "character:barbara"
+  ],
+  "lookup_region_barbara": [
+   "character:barbara"
+  ],
+  "lookup_element_beidou": [
+   "character:beidou"
+  ],
+  "lookup_weapon_beidou": [
+   "character:beidou"
+  ],
+  "lookup_rarity_beidou": [
+   "character:beidou"
+  ],
+  "lookup_region_beidou": [
+   "character:beidou"
+  ],
+  "lookup_element_bennett": [
+   "character:bennett"
+  ],
+  "lookup_weapon_bennett": [
+   "character:bennett"
+  ],
+  "lookup_rarity_bennett": [
+   "character:bennett"
+  ],
+  "lookup_region_bennett": [
+   "character:bennett"
+  ],
+  "lookup_element_candace": [
+   "character:candace"
+  ],
+  "lookup_weapon_candace": [
+   "character:candace"
+  ],
+  "lookup_rarity_candace": [
+   "character:candace"
+  ],
+  "lookup_region_candace": [
+   "character:candace"
+  ],
+  "lookup_element_charlotte": [
+   "character:charlotte"
+  ],
+  "lookup_weapon_charlotte": [
+   "character:charlotte"
+  ],
+  "lookup_rarity_charlotte": [
+   "character:charlotte"
+  ],
+  "lookup_region_charlotte": [
+   "character:charlotte"
+  ],
+  "lookup_element_chasca": [
+   "character:chasca"
+  ],
+  "lookup_weapon_chasca": [
+   "character:chasca"
+  ],
+  "lookup_rarity_chasca": [
+   "character:chasca"
+  ],
+  "lookup_region_chasca": [
+   "character:chasca"
+  ],
+  "lookup_element_chevreuse": [
+   "character:chevreuse"
+  ],
+  "lookup_weapon_chevreuse": [
+   "character:chevreuse"
+  ],
+  "lookup_rarity_chevreuse": [
+   "character:chevreuse"
+  ],
+  "lookup_region_chevreuse": [
+   "character:chevreuse"
+  ],
+  "lookup_element_chiori": [
+   "character:chiori"
+  ],
+  "lookup_weapon_chiori": [
+   "character:chiori"
+  ],
+  "lookup_rarity_chiori": [
+   "character:chiori"
+  ],
+  "lookup_region_chiori": [
+   "character:chiori"
+  ],
+  "lookup_element_chongyun": [
+   "character:chongyun"
+  ],
+  "lookup_weapon_chongyun": [
+   "character:chongyun"
+  ],
+  "lookup_rarity_chongyun": [
+   "character:chongyun"
+  ],
+  "lookup_region_chongyun": [
+   "character:chongyun"
+  ],
+  "lookup_element_citlali": [
+   "character:citlali"
+  ],
+  "lookup_weapon_citlali": [
+   "character:citlali"
+  ],
+  "lookup_rarity_citlali": [
+   "character:citlali"
+  ],
+  "lookup_region_citlali": [
+   "character:citlali"
+  ],
+  "lookup_element_clorinde": [
+   "character:clorinde"
+  ],
+  "lookup_weapon_clorinde": [
+   "character:clorinde"
+  ],
+  "lookup_rarity_clorinde": [
+   "character:clorinde"
+  ],
+  "lookup_region_clorinde": [
+   "character:clorinde"
+  ],
+  "lookup_element_collei": [
+   "character:collei"
+  ],
+  "lookup_weapon_collei": [
+   "character:collei"
+  ],
+  "lookup_rarity_collei": [
+   "character:collei"
+  ],
+  "lookup_region_collei": [
+   "character:collei"
+  ],
+  "lookup_element_columbina": [
+   "character:columbina"
+  ],
+  "lookup_weapon_columbina": [
+   "character:columbina"
+  ],
+  "lookup_rarity_columbina": [
+   "character:columbina"
+  ],
+  "lookup_region_columbina": [
+   "character:columbina"
+  ],
+  "lookup_element_cyno": [
+   "character:cyno"
+  ],
+  "lookup_weapon_cyno": [
+   "character:cyno"
+  ],
+  "lookup_rarity_cyno": [
+   "character:cyno"
+  ],
+  "lookup_region_cyno": [
+   "character:cyno"
+  ],
+  "lookup_element_dahlia": [
+   "character:dahlia"
+  ],
+  "lookup_weapon_dahlia": [
+   "character:dahlia"
+  ],
+  "lookup_rarity_dahlia": [
+   "character:dahlia"
+  ],
+  "lookup_region_dahlia": [
+   "character:dahlia"
+  ],
+  "lookup_element_dehya": [
+   "character:dehya"
+  ],
+  "lookup_weapon_dehya": [
+   "character:dehya"
+  ],
+  "lookup_rarity_dehya": [
+   "character:dehya"
+  ],
+  "lookup_region_dehya": [
+   "character:dehya"
+  ],
+  "lookup_element_diluc": [
+   "character:diluc"
+  ],
+  "lookup_weapon_diluc": [
+   "character:diluc"
+  ],
+  "lookup_rarity_diluc": [
+   "character:diluc"
+  ],
+  "lookup_region_diluc": [
+   "character:diluc"
+  ],
+  "lookup_element_diona": [
+   "character:diona"
+  ],
+  "lookup_weapon_diona": [
+   "character:diona"
+  ],
+  "lookup_rarity_diona": [
+   "character:diona"
+  ],
+  "lookup_region_diona": [
+   "character:diona"
+  ],
+  "lookup_element_dori": [
+   "character:dori"
+  ],
+  "lookup_weapon_dori": [
+   "character:dori"
+  ],
+  "lookup_rarity_dori": [
+   "character:dori"
+  ],
+  "lookup_region_dori": [
+   "character:dori"
+  ],
+  "lookup_element_durin": [
+   "character:durin"
+  ],
+  "lookup_weapon_durin": [
+   "character:durin"
+  ],
+  "lookup_rarity_durin": [
+   "character:durin"
+  ],
+  "lookup_region_durin": [
+   "character:durin"
+  ],
+  "lookup_element_emilie": [
+   "character:emilie"
+  ],
+  "lookup_weapon_emilie": [
+   "character:emilie"
+  ],
+  "lookup_rarity_emilie": [
+   "character:emilie"
+  ],
+  "lookup_region_emilie": [
+   "character:emilie"
+  ],
+  "lookup_element_escoffier": [
+   "character:escoffier"
+  ],
+  "lookup_weapon_escoffier": [
+   "character:escoffier"
+  ],
+  "lookup_rarity_escoffier": [
+   "character:escoffier"
+  ],
+  "lookup_region_escoffier": [
+   "character:escoffier"
+  ],
+  "lookup_element_eula": [
+   "character:eula"
+  ],
+  "lookup_weapon_eula": [
+   "character:eula"
+  ],
+  "lookup_rarity_eula": [
+   "character:eula"
+  ],
+  "lookup_region_eula": [
+   "character:eula"
+  ],
+  "lookup_element_faruzan": [
+   "character:faruzan"
+  ],
+  "lookup_weapon_faruzan": [
+   "character:faruzan"
+  ],
+  "lookup_rarity_faruzan": [
+   "character:faruzan"
+  ],
+  "lookup_region_faruzan": [
+   "character:faruzan"
+  ],
+  "lookup_element_fischl": [
+   "character:fischl"
+  ],
+  "lookup_weapon_fischl": [
+   "character:fischl"
+  ],
+  "lookup_rarity_fischl": [
+   "character:fischl"
+  ],
+  "lookup_region_fischl": [
+   "character:fischl"
+  ],
+  "lookup_element_flins": [
+   "character:flins"
+  ],
+  "lookup_weapon_flins": [
+   "character:flins"
+  ],
+  "lookup_rarity_flins": [
+   "character:flins"
+  ],
+  "lookup_region_flins": [
+   "character:flins"
+  ],
+  "lookup_element_freminet": [
+   "character:freminet"
+  ],
+  "lookup_weapon_freminet": [
+   "character:freminet"
+  ],
+  "lookup_rarity_freminet": [
+   "character:freminet"
+  ],
+  "lookup_region_freminet": [
+   "character:freminet"
+  ],
+  "lookup_element_furina": [
+   "character:furina"
+  ],
+  "lookup_weapon_furina": [
+   "character:furina"
+  ],
+  "lookup_rarity_furina": [
+   "character:furina"
+  ],
+  "lookup_region_furina": [
+   "character:furina"
+  ],
+  "lookup_element_gaming": [
+   "character:gaming"
+  ],
+  "lookup_weapon_gaming": [
+   "character:gaming"
+  ],
+  "lookup_rarity_gaming": [
+   "character:gaming"
+  ],
+  "lookup_region_gaming": [
+   "character:gaming"
+  ],
+  "lookup_element_ganyu": [
+   "character:ganyu"
+  ],
+  "lookup_weapon_ganyu": [
+   "character:ganyu"
+  ],
+  "lookup_rarity_ganyu": [
+   "character:ganyu"
+  ],
+  "lookup_region_ganyu": [
+   "character:ganyu"
+  ],
+  "lookup_element_gorou": [
+   "character:gorou"
+  ],
+  "lookup_weapon_gorou": [
+   "character:gorou"
+  ],
+  "lookup_rarity_gorou": [
+   "character:gorou"
+  ],
+  "lookup_region_gorou": [
+   "character:gorou"
+  ],
+  "lookup_element_hutao": [
+   "character:hutao"
+  ],
+  "lookup_weapon_hutao": [
+   "character:hutao"
+  ],
+  "lookup_rarity_hutao": [
+   "character:hutao"
+  ],
+  "lookup_region_hutao": [
+   "character:hutao"
+  ],
+  "lookup_element_iansan": [
+   "character:iansan"
+  ],
+  "lookup_weapon_iansan": [
+   "character:iansan"
+  ],
+  "lookup_rarity_iansan": [
+   "character:iansan"
+  ],
+  "lookup_region_iansan": [
+   "character:iansan"
+  ],
+  "lookup_element_ifa": [
+   "character:ifa"
+  ],
+  "lookup_weapon_ifa": [
+   "character:ifa"
+  ],
+  "lookup_rarity_ifa": [
+   "character:ifa"
+  ],
+  "lookup_region_ifa": [
+   "character:ifa"
+  ],
+  "lookup_element_illuga": [
+   "character:illuga"
+  ],
+  "lookup_weapon_illuga": [
+   "character:illuga"
+  ],
+  "lookup_rarity_illuga": [
+   "character:illuga"
+  ],
+  "lookup_region_illuga": [
+   "character:illuga"
+  ],
+  "lookup_element_ineffa": [
+   "character:ineffa"
+  ],
+  "lookup_weapon_ineffa": [
+   "character:ineffa"
+  ],
+  "lookup_rarity_ineffa": [
+   "character:ineffa"
+  ],
+  "lookup_region_ineffa": [
+   "character:ineffa"
+  ],
+  "lookup_element_jahoda": [
+   "character:jahoda"
+  ],
+  "lookup_weapon_jahoda": [
+   "character:jahoda"
+  ],
+  "lookup_rarity_jahoda": [
+   "character:jahoda"
+  ],
+  "lookup_region_jahoda": [
+   "character:jahoda"
+  ],
+  "lookup_element_jean": [
+   "character:jean"
+  ],
+  "lookup_weapon_jean": [
+   "character:jean"
+  ],
+  "lookup_rarity_jean": [
+   "character:jean"
+  ],
+  "lookup_region_jean": [
+   "character:jean"
+  ],
+  "lookup_element_kachina": [
+   "character:kachina"
+  ],
+  "lookup_weapon_kachina": [
+   "character:kachina"
+  ],
+  "lookup_rarity_kachina": [
+   "character:kachina"
+  ],
+  "lookup_region_kachina": [
+   "character:kachina"
+  ],
+  "lookup_element_kaedeharakazuha": [
+   "character:kaedeharakazuha"
+  ],
+  "lookup_weapon_kaedeharakazuha": [
+   "character:kaedeharakazuha"
+  ],
+  "lookup_rarity_kaedeharakazuha": [
+   "character:kaedeharakazuha"
+  ],
+  "lookup_region_kaedeharakazuha": [
+   "character:kaedeharakazuha"
+  ],
+  "lookup_element_kaeya": [
+   "character:kaeya"
+  ],
+  "lookup_weapon_kaeya": [
+   "character:kaeya"
+  ],
+  "lookup_rarity_kaeya": [
+   "character:kaeya"
+  ],
+  "lookup_region_kaeya": [
+   "character:kaeya"
+  ],
+  "lookup_element_kamisatoayaka": [
+   "character:kamisatoayaka"
+  ],
+  "lookup_weapon_kamisatoayaka": [
+   "character:kamisatoayaka"
+  ],
+  "lookup_rarity_kamisatoayaka": [
+   "character:kamisatoayaka"
+  ],
+  "lookup_region_kamisatoayaka": [
+   "character:kamisatoayaka"
+  ],
+  "lookup_element_kamisatoayato": [
+   "character:kamisatoayato"
+  ],
+  "lookup_weapon_kamisatoayato": [
+   "character:kamisatoayato"
+  ],
+  "lookup_rarity_kamisatoayato": [
+   "character:kamisatoayato"
+  ],
+  "lookup_region_kamisatoayato": [
+   "character:kamisatoayato"
+  ],
+  "lookup_element_kaveh": [
+   "character:kaveh"
+  ],
+  "lookup_weapon_kaveh": [
+   "character:kaveh"
+  ],
+  "lookup_rarity_kaveh": [
+   "character:kaveh"
+  ],
+  "lookup_region_kaveh": [
+   "character:kaveh"
+  ],
+  "lookup_element_keqing": [
+   "character:keqing"
+  ],
+  "lookup_weapon_keqing": [
+   "character:keqing"
+  ],
+  "lookup_rarity_keqing": [
+   "character:keqing"
+  ],
+  "lookup_region_keqing": [
+   "character:keqing"
+  ],
+  "lookup_element_kinich": [
+   "character:kinich"
+  ],
+  "lookup_weapon_kinich": [
+   "character:kinich"
+  ],
+  "lookup_rarity_kinich": [
+   "character:kinich"
+  ],
+  "lookup_region_kinich": [
+   "character:kinich"
+  ],
+  "lookup_element_kirara": [
+   "character:kirara"
+  ],
+  "lookup_weapon_kirara": [
+   "character:kirara"
+  ],
+  "lookup_rarity_kirara": [
+   "character:kirara"
+  ],
+  "lookup_region_kirara": [
+   "character:kirara"
+  ],
+  "lookup_element_klee": [
+   "character:klee"
+  ],
+  "lookup_weapon_klee": [
+   "character:klee"
+  ],
+  "lookup_rarity_klee": [
+   "character:klee"
+  ],
+  "lookup_region_klee": [
+   "character:klee"
+  ],
+  "lookup_element_kujousara": [
+   "character:kujousara"
+  ],
+  "lookup_weapon_kujousara": [
+   "character:kujousara"
+  ],
+  "lookup_rarity_kujousara": [
+   "character:kujousara"
+  ],
+  "lookup_region_kujousara": [
+   "character:kujousara"
+  ],
+  "lookup_element_kukishinobu": [
+   "character:kukishinobu"
+  ],
+  "lookup_weapon_kukishinobu": [
+   "character:kukishinobu"
+  ],
+  "lookup_rarity_kukishinobu": [
+   "character:kukishinobu"
+  ],
+  "lookup_region_kukishinobu": [
+   "character:kukishinobu"
+  ],
+  "lookup_element_lanyan": [
+   "character:lanyan"
+  ],
+  "lookup_weapon_lanyan": [
+   "character:lanyan"
+  ],
+  "lookup_rarity_lanyan": [
+   "character:lanyan"
+  ],
+  "lookup_region_lanyan": [
+   "character:lanyan"
+  ],
+  "lookup_element_lauma": [
+   "character:lauma"
+  ],
+  "lookup_weapon_lauma": [
+   "character:lauma"
+  ],
+  "lookup_rarity_lauma": [
+   "character:lauma"
+  ],
+  "lookup_region_lauma": [
+   "character:lauma"
+  ],
+  "lookup_element_layla": [
+   "character:layla"
+  ],
+  "lookup_weapon_layla": [
+   "character:layla"
+  ],
+  "lookup_rarity_layla": [
+   "character:layla"
+  ],
+  "lookup_region_layla": [
+   "character:layla"
+  ],
+  "lookup_element_linnea": [
+   "character:linnea"
+  ],
+  "lookup_weapon_linnea": [
+   "character:linnea"
+  ],
+  "lookup_rarity_linnea": [
+   "character:linnea"
+  ],
+  "lookup_region_linnea": [
+   "character:linnea"
+  ],
+  "lookup_element_lisa": [
+   "character:lisa"
+  ],
+  "lookup_weapon_lisa": [
+   "character:lisa"
+  ],
+  "lookup_rarity_lisa": [
+   "character:lisa"
+  ],
+  "lookup_region_lisa": [
+   "character:lisa"
+  ],
+  "lookup_element_lohen": [
+   "character:lohen"
+  ],
+  "lookup_weapon_lohen": [
+   "character:lohen"
+  ],
+  "lookup_rarity_lohen": [
+   "character:lohen"
+  ],
+  "lookup_region_lohen": [
+   "character:lohen"
+  ],
+  "lookup_weapon_lumine": [
+   "character:lumine"
+  ],
+  "lookup_rarity_lumine": [
+   "character:lumine"
+  ],
+  "lookup_element_lynette": [
+   "character:lynette"
+  ],
+  "lookup_weapon_lynette": [
+   "character:lynette"
+  ],
+  "lookup_rarity_lynette": [
+   "character:lynette"
+  ],
+  "lookup_region_lynette": [
+   "character:lynette"
+  ],
+  "lookup_element_lyney": [
+   "character:lyney"
+  ],
+  "lookup_weapon_lyney": [
+   "character:lyney"
+  ],
+  "lookup_rarity_lyney": [
+   "character:lyney"
+  ],
+  "lookup_region_lyney": [
+   "character:lyney"
+  ],
+  "lookup_weapon_manekin": [
+   "character:manekin"
+  ],
+  "lookup_rarity_manekin": [
+   "character:manekin"
+  ],
+  "lookup_weapon_manekina": [
+   "character:manekina"
+  ],
+  "lookup_rarity_manekina": [
+   "character:manekina"
+  ],
+  "lookup_element_mavuika": [
+   "character:mavuika"
+  ],
+  "lookup_weapon_mavuika": [
+   "character:mavuika"
+  ],
+  "lookup_rarity_mavuika": [
+   "character:mavuika"
+  ],
+  "lookup_region_mavuika": [
+   "character:mavuika"
+  ],
+  "lookup_element_mika": [
+   "character:mika"
+  ],
+  "lookup_weapon_mika": [
+   "character:mika"
+  ],
+  "lookup_rarity_mika": [
+   "character:mika"
+  ],
+  "lookup_region_mika": [
+   "character:mika"
+  ],
+  "lookup_element_mona": [
+   "character:mona"
+  ],
+  "lookup_weapon_mona": [
+   "character:mona"
+  ],
+  "lookup_rarity_mona": [
+   "character:mona"
+  ],
+  "lookup_region_mona": [
+   "character:mona"
+  ],
+  "lookup_element_mualani": [
+   "character:mualani"
+  ],
+  "lookup_weapon_mualani": [
+   "character:mualani"
+  ],
+  "lookup_rarity_mualani": [
+   "character:mualani"
+  ],
+  "lookup_region_mualani": [
+   "character:mualani"
+  ],
+  "lookup_element_nahida": [
+   "character:nahida"
+  ],
+  "lookup_weapon_nahida": [
+   "character:nahida"
+  ],
+  "lookup_rarity_nahida": [
+   "character:nahida"
+  ],
+  "lookup_region_nahida": [
+   "character:nahida"
+  ],
+  "lookup_element_navia": [
+   "character:navia"
+  ],
+  "lookup_weapon_navia": [
+   "character:navia"
+  ],
+  "lookup_rarity_navia": [
+   "character:navia"
+  ],
+  "lookup_region_navia": [
+   "character:navia"
+  ],
+  "lookup_element_nefer": [
+   "character:nefer"
+  ],
+  "lookup_weapon_nefer": [
+   "character:nefer"
+  ],
+  "lookup_rarity_nefer": [
+   "character:nefer"
+  ],
+  "lookup_region_nefer": [
+   "character:nefer"
+  ],
+  "lookup_element_neuvillette": [
+   "character:neuvillette"
+  ],
+  "lookup_weapon_neuvillette": [
+   "character:neuvillette"
+  ],
+  "lookup_rarity_neuvillette": [
+   "character:neuvillette"
+  ],
+  "lookup_region_neuvillette": [
+   "character:neuvillette"
+  ],
+  "lookup_element_nicole": [
+   "character:nicole"
+  ],
+  "lookup_weapon_nicole": [
+   "character:nicole"
+  ],
+  "lookup_rarity_nicole": [
+   "character:nicole"
+  ],
+  "lookup_element_nilou": [
+   "character:nilou"
+  ],
+  "lookup_weapon_nilou": [
+   "character:nilou"
+  ],
+  "lookup_rarity_nilou": [
+   "character:nilou"
+  ],
+  "lookup_region_nilou": [
+   "character:nilou"
+  ],
+  "lookup_element_ningguang": [
+   "character:ningguang"
+  ],
+  "lookup_weapon_ningguang": [
+   "character:ningguang"
+  ],
+  "lookup_rarity_ningguang": [
+   "character:ningguang"
+  ],
+  "lookup_region_ningguang": [
+   "character:ningguang"
+  ],
+  "lookup_element_noelle": [
+   "character:noelle"
+  ],
+  "lookup_weapon_noelle": [
+   "character:noelle"
+  ],
+  "lookup_rarity_noelle": [
+   "character:noelle"
+  ],
+  "lookup_region_noelle": [
+   "character:noelle"
+  ],
+  "lookup_element_odette": [
+   "character:odette"
+  ],
+  "lookup_weapon_odette": [
+   "character:odette"
+  ],
+  "lookup_rarity_odette": [
+   "character:odette"
+  ],
+  "lookup_element_ororon": [
+   "character:ororon"
+  ],
+  "lookup_weapon_ororon": [
+   "character:ororon"
+  ],
+  "lookup_rarity_ororon": [
+   "character:ororon"
+  ],
+  "lookup_region_ororon": [
+   "character:ororon"
+  ],
+  "lookup_element_prune": [
+   "character:prune"
+  ],
+  "lookup_weapon_prune": [
+   "character:prune"
+  ],
+  "lookup_rarity_prune": [
+   "character:prune"
+  ],
+  "lookup_region_prune": [
+   "character:prune"
+  ],
+  "lookup_element_qiqi": [
+   "character:qiqi"
+  ],
+  "lookup_weapon_qiqi": [
+   "character:qiqi"
+  ],
+  "lookup_rarity_qiqi": [
+   "character:qiqi"
+  ],
+  "lookup_region_qiqi": [
+   "character:qiqi"
+  ],
+  "lookup_element_raidenshogun": [
+   "character:raidenshogun"
+  ],
+  "lookup_weapon_raidenshogun": [
+   "character:raidenshogun"
+  ],
+  "lookup_rarity_raidenshogun": [
+   "character:raidenshogun"
+  ],
+  "lookup_region_raidenshogun": [
+   "character:raidenshogun"
+  ],
+  "lookup_element_razor": [
+   "character:razor"
+  ],
+  "lookup_weapon_razor": [
+   "character:razor"
+  ],
+  "lookup_rarity_razor": [
+   "character:razor"
+  ],
+  "lookup_region_razor": [
+   "character:razor"
+  ],
+  "lookup_element_rosaria": [
+   "character:rosaria"
+  ],
+  "lookup_weapon_rosaria": [
+   "character:rosaria"
+  ],
+  "lookup_rarity_rosaria": [
+   "character:rosaria"
+  ],
+  "lookup_region_rosaria": [
+   "character:rosaria"
+  ],
+  "lookup_element_sandrone": [
+   "character:sandrone"
+  ],
+  "lookup_weapon_sandrone": [
+   "character:sandrone"
+  ],
+  "lookup_rarity_sandrone": [
+   "character:sandrone"
+  ],
+  "lookup_element_sangonomiyakokomi": [
+   "character:sangonomiyakokomi"
+  ],
+  "lookup_weapon_sangonomiyakokomi": [
+   "character:sangonomiyakokomi"
+  ],
+  "lookup_rarity_sangonomiyakokomi": [
+   "character:sangonomiyakokomi"
+  ],
+  "lookup_region_sangonomiyakokomi": [
+   "character:sangonomiyakokomi"
+  ],
+  "lookup_element_sayu": [
+   "character:sayu"
+  ],
+  "lookup_weapon_sayu": [
+   "character:sayu"
+  ],
+  "lookup_rarity_sayu": [
+   "character:sayu"
+  ],
+  "lookup_region_sayu": [
+   "character:sayu"
+  ],
+  "lookup_element_sethos": [
+   "character:sethos"
+  ],
+  "lookup_weapon_sethos": [
+   "character:sethos"
+  ],
+  "lookup_rarity_sethos": [
+   "character:sethos"
+  ],
+  "lookup_region_sethos": [
+   "character:sethos"
+  ],
+  "lookup_element_shenhe": [
+   "character:shenhe"
+  ],
+  "lookup_weapon_shenhe": [
+   "character:shenhe"
+  ],
+  "lookup_rarity_shenhe": [
+   "character:shenhe"
+  ],
+  "lookup_region_shenhe": [
+   "character:shenhe"
+  ],
+  "lookup_element_shikanoinheizou": [
+   "character:shikanoinheizou"
+  ],
+  "lookup_weapon_shikanoinheizou": [
+   "character:shikanoinheizou"
+  ],
+  "lookup_rarity_shikanoinheizou": [
+   "character:shikanoinheizou"
+  ],
+  "lookup_region_shikanoinheizou": [
+   "character:shikanoinheizou"
+  ],
+  "lookup_element_sigewinne": [
+   "character:sigewinne"
+  ],
+  "lookup_weapon_sigewinne": [
+   "character:sigewinne"
+  ],
+  "lookup_rarity_sigewinne": [
+   "character:sigewinne"
+  ],
+  "lookup_region_sigewinne": [
+   "character:sigewinne"
+  ],
+  "lookup_element_skirk": [
+   "character:skirk"
+  ],
+  "lookup_weapon_skirk": [
+   "character:skirk"
+  ],
+  "lookup_rarity_skirk": [
+   "character:skirk"
+  ],
+  "lookup_element_sucrose": [
+   "character:sucrose"
+  ],
+  "lookup_weapon_sucrose": [
+   "character:sucrose"
+  ],
+  "lookup_rarity_sucrose": [
+   "character:sucrose"
+  ],
+  "lookup_region_sucrose": [
+   "character:sucrose"
+  ],
+  "lookup_element_tartaglia": [
+   "character:tartaglia"
+  ],
+  "lookup_weapon_tartaglia": [
+   "character:tartaglia"
+  ],
+  "lookup_rarity_tartaglia": [
+   "character:tartaglia"
+  ],
+  "lookup_region_tartaglia": [
+   "character:tartaglia"
+  ],
+  "lookup_element_thoma": [
+   "character:thoma"
+  ],
+  "lookup_weapon_thoma": [
+   "character:thoma"
+  ],
+  "lookup_rarity_thoma": [
+   "character:thoma"
+  ],
+  "lookup_region_thoma": [
+   "character:thoma"
+  ],
+  "lookup_element_tighnari": [
+   "character:tighnari"
+  ],
+  "lookup_weapon_tighnari": [
+   "character:tighnari"
+  ],
+  "lookup_rarity_tighnari": [
+   "character:tighnari"
+  ],
+  "lookup_region_tighnari": [
+   "character:tighnari"
+  ],
+  "lookup_element_varesa": [
+   "character:varesa"
+  ],
+  "lookup_weapon_varesa": [
+   "character:varesa"
+  ],
+  "lookup_rarity_varesa": [
+   "character:varesa"
+  ],
+  "lookup_region_varesa": [
+   "character:varesa"
+  ],
+  "lookup_element_varka": [
+   "character:varka"
+  ],
+  "lookup_weapon_varka": [
+   "character:varka"
+  ],
+  "lookup_rarity_varka": [
+   "character:varka"
+  ],
+  "lookup_region_varka": [
+   "character:varka"
+  ],
+  "lookup_element_venti": [
+   "character:venti"
+  ],
+  "lookup_weapon_venti": [
+   "character:venti"
+  ],
+  "lookup_rarity_venti": [
+   "character:venti"
+  ],
+  "lookup_region_venti": [
+   "character:venti"
+  ],
+  "lookup_element_vesna": [
+   "character:vesna"
+  ],
+  "lookup_weapon_vesna": [
+   "character:vesna"
+  ],
+  "lookup_rarity_vesna": [
+   "character:vesna"
+  ],
+  "lookup_element_vodyanitsa": [
+   "character:vodyanitsa"
+  ],
+  "lookup_weapon_vodyanitsa": [
+   "character:vodyanitsa"
+  ],
+  "lookup_rarity_vodyanitsa": [
+   "character:vodyanitsa"
+  ],
+  "lookup_element_wanderer": [
+   "character:wanderer"
+  ],
+  "lookup_weapon_wanderer": [
+   "character:wanderer"
+  ],
+  "lookup_rarity_wanderer": [
+   "character:wanderer"
+  ],
+  "lookup_region_wanderer": [
+   "character:wanderer"
+  ],
+  "lookup_element_wriothesley": [
+   "character:wriothesley"
+  ],
+  "lookup_weapon_wriothesley": [
+   "character:wriothesley"
+  ],
+  "lookup_rarity_wriothesley": [
+   "character:wriothesley"
+  ],
+  "lookup_region_wriothesley": [
+   "character:wriothesley"
+  ],
+  "lookup_element_xiangling": [
+   "character:xiangling"
+  ],
+  "lookup_weapon_xiangling": [
+   "character:xiangling"
+  ],
+  "lookup_rarity_xiangling": [
+   "character:xiangling"
+  ],
+  "lookup_region_xiangling": [
+   "character:xiangling"
+  ],
+  "lookup_element_xianyun": [
+   "character:xianyun"
+  ],
+  "lookup_weapon_xianyun": [
+   "character:xianyun"
+  ],
+  "lookup_rarity_xianyun": [
+   "character:xianyun"
+  ],
+  "lookup_region_xianyun": [
+   "character:xianyun"
+  ],
+  "lookup_element_xiao": [
+   "character:xiao"
+  ],
+  "lookup_weapon_xiao": [
+   "character:xiao"
+  ],
+  "lookup_rarity_xiao": [
+   "character:xiao"
+  ],
+  "lookup_region_xiao": [
+   "character:xiao"
+  ],
+  "lookup_element_xilonen": [
+   "character:xilonen"
+  ],
+  "lookup_weapon_xilonen": [
+   "character:xilonen"
+  ],
+  "lookup_rarity_xilonen": [
+   "character:xilonen"
+  ],
+  "lookup_region_xilonen": [
+   "character:xilonen"
+  ],
+  "lookup_element_xingqiu": [
+   "character:xingqiu"
+  ],
+  "lookup_weapon_xingqiu": [
+   "character:xingqiu"
+  ],
+  "lookup_rarity_xingqiu": [
+   "character:xingqiu"
+  ],
+  "lookup_region_xingqiu": [
+   "character:xingqiu"
+  ],
+  "lookup_element_xinyan": [
+   "character:xinyan"
+  ],
+  "lookup_weapon_xinyan": [
+   "character:xinyan"
+  ],
+  "lookup_rarity_xinyan": [
+   "character:xinyan"
+  ],
+  "lookup_region_xinyan": [
+   "character:xinyan"
+  ],
+  "lookup_element_yaemiko": [
+   "character:yaemiko"
+  ],
+  "lookup_weapon_yaemiko": [
+   "character:yaemiko"
+  ],
+  "lookup_rarity_yaemiko": [
+   "character:yaemiko"
+  ],
+  "lookup_region_yaemiko": [
+   "character:yaemiko"
+  ],
+  "lookup_element_yanfei": [
+   "character:yanfei"
+  ],
+  "lookup_weapon_yanfei": [
+   "character:yanfei"
+  ],
+  "lookup_rarity_yanfei": [
+   "character:yanfei"
+  ],
+  "lookup_region_yanfei": [
+   "character:yanfei"
+  ],
+  "lookup_element_yaoyao": [
+   "character:yaoyao"
+  ],
+  "lookup_weapon_yaoyao": [
+   "character:yaoyao"
+  ],
+  "lookup_rarity_yaoyao": [
+   "character:yaoyao"
+  ],
+  "lookup_region_yaoyao": [
+   "character:yaoyao"
+  ],
+  "lookup_element_yelan": [
+   "character:yelan"
+  ],
+  "lookup_weapon_yelan": [
+   "character:yelan"
+  ],
+  "lookup_rarity_yelan": [
+   "character:yelan"
+  ],
+  "lookup_region_yelan": [
+   "character:yelan"
+  ],
+  "lookup_element_yoimiya": [
+   "character:yoimiya"
+  ],
+  "lookup_weapon_yoimiya": [
+   "character:yoimiya"
+  ],
+  "lookup_rarity_yoimiya": [
+   "character:yoimiya"
+  ],
+  "lookup_region_yoimiya": [
+   "character:yoimiya"
+  ],
+  "lookup_element_yumemizukimizuki": [
+   "character:yumemizukimizuki"
+  ],
+  "lookup_weapon_yumemizukimizuki": [
+   "character:yumemizukimizuki"
+  ],
+  "lookup_rarity_yumemizukimizuki": [
+   "character:yumemizukimizuki"
+  ],
+  "lookup_region_yumemizukimizuki": [
+   "character:yumemizukimizuki"
+  ],
+  "lookup_element_yunjin": [
+   "character:yunjin"
+  ],
+  "lookup_weapon_yunjin": [
+   "character:yunjin"
+  ],
+  "lookup_rarity_yunjin": [
+   "character:yunjin"
+  ],
+  "lookup_region_yunjin": [
+   "character:yunjin"
+  ],
+  "lookup_element_zhongli": [
+   "character:zhongli"
+  ],
+  "lookup_weapon_zhongli": [
+   "character:zhongli"
+  ],
+  "lookup_rarity_zhongli": [
+   "character:zhongli"
+  ],
+  "lookup_region_zhongli": [
+   "character:zhongli"
+  ],
+  "lookup_element_zibai": [
+   "character:zibai"
+  ],
+  "lookup_weapon_zibai": [
+   "character:zibai"
+  ],
+  "lookup_rarity_zibai": [
+   "character:zibai"
+  ],
+  "filter_element-물_rarity-4성": [
+   "character:aino",
+   "character:barbara",
+   "character:candace",
+   "character:xingqiu"
+  ],
+  "filter_element-물_rarity-5성": [
+   "character:columbina",
+   "character:kamisatoayato",
+   "character:mona",
+   "character:mualani",
+   "character:neuvillette",
+   "character:nilou",
+   "character:sangonomiyakokomi",
+   "character:sigewinne",
+   "character:tartaglia",
+   "character:vodyanitsa"
+  ],
+  "filter_element-바람_rarity-4성": [
+   "character:faruzan",
+   "character:ifa",
+   "character:jahoda",
+   "character:lanyan",
+   "character:lynette",
+   "character:prune",
+   "character:sayu",
+   "character:shikanoinheizou",
+   "character:sucrose"
+  ],
+  "filter_element-바람_rarity-5성": [
+   "character:chasca",
+   "character:jean",
+   "character:varka",
+   "character:venti",
+   "character:vesna",
+   "character:wanderer",
+   "character:xianyun",
+   "character:xiao",
+   "character:yumemizukimizuki"
+  ],
+  "filter_element-바위_rarity-4성": [
+   "character:gorou",
+   "character:illuga",
+   "character:kachina",
+   "character:ningguang",
+   "character:noelle",
+   "character:yunjin"
+  ],
+  "filter_element-바위_rarity-5성": [
+   "character:albedo",
+   "character:aratakiitto",
+   "character:chiori",
+   "character:linnea",
+   "character:navia",
+   "character:xilonen",
+   "character:zhongli",
+   "character:zibai"
+  ],
+  "filter_element-번개_rarity-4성": [
+   "character:dori",
+   "character:iansan",
+   "character:kujousara",
+   "character:kukishinobu",
+   "character:lisa",
+   "character:razor",
+   "character:sethos"
+  ],
+  "filter_element-번개_rarity-5성": [
+   "character:clorinde",
+   "character:cyno",
+   "character:flins",
+   "character:ineffa",
+   "character:keqing",
+   "character:raidenshogun",
+   "character:varesa",
+   "character:yaemiko"
+  ],
+  "filter_element-불_rarity-4성": [
+   "character:amber",
+   "character:bennett",
+   "character:chevreuse",
+   "character:gaming",
+   "character:thoma",
+   "character:xiangling",
+   "character:xinyan",
+   "character:yanfei"
+  ],
+  "filter_element-불_rarity-5성": [
+   "character:dehya",
+   "character:diluc",
+   "character:durin",
+   "character:hutao",
+   "character:klee",
+   "character:lyney",
+   "character:mavuika"
+  ],
+  "filter_element-얼음_rarity-4성": [
+   "character:charlotte",
+   "character:chongyun",
+   "character:diona",
+   "character:layla",
+   "character:mika"
+  ],
+  "filter_element-풀_rarity-4성": [
+   "character:collei",
+   "character:kaveh",
+   "character:kirara",
+   "character:yaoyao"
+  ],
+  "filter_element-풀_rarity-5성": [
+   "character:baizhu",
+   "character:emilie",
+   "character:kinich",
+   "character:lauma",
+   "character:nefer",
+   "character:tighnari"
+  ],
+  "filter_weapon-법구_rarity-4성": [
+   "character:barbara",
+   "character:charlotte",
+   "character:ifa",
+   "character:lanyan",
+   "character:lisa",
+   "character:ningguang",
+   "character:prune",
+   "character:shikanoinheizou",
+   "character:sucrose",
+   "character:yanfei"
+  ],
+  "filter_weapon-양손검_rarity-4성": [
+   "character:aino",
+   "character:chongyun",
+   "character:dori",
+   "character:gaming",
+   "character:kaveh",
+   "character:noelle",
+   "character:razor",
+   "character:sayu",
+   "character:xinyan"
+  ],
+  "filter_weapon-양손검_rarity-5성": [
+   "character:aratakiitto",
+   "character:dehya",
+   "character:diluc",
+   "character:eula",
+   "character:kinich",
+   "character:mavuika",
+   "character:navia",
+   "character:sandrone",
+   "character:varka"
+  ],
+  "filter_weapon-장병기_rarity-5성": [
+   "character:cyno",
+   "character:emilie",
+   "character:hutao",
+   "character:ineffa",
+   "character:lohen",
+   "character:raidenshogun",
+   "character:shenhe",
+   "character:xiao",
+   "character:zhongli"
+  ],
+  "filter_weapon-한손검_rarity-4성": [
+   "character:bennett",
+   "character:kirara",
+   "character:kukishinobu",
+   "character:layla",
+   "character:lynette",
+   "character:xingqiu"
+  ],
+  "filter_weapon-활_rarity-4성": [
+   "character:amber",
+   "character:collei",
+   "character:diona",
+   "character:faruzan",
+   "character:gorou",
+   "character:jahoda",
+   "character:kujousara",
+   "character:sethos"
+  ],
+  "filter_weapon-활_rarity-5성": [
+   "character:aloy",
+   "character:chasca",
+   "character:ganyu",
+   "character:lyney",
+   "character:sigewinne",
+   "character:tartaglia",
+   "character:tighnari",
+   "character:venti"
+  ],
+  "filter_element-물_weapon-법구": [
+   "character:barbara",
+   "character:columbina",
+   "character:mona",
+   "character:mualani",
+   "character:neuvillette",
+   "character:sangonomiyakokomi",
+   "character:vodyanitsa"
+  ],
+  "filter_element-물_weapon-양손검": [
+   "character:aino"
+  ],
+  "filter_element-물_weapon-장병기": [
+   "character:candace"
+  ],
+  "filter_element-물_weapon-한손검": [
+   "character:kamisatoayato",
+   "character:nilou",
+   "character:xingqiu"
+  ],
+  "filter_element-물_weapon-활": [
+   "character:sigewinne",
+   "character:tartaglia"
+  ],
+  "filter_element-바람_weapon-법구": [
+   "character:ifa",
+   "character:lanyan",
+   "character:prune",
+   "character:shikanoinheizou",
+   "character:sucrose",
+   "character:wanderer",
+   "character:xianyun",
+   "character:yumemizukimizuki"
+  ],
+  "filter_element-바람_weapon-양손검": [
+   "character:sayu",
+   "character:varka"
+  ],
+  "filter_element-바람_weapon-장병기": [
+   "character:xiao"
+  ],
+  "filter_element-바람_weapon-한손검": [
+   "character:jean",
+   "character:lynette",
+   "character:vesna"
+  ],
+  "filter_element-바람_weapon-활": [
+   "character:chasca",
+   "character:faruzan",
+   "character:jahoda",
+   "character:venti"
+  ],
+  "filter_element-바위_weapon-법구": [
+   "character:ningguang"
+  ],
+  "filter_element-바위_weapon-양손검": [
+   "character:aratakiitto",
+   "character:navia",
+   "character:noelle"
+  ],
+  "filter_element-바위_weapon-장병기": [
+   "character:illuga",
+   "character:kachina",
+   "character:yunjin",
+   "character:zhongli"
+  ],
+  "filter_element-바위_weapon-한손검": [
+   "character:albedo",
+   "character:chiori",
+   "character:xilonen",
+   "character:zibai"
+  ],
+  "filter_element-바위_weapon-활": [
+   "character:gorou"
+  ],
+  "filter_element-번개_weapon-법구": [
+   "character:lisa",
+   "character:varesa",
+   "character:yaemiko"
+  ],
+  "filter_element-번개_weapon-양손검": [
+   "character:dori",
+   "character:razor"
+  ],
+  "filter_element-번개_weapon-장병기": [
+   "character:cyno",
+   "character:iansan",
+   "character:ineffa",
+   "character:raidenshogun"
+  ],
+  "filter_element-번개_weapon-한손검": [
+   "character:clorinde",
+   "character:keqing",
+   "character:kukishinobu"
+  ],
+  "filter_element-번개_weapon-활": [
+   "character:kujousara",
+   "character:sethos"
+  ],
+  "filter_element-불_weapon-법구": [
+   "character:klee",
+   "character:yanfei"
+  ],
+  "filter_element-불_weapon-양손검": [
+   "character:dehya",
+   "character:diluc",
+   "character:gaming",
+   "character:mavuika",
+   "character:xinyan"
+  ],
+  "filter_element-불_weapon-장병기": [
+   "character:chevreuse",
+   "character:hutao",
+   "character:thoma",
+   "character:xiangling"
+  ],
+  "filter_element-불_weapon-한손검": [
+   "character:bennett",
+   "character:durin"
+  ],
+  "filter_element-불_weapon-활": [
+   "character:amber",
+   "character:lyney"
+  ],
+  "filter_element-얼음_weapon-법구": [
+   "character:charlotte",
+   "character:citlali"
+  ],
+  "filter_element-얼음_weapon-양손검": [
+   "character:chongyun",
+   "character:eula",
+   "character:sandrone"
+  ],
+  "filter_element-얼음_weapon-장병기": [
+   "character:lohen",
+   "character:mika",
+   "character:shenhe"
+  ],
+  "filter_element-얼음_weapon-한손검": [
+   "character:kamisatoayaka",
+   "character:layla",
+   "character:odette",
+   "character:qiqi",
+   "character:skirk"
+  ],
+  "filter_element-얼음_weapon-활": [
+   "character:aloy",
+   "character:diona",
+   "character:ganyu"
+  ],
+  "filter_element-풀_weapon-법구": [
+   "character:baizhu",
+   "character:lauma",
+   "character:nefer"
+  ],
+  "filter_element-풀_weapon-양손검": [
+   "character:kaveh",
+   "character:kinich"
+  ],
+  "filter_element-풀_weapon-장병기": [
+   "character:emilie",
+   "character:yaoyao"
+  ],
+  "filter_element-풀_weapon-한손검": [
+   "character:alhaitham",
+   "character:kirara"
+  ],
+  "filter_element-풀_weapon-활": [
+   "character:collei",
+   "character:tighnari"
+  ],
+  "filter_region-나타_rarity-4성": [
+   "character:iansan",
+   "character:ifa",
+   "character:kachina"
+  ],
+  "filter_region-나타_rarity-5성": [
+   "character:chasca",
+   "character:citlali",
+   "character:kinich",
+   "character:mavuika",
+   "character:mualani",
+   "character:varesa",
+   "character:xilonen"
+  ],
+  "filter_region-노드크라이_rarity-4성": [
+   "character:aino",
+   "character:illuga",
+   "character:jahoda"
+  ],
+  "filter_region-노드크라이_rarity-5성": [
+   "character:columbina",
+   "character:ineffa",
+   "character:lauma",
+   "character:nefer"
+  ],
+  "filter_region-리월_rarity-4성": [
+   "character:chongyun",
+   "character:gaming",
+   "character:lanyan",
+   "character:ningguang",
+   "character:xiangling",
+   "character:xingqiu",
+   "character:xinyan",
+   "character:yanfei",
+   "character:yaoyao",
+   "character:yunjin"
+  ],
+  "filter_region-리월_rarity-5성": [
+   "character:baizhu",
+   "character:ganyu",
+   "character:hutao",
+   "character:keqing",
+   "character:qiqi",
+   "character:shenhe",
+   "character:xianyun",
+   "character:xiao",
+   "character:yelan",
+   "character:zhongli"
+  ],
+  "filter_region-몬드_rarity-4성": [
+   "character:amber",
+   "character:barbara",
+   "character:bennett",
+   "character:diona",
+   "character:lisa",
+   "character:mika",
+   "character:noelle",
+   "character:prune",
+   "character:razor",
+   "character:sucrose"
+  ],
+  "filter_region-몬드_rarity-5성": [
+   "character:albedo",
+   "character:diluc",
+   "character:durin",
+   "character:eula",
+   "character:jean",
+   "character:klee",
+   "character:lohen",
+   "character:mona",
+   "character:varka",
+   "character:venti"
+  ],
+  "filter_region-수메르_rarity-4성": [
+   "character:candace",
+   "character:collei",
+   "character:dori",
+   "character:faruzan",
+   "character:kaveh",
+   "character:layla",
+   "character:sethos"
+  ],
+  "filter_region-수메르_rarity-5성": [
+   "character:cyno",
+   "character:dehya",
+   "character:nilou",
+   "character:tighnari",
+   "character:wanderer"
+  ],
+  "filter_region-스네즈나야_rarity-5성": [
+   "character:tartaglia"
+  ],
+  "filter_region-이나즈마_rarity-4성": [
+   "character:gorou",
+   "character:kirara",
+   "character:kujousara",
+   "character:kukishinobu",
+   "character:sayu",
+   "character:shikanoinheizou",
+   "character:thoma"
+  ],
+  "filter_region-이나즈마_rarity-5성": [
+   "character:aratakiitto",
+   "character:chiori",
+   "character:kamisatoayaka",
+   "character:kamisatoayato",
+   "character:raidenshogun",
+   "character:sangonomiyakokomi",
+   "character:yaemiko",
+   "character:yumemizukimizuki"
+  ],
+  "filter_region-폰타인_rarity-4성": [
+   "character:charlotte",
+   "character:chevreuse",
+   "character:freminet",
+   "character:lynette"
+  ],
+  "filter_region-폰타인_rarity-5성": [
+   "character:clorinde",
+   "character:emilie",
+   "character:lyney",
+   "character:navia",
+   "character:neuvillette",
+   "character:sigewinne"
+  ],
+  "filter_region-나타_element-물": [
+   "character:mualani"
+  ],
+  "filter_region-나타_element-바람": [
+   "character:chasca",
+   "character:ifa"
+  ],
+  "filter_region-나타_element-바위": [
+   "character:kachina",
+   "character:xilonen"
+  ],
+  "filter_region-나타_element-번개": [
+   "character:iansan",
+   "character:varesa"
+  ],
+  "filter_region-나타_element-불": [
+   "character:mavuika"
+  ],
+  "filter_region-나타_element-얼음": [
+   "character:citlali"
+  ],
+  "filter_region-나타_element-풀": [
+   "character:kinich"
+  ],
+  "filter_region-노드크라이_element-물": [
+   "character:aino",
+   "character:columbina"
+  ],
+  "filter_region-노드크라이_element-바람": [
+   "character:jahoda"
+  ],
+  "filter_region-노드크라이_element-바위": [
+   "character:illuga",
+   "character:linnea"
+  ],
+  "filter_region-노드크라이_element-번개": [
+   "character:ineffa"
+  ],
+  "filter_region-노드크라이_element-풀": [
+   "character:lauma",
+   "character:nefer"
+  ],
+  "filter_region-리월_element-물": [
+   "character:xingqiu"
+  ],
+  "filter_region-리월_element-바람": [
+   "character:lanyan",
+   "character:xianyun",
+   "character:xiao"
+  ],
+  "filter_region-리월_element-바위": [
+   "character:ningguang",
+   "character:yunjin",
+   "character:zhongli"
+  ],
+  "filter_region-리월_element-번개": [
+   "character:keqing"
+  ],
+  "filter_region-리월_element-불": [
+   "character:gaming",
+   "character:hutao",
+   "character:xiangling",
+   "character:xinyan",
+   "character:yanfei"
+  ],
+  "filter_region-리월_element-얼음": [
+   "character:chongyun",
+   "character:ganyu",
+   "character:qiqi",
+   "character:shenhe"
+  ],
+  "filter_region-리월_element-풀": [
+   "character:baizhu",
+   "character:yaoyao"
+  ],
+  "filter_region-몬드_element-물": [
+   "character:barbara",
+   "character:mona"
+  ],
+  "filter_region-몬드_element-바람": [
+   "character:jean",
+   "character:prune",
+   "character:sucrose",
+   "character:varka",
+   "character:venti"
+  ],
+  "filter_region-몬드_element-바위": [
+   "character:albedo",
+   "character:noelle"
+  ],
+  "filter_region-몬드_element-번개": [
+   "character:lisa",
+   "character:razor"
+  ],
+  "filter_region-몬드_element-불": [
+   "character:amber",
+   "character:bennett",
+   "character:diluc",
+   "character:durin",
+   "character:klee"
+  ],
+  "filter_region-몬드_element-얼음": [
+   "character:diona",
+   "character:eula",
+   "character:lohen",
+   "character:mika"
+  ],
+  "filter_region-수메르_element-물": [
+   "character:candace",
+   "character:nilou"
+  ],
+  "filter_region-수메르_element-바람": [
+   "character:faruzan",
+   "character:wanderer"
+  ],
+  "filter_region-수메르_element-번개": [
+   "character:cyno",
+   "character:dori",
+   "character:sethos"
+  ],
+  "filter_region-수메르_element-불": [
+   "character:dehya"
+  ],
+  "filter_region-수메르_element-얼음": [
+   "character:layla"
+  ],
+  "filter_region-수메르_element-풀": [
+   "character:collei",
+   "character:kaveh",
+   "character:tighnari"
+  ],
+  "filter_region-스네즈나야_element-물": [
+   "character:tartaglia"
+  ],
+  "filter_region-이나즈마_element-물": [
+   "character:kamisatoayato",
+   "character:sangonomiyakokomi"
+  ],
+  "filter_region-이나즈마_element-바람": [
+   "character:kaedeharakazuha",
+   "character:sayu",
+   "character:shikanoinheizou",
+   "character:yumemizukimizuki"
+  ],
+  "filter_region-이나즈마_element-바위": [
+   "character:aratakiitto",
+   "character:chiori",
+   "character:gorou"
+  ],
+  "filter_region-이나즈마_element-번개": [
+   "character:kujousara",
+   "character:kukishinobu",
+   "character:raidenshogun",
+   "character:yaemiko"
+  ],
+  "filter_region-이나즈마_element-불": [
+   "character:thoma"
+  ],
+  "filter_region-이나즈마_element-얼음": [
+   "character:kamisatoayaka"
+  ],
+  "filter_region-이나즈마_element-풀": [
+   "character:kirara"
+  ],
+  "filter_region-폰타인_element-물": [
+   "character:neuvillette",
+   "character:sigewinne"
+  ],
+  "filter_region-폰타인_element-바람": [
+   "character:lynette"
+  ],
+  "filter_region-폰타인_element-바위": [
+   "character:navia"
+  ],
+  "filter_region-폰타인_element-번개": [
+   "character:clorinde"
+  ],
+  "filter_region-폰타인_element-불": [
+   "character:chevreuse",
+   "character:lyney"
+  ],
+  "filter_region-폰타인_element-얼음": [
+   "character:charlotte"
+  ],
+  "filter_region-폰타인_element-풀": [
+   "character:emilie"
+  ],
+  "unknown_00": [],
+  "unknown_01": [],
+  "unknown_02": [],
+  "unknown_03": [],
+  "unknown_04": [],
+  "unknown_05": [],
+  "unknown_06": [],
+  "unknown_07": [],
+  "unknown_08": [],
+  "unknown_09": [],
+  "unknown_10": [],
+  "unknown_11": [],
+  "unknown_12": [],
+  "unknown_13": [],
+  "unknown_14": [],
+  "unknown_15": []
+ }
+}
