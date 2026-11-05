@@ -1,0 +1,6 @@
+# 실제 LLM(Qwen)으로 챗봇 API를 돌릴 때만 필요 (GBA_ANSWERER=llm). 코랩에는 이미 깔려 있다.
+# torch는 컴퓨터마다 설치 방법이 다를 수 있다: https://pytorch.org/get-started/locally/
+#   맥(애플 실리콘)·리눅스 CPU는 아래 그대로, 윈도우 + NVIDIA GPU는 위 링크에서 CUDA 버전용 명령을 쓴다.
+torch>=2.2
+transformers>=4.45
+accelerate>=0.30
