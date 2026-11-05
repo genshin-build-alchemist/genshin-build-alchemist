@@ -13,6 +13,7 @@
   hit@k    : 정답 문서가 상위 k개 안에 하나라도 있으면 1   -> lookup의 주 지표
   recall@k : 정답 문서 중 상위 k개 안에 든 비율           -> filter의 주 지표
   all@k    : 정답 문서가 상위 k개 안에 모두 있으면 1        -> filter에서 '빠짐없이 찾았나'
+  precision@k : 상위 k개(결과가 k개보다 적으면 결과 전부) 중 정답 문서 비율 -> filter에서 '쓸데없는 근거가 섞였나'
 
 사용 (코랩·로컬 공통)
   from core.retrieval_eval import dev_questions, evaluate_retrieval, print_report
@@ -187,6 +188,7 @@ def score(retrieved, gold, ks=KS):
         out[f"hit@{k}"] = 1.0 if found else 0.0
         out[f"recall@{k}"] = len(found) / len(gold)
         out[f"all@{k}"] = 1.0 if found == gold else 0.0
+        out[f"precision@{k}"] = len(found) / min(k, len(ranked)) if ranked else 0.0
     return out
 
 
@@ -225,14 +227,14 @@ def evaluate_retrieval(search_fn, questions, ks=KS, kb=None, docs=None, eval_nam
             "per_question": per_question}
 
 
-def print_report(report, metrics=("hit@1", "hit@5", "recall@5", "recall@10", "all@30")):
+def print_report(report, metrics=("hit@1", "hit@5", "recall@5", "recall@10", "all@30", "precision@30")):
     print(f"문항 {report['n']}개 (채점 {report['scored'].get('all', 0)}개, unknown은 정답 근거가 없어 제외)"
           f", 평균 {report['avg_seconds'] * 1000:.1f}ms")
-    print(f"{'유형':<8}" + "".join(f"{m:>11}" for m in metrics))
+    print(f"{'유형':<8}" + "".join(f"{m:>13}" for m in metrics))
     for t in ("lookup", "filter", "all"):
         if t in report["by_type"]:
             row = report["by_type"][t]
-            print(f"{t:<8}" + "".join(f"{row.get(m, float('nan')):>11.3f}" for m in metrics))
+            print(f"{t:<8}" + "".join(f"{row.get(m, float('nan')):>13.3f}" for m in metrics))
 
 
 def by_note(report, metric="hit@1"):
@@ -253,7 +255,8 @@ def misses(report, metric="hit@1", max_items=10):
 # ─────────────────────────────────────────────────────────────
 # 기준점: 지금 키워드 검색 (core/router.py + core/retrieval.py)
 # ─────────────────────────────────────────────────────────────
-def keyword_search_fn(kb=None):
+def keyword_search_fn(kb=None, filter_mode=None):
+    """filter_mode: None(챗봇 기본 = 'all') / 'any'(예전 rag~rag_v4 방식). core/retrieval.py FILTER_MODE 참고."""
     from core.retrieval import retrieve
     from core.router import Router
     kb = kb or load_kb()
@@ -262,7 +265,7 @@ def keyword_search_fn(kb=None):
 
     def search(question, pool):
         chars = kb.characters if pool is None else [c for c in kb.characters if name_to_doc[c["name"]] in pool]
-        evidence = retrieve(router.route(question), kb, chars)
+        evidence = retrieve(router.route(question), kb, chars, filter_mode=filter_mode)
         return [name_to_doc[e["data"]["name"]] for e in evidence if e["kind"] == "character"]
     return search
 
@@ -277,6 +280,8 @@ def main(argv):
     for label, qs in (("DEV 60문항", dev_questions()), ("평가 115문항", eval_questions())):
         print(f"\n[키워드 검색 기준점 / {label}]")
         print_report(evaluate_retrieval(search, qs, kb=kb))
+    print("\n[참고: 예전 filter 방식(any, rag~rag_v4) / DEV 60문항]")
+    print_report(evaluate_retrieval(keyword_search_fn(kb, "any"), dev_questions(), kb=kb))
     print("\n[키워드 검색 기준점 / 말투 변형 질문 개발용 1,748문항]")
     report = evaluate_retrieval(search, csv_questions(STYLE_DEV, kb), kb=kb)
     print_report(report)

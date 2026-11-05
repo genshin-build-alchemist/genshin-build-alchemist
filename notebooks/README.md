@@ -9,7 +9,7 @@
 
 | 파일 | 하는 일 | 상태 |
 |---|---|---|
-| `01_eval_info.ipynb` | 1단계 캐릭터 정보 평가: 고정 평가셋(611문항), baseline · prompt_v2 · rag · rag_v3 · rag_v4 비교, 사람 질문 평가, 파인튜닝용 학습 질문 저장 | 사용 가능 |
+| `01_eval_info.ipynb` | 1단계 캐릭터 정보 평가: 고정 평가셋(611문항), baseline · prompt_v2 · rag · rag_v3 · rag_v4 · rag_v5 비교, 사람 질문 평가, 파인튜닝용 학습 질문 저장 | 사용 가능 |
 | `02_finetune_data.ipynb` | 파인튜닝 데이터셋 정제 ("근거 + 질문 → 정답", 평가셋과 분리) | 예정 |
 | `03_lora_train.ipynb` | LoRA 학습과 rag+lora 평가 | 예정 |
 | `04_gradio_demo.ipynb` | 실제 모델 Gradio 시연 (D) | 예정 |
@@ -47,9 +47,12 @@
 |---|---|---|---|---|
 | rag_v3 | (기준) 예시 3개에 근거를 붙임 | 0.486 | 0.563 | `results/baseline/info13_rag_v3.json` |
 | rag_v4 | 성급·지역 예시 1개씩 추가, 규칙 2줄 추가 (근거의 5성/4성 = 성급, '지역' = 출신 지역 / 조건 모두 만족) | 0.814 | 0.845 | `results/dev_rag_v4.json`, `results/info14_rag_v4.json` |
+| rag_v5 | rag_v4 프롬프트 그대로, **검색만** 조건을 모두 만족하는 캐릭터만 근거로 (filter 근거 평균 29.2개 → 3.8개) | (대기) | (대기) | `results/dev_rag_v5.json`, `results/info15_rag_v5.json` |
 
 - rag_v4: 캐릭터 조회 82문항 전부 정답 (성급 0.08 → 1.0, 지역 0.50 → 1.0). 조건 검색은 0.309 → 0.288로 개선되지 않음.
-- 조건 검색은 근거 문서가 평균 29개(최대 30개)라서, 조건에 안 맞는 캐릭터까지 답에 섞이는 것이 남은 문제입니다. 프롬프트만으로 줄일지, 검색에서 근거를 미리 줄일지 확인이 필요합니다.
+- 조건 검색은 근거 문서가 평균 29개(최대 30개)라서, 조건에 안 맞는 캐릭터까지 답에 섞이는 것이 남은 문제였습니다 (정밀도 0.21).
+- rag_v5: 검색에서 근거를 미리 줄입니다 (`core/retrieval.py`의 `FILTER_MODE = "all"`). 근거의 정밀도가 DEV에서 0.13 → 1.00이 되고 정답은 하나도 빠지지 않습니다 (`python3 -m core.retrieval_eval`).
+  rag~rag_v4는 예전 검색(`filter_mode="any"`)을 그대로 써서 결과가 재현됩니다 (611문항 x 5방법 프롬프트가 바뀌기 전과 같음을 확인).
 - 결과 JSON에는 질문별 응답 시간(`per_question[].seconds`)과 평균·최대 시간(`metrics.avg_seconds`, `max_seconds`)이 남습니다.
 
 주의

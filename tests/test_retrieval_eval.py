@@ -78,6 +78,11 @@ class ScoreTest(unittest.TestCase):
     def test_no_gold(self):
         self.assertIsNone(score(["a"], []))
 
+    def test_precision(self):
+        s = score(["a", "x", "b"], ["a", "b"], ks=(1, 2, 30))
+        self.assertEqual((s["precision@1"], s["precision@2"], s["precision@30"]), (1.0, 0.5, 2 / 3))
+        self.assertEqual(score([], ["a"], ks=(5,))["precision@5"], 0.0)
+
 
 class PoolTest(unittest.TestCase):
     def test_train_question_excludes_eval_characters(self):
@@ -125,6 +130,12 @@ class KeywordBaselineTest(unittest.TestCase):
             r = evaluate_retrieval(search, qs, kb=KB, docs=DOCS)
             self.assertEqual(r["by_type"]["lookup"]["hit@1"], 1.0)
             self.assertEqual(r["by_type"]["filter"]["all@30"], 1.0)
+            self.assertEqual(r["by_type"]["filter"]["precision@30"], 1.0)   # 조건을 모두 만족하는 근거만
+
+    def test_old_filter_mode_mixes_in_partial_matches(self):
+        r = evaluate_retrieval(keyword_search_fn(KB, "any"), dev_questions(DATA), kb=KB, docs=DOCS)
+        self.assertEqual(r["by_type"]["filter"]["all@30"], 1.0)
+        self.assertLess(r["by_type"]["filter"]["precision@30"], 0.3)
 
     def test_style_questions(self):
         r = evaluate_retrieval(keyword_search_fn(KB), csv_questions(STYLE_DEV, KB), kb=KB, docs=DOCS)

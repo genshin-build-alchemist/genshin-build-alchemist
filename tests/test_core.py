@@ -82,6 +82,29 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(len(r["answer"]), sum(1 for c in KB.characters
                                                if c["region"] == "몬드" and c["rarity"] == "5성"))
 
+    def test_filter_modes(self):
+        # 'all'(기본): 조건을 모두 만족하는 캐릭터만 / 'any'(예전): 하나라도 맞으면, 모두 맞는 캐릭터가 앞에
+        from core.retrieval import retrieve
+        rr = self.bot.router.route("몬드 출신 5성 캐릭터 누구 있어?")
+        full = {c["name"] for c in KB.characters if c["region"] == "몬드" and c["rarity"] == "5성"}
+        names_all = [e["data"]["name"] for e in retrieve(rr, KB)]
+        names_any = [e["data"]["name"] for e in retrieve(rr, KB, filter_mode="any")]
+        self.assertEqual(set(names_all), full)
+        self.assertGreater(len(names_any), len(names_all))
+        self.assertEqual(set(names_any[:len(full)]), full)
+        with self.assertRaises(ValueError):
+            retrieve(rr, KB, filter_mode="some")
+
+    def test_filter_without_full_match_is_not_found(self):
+        # 조건을 모두 만족하는 캐릭터가 없으면 근거 없음 -> 모델을 부르지 않고 '찾지 못했어요'
+        rr = self.bot.router.route("몬드 출신 바위 원소 활 캐릭터 알려줘")
+        self.assertEqual(rr.conditions, {"region": "몬드", "element": "바위", "weapon": "활"})
+        self.assertFalse(any(c["region"] == "몬드" and c["element"] == "바위" and c["weapon"] == "활"
+                             for c in KB.characters))          # 데이터에 없는 조합 (7.1 기준)
+        r = self.bot.ask("몬드 출신 바위 원소 활 캐릭터 알려줘")
+        self.assertFalse(r["found"])
+        self.assertEqual(r["answer"], [])
+
     def test_patch_questions(self):
         self.assertEqual(self.bot.ask("7.0 신규 캐릭터 누구야?")["answer"], ["알료샤", "오데트"])
         self.assertEqual(self.bot.ask("7.0에서 사유 뭐 바뀌었어?")["answer"], ["고유 특성 1", "명의 자리 4"])

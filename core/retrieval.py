@@ -14,6 +14,7 @@
 #         질문도 문서와 같은 모델 + normalize_embeddings=True + 앞말 없이 임베딩한다
 #  3. [ ] filter 경로 = 조건 필터 + 벡터: rr.conditions 로 먼저 거르고, 벡터는 걸러진 것 안에서 순위만
 #         (벡터만으로는 '활 + 수메르' 같은 여러 조건을 못 맞춘다. 버그 아님)
+#         키워드 검색은 이미 '조건 모두 만족'으로 바뀜 (FILTER_MODE = "all"). 벡터 검색도 같은 규칙을 지킨다
 #  4. [ ] 검색 정확도(Hit@k) 재기: core/retrieval_eval.py 맨 위 '사용' 참고 (정답 근거 = data/eval/evidence_info_v1.json)
 #         기준점(지금 키워드 검색): 템플릿 질문은 만점, 말투 변형 질문 hit@1 0.681 (띄어쓰기 없음 0.0)
 #         DEV 세트와 style_questions_dev.csv로만 비교하고, 평가 문항은 마지막에 한 번만 본다
@@ -27,6 +28,12 @@ from core.validate import recheck_reasons
 
 KIND_KO = {"characters": "캐릭터", "talents": "스킬", "constellations": "명의 자리", "weapons": "무기"}
 FILTER_TOP_K = 30
+# filter 경로에서 근거로 넘길 캐릭터
+#   all : 조건을 모두 만족하는 캐릭터만 (챗봇 기본). DB의 WHERE a AND b 와 같다
+#   any : 조건을 하나라도 만족하면 (예전 방식, rag~rag_v4 실험 결과를 재현할 때만)
+#         모델이 30명 중에서 조건을 직접 거르게 했더니 안 맞는 이름까지 따라 써서 정밀도가 0.21에 그쳤다 (info14_rag_v4)
+FILTER_MODES = ("all", "any")
+FILTER_MODE = "all"
 PATCH_MAX_LINES = 60
 
 
@@ -52,17 +59,22 @@ def _ev(kind, title, text, data):
     return {"kind": kind, "title": title, "text": text, "data": data}
 
 
-def retrieve(rr, kb, pool=None):
-    """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체)."""
+def retrieve(rr, kb, pool=None, filter_mode=None):
+    """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체).
+    filter_mode: 'all'(기본) / 'any'. 위 FILTER_MODE 설명 참고."""
     pool = kb.characters if pool is None else pool
     if rr.route == "lookup":
         return [_ev("character", c["name"], character_line(c), c) for c in pool if c["name"] == rr.character]
 
     if rr.route == "filter":
+        mode = filter_mode or FILTER_MODE
+        if mode not in FILTER_MODES:
+            raise ValueError(f"filter_mode는 {FILTER_MODES} 중 하나: {mode!r}")
+        need = len(rr.conditions) if mode == "all" else 1      # 맞아야 하는 조건 수
         scored = []
         for c in pool:
             score = sum(1 for f, v in rr.conditions.items() if c[f] == v)
-            if score:
+            if score >= need:
                 scored.append((-score, c["name"], c))
         return [_ev("character", c["name"], character_line(c), c) for _, _, c in sorted(scored)[:FILTER_TOP_K]]
 
