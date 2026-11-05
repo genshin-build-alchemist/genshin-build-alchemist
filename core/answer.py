@@ -16,15 +16,23 @@ from core.kb import slot_label
 #  1. [x] DEV 오답 보기: 셀 11에서 show_failures("dev_rag_v3", "lookup"), show_failures("dev_rag_v3", "filter")
 #  2. [x] 빈 답 줄이기: 근거가 있는데 [] 로 답한 문항 (빈 답 24개 중 unknown 4개를 빼면 약 20개)
 #         -> rag_v4: DEV 빈 답 24 -> 5 (4개는 unknown 정답), lookup 0.550 -> 1.000
-#  3. [ ] filter 정밀도 올리기: 조건에 안 맞는 이름까지 답함 (micro P 0.24)
+#  3. [-] filter 정밀도 올리기: 조건에 안 맞는 이름까지 답함 (micro P 0.24)
 #         -> rag_v4에서도 미해결 (DEV filter 0.199 -> 0.302, 평가 0.309 -> 0.288). 근거 문서가 평균 29개
+#         -> 프롬프트가 아니라 검색 문제라 B로 넘김 (TODO(B) 3번: 조건을 모두 만족하는 캐릭터만 근거로)
 #  4. [x] 새 프롬프트(rag_v4 ...)는 노트북 셀 7의 METHODS와 make_prompt()에 추가 -> 셀 10-1의 DEV_METHODS에 넣어 비교
 #         -> rag_v4: DEV macro F1 0.486 -> 0.814
 #  5. [x] DEV에서 가장 좋은 1개만 셀 10에서 평가 115문항으로 한 번 돌리기 (평가 결과를 보고 다시 고치지 않는다)
 #         -> rag_v4: 평가 115문항 macro F1 0.563 -> 0.845 (results/info14_rag_v4.json)
 #  6. [x] 고른 프롬프트를 아래 build_prompt()에 옮기기 (챗봇 API도 같은 프롬프트를 쓰게)
 #         -> method="rag_v4", LLMAnswerer 기본값도 rag_v4
-#  7. [ ] (강사님 답변 후) LoRA: 노트북 셀 13의 학습 질문으로 02_finetune_data, 03_lora_train
+#  7. [-] LoRA: 하지 않기로 함 (팀 결정)
+#  ── 다음 할 일 ──
+#  8. [ ] 일본어 섞임 후처리: 모델 답의 이름을 근거에 있는 이름 중 가장 비슷한 것으로 맞추기 ("라이デン 쇼군" -> "라이덴 쇼군")
+#         노트북 파싱 단계에 넣어 DEV로 먼저 확인 -> 효과 있으면 아래 parse_list_answer() 다음 단계로 챗봇에도 적용
+#  9. [ ] 모델 비교 (02_model_compare): rag_v4 프롬프트 고정, 모델만 바꿔 DEV로 macro F1·평균 응답 시간 비교
+#         예: Qwen2.5-1.5B(빠름) / Qwen2.5-7B 4bit(정확) / 한국어 모델 1개. 결과는 드라이브 results/ JSON
+#         -> 보고서에 '왜 Qwen2.5-3B를 골랐는지' 근거로 쓴다
+#  10. [ ] B가 조건 검색을 고치면 rag_v5(rag_v4 프롬프트 + 새 검색)를 DEV로 확인 -> 좋으면 평가 115문항 한 번
 #  규칙: 평가 115문항, 사람 질문, style_questions_v1.csv 결과는 프롬프트 고를 때 보지 않는다
 
 RULES = ("규칙:\n"
