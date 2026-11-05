@@ -22,6 +22,7 @@ class ApiTest(unittest.TestCase):
         r = self.client.get("/health")
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()["characters"], 124)
+        self.assertEqual(r.json()["model"], "mock-rule")          # 기본은 모의 답변기 (GBA_ANSWERER 없음)
 
     def test_ask(self):
         r = self.client.post("/ask", json={"question": "몬드 출신 5성 캐릭터 누구 있어?"})

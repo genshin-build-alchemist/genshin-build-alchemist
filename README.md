@@ -111,18 +111,44 @@ python3 db/make_seed.py && python3 db/make_documents_seed.py && psql "$DATABASE_
 - `characters`: 캐릭터 표, `chat_logs`: 대화 기록 (API 응답과 칸 이름을 맞춤)
 - API에서 대화 기록을 DB에 저장하는 부분은 아직 연결하지 않았습니다 (`api/main.py`의 TODO).
 
-## 코랩에서 실제 LLM 연결하기
+## 실제 모델로 API 실행하기
+
+API는 환경변수 `GBA_ANSWERER`로 답변기를 고릅니다. 기본(`mock`)은 규칙 기반 모의 답변기라 GPU 없이 돌고, `llm`이면 실제 모델(Qwen2.5-3B + rag_v4 프롬프트 + 후처리, 평가 macro F1 0.846과 같은 설정)을 씁니다. 다른 설정은 `core/llm.py` 맨 위에 있습니다.
+
+**내 PC (맥 애플 실리콘, 메모리 8GB 이상 권장)**: 처음 한 번은 모델(약 6GB)을 내려받느라 몇 분 걸립니다.
+
+```bash
+pip install -r requirements.txt -r requirements-llm.txt && GBA_ANSWERER=llm uvicorn api.main:app
+```
+
+`/health`의 `model`이 `Qwen/Qwen2.5-3B-Instruct`면 실제 모델로 뜬 것입니다. 맥은 장치가 `mps`로 잡히고, 코랩(T4)과 숫자 계산 방식이 조금 달라 답이 드물게 다를 수 있습니다.
+
+**코랩 (T4)**: 파이썬에서 바로 쓰기
 
 ```python
-from core.answer import LLMAnswerer
 from core.kb import load_kb
+from core.llm import answerer_from_env
 from core.pipeline import Chatbot
 
-bot = Chatbot(load_kb(), LLMAnswerer(generate, name="Qwen/Qwen2.5-3B-Instruct"))   # generate: 프롬프트 -> 문자열
+bot = Chatbot(load_kb(), answerer_from_env({"GBA_ANSWERER": "llm"}))
 bot.ask("알베도 원소가 뭐야?")
 ```
 
-`generate` 함수는 기존 평가 노트북의 모델 불러오기 셀에 있는 것을 그대로 쓰면 됩니다.
+**코랩 + ngrok으로 API 띄우기 (D)**: 코랩 보안 비밀에 `NGROK_TOKEN`(ngrok 가입 후 받는 토큰)을 넣고, 저장소를 받은 셀 다음에 실행합니다.
+
+```python
+!pip -q install pyngrok
+import os, subprocess, time
+from google.colab import userdata
+from pyngrok import ngrok
+
+env = {**os.environ, "GBA_ANSWERER": "llm"}
+api = subprocess.Popen(["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"],
+                       cwd="/content/genshin-build-alchemist", env=env)
+time.sleep(120)   # 모델 불러오는 시간. !curl -s localhost:8000/health 로 확인
+ngrok.set_auth_token(userdata.get("NGROK_TOKEN"))
+print("API 주소:", ngrok.connect(8000).public_url)   # 이 주소 + /docs 로 접속
+```
 
 ## 패치 변경 기록 다시 모으기
 
