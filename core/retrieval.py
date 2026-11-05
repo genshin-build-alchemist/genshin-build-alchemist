@@ -14,8 +14,9 @@
 #         질문도 문서와 같은 모델 + normalize_embeddings=True + 앞말 없이 임베딩한다
 #  3. [ ] filter 경로 = 조건 필터 + 벡터: rr.conditions 로 먼저 거르고, 벡터는 걸러진 것 안에서 순위만
 #         (벡터만으로는 '활 + 수메르' 같은 여러 조건을 못 맞춘다. 버그 아님)
-#  4. [ ] 검색 정확도(Hit@k) 재기: 문항별 정답 근거 문서는 A가 data/eval 에 준비 중
-#         DEV 세트로만 비교하고, 평가 문항은 마지막에 한 번만 본다
+#  4. [ ] 검색 정확도(Hit@k) 재기: core/retrieval_eval.py 맨 위 '사용' 참고 (정답 근거 = data/eval/evidence_info_v1.json)
+#         기준점(지금 키워드 검색): 템플릿 질문은 만점, 말투 변형 질문 hit@1 0.681 (띄어쓰기 없음 0.0)
+#         DEV 세트와 style_questions_dev.csv로만 비교하고, 평가 문항은 마지막에 한 번만 본다
 #  5. [ ] 캐릭터 말고 전체 문서(특성·운명의 자리·무기·성유물·패치)로 늘리기 (KINDS = None)
 #  6. [ ] 청킹 비교: 문서 통째('doc') vs 길이로 자르기('len200' 등). 결과는 드라이브 results/ JSON
 #  7. [ ] 아래 retrieve()가 벡터 검색을 쓰게 연결. 반환 형식(kind/title/text/data)은 그대로
