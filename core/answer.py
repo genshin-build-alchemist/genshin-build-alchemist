@@ -5,6 +5,7 @@
 - LLMAnswerer  : 오픈소스 LLM(예: 코랩의 Qwen2.5-3B)에 프롬프트를 보내 답을 받는다.
                  generate_fn(prompt) -> 문자열 하나만 넘겨 주면 된다.
 """
+import difflib
 import json
 import re
 from pathlib import Path
@@ -128,13 +129,65 @@ class MockAnswerer:
         return []
 
 
+# 후처리: 모델이 쓴 이름·값을 근거에 있는 정확한 글자로 맞춘다 (평가 노트북 셀 10-2도 이 함수를 쓴다)
+#  - '라이デン 쇼군' -> '라이덴 쇼군', '쿠피시노부' -> '쿠키 시노부' (비슷한 정도가 cutoff 이상이면 바꿈)
+#  - 근거에 없는 이름('베티')은 버린다. 잘못 바꾼 경우 0건 (DEV 4건, 평가 9건)
+#  - DEV macro F1 0.814 -> 0.816, 평가 0.8453 -> 0.8455 (cutoff 0.6, DEV로 정함)
+#  - 캐릭터 근거(lookup, filter)에만 쓴다. 패치·빌드 근거는 문장 모양이 달라 그대로 둔다
+POST_CUTOFF = 0.6
+POST_ROUTES = ("lookup", "filter")
+EVIDENCE_LABELS = ("원소 ", "무기 ", "지역 ")
+
+
+def canonical(text):
+    """표기 차이만 맞춘다: '불 원소'->'불', '5'/'5성급'/'★5'->'5성', '몬드 출신'->'몬드'. (노트북 셀 3과 같다)"""
+    t = str(text).strip().strip("\"'「」").strip()
+    t = re.sub(r"\s*(원소|출신|지역)$", "", t)
+    m = re.fullmatch(r"[★☆]?\s*(\d)\s*(성급|성|star)?", t, re.I)
+    if m:
+        return f"{m.group(1)}성"
+    return t.lower()
+
+
+def evidence_words(texts):
+    """근거 문장 'A: 원소 X / 무기 Y / 5성 / 지역 Z'에서 답이 될 수 있는 낱말(A, X, Y, 5성, Z)을 뽑는다."""
+    words = []
+    for text in texts:
+        name, _, rest = text.partition(": ")
+        words.append(name)
+        for part in rest.split(" / "):
+            for label in EVIDENCE_LABELS:
+                if part.startswith(label):
+                    part = part[len(label):]
+            words.append(part)
+    return [w for w in words if w and w != "정보 없음"]
+
+
+def clean_answer(pred, texts, cutoff=POST_CUTOFF):
+    allowed = {canonical(w): w for w in evidence_words(texts)}
+    cleaned = []
+    for item in pred:
+        key = canonical(item)
+        if key not in allowed:
+            close = difflib.get_close_matches(key, list(allowed), n=1, cutoff=cutoff)
+            key = close[0] if close else None
+        if key is not None and allowed[key] not in cleaned:
+            cleaned.append(allowed[key])
+    return cleaned
+
+
 class LLMAnswerer:
-    def __init__(self, generate_fn, name="llm", method="rag_v4"):
+    def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True):
         self.generate_fn = generate_fn
         self.name = name
         self.method = method
+        self.postprocess = postprocess
         self.last_raw = ""          # 마지막 모델 원문 (오답 분석용)
 
     def answer(self, question, rr, evidence):
         self.last_raw = self.generate_fn(build_prompt(question, evidence, self.method))
-        return parse_list_answer(self.last_raw)
+        pred = parse_list_answer(self.last_raw)
+        if self.postprocess and rr.route in POST_ROUTES:
+            pred = clean_answer(pred, [e["text"] for e in evidence if e["kind"] == "character"])
+        return pred
+
