@@ -61,6 +61,10 @@ class Router:
             return re.compile(r"(?<!\d)" + re.escape(value[0]) + r"\s?성")
         return re.compile(r"(?<![가-힣])" + v + WORD_END)
 
+    # TODO(B) 나중에 (벡터 검색 다음): 이름 인식 개선. 확인: python3 -m core.route_check data/eval/style_questions_dev.csv
+    #  [ ] 띄어쓰기 없는 질문 ('알하이탐몇성임'): 지금 0%
+    #  [ ] 줄임 이름·별명 ('카즈하', '이토', '헤이조'): 별명 표를 만들어 정식 이름으로 바꾸기
+    #  평가용(style_questions_v1.csv)은 고친 뒤 한 번만 확인한다
     def find_character(self, text):
         for name, pattern in self.name_patterns:
             if pattern.search(text):

@@ -33,6 +33,18 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 
 `notebooks/`, `dashboard/`, `demo/`는 다음 단계에서 채웁니다.
 
+## 할 일 (TODO)
+
+각자 할 일은 **작업할 파일 안에 `TODO(파트)` 주석**으로 적어 두었습니다. 위에서부터 순서대로 하고, 끝난 항목은 `[ ]`를 `[x]`로 바꿔 PR에 같이 올립니다.
+
+| 파트 | 어디에 있나 |
+|---|---|
+| B. RAG | `core/retrieval.py` 맨 위 (벡터 검색), `core/router.py` (나중: 이름 인식) |
+| C. 모델 실험 | `core/answer.py` 맨 위 (프롬프트 개선, LoRA) |
+| D. 서비스 | `api/main.py` 맨 위와 `ask()` 안 (DB, 웹 화면), `dashboard/README.md` |
+
+찾는 법: VS Code에서 전체 검색(맥 `Cmd+Shift+F`, 윈도우 `Ctrl+Shift+F`)에 `TODO(B)`처럼 자기 파트를 넣으면 다 나옵니다.
+
 ## 작업 규칙
 
 - **main에 직접 push하지 않습니다.** 각자 브랜치에서 작업하고 PR로 합칩니다.

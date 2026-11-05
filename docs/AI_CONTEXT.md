@@ -127,6 +127,7 @@ tests/       PRD 9장 테스트 시나리오
 ## 8. 깃 규칙
 
 - main에 직접 push하지 않는다. 브랜치 `파트/작업내용` (예: `rag/embedding-search`) → PR.
+- 파트별 할 일은 코드 안 `TODO(B)`, `TODO(C)`, `TODO(D)` 주석에 있다. 끝낸 항목은 `[x]`로 바꿔 같은 PR에 올린다.
 - 결과 JSON, LoRA 체크포인트(`*.safetensors`, `*.bin`), 캐시는 깃에 올리지 않는다 (.gitignore에 있음).
 
 ## 9. AI에게 부탁할 때 주의
