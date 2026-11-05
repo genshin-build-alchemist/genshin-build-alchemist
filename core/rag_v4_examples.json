@@ -1,5 +1,5 @@
 {
-  "_설명": "rag_v4 few-shot 예시 5개. 노트북 01_eval_info.ipynb 셀 7의 few_shot_v4()와 같다. 학습용(train) 질문 중 DEV와 겹치지 않는 것, 근거는 학습용 캐릭터에서만 검색한 결과. 데이터가 바뀌면 tests/test_core.py가 알려 준다.",
+  "_설명": "rag_v4 few-shot 예시 5개. 노트북 01_eval_info.ipynb 셀 7의 few_shot_v4()와 같다. 학습용(train) 질문 중 DEV와 겹치지 않는 것, 근거는 학습용 캐릭터에서만 검색한 결과. 데이터가 바뀌면 tests/test_prompt_v4가 알려 준다.",
   "examples": [
     {
       "question": "아이노의 원소는 뭐야?",
