@@ -7,6 +7,20 @@
 
 검색 방식을 임베딩(Chroma 또는 PostgreSQL pgvector)으로 바꿔도 이 반환 형식만 지키면 된다.
 """
+# TODO(B) 벡터 검색 붙이기. 위에서부터 순서대로, 끝나면 [ ] -> [x] 로 바꿔서 PR
+#  1. [ ] 임베딩 파일 만들기: 코랩에서 embed_and_save 셀 실행 -> 드라이브 data/embeddings/
+#         완료 기준: 벡터 길이 1.000, 이름 질문 Hit@1 90% 이상
+#  2. [ ] vector_search(question, k, pool) 만들기: 질문 -> 비슷한 문서 doc_id 상위 k개
+#         질문도 문서와 같은 모델 + normalize_embeddings=True + 앞말 없이 임베딩한다
+#  3. [ ] filter 경로 = 조건 필터 + 벡터: rr.conditions 로 먼저 거르고, 벡터는 걸러진 것 안에서 순위만
+#         (벡터만으로는 '활 + 수메르' 같은 여러 조건을 못 맞춘다. 버그 아님)
+#  4. [ ] 검색 정확도(Hit@k) 재기: 문항별 정답 근거 문서는 A가 data/eval 에 준비 중
+#         DEV 세트로만 비교하고, 평가 문항은 마지막에 한 번만 본다
+#  5. [ ] 캐릭터 말고 전체 문서(특성·운명의 자리·무기·성유물·패치)로 늘리기 (KINDS = None)
+#  6. [ ] 청킹 비교: 문서 통째('doc') vs 길이로 자르기('len200' 등). 결과는 드라이브 results/ JSON
+#  7. [ ] 아래 retrieve()가 벡터 검색을 쓰게 연결. 반환 형식(kind/title/text/data)은 그대로
+#  규칙: 학습용(DEV) 질문은 평가용 캐릭터 문서를 검색하지 않는다 (pool 인자로 범위 제한)
+#  막히면: A에게 질문. 예시 셀은 A가 디스코드로 공유
 from core.kb import slot_label
 from core.validate import recheck_reasons
 
