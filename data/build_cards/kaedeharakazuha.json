@@ -1,0 +1,17 @@
+{
+  "character": "카에데하라 카즈하",
+  "role": "서포터",
+  "weapons": ["오래된 자유의 서약", "페보니우스 검", "크시포스의 달빛", "제례검", "강철 벌침"],
+  "artifact_sets": ["청록색 그림자"],
+  "main_stats": {
+    "sands": "원소 마스터리 (원소폭발을 매번 못 쓰면 원소 충전 효율)",
+    "goblet": "원소 마스터리",
+    "circlet": "원소 마스터리"
+  },
+  "substats": ["원소 충전 효율", "원소 마스터리", "치명타 확률"],
+  "notes": "확산으로 적의 원소 내성을 깎고 팀 원소 피해를 올리는 서포터. 고유 특성 효과가 원소 마스터리에 비례해서 마스터리를 최대한 올리고, 원소폭발을 매번 쓸 만큼 원소 충전 효율을 챙긴다.",
+  "source_name": "GenshinBuilds - Kaedehara Kazuha",
+  "source_url": "https://genshin-builds.com/en/character/kaedehara_kazuha",
+  "checked_version": "7.1",
+  "author": "이승우"
+}
