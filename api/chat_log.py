@@ -28,6 +28,12 @@ def database_url():
     return None
 
 
+def doc_ids_of(response):
+    """응답 근거의 doc_id 목록 (문서가 아닌 근거는 뺀다). 하나도 없으면 None(NULL)."""
+    ids = [e["doc_id"] for e in response.get("evidence", []) if e.get("doc_id")]
+    return ids or None
+
+
 def save_chat_log(response, seconds, retrieved_doc_ids=None):
     """응답(dict) 1개를 chat_logs 에 1줄 저장한다. 저장했으면 True, 주소가 없어 건너뛰면 False."""
     url = database_url()
@@ -46,7 +52,7 @@ def save_chat_log(response, seconds, retrieved_doc_ids=None):
         response["method"],
         response["data_version"],
         seconds,
-        retrieved_doc_ids,   # 지금은 None(NULL). 근거에 doc_id 가 생기면 채운다 (B와 상의)
+        retrieved_doc_ids if retrieved_doc_ids is not None else doc_ids_of(response),
     )
     with psycopg.connect(url, connect_timeout=CONNECT_TIMEOUT) as conn:   # 블록이 끝나면 자동 commit
         conn.execute(INSERT_SQL, params)

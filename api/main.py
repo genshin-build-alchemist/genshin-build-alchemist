@@ -42,6 +42,7 @@ class Evidence(BaseModel):
     kind: str
     title: str
     text: str
+    doc_id: str | None = None      # 검색용 문서 id (예: character:albedo). 빌드 카드·재확인 표시는 null
 
 
 class AskResponse(BaseModel):
@@ -72,7 +73,7 @@ def ask(req: AskRequest, background_tasks: BackgroundTasks):
     #  - seconds: 답을 만드는 데 걸린 시간 (DB 저장 시간은 넣지 않는다)
     #  - 저장은 응답을 보낸 뒤 실행 (Neon이 깨어나는 동안 사용자가 기다리지 않게)
     #  - 저장이 실패해도 답에는 영향 없음 (log_chat_safely 안에서 오류만 출력)
-    #  - retrieved_doc_ids: 근거에 doc_id가 아직 없어 NULL로 저장 (B와 상의 중)
+    #  - retrieved_doc_ids: 응답 근거(evidence)의 doc_id 목록 (api/chat_log.py)
     start = time.perf_counter()
     response = bot.ask(req.question)
     seconds = round(time.perf_counter() - start, 4)

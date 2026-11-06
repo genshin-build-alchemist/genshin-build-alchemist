@@ -6,7 +6,7 @@
   "route": "lookup | filter | patch | build | unknown",
   "answer": ["..."],            # 채점과 같은 목록 형식
   "message": "...",             # 사용자에게 보여 줄 문장
-  "evidence": [{"kind", "title", "text"}],
+  "evidence": [{"kind", "title", "text", "doc_id"}],   (doc_id: 빌드 카드·재확인 표시는 null)
   "found": true/false,          # 데이터에서 근거를 찾았는지
   "needs_recheck": true/false,  # 빌드 가이드가 패치 이후 재확인이 필요한지
   "model": "...", "method": "rag", "data_version": "..."
@@ -38,7 +38,7 @@ class Chatbot:
             "route": rr.route,
             "answer": answer,
             "message": self._message(rr, answer, evidence, found),
-            "evidence": [{k: e[k] for k in ("kind", "title", "text")} for e in evidence],
+            "evidence": [{k: e.get(k) for k in ("kind", "title", "text", "doc_id")} for e in evidence],
             "found": found,
             "needs_recheck": needs_recheck,
             "model": getattr(self.answerer, "name", "unknown"),

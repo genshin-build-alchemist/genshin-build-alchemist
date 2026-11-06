@@ -69,7 +69,7 @@ tests/       PRD 9장 테스트 시나리오
   "route": "patch",
   "answer": ["고유 특성 1", "명의 자리 4"],
   "message": "7.0 버전 사유의 바뀐 부분: 고유 특성 1, 명의 자리 4",
-  "evidence": [{"kind": "patch", "title": "사유", "text": "..."}],
+  "evidence": [{"kind": "patch", "title": "사유", "doc_id": "patch:7.0:constellations:sayu", "text": "..."}],
   "found": true,
   "needs_recheck": false,
   "model": "mock-rule",

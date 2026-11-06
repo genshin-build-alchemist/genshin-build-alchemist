@@ -19,7 +19,8 @@
 #         DEV 세트와 style_questions_dev.csv로만 비교하고, 평가 문항은 마지막에 한 번만 본다
 #  5. [ ] 캐릭터 말고 전체 문서(특성·운명의 자리·무기·성유물·패치)로 늘리기 (KINDS = None)
 #  6. [ ] 청킹 비교: 문서 통째('doc') vs 길이로 자르기('len200' 등). 결과는 드라이브 results/ JSON
-#  7. [ ] 아래 retrieve()가 벡터 검색을 쓰게 연결. 반환 형식(kind/title/text/data)은 그대로
+#  7. [ ] 아래 retrieve()가 벡터 검색을 쓰게 연결. 반환 형식(kind/title/text/data/doc_id)은 그대로
+#         doc_id는 대화 기록(chat_logs.retrieved_doc_ids)과 검색 채점에 쓰인다. 벡터 검색 결과의 doc_id를 그대로 넣으면 된다
 #  규칙: 학습용(DEV) 질문은 평가용 캐릭터 문서를 검색하지 않는다 (pool 인자로 범위 제한)
 #  막히면: A에게 질문. 예시 셀은 A가 디스코드로 공유
 from core.kb import slot_label
@@ -48,8 +49,18 @@ def patch_line(r):
     return f"{name}: {kind} 수정, 바뀐 부분 = {', '.join(parts) if parts else '기타'}"
 
 
+def doc_id_for(kind, data):
+    """근거 -> 검색용 문서 id (data/docs/documents_ko.jsonl, DB documents 표와 같은 규칙).
+    문서가 아닌 근거(빌드 카드, 재확인 표시)는 None."""
+    if kind in ("character", "weapon", "artifact"):
+        return f"{kind}:{data['key']}"
+    if kind == "patch":
+        return f"patch:{data['version']}:{data['folder']}:{data['entity_id']}"
+    return None
+
+
 def _ev(kind, title, text, data):
-    return {"kind": kind, "title": title, "text": text, "data": data}
+    return {"kind": kind, "title": title, "text": text, "data": data, "doc_id": doc_id_for(kind, data)}
 
 
 def retrieve(rr, kb, pool=None):

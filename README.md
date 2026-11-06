@@ -76,7 +76,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
   "route": "patch",
   "answer": ["고유 특성 1", "명의 자리 4"],
   "message": "7.0 버전 사유의 바뀐 부분: 고유 특성 1, 명의 자리 4",
-  "evidence": [{"kind": "patch", "title": "사유", "text": "7.0 사유: 명의 자리 수정, 바뀐 부분 = 명의 자리 4"}],
+  "evidence": [{"kind": "patch", "title": "사유", "doc_id": "patch:7.0:constellations:sayu", "text": "7.0 사유: 명의 자리 수정, 바뀐 부분 = 명의 자리 4"}],
   "found": true,
   "needs_recheck": false,
   "model": "mock-rule",
@@ -86,6 +86,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 ```
 
 - `answer`는 평가(F1 채점)와 같은 목록 형식이고, 화면에는 `message`를 보여 줍니다.
+- `evidence`의 `doc_id`는 검색용 문서 id입니다 (`data/docs/documents_ko.jsonl`, DB `documents` 표와 같은 규칙). 빌드 카드·재확인 표시처럼 문서가 아닌 근거는 `null`이고, 대화 기록의 `retrieved_doc_ids`에 저장됩니다.
 - 칸 이름은 바꾸지 말고 필요하면 **추가만** 합니다 (팀 합의 사항).
 
 ## 빌드 카드 (FR-06)
