@@ -15,8 +15,8 @@
 #  1. [x] Neon(neon.com)에 DB 만들기 -> 접속 주소를 A에게 DM (채널에 올리지 않기). 표 만들기는 A가 주는 코랩 셀로
 #  2. [x] 프로젝트 루트 .env 파일에 DATABASE_URL=... 넣고 로컬에서 접속 확인 (.env는 깃에 안 올라감)
 #  3. [x] 아래 ask()에서 대화 기록을 chat_logs 표에 저장 (칸 설명: db/schema.sql 4번)
-#  4. [ ] 웹 화면 고르기: Gradio 또는 Streamlit. 질문 입력 -> message, 근거(evidence), 응답 시간 보여 주기
-#  5. [ ] 코랩 + ngrok으로 실제 모델(Qwen) API 띄우기 -> 웹 화면에서 접속 (README '실제 모델로 API 실행하기')
+#  4. [x] 웹 화면 고르기: Gradio 또는 Streamlit. 질문 입력 -> message, 근거(evidence), 응답 시간 보여 주기
+#  5. [x] 코랩 + ngrok으로 실제 모델(Qwen) API 띄우기 -> 웹 화면에서 접속 (README '실제 모델로 API 실행하기')
 #         API는 GBA_ANSWERER=llm 이면 실제 모델을 쓴다 (core/llm.py). D는 코랩에서 띄우고 ngrok 주소만 연결하면 된다
 #  6. [ ] 전후 비교 대시보드: dashboard/README.md
 #  막히면: A에게 질문

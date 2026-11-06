@@ -11,3 +11,4 @@ checkpoints/
 *.bin
 .ipynb_checkpoints/
 db/seed_documents.sql
+.streamlit/secrets.toml
