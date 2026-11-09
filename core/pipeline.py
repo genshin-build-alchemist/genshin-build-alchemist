@@ -17,6 +17,7 @@ from core.retrieval import retrieve
 from core.router import Router
 
 FIELD_KO = {"element": "원소", "weapon": "무기", "rarity": "성급", "region": "지역"}
+PATCH_FOLDER_KO = {"characters": "캐릭터", "weapons": "무기", "talents": "스킬·특성", "constellations": "명의 자리"}
 
 
 class Chatbot:
@@ -51,8 +52,12 @@ class Chatbot:
             if rr.route == "build":
                 return f"{rr.character}의 빌드 가이드가 아직 없어요."
             if rr.route == "patch":
+                versions = ", ".join(self.kb.versions)
+                if rr.character and not rr.version:
+                    return f"{rr.character}의 변경 기록을 데이터에서 찾지 못했어요. (수집된 버전: {versions})"
                 version = rr.version or self.kb.latest_version
-                return f"{version} 버전의 변경 기록을 데이터에서 찾지 못했어요. (수집된 버전: {', '.join(self.kb.versions)})"
+                who = f" {rr.character}의" if rr.character else ""
+                return f"{version} 버전{who} 변경 기록을 데이터에서 찾지 못했어요. (수집된 버전: {versions})"
             return "데이터에서 답을 찾지 못했어요. 캐릭터 이름이나 조건을 확인해 주세요."
         if not answer:
             return "근거는 찾았지만 질문에 맞는 답이 없어요."
@@ -63,11 +68,16 @@ class Chatbot:
         if rr.route == "filter":
             return f"조건에 맞는 캐릭터 {len(answer)}명: {joined}"
         if rr.route == "patch":
-            version = rr.version or self.kb.latest_version
             if rr.character:
-                return f"{version} 버전 {rr.character}의 바뀐 부분: {joined}"
-            if any(w in self._last_question for w in ("신규", "새로", "추가")):
-                return f"{version} 버전 신규 캐릭터: {joined}"
+                if rr.version:
+                    return f"{rr.version} 버전 {rr.character}의 바뀐 부분: {joined}"
+                return f"{rr.character}의 바뀐 부분 (수집된 버전 {', '.join(self.kb.versions)}): {joined}"
+            version = rr.version or self.kb.latest_version
+            label = PATCH_FOLDER_KO.get(rr.patch_folder)
+            if rr.patch_added:
+                return f"{version} 버전 신규 {label or '캐릭터·무기'}: {joined}"
+            if label:
+                return f"{version} 버전에서 바뀐 {label}: {joined}"
             return f"{version} 버전에서 스킬·명의 자리가 바뀐 캐릭터: {joined}"
         if rr.route == "build":
             msg = f"{rr.character} 추천: {joined}"

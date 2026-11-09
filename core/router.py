@@ -32,6 +32,15 @@ NAME_END = r"(?=$|[\s?!.,\"'”’)]|의|은|는|이|가|을|를|도|랑|와|과
 WORD_END = r"(?=$|[\s?!.,\"'”’)]|의|은|는|이|가|을|를|도|에서|출신|지역|캐릭터|쓰는|사용)"
 VERSION_RE = re.compile(r"(?<![\d.])(\d+\.\d+)(?![\d.])")
 
+# patch 질문에서 무엇의 변경을 물었는지 (patch_changes.json의 folder). 앞에서부터 먼저 맞는 것
+PATCH_FOLDER_WORDS = (
+    ("constellations", ("별자리", "명의 자리", "운명의 자리", "명좌")),
+    ("talents", ("스킬", "특성", "재능", "일반 공격", "원소 폭발")),
+    ("weapons", ("무기",)),
+    ("characters", ("캐릭터", "신캐")),
+)
+ADDED_WORDS = ("신규", "새로", "추가", "신캐", "출시")
+
 
 @dataclass
 class RouteResult:
@@ -40,6 +49,8 @@ class RouteResult:
     conditions: dict = field(default_factory=dict)   # filter 조건 {항목: 값}
     version: str = None                         # patch 질문의 버전
     asked_field: str = None                     # lookup에서 물은 항목 (없으면 전체)
+    patch_folder: str = None                    # patch 질문에서 물은 종류 (characters/weapons/talents/constellations)
+    patch_added: bool = False                   # patch 질문이 '신규·추가'를 물었는지
 
 
 class Router:
@@ -88,7 +99,9 @@ class Router:
         version = m.group(1) if m else None
 
         if version or any(w in text for w in PATCH_WORDS):
-            return RouteResult("patch", character=character, version=version)
+            folder = next((f for f, words in PATCH_FOLDER_WORDS if any(w in text for w in words)), None)
+            return RouteResult("patch", character=character, version=version, patch_folder=folder,
+                               patch_added=any(w in text for w in ADDED_WORDS))
         if any(w in text for w in BUILD_WORDS):
             return RouteResult("build" if character else "unknown", character=character)
         if character:

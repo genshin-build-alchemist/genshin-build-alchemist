@@ -113,17 +113,28 @@ class MockAnswerer:
 
         if rr.route == "patch":
             records = [e["data"] for e in evidence if e["kind"] == "patch"]
-            if rr.character:   # 한 캐릭터의 바뀐 부분
-                parts = set()
+            if rr.character:   # 한 캐릭터의 바뀐 부분. 버전을 안 말했으면(전체 버전 검색) 버전을 앞에 붙인다
+                many = rr.version is None
+                parts = []
                 for r in records:
-                    if r["change_type"] == "modified":
-                        parts |= {lbl for lbl in (slot_label(c["field"]) for c in r["changes"]) if lbl}
-                return sorted(parts)
-            if any(w in question for w in ("신규", "새로", "추가")):
-                return [r["entity_name"] for r in records
-                        if r["change_type"] == "added" and r["folder"] == "characters"]
+                    if r["change_type"] == "added" and r["folder"] == "characters":
+                        labels = ["신규 캐릭터"]
+                    elif r["change_type"] == "modified":
+                        labels = sorted({lbl for lbl in (slot_label(c["field"]) for c in r["changes"]) if lbl})
+                    else:
+                        labels = []
+                    for lbl in labels:
+                        item = f"{r['version']} {lbl}" if many else lbl
+                        if item not in parts:
+                            parts.append(item)
+                return parts if many else sorted(parts)
+            if rr.patch_added:   # 신규: 물은 종류가 없으면 캐릭터·무기
+                folders = (rr.patch_folder,) if rr.patch_folder else ("characters", "weapons")
+                return list(dict.fromkeys(r["entity_name"] for r in records
+                                          if r["change_type"] == "added" and r["folder"] in folders))
+            folders = (rr.patch_folder,) if rr.patch_folder else ("talents", "constellations")
             return sorted({r["entity_name"] for r in records
-                           if r["change_type"] == "modified" and r["folder"] in ("talents", "constellations")})
+                           if r["change_type"] == "modified" and r["folder"] in folders})
 
         if rr.route == "build":
             card = next(e["data"] for e in evidence if e["kind"] == "build_card")

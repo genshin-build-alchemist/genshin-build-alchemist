@@ -29,6 +29,7 @@ from core.validate import recheck_reasons
 KIND_KO = {"characters": "캐릭터", "talents": "스킬", "constellations": "명의 자리", "weapons": "무기"}
 FILTER_TOP_K = 30
 PATCH_MAX_LINES = 60
+PATCH_DETAIL_MAX = 5      # 기록이 이 개수 이하이면 근거에 바뀌기 전 → 후 본문을 넣는다
 
 
 def character_line(c):
@@ -47,6 +48,38 @@ def patch_line(r):
         return f"{name}: {kind} 정보 삭제"
     parts = sorted({slot_label(c["field"]) for c in r["changes"]} - {None})
     return f"{name}: {kind} 수정, 바뀐 부분 = {', '.join(parts) if parts else '기타'}"
+
+
+def patch_versions(rr, kb):
+    """찾을 버전 목록. 버전을 말하면 그 버전, 캐릭터만 말하면 수집된 모든 버전(최신 먼저), 둘 다 없으면 최신 버전."""
+    if rr.version:
+        return [rr.version] if rr.version in kb.versions else []
+    if rr.character:
+        return list(reversed(kb.versions))
+    return [kb.latest_version] if kb.latest_version else []
+
+
+def patch_records(rr, kb):
+    """patch 질문 -> 변경 기록 목록. 버전·캐릭터·종류(무기/캐릭터/스킬/별자리)·신규 여부로 거른다."""
+    out = []
+    for version in patch_versions(rr, kb):
+        for r in kb.patches:
+            if r["version"] != version:
+                continue
+            if rr.character is not None and r["entity_name"] != rr.character:
+                continue
+            if rr.patch_folder and r["folder"] != rr.patch_folder:
+                continue
+            if rr.patch_added and r["change_type"] != "added":
+                continue
+            out.append(r)
+    return out
+
+
+def patch_text(r):
+    """변경 기록 1건의 본문 (바뀌기 전 → 후). 문서 파일(documents_ko.jsonl)의 patch 문서와 같은 글."""
+    from collector.patchnotes.documents import make_document_text
+    return make_document_text(r)
 
 
 def doc_id_for(kind, data):
@@ -78,12 +111,11 @@ def retrieve(rr, kb, pool=None):
         return [_ev("character", c["name"], character_line(c), c) for _, _, c in sorted(scored)[:FILTER_TOP_K]]
 
     if rr.route == "patch":
-        version = rr.version or kb.latest_version
-        if version not in kb.versions:
-            return []
-        records = [r for r in kb.patches if r["version"] == version
-                   and (rr.character is None or r["entity_name"] == rr.character)]
-        return [_ev("patch", r["entity_name"], f"{version} {patch_line(r)}", r) for r in records[:PATCH_MAX_LINES]]
+        records = patch_records(rr, kb)
+        # 기록이 적으면(한 캐릭터·한 무기) 바뀌기 전 → 후 본문을 근거로, 많으면 한 줄 요약으로
+        detail = len(records) <= PATCH_DETAIL_MAX
+        return [_ev("patch", r["entity_name"], patch_text(r) if detail else f"{r['version']} {patch_line(r)}", r)
+                for r in records[:PATCH_MAX_LINES]]
 
     if rr.route == "build":
         card = kb.card_by_character.get(rr.character)
