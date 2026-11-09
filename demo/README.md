@@ -23,4 +23,4 @@
 2. Advanced settings → Secrets에 `API_URL = "https://xxxx.ngrok-free.app"` 입력 (코랩 + ngrok 주소)
 3. 실행 파일과 같은 폴더의 `demo/requirements.txt`가 쓰이는지 배포 로그에서 확인 (streamlit, httpx만 설치되어야 함)
 
-주의: 무료 ngrok 주소는 코랩을 다시 띄울 때마다 바뀝니다. 그때마다 Cloud의 Secrets에서 `API_URL`을 고칩니다.
+주의: ngrok 주소가 바뀌면 Cloud의 Secrets에서 `API_URL`을 새 주소로 고칩니다.
