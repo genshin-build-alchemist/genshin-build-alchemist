@@ -30,6 +30,109 @@ KIND_KO = {"characters": "캐릭터", "talents": "스킬", "constellations": "�
 FILTER_TOP_K = 30
 PATCH_MAX_LINES = 60
 
+EMBEDDING_MODEL = "ibm-granite/granite-embedding-311m-multilingual-r2"
+
+_embedding_tokenizer = None
+_embedding_model = None
+
+def load_embedding_model():
+    global _embedding_tokenizer, _embedding_model
+
+    if _embedding_model is None:
+        import torch
+        from transformers import AutoTokenizer, AutoModel
+
+        _embedding_tokenizer = AutoTokenizer.from_pretrained(EMBEDDING_MODEL)
+        _embedding_model = AutoModel.from_pretrained(EMBEDDING_MODEL)
+        _embedding_model.eval()
+
+    return _embedding_tokenizer, _embedding_model
+
+def embed_question(question):
+    import torch
+    import torch.nn.functional as F
+
+    tokenizer, model = load_embedding_model()
+
+    inputs = tokenizer(
+        [question],
+        padding=True,
+        truncation=True,
+        return_tensors="pt"
+    )
+
+    inputs = {
+        key: value.to(model.device)
+        for key, value in inputs.items()
+    }
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+        vector = outputs[0][:, 0]
+        vector = F.normalize(vector, p=2, dim=1)
+
+    return vector.cpu().float().numpy()[0]
+
+def vector_search(question, doc_ids, k=5):
+    import os
+    import psycopg
+    from pgvector import Vector
+    from api.chat_log import database_url
+
+    if not doc_ids:
+        return []
+
+    query_vector = embed_question(question)
+    url = database_url()
+
+    if not url:
+        raise RuntimeError("DATABASE_URL을 찾을 수 없습니다.")
+
+    sql = """
+        SELECT doc_id
+        FROM chunks
+        WHERE strategy = %s
+          AND embedding_model = %s
+          AND doc_id = ANY(%s)
+        ORDER BY embedding <=> %s
+        LIMIT %s
+    """
+
+    with psycopg.connect(url, connect_timeout=10) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                sql,
+                (
+                    "doc",
+                    EMBEDDING_MODEL,
+                    doc_ids,
+                    Vector(query_vector),
+                    k
+                )
+            )
+            rows = cur.fetchall()
+
+    return [row[0] for row in rows]
+
+def rank_characters_by_vector(question, characters, k=FILTER_TOP_K):
+    doc_ids = [
+        f"character:{c['key']}"
+        for c in characters
+    ]
+
+    ranked_doc_ids = vector_search(question, doc_ids, k)
+
+    character_map = {
+        f"character:{c['key']}": c
+        for c in characters
+    }
+
+    return [
+        character_map[doc_id]
+        for doc_id in ranked_doc_ids
+        if doc_id in character_map
+    ]
+
 
 def character_line(c):
     def v(f):
@@ -63,19 +166,37 @@ def _ev(kind, title, text, data):
     return {"kind": kind, "title": title, "text": text, "data": data, "doc_id": doc_id_for(kind, data)}
 
 
-def retrieve(rr, kb, pool=None):
+def retrieve(rr, kb, pool=None, question=None):
     """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체)."""
     pool = kb.characters if pool is None else pool
     if rr.route == "lookup":
         return [_ev("character", c["name"], character_line(c), c) for c in pool if c["name"] == rr.character]
 
     if rr.route == "filter":
-        scored = []
-        for c in pool:
-            score = sum(1 for f, v in rr.conditions.items() if c[f] == v)
-            if score:
-                scored.append((-score, c["name"], c))
-        return [_ev("character", c["name"], character_line(c), c) for _, _, c in sorted(scored)[:FILTER_TOP_K]]
+        candidates = [
+            c for c in pool
+            if all(c.get(f) == v for f, v in rr.conditions.items())
+        ]
+
+        if not candidates:
+            return []
+
+        if question is None:
+            return [
+                _ev("characters", c["name"], character_line(c), c)
+                for c in candidates[:FILTER_TOP_K]
+            ]
+
+        ranked = rank_characters_by_vector(
+            question,
+            candidates,
+            k=FILTER_TOP_K
+        )
+
+        return [
+            _ev("characters", c["name"], character_line(c), c)
+            for c in ranked
+        ]
 
     if rr.route == "patch":
         version = rr.version or kb.latest_version
