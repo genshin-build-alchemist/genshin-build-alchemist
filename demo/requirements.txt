@@ -1,0 +1,4 @@
+# 웹 화면(demo/app.py)에만 필요한 라이브러리. Streamlit Community Cloud 배포용
+# (서버·모델용 fastapi, torch 등은 넣지 않는다 -> 배포가 가볍다)
+streamlit>=1.30
+httpx>=0.27
