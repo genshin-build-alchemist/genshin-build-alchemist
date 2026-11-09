@@ -37,6 +37,16 @@ class ParseTextTest(unittest.TestCase):
         text = '[\n"고유 특성 2: 별 확산 반응에도 발동한다",\n"명의 자리 4: 별 확산 반응 추가"\n'
         self.assertEqual(parse_text_answer(text), ["고유 특성 2: 별 확산 반응에도 발동한다", "명의 자리 4: 별 확산 반응 추가"])
 
+    def test_cut_off_one_line_json(self):
+        # 길이 제한에서 잘려 한 줄 JSON이 깨져도 문장별로 나뉜다
+        text = '["7.1 신규 무기는 나비의 우화, 은강검이다", "6.7 신규 캐릭터로 추가됐'
+        self.assertEqual(parse_text_answer(text), ["7.1 신규 무기는 나비의 우화, 은강검이다", "6.7 신규 캐릭터로 추가됐"])
+
+    def test_plain_lines_keep_version_numbers(self):
+        # 글머리표만 지우고 문장 앞의 버전 숫자는 남긴다
+        text = "1. 7.1 신규 무기는 은강검이다\n- 3단계 효과가 바뀌었다"
+        self.assertEqual(parse_text_answer(text), ["7.1 신규 무기는 은강검이다", "3단계 효과가 바뀌었다"])
+
     def test_empty(self):
         self.assertEqual(parse_text_answer("[]"), [])
 

@@ -116,6 +116,8 @@ TEXT_RULES = ("규칙:\n"
               "- 근거에 질문의 답이 없으면 빈 배열 []을 출력하세요.\n"
               "- 문장 안에 큰따옴표(\")는 쓰지 마세요.")
 TEXT_EXAMPLES_PATH = Path(__file__).with_name("text_examples.json")
+QUOTED_ITEM = re.compile(r'"((?:[^"\\]|\\.)*)"|"([^"]+)$')   # "문장" 또는 끝에서 잘린 "문장…
+BULLET = re.compile(r"^\s*(?:[-*•]|\d+[.)](?!\d))\s*")       # "- ", "1. ", "2) " (7.1은 건드리지 않음)
 
 
 def load_text_examples():
@@ -152,8 +154,12 @@ def parse_text_answer(text):
             pass
     if start != -1:     # 대괄호 안쪽만 (닫는 ]가 없으면 끝까지: 답이 길이 제한에서 잘린 경우)
         text = text[start + 1:end] if end > start else text[start + 1:]
-    # JSON이 깨졌으면 줄 단위로 나눈다 (따옴표·쉼표·글머리표 정리)
-    lines = [re.sub(r'^[\s\-\*\d\.]*["\']?|["\']?\s*,?\s*$', "", line) for line in text.splitlines()]
+        # 따옴표로 감싼 문장을 하나씩 꺼낸다. 한 줄에 여러 개가 붙어 있거나 마지막 문장이 잘려도 나뉜다
+        quoted = [a or b for a, b in QUOTED_ITEM.findall(text)]
+        if quoted:
+            return [q.strip() for q in quoted if q.strip()][:5]
+    # 따옴표도 없으면 줄 단위로 나눈다. 글머리표("-", "1.")만 지우고 "7.1" 같은 버전 숫자는 남긴다
+    lines = [BULLET.sub("", line).strip().strip("\"',").strip() for line in text.splitlines()]
     return [line for line in lines if line][:5]
 
 
