@@ -28,7 +28,7 @@ class Chatbot:
     def ask(self, question, pool=None):
         self._last_question = question
         rr = self.router.route(question)
-        evidence = retrieve(rr, self.kb, pool, question)
+        evidence = retrieve(rr, self.kb, pool)
         found = bool(evidence)
         # 근거가 없으면 모델을 부르지 않는다: 지어낸 답을 원천 차단
         answer = self.answerer.answer(question, rr, evidence) if found else []

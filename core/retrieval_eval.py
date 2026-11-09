@@ -262,7 +262,7 @@ def keyword_search_fn(kb=None):
 
     def search(question, pool):
         chars = kb.characters if pool is None else [c for c in kb.characters if name_to_doc[c["name"]] in pool]
-        evidence = retrieve(router.route(question), kb, chars, question)
+        evidence = retrieve(router.route(question), kb, chars)
         return [name_to_doc[e["data"]["name"]] for e in evidence if e["kind"] == "character"]
     return search
 
