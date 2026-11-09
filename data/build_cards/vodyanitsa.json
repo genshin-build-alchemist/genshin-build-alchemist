@@ -1,0 +1,16 @@
+{
+  "character": "보댜니차",
+  "role": "서포터",
+  "weapons": ["파도의 찬송가", "드래곤 슬레이어 영웅담", "벽락의 옥"],
+  "artifact_sets": ["견고한 천암", "감로빛 꽃바다", "지난날의 노래"],
+  "main_stats": {
+    "sands": "HP%",
+    "goblet": "HP%",
+    "circlet": "HP%"
+  },
+  "substats": ["HP%", "HP", "원소 충전 효율"],
+  "notes": "원소전투 스킬 하나로 파티 회복, 경직 저항, 물·얼음·바람 원소 내성 감소 및 공격력과 치명타 피해 버프를 제공하는 물 원소 서포터 겸 힐러. 모든 주요 효과가 HP에 비례하므로 HP를 최대한 확보한다. 원소전투 스킬 > 원소폭발 > 일반 공격 순으로 육성한다.",
+  "source_name": "GenshinBuilds - Vodyanitsa",
+  "source_url": "https://genshin-builds.com/en/character/vodyanitsa",
+  "checked_version": "7.2"
+}

@@ -1,0 +1,16 @@
+{
+  "character": "종려",
+  "role": "서포터",
+  "weapons": ["흑술창", "페보니우스 장창"],
+  "artifact_sets": ["유구한 반암"],
+  "main_stats": {
+    "sands": "HP%",
+    "goblet": "HP%",
+    "circlet": "HP%"
+  },
+  "substats": ["HP%", "HP", "원소 충전 효율"],
+  "notes": "강력한 보호막으로 파티원을 보호하고 적의 모든 원소 및 물리 내성을 감소시키는 방어형 서포터. 원소전투 스킬을 통해 보호막을 생성하며, HP에 비례해 보호막 흡수량이 증가하므로 HP를 최대한 높이는 데 집중한다. 원소전투 스킬을 우선적으로 육성하고, 원소폭발을 통한 석화 효과로 적의 행동을 제한할 수 있다. 추천 파티 조합: 각청, 피슬, 여행자(풀), 종려.",
+  "source_name": "GenshinBuilds - Zhongli",
+  "source_url": "https://genshin-builds.com/en/character/zhongli",
+  "checked_version": "7.2"
+}
