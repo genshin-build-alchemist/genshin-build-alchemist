@@ -4,6 +4,10 @@
                  그리고 'RAG로 낼 수 있는 점수 상한'을 잴 때 쓴다.
 - LLMAnswerer  : 오픈소스 LLM(예: 코랩의 Qwen2.5-3B)에 프롬프트를 보내 답을 받는다.
                  generate_fn(prompt) -> 문자열 하나만 넘겨 주면 된다.
+
+답 모양은 경로마다 다르다
+- 이름·값 목록 (lookup, filter, build): rag_v4 프롬프트. 예: ["바람"], ["알베도", "진"]
+- 짧은 문장 목록 (patch, item)         : 문장 답 프롬프트(build_text_prompt). 예: ["고유 특성 2: ..."]
 """
 import difflib
 import json
@@ -95,6 +99,62 @@ def parse_list_answer(text):
             pass
     parts = re.split(r"[,\n、]", text)
     return [re.sub(r"^[\-\*\d\.\s]+", "", p).strip() for p in parts if p.strip()]
+
+
+# ── 문장 답 모드 (patch, item) ─────────────────────────────────
+# rag_v4는 이름·값만 뽑는 프롬프트라 "뭐 바뀌었어?", "효과 뭐야?" 같은 질문에 빈 답을 낸다.
+# 이 경로들은 근거를 요약한 짧은 문장 목록으로 답한다. 목록 형식은 그대로라 API·화면은 바뀌지 않는다.
+TEXT_ROUTES = ("patch", "item")
+TEXT_MAX_NEW_TOKENS = 320          # 문장 5개까지 (이름 목록용 160으로는 잘린다)
+TEXT_EVIDENCE_CHARS = 700          # 근거 1개당 글자 수 상한 (무기 재련 1~5단계 설명이 길다)
+TEXT_RULES = ("규칙:\n"
+              "- 아래 근거만 보고 질문에 답하세요. 근거에 없는 내용은 쓰지 마세요.\n"
+              "- 답은 JSON 배열로 출력하고, 각 항목은 짧은 한국어 문장 하나로 쓰세요. 예: [\"A: B로 바뀌었다\"]\n"
+              "- 항목은 최대 5개입니다. 근거가 많으면 질문과 가장 관련 있는 것부터 쓰세요.\n"
+              "- 이름, 숫자, 퍼센트는 근거에 적힌 그대로 쓰세요.\n"
+              "- 바뀐 내용은 '→' 앞(전)과 뒤(후)를 비교해서 무엇이 달라졌는지만 쓰세요.\n"
+              "- 근거에 질문의 답이 없으면 빈 배열 []을 출력하세요.\n"
+              "- 문장 안에 큰따옴표(\")는 쓰지 마세요.")
+TEXT_EXAMPLES_PATH = Path(__file__).with_name("text_examples.json")
+
+
+def load_text_examples():
+    with open(TEXT_EXAMPLES_PATH, encoding="utf-8") as f:
+        return json.load(f)["examples"]
+
+
+def _clip(text, limit=TEXT_EVIDENCE_CHARS):
+    text = str(text)
+    return text if len(text) <= limit else text[:limit] + " …(생략)"
+
+
+def build_text_prompt(question, evidence):
+    """문장 답 프롬프트: 규칙 + 예시 4개 + 근거 + 질문."""
+    blocks = [TEXT_RULES]
+    for ex in load_text_examples():
+        answer = json.dumps(ex["answer"], ensure_ascii=False)
+        blocks.append(f"[예시 근거]\n{context_text(ex['evidence'])}\n예시 질문: {ex['question']}\n예시 답: {answer}")
+    context = context_text([_clip(e["text"]) for e in evidence])
+    blocks.append(f"[근거]\n{context}\n(위 근거에 있는 내용만 사용하세요.)")
+    blocks.append(f"[질문]\n{question}\n답:")
+    return "\n\n".join(blocks)
+
+
+def parse_text_answer(text):
+    """모델 글 -> 문장 목록. 문장 안의 쉼표에서 자르지 않는다 (parse_list_answer와 다른 점)."""
+    start, end = text.find("["), text.rfind("]")
+    if start != -1 and end > start:
+        try:
+            items = json.loads(text[start:end + 1])
+            if isinstance(items, list):
+                return [str(x).strip() for x in items if str(x).strip()][:5]
+        except json.JSONDecodeError:
+            pass
+    if start != -1:     # 대괄호 안쪽만 (닫는 ]가 없으면 끝까지: 답이 길이 제한에서 잘린 경우)
+        text = text[start + 1:end] if end > start else text[start + 1:]
+    # JSON이 깨졌으면 줄 단위로 나눈다 (따옴표·쉼표·글머리표 정리)
+    lines = [re.sub(r'^[\s\-\*\d\.]*["\']?|["\']?\s*,?\s*$', "", line) for line in text.splitlines()]
+    return [line for line in lines if line][:5]
 
 
 class MockAnswerer:
@@ -203,8 +263,20 @@ class LLMAnswerer:
         self.postprocess = postprocess
         self.last_raw = ""          # 마지막 모델 원문 (오답 분석용)
 
+    def _generate(self, prompt, max_new_tokens=None):
+        """generate_fn이 max_new_tokens를 받으면 넘기고, 못 받으면 그냥 부른다 (노트북의 generate와 호환)."""
+        if max_new_tokens is None:
+            return self.generate_fn(prompt)
+        try:
+            return self.generate_fn(prompt, max_new_tokens=max_new_tokens)
+        except TypeError:
+            return self.generate_fn(prompt)
+
     def answer(self, question, rr, evidence):
-        self.last_raw = self.generate_fn(build_prompt(question, evidence, self.method))
+        if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답
+            self.last_raw = self._generate(build_text_prompt(question, evidence), TEXT_MAX_NEW_TOKENS)
+            return parse_text_answer(self.last_raw)
+        self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
         if self.postprocess and rr.route in POST_ROUTES:
             pred = clean_answer(pred, [e["text"] for e in evidence if e["kind"] == "character"])
