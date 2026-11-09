@@ -1,0 +1,16 @@
+{
+  "character": "라이덴 쇼군",
+  "role": "서브 딜러",
+  "weapons": ["용학살창", "달을 꿰뚫는 화살", "키타인 십자창"],
+  "artifact_sets": ["잃어버린 낙원의 꽃"],
+  "main_stats": {
+    "sands": "원소 마스터리",
+    "goblet": "원소 마스터리",
+    "circlet": "원소 마스터리"
+  },
+  "substats": ["원소 마스터리"],
+  "notes": "원소전투 스킬을 통해 필드 밖에서도 번개 원소를 부착하고, 풀 원핵을 만개 반응으로 전환해 지속적인 피해를 주는 서브 딜러. 만개 반응 피해가 원소 마스터리에 비례하므로 원소 마스터리를 최대한 높이는 데 집중한다. 원소전투 스킬을 우선적으로 육성하며, 라이덴 쇼군의 원소폭발 직접 피해보다 만개 반응을 통한 지속적인 피해에 집중한다. 추천 파티 조합: 라이덴 쇼군, 쿠죠 사라, 카에데하라 카즈하, 베넷.",
+  "source_name": "GenshinBuilds - Raiden_Shogun",
+  "source_url": "https://genshin-builds.com/en/character/raiden_shogun",
+  "checked_version": "7.2"
+}
