@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS chat_logs (
     id            BIGSERIAL PRIMARY KEY,
     asked_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
     question      TEXT NOT NULL,
-    route         TEXT NOT NULL,        -- lookup / filter / patch / build / unknown
+    route         TEXT NOT NULL,        -- lookup / filter / patch / build / item / unknown
     answer        JSONB NOT NULL,       -- ["..."]
     message       TEXT,
     evidence      JSONB,                -- [{"kind", "title", "text"}]
