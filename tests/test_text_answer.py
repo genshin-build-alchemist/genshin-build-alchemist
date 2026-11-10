@@ -161,5 +161,28 @@ class StopStringTest(unittest.TestCase):
         self.assertEqual(calls, [None, ("]",)])     # 문장 답은 끝까지, 이름 목록은 기존대로 ']'에서 멈춤
 
 
+class GroupPatchLinesTest(unittest.TestCase):
+    def test_version_question_is_grouped(self):
+        # 3B 모델이 요약 42줄을 직접 묶다가 수정된 무기를 신규 무기에 넣었다 -> 미리 종류별로 묶어 준다
+        from core.answer import group_patch_lines
+        from core.retrieval import retrieve
+        from core.router import Router
+        ev = retrieve(Router(KB).route("7.0에서 뭐 바뀌었어?"), KB)
+        lines = group_patch_lines(ev)
+        new_weapons = next(l for l in lines if l.startswith("7.0 신규 무기:"))
+        self.assertNotIn("나른한 새해", new_weapons)            # 수정된 무기는 신규에 없다
+        self.assertTrue(any(l.startswith("7.0 무기 수정:") and "나른한 새해(재련 효과)" in l for l in lines))
+        self.assertIn("7.0 신규 캐릭터: 알료샤, 오데트", lines)
+        self.assertFalse(any("신규 스킬" in l for l in lines))
+        prompt = build_text_prompt("7.0에서 뭐 바뀌었어?", ev).split("[근거]")[-1]
+        self.assertIn("7.0 무기 수정:", prompt)
+
+    def test_few_records_keep_detail(self):
+        from core.retrieval import retrieve
+        from core.router import Router
+        ev = retrieve(Router(KB).route("7.0에서 카에데하라 카즈하 뭐 바뀌었어?"), KB)
+        self.assertIn("별 확산", build_text_prompt("q", ev).split("[근거]")[-1])
+
+
 if __name__ == "__main__":
     unittest.main()

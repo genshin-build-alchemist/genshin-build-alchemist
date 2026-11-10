@@ -138,14 +138,50 @@ def _clip(text, limit):
     return _cut("\n".join(lines), limit)
 
 
+PATCH_GROUP_KIND = {"characters": "캐릭터", "weapons": "무기", "talents": "스킬", "constellations": "명의 자리"}
+PATCH_GROUP_CHANGE = {"added": "신규", "modified": "수정", "removed": "삭제"}
+
+
+def group_patch_lines(evidence):
+    """패치 기록이 많을 때(버전 전체 질문) 한 줄 요약 수십 개 대신 종류별로 묶은 몇 줄로 바꾼다.
+    3B 모델이 42줄을 직접 묶게 했더니 수정된 무기를 신규 무기에 넣는 등 섞었다 (11/10 코랩 확인)."""
+    groups = {}
+    for e in evidence:
+        r = e["data"]
+        name = r["entity_name"]
+        if r["change_type"] == "added" and r["folder"] in ("talents", "constellations"):
+            continue    # 신규 캐릭터의 스킬·명의 자리 추가는 '신규 캐릭터' 한 줄로 충분하다
+        if r["change_type"] == "modified":
+            parts = sorted({lbl for lbl in (slot_label(c["field"]) for c in r["changes"]) if lbl})
+            if parts and all(p.startswith("재련") for p in parts):
+                parts = ["재련 효과"]
+            name = f"{name}({', '.join(parts) if parts else '기타'})"
+        key = (r["version"], r["change_type"], r["folder"])
+        if name not in groups.setdefault(key, []):
+            groups[key].append(name)
+    order = {"added": 0, "modified": 1, "removed": 2}
+    folders = list(PATCH_GROUP_KIND)
+    lines = []
+    for (version, change, folder), names in sorted(groups.items(), key=lambda kv: (
+            kv[0][0], order.get(kv[0][1], 9), folders.index(kv[0][2]) if kv[0][2] in folders else 9)):
+        kind = PATCH_GROUP_KIND.get(folder, folder)
+        label = f"신규 {kind}" if change == "added" else f"{kind} {PATCH_GROUP_CHANGE.get(change, change)}"
+        lines.append(f"{version} {label}: {', '.join(names)}")
+    return lines
+
+
 def build_text_prompt(question, evidence):
     """문장 답 프롬프트: 규칙 + 예시 4개 + 근거 + 질문."""
     blocks = [TEXT_RULES]
     for ex in load_text_examples():
         answer = json.dumps(ex["answer"], ensure_ascii=False)
         blocks.append(f"[예시 근거]\n{context_text(ex['evidence'])}\n예시 질문: {ex['question']}\n예시 답: {answer}")
-    per = max(500, min(1800, TEXT_TOTAL_CHARS // max(len(evidence), 1)))   # 근거 1개당 글자 수
-    context = context_text([_clip(e["text"], per) for e in evidence])
+    many_patches = len(evidence) > 5 and all(e.get("kind") == "patch" and e.get("data") for e in evidence)
+    if many_patches:
+        context = context_text(group_patch_lines(evidence))
+    else:
+        per = max(500, min(1800, TEXT_TOTAL_CHARS // max(len(evidence), 1)))   # 근거 1개당 글자 수
+        context = context_text([_clip(e["text"], per) for e in evidence])
     blocks.append(f"[근거]\n{context}\n(위 근거에 있는 내용만 사용하세요.)")
     blocks.append(f"[질문]\n{question}\n답:")
     return "\n\n".join(blocks)
