@@ -14,7 +14,7 @@
 
 | 파일 | 하는 일 |
 |---|---|
-| `run_chatbot.ipynb` | 최신 main으로 챗봇 실행: 버전 확인 → 모델 → 대표 질문 점검(✓/✗) → API 서버 + ngrok 시연 주소 → 평가 결과 표. 위에서부터 차례로 실행 |
+| `run_chatbot.ipynb` | 최신 main으로 챗봇 실행: 버전 확인 → 모델 → 대표 질문 점검(✓/✗) → API 서버 + ngrok 시연 주소 → 평가 결과 표. **런타임 → 모두 실행**으로 한 번에 돌리면 되고, 서버는 켜진 채로 남음 (끌 때는 마지막 칸 `CLOSE = True`) |
 
 [![코랩에서 열기](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/genshin-build-alchemist/genshin-build-alchemist/blob/main/notebooks/run_chatbot.ipynb) ← 항상 이 링크로 엽니다. 깃허브 main의 최신 노트북이 열리고, 셀 1이 최신 코드·데이터를 받아 옵니다.
 - 코랩에서 고친 내용은 깃허브에 저장되지 않습니다. 노트북을 고치려면 맥(VS Code)에서 고쳐 PR로 올리고, 머지 뒤 링크로 다시 엽니다
