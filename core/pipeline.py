@@ -68,6 +68,8 @@ class Chatbot:
                 version = rr.version or self.kb.latest_version
                 who = f" {rr.character}의" if rr.character else ""
                 return f"{version} 버전{who} 변경 기록을 데이터에서 찾지 못했어요. (수집된 버전: {versions})"
+            if rr.route == "item":
+                return "질문에 맞는 무기·성유물을 데이터에서 찾지 못했어요. 이름을 넣어 다시 물어봐 주세요."
             return "데이터에서 답을 찾지 못했어요. 캐릭터 이름이나 조건을 확인해 주세요."
         if not answer:
             return "근거는 찾았지만 질문에 맞는 답이 없어요."

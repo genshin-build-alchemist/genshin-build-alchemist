@@ -7,23 +7,12 @@
 
 검색 방식을 임베딩(Chroma 또는 PostgreSQL pgvector)으로 바꿔도 이 반환 형식만 지키면 된다.
 """
-# TODO(B) 벡터 검색 붙이기. 위에서부터 순서대로, 끝나면 [ ] -> [x] 로 바꿔서 PR
-#  1. [ ] 임베딩 파일 만들기: 코랩에서 embed_and_save 셀 실행 -> 드라이브 data/embeddings/
-#         완료 기준: 벡터 길이 1.000, 이름 질문 Hit@1 90% 이상
-#  2. [ ] vector_search(question, k, pool) 만들기: 질문 -> 비슷한 문서 doc_id 상위 k개
-#         질문도 문서와 같은 모델 + normalize_embeddings=True + 앞말 없이 임베딩한다
-#  3. [ ] filter 경로 = 조건 필터 + 벡터: rr.conditions 로 먼저 거르고, 벡터는 걸러진 것 안에서 순위만
-#         (벡터만으로는 '활 + 수메르' 같은 여러 조건을 못 맞춘다. 버그 아님)
-#  4. [ ] 검색 정확도(Hit@k) 재기: core/retrieval_eval.py 맨 위 '사용' 참고 (정답 근거 = data/eval/evidence_info_v1.json)
-#         기준점(지금 키워드 검색): 템플릿 질문은 만점, 말투 변형 질문 hit@1 0.681 (띄어쓰기 없음 0.0)
-#         DEV 세트와 style_questions_dev.csv로만 비교하고, 평가 문항은 마지막에 한 번만 본다
-#  5. [ ] 캐릭터 말고 전체 문서(특성·운명의 자리·무기·성유물·패치)로 늘리기 (KINDS = None)
-#  6. [ ] 청킹 비교: 문서 통째('doc') vs 길이로 자르기('len200' 등). 결과는 드라이브 results/ JSON
-#  7. [ ] 아래 retrieve()가 벡터 검색을 쓰게 연결. 반환 형식(kind/title/text/data/doc_id)은 그대로
-#         doc_id는 대화 기록(chat_logs.retrieved_doc_ids)과 검색 채점에 쓰인다. 벡터 검색 결과의 doc_id를 그대로 넣으면 된다
-#  규칙: 학습용(DEV) 질문은 평가용 캐릭터 문서를 검색하지 않는다 (pool 인자로 범위 제한)
-#  막히면: A에게 질문. 예시 셀은 A가 디스코드로 공유
+# 벡터 검색: 아이템(무기·성유물) 질문에만 쓴다 -> core/vector.py (TODO(B)는 그 파일에)
+#  캐릭터 조회·조건 검색·패치는 키워드 검색 그대로 (기본 단계 결정, 하이브리드는 다음 프로젝트)
+import json
 import re
+from functools import lru_cache
+from pathlib import Path
 
 from core.kb import slot_label
 from core.validate import recheck_reasons
@@ -100,6 +89,31 @@ def doc_id_for(kind, data):
     return None
 
 
+ITEM_TOP_K = 5
+DOCS_PATH = Path(__file__).resolve().parent.parent / "data" / "docs" / "documents_ko.jsonl"
+
+
+@lru_cache(maxsize=1)
+def _item_docs():
+    """무기·성유물 문서 doc_id -> 본문 (documents_ko.jsonl, 벡터 검색과 같은 글). 파일이 없으면 빈 dict."""
+    try:
+        with open(DOCS_PATH, encoding="utf-8") as f:
+            docs = (json.loads(line) for line in f if line.strip())
+            return {d["doc_id"]: d["text"] for d in docs if d["kind"] in ("weapon", "artifact")}
+    except OSError:
+        return {}
+
+
+def item_evidence(kind, info):
+    """무기·성유물 1개 -> 근거. 본문은 문서 파일에서, 없으면 데이터로 한 줄."""
+    doc_id = doc_id_for(kind, info)
+    text = _item_docs().get(doc_id)
+    if not text:
+        text = (f"{info['name']}: {info['rarity']} {info['weapon']}, 주옵션 {info['main_stat']}" if kind == "weapon"
+                else f"{info['name']}: 2세트 {info.get('effect_2pc') or '-'} / 4세트 {info.get('effect_4pc') or '-'}")
+    return _ev(kind, info["name"], text, info)
+
+
 def _ev(kind, title, text, data):
     return {"kind": kind, "title": title, "text": text, "data": data, "doc_id": doc_id_for(kind, data)}
 
@@ -144,6 +158,19 @@ def retrieve(rr, kb, pool=None):
             evidence.append(_ev("recheck", r["target"],
                                 f"재확인 필요: {r['version']}에서 {r['target']} 변경 ({', '.join(r['parts'])})", r))
         return evidence
+
+    if rr.route == "item":
+        if rr.item:     # 이름이 있으면 그 문서 1개 (키워드 검색)
+            info = (kb.weapon_by_name if rr.item_kind == "weapon" else kb.artifact_by_name).get(rr.item)
+            return [item_evidence(rr.item_kind, info)] if info else []
+        from core.vector import item_vector_search     # 이름이 없으면 벡터 검색 (core/vector.py)
+        try:
+            doc_ids = item_vector_search(rr.question, k=ITEM_TOP_K)
+        except Exception:   # 벡터 검색이 실패해도 API는 멈추지 않는다 -> 근거 없음
+            doc_ids = []
+        by_doc = {doc_id_for("weapon", w): ("weapon", w) for w in kb.weapons}
+        by_doc.update({doc_id_for("artifact", a): ("artifact", a) for a in kb.artifacts})
+        return [item_evidence(*by_doc[d]) for d in doc_ids if d in by_doc][:ITEM_TOP_K]
 
     return []   # unknown
 

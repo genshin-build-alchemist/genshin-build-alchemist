@@ -250,6 +250,9 @@ class MockAnswerer:
             return sorted({r["entity_name"] for r in records
                            if r["change_type"] == "modified" and r["folder"] in folders})
 
+        if rr.route == "item":   # 모의 답변기: 근거 문서의 첫 줄(이름·성급·종류)만
+            return [e["text"].split("\n")[0] for e in evidence]
+
         if rr.route == "build":
             card = next(e["data"] for e in evidence if e["kind"] == "build_card")
             if "무기" in question and "성유물" not in question:

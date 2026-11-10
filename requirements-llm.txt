@@ -4,3 +4,6 @@
 torch>=2.2
 transformers>=4.45
 accelerate>=0.30
+# 아이템 벡터 검색 (core/vector.py): 질문 임베딩. 문서 임베딩과 같은 모델(granite r2)을 쓴다
+sentence-transformers>=3.0
+numpy>=1.24
