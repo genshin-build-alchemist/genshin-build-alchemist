@@ -16,6 +16,16 @@ _INDEX = {
 
 def set_item_index(encode, vectors, doc_ids):
     """검색에 사용할 임베딩 모델과 벡터 인덱스를 등록한다."""
+
+    # 인덱스 초기화
+    if encode is None and vectors is None and not doc_ids:
+        _INDEX.update(
+            encode=None,
+            vectors=None,
+            doc_ids=[],
+        )
+        return
+
     vectors = np.asarray(vectors, dtype=np.float32)
 
     if vectors.ndim != 2:
@@ -29,7 +39,6 @@ def set_item_index(encode, vectors, doc_ids):
         vectors=vectors,
         doc_ids=list(doc_ids),
     )
-
 
 def load_item_index(folder):
     """저장된 무기·성유물 임베딩 파일을 불러온다."""
