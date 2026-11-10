@@ -1,8 +1,5 @@
 
-"""아이템(무기·성유물) 질문 벡터 검색 (기본 과업 2-1). 담당: 한동우 (B)
-
-retrieval.py의 item 경로에서 호출하는 벡터 검색 기능.
-"""
+"""아이템(무기·성유물) 질문 벡터 검색."""
 
 import json
 from pathlib import Path
@@ -13,13 +10,12 @@ import numpy as np
 _INDEX = {
     "encode": None,
     "vectors": None,
-    "doc_ids": []
+    "doc_ids": [],
 }
 
 
 def set_item_index(encode, vectors, doc_ids):
-    """검색에 사용할 인코더, 벡터, 문서 ID를 저장한다."""
-
+    """검색에 사용할 임베딩 모델과 벡터 인덱스를 등록한다."""
     vectors = np.asarray(vectors, dtype=np.float32)
 
     if vectors.ndim != 2:
@@ -31,13 +27,12 @@ def set_item_index(encode, vectors, doc_ids):
     _INDEX.update(
         encode=encode,
         vectors=vectors,
-        doc_ids=list(doc_ids)
+        doc_ids=list(doc_ids),
     )
 
 
 def load_item_index(folder):
-    """임베딩 파일을 불러오고 검색 인덱스를 설정한다."""
-
+    """저장된 무기·성유물 임베딩 파일을 불러온다."""
     _INDEX.update(encode=None, vectors=None, doc_ids=[])
 
     try:
@@ -52,7 +47,6 @@ def load_item_index(folder):
         vectors = np.load(vector_path, allow_pickle=False)
 
         doc_ids = []
-
         with open(doc_path, "r", encoding="utf-8") as f:
             for line in f:
                 if line.strip():
@@ -65,6 +59,7 @@ def load_item_index(folder):
         if not np.isfinite(vectors).all():
             return False
 
+        # 무기와 성유물 문서만 사용
         valid_indices = [
             i for i, doc_id in enumerate(doc_ids)
             if doc_id.startswith(("weapon:", "artifact:"))
@@ -76,6 +71,7 @@ def load_item_index(folder):
         if not doc_ids:
             return False
 
+        # 무거운 라이브러리는 실제 로드 시점에 import
         from sentence_transformers import SentenceTransformer
 
         model = SentenceTransformer(
@@ -86,11 +82,10 @@ def load_item_index(folder):
             return model.encode(
                 texts,
                 normalize_embeddings=True,
-                convert_to_numpy=True
+                convert_to_numpy=True,
             )
 
         set_item_index(encode, vectors, doc_ids)
-
         return True
 
     except Exception:
@@ -99,8 +94,7 @@ def load_item_index(folder):
 
 
 def item_vector_search(question, k=5):
-    """질문과 가까운 무기·성유물 문서의 doc_id를 반환한다."""
-
+    """질문과 유사한 무기·성유물 문서 ID를 반환한다."""
     try:
         encode = _INDEX["encode"]
         vectors = _INDEX["vectors"]
@@ -113,13 +107,12 @@ def item_vector_search(question, k=5):
             return []
 
         k = int(k)
-
         if k <= 0:
             return []
 
         query_vector = np.asarray(
             encode([question]),
-            dtype=np.float32
+            dtype=np.float32,
         )
 
         if query_vector.ndim == 1:
@@ -134,7 +127,9 @@ def item_vector_search(question, k=5):
         if not np.isfinite(query_vector).all():
             return []
 
+        # 정규화된 벡터의 내적 = 코사인 유사도
         scores = np.dot(vectors, query_vector[0])
+
         top_indices = np.argsort(scores)[::-1][:k]
 
         return [doc_ids[i] for i in top_indices]
