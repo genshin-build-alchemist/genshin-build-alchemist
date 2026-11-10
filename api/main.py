@@ -21,6 +21,7 @@
 #  6. [ ] 전후 비교 대시보드: dashboard/README.md
 #  막히면: A에게 질문
 import time
+from typing import Optional   # str | None 은 파이썬 3.10부터라 3.9(맥 기본 python3)에서 깨진다
 
 from fastapi import BackgroundTasks, FastAPI
 from pydantic import BaseModel, Field
@@ -42,7 +43,7 @@ class Evidence(BaseModel):
     kind: str
     title: str
     text: str
-    doc_id: str | None = None      # 검색용 문서 id (예: character:albedo). 빌드 카드·재확인 표시는 null
+    doc_id: Optional[str] = None   # 검색용 문서 id (예: character:albedo). 빌드 카드·재확인 표시는 null
 
 
 class AskResponse(BaseModel):
