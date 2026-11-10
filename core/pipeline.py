@@ -47,6 +47,16 @@ class Chatbot:
             "data_version": self.kb.data_version,
         }
 
+    def _sentence_message(self, rr, answer):
+        lines = "\n".join(f"- {a}" for a in answer)
+        if rr.route == "patch":
+            if rr.character:
+                scope = f"{rr.version} 버전 {rr.character}" if rr.version else rr.character
+            else:
+                scope = f"{rr.version or self.kb.latest_version} 버전"
+            return f"{scope}의 변경 기록에서 찾은 내용:\n{lines}"
+        return lines
+
     def _message(self, rr, answer, evidence, found):
         if not found:
             if rr.route == "build":
@@ -62,6 +72,9 @@ class Chatbot:
         if not answer:
             return "근거는 찾았지만 질문에 맞는 답이 없어요."
         joined = ", ".join(answer)
+        # 문장 답(실제 모델의 패치·아이템 답)은 한 줄에 하나씩. 모의 답변기는 이름 목록이라 아래 문구 그대로
+        if rr.route in getattr(self.answerer, "sentence_routes", ()):
+            return self._sentence_message(rr, answer)
         if rr.route == "lookup":
             label = FIELD_KO.get(rr.asked_field)
             return f"{rr.character}의 {label}: {joined}" if label else f"{rr.character}: {joined}"

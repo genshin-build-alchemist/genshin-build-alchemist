@@ -4,6 +4,10 @@
                  그리고 'RAG로 낼 수 있는 점수 상한'을 잴 때 쓴다.
 - LLMAnswerer  : 오픈소스 LLM(예: 코랩의 Qwen2.5-3B)에 프롬프트를 보내 답을 받는다.
                  generate_fn(prompt) -> 문자열 하나만 넘겨 주면 된다.
+
+답 모양은 경로마다 다르다
+- 이름·값 목록 (lookup, filter, build): rag_v4 프롬프트. 예: ["바람"], ["알베도", "진"]
+- 짧은 문장 목록 (patch, item)         : 문장 답 프롬프트(build_text_prompt). 예: ["고유 특성 2: ..."]
 """
 import difflib
 import json
@@ -95,6 +99,116 @@ def parse_list_answer(text):
             pass
     parts = re.split(r"[,\n、]", text)
     return [re.sub(r"^[\-\*\d\.\s]+", "", p).strip() for p in parts if p.strip()]
+
+
+# ── 문장 답 모드 (patch, item) ─────────────────────────────────
+# rag_v4는 이름·값만 뽑는 프롬프트라 "뭐 바뀌었어?", "효과 뭐야?" 같은 질문에 빈 답을 낸다.
+# 이 경로들은 근거를 요약한 짧은 문장 목록으로 답한다. 목록 형식은 그대로라 API·화면은 바뀌지 않는다.
+TEXT_ROUTES = ("patch", "item")
+TEXT_MAX_NEW_TOKENS = 320          # 문장 5개까지 (이름 목록용 160으로는 잘린다)
+TEXT_TOTAL_CHARS = 3600            # 근거 전체 글자 수 상한. 근거가 적으면 1개당 더 길게 넣는다
+TEXT_LINE_CHARS = 300              # 근거 한 줄 상한 (스킬 설명 한 줄이 600자를 넘기도 한다)
+TEXT_RULES = ("규칙:\n"
+              "- 아래 근거만 보고 질문에 답하세요. 근거에 없는 내용은 쓰지 마세요.\n"
+              "- 답은 JSON 배열로 출력하고, 각 항목은 짧은 한국어 문장 하나로 쓰세요. 예: [\"A: B로 바뀌었다\"]\n"
+              "- 항목은 최대 5개입니다. 근거가 많으면 질문과 가장 관련 있는 것부터 쓰세요.\n"
+              "- 이름, 숫자, 퍼센트는 근거에 적힌 그대로 쓰세요.\n"
+              "- 바뀐 내용은 '→' 앞(전)과 뒤(후)를 비교해서 무엇이 달라졌는지만 쓰세요. 근거 문장을 그대로 베끼지 마세요.\n"
+              "- 각 항목 앞에 바뀐 부분 이름을 붙이세요. 예: 원소 폭발, 명의 자리 1, 재련 1단계\n"
+              "- 근거가 한 줄 요약 목록이면 신규 캐릭터, 신규 무기, 수정된 것처럼 종류별로 묶어 쓰세요.\n"
+              "- 근거에 질문의 답이 없으면 빈 배열 []을 출력하세요.\n"
+              "- 문장 안에 큰따옴표(\")는 쓰지 마세요.")
+TEXT_EXAMPLES_PATH = Path(__file__).with_name("text_examples.json")
+QUOTED_ITEM = re.compile(r'"((?:[^"\\]|\\.)*)"|"([^"]+)$')   # "문장" 또는 끝에서 잘린 "문장…
+BULLET = re.compile(r"^\s*(?:[-*•]|\d+[.)](?!\d))\s*")       # "- ", "1. ", "2) " (7.1은 건드리지 않음)
+
+
+def load_text_examples():
+    with open(TEXT_EXAMPLES_PATH, encoding="utf-8") as f:
+        return json.load(f)["examples"]
+
+
+def _cut(text, limit):
+    return text if len(text) <= limit else text[:limit] + " …"   # '(생략)'이라고 쓰면 모델이 '생략된 내용이 있다'를 답에 따라 썼다
+
+
+def _clip(text, limit):
+    """근거 1개 줄이기: 긴 줄은 줄마다 자르고(뒤쪽 줄이 통째로 잘려 나가지 않게), 전체도 limit까지."""
+    lines = [_cut(line, TEXT_LINE_CHARS) for line in str(text).split("\n")]
+    return _cut("\n".join(lines), limit)
+
+
+PATCH_GROUP_KIND = {"characters": "캐릭터", "weapons": "무기", "talents": "스킬", "constellations": "명의 자리"}
+PATCH_GROUP_CHANGE = {"added": "신규", "modified": "수정", "removed": "삭제"}
+
+
+def group_patch_lines(evidence):
+    """패치 기록이 많을 때(버전 전체 질문) 한 줄 요약 수십 개 대신 종류별로 묶은 몇 줄로 바꾼다.
+    3B 모델이 42줄을 직접 묶게 했더니 수정된 무기를 신규 무기에 넣는 등 섞었다 (11/10 코랩 확인)."""
+    groups = {}
+    for e in evidence:
+        r = e["data"]
+        name = r["entity_name"]
+        if r["change_type"] == "added" and r["folder"] in ("talents", "constellations"):
+            continue    # 신규 캐릭터의 스킬·명의 자리 추가는 '신규 캐릭터' 한 줄로 충분하다
+        if r["change_type"] == "modified":
+            parts = sorted({lbl for lbl in (slot_label(c["field"]) for c in r["changes"]) if lbl})
+            if parts and all(p.startswith("재련") for p in parts):
+                parts = ["재련 효과"]
+            name = f"{name}({', '.join(parts) if parts else '기타'})"
+        key = (r["version"], r["change_type"], r["folder"])
+        if name not in groups.setdefault(key, []):
+            groups[key].append(name)
+    order = {"added": 0, "modified": 1, "removed": 2}
+    folders = list(PATCH_GROUP_KIND)
+    lines = []
+    for (version, change, folder), names in sorted(groups.items(), key=lambda kv: (
+            kv[0][0], order.get(kv[0][1], 9), folders.index(kv[0][2]) if kv[0][2] in folders else 9)):
+        kind = PATCH_GROUP_KIND.get(folder, folder)
+        label = f"신규 {kind}" if change == "added" else f"{kind} {PATCH_GROUP_CHANGE.get(change, change)}"
+        lines.append(f"{version} {label}: {', '.join(names)}")
+    return lines
+
+
+def build_text_prompt(question, evidence):
+    """문장 답 프롬프트: 규칙 + 예시 4개 + 근거 + 질문."""
+    blocks = [TEXT_RULES]
+    for ex in load_text_examples():
+        answer = json.dumps(ex["answer"], ensure_ascii=False)
+        blocks.append(f"[예시 근거]\n{context_text(ex['evidence'])}\n예시 질문: {ex['question']}\n예시 답: {answer}")
+    many_patches = len(evidence) > 5 and all(e.get("kind") == "patch" and e.get("data") for e in evidence)
+    if many_patches:
+        context = context_text(group_patch_lines(evidence))
+    else:
+        per = max(500, min(1800, TEXT_TOTAL_CHARS // max(len(evidence), 1)))   # 근거 1개당 글자 수
+        context = context_text([_clip(e["text"], per) for e in evidence])
+    blocks.append(f"[근거]\n{context}\n(위 근거에 있는 내용만 사용하세요.)")
+    blocks.append(f"[질문]\n{question}\n답:")
+    return "\n\n".join(blocks)
+
+
+def parse_text_answer(text):
+    """모델 글 -> 문장 목록. 문장 안의 쉼표에서 자르지 않는다 (parse_list_answer와 다른 점)."""
+    start, end = text.find("["), text.rfind("]")
+    if start != -1 and end > start:
+        try:
+            items = json.loads(text[start:end + 1])
+            if isinstance(items, list):
+                flat = []
+                for x in items:   # [["문장1"], ["문장2"]]처럼 겹친 배열은 펼친다
+                    flat.extend(x if isinstance(x, list) else [x])
+                return [str(x).strip() for x in flat if str(x).strip()][:5]
+        except json.JSONDecodeError:
+            pass
+    if start != -1:     # 대괄호 안쪽만 (닫는 ]가 없으면 끝까지: 답이 길이 제한에서 잘린 경우)
+        text = text[start + 1:end] if end > start else text[start + 1:]
+        # 따옴표로 감싼 문장을 하나씩 꺼낸다. 한 줄에 여러 개가 붙어 있거나 마지막 문장이 잘려도 나뉜다
+        quoted = [a or b for a, b in QUOTED_ITEM.findall(text)]
+        if quoted:
+            return [q.strip() for q in quoted if q.strip()][:5]
+    # 따옴표도 없으면 줄 단위로 나눈다. 글머리표("-", "1.")만 지우고 "7.1" 같은 버전 숫자는 남긴다
+    lines = [BULLET.sub("", line).strip().strip("\"',").strip() for line in text.splitlines()]
+    return [line for line in lines if line][:5]
 
 
 class MockAnswerer:
@@ -196,6 +310,8 @@ def clean_answer(pred, texts, cutoff=POST_CUTOFF):
 
 
 class LLMAnswerer:
+    sentence_routes = TEXT_ROUTES   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
+
     def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True):
         self.generate_fn = generate_fn
         self.name = name
@@ -203,8 +319,23 @@ class LLMAnswerer:
         self.postprocess = postprocess
         self.last_raw = ""          # 마지막 모델 원문 (오답 분석용)
 
+    def _generate(self, prompt, **options):
+        """generate_fn이 받을 수 있는 옵션(max_new_tokens, stop_strings)만 넘긴다 (노트북의 옛 generate(prompt)와도 호환)."""
+        tries = [options, {k: v for k, v in options.items() if k != "stop_strings"}, {}]
+        for i, kwargs in enumerate(tries):
+            try:
+                return self.generate_fn(prompt, **kwargs)
+            except TypeError:
+                if not kwargs or i == len(tries) - 1:
+                    raise
+
     def answer(self, question, rr, evidence):
-        self.last_raw = self.generate_fn(build_prompt(question, evidence, self.method))
+        if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답
+            # ']'에서 멈추지 않는다: 모델이 [["문장1"], ["문장2"]]처럼 배열을 겹쳐 쓰면 첫 문장에서 잘렸다 (11/10 코랩 확인)
+            self.last_raw = self._generate(build_text_prompt(question, evidence),
+                                           max_new_tokens=TEXT_MAX_NEW_TOKENS, stop_strings=None)
+            return parse_text_answer(self.last_raw)
+        self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
         if self.postprocess and rr.route in POST_ROUTES:
             pred = clean_answer(pred, [e["text"] for e in evidence if e["kind"] == "character"])
