@@ -96,11 +96,11 @@ class LLMRouteTest(unittest.TestCase):
 
         def old_generate(prompt):                       # 노트북의 옛 generate(prompt) 모양
             calls.append(prompt)
-            return '["7.1 신규 무기는 나비의 우화, 산들바람 활이다"]'
+            return '["고유 특성 2: 별 확산 반응에도 발동한다"]'
 
-        r = Chatbot(KB, LLMAnswerer(old_generate)).ask("7.1 신규 무기 뭐야?")
+        r = Chatbot(KB, LLMAnswerer(old_generate)).ask("7.0에서 카에데하라 카즈하 뭐 바뀌었어?")
         self.assertEqual(len(calls), 1)
-        self.assertEqual(r["answer"], ["7.1 신규 무기는 나비의 우화, 산들바람 활이다"])
+        self.assertEqual(r["answer"], ["고유 특성 2: 별 확산 반응에도 발동한다"])
 
     def test_no_evidence_no_call(self):
         gen = FakeGenerate('["지어낸 답"]')
@@ -135,9 +135,10 @@ class PatchEvidenceCleanTest(unittest.TestCase):
 
     def test_short_llm_answer_uses_sentence_message(self):
         # 짧은 문장 답이 '7.0 버전 신규 캐릭터: 7.0 신규 캐릭터는 ...'처럼 겹쳐 보였다
+        # (신규 목록은 이제 모델 없이 근거를 묶어 답한다: EmptyPatchAnswerTest)
         gen = FakeGenerate('["7.0 신규 캐릭터는 알료샤, 오데트이다"]')
         r = Chatbot(KB, LLMAnswerer(gen)).ask("7.0 신규 캐릭터 누구야?")
-        self.assertEqual(r["message"], "7.0 버전의 변경 기록에서 찾은 내용:\n- 7.0 신규 캐릭터는 알료샤, 오데트이다")
+        self.assertEqual(r["message"], "7.0 버전의 변경 기록에서 찾은 내용:\n- 7.0 신규 캐릭터: 알료샤, 오데트")
 
     def test_mock_patch_message_unchanged(self):
         self.assertEqual(Chatbot(KB).ask("7.0 신규 캐릭터 누구야?")["message"], "7.0 버전 신규 캐릭터: 알료샤, 오데트")
@@ -156,7 +157,7 @@ class StopStringTest(unittest.TestCase):
             calls.append(stop_strings)
             return '["7.1 신규 무기: 나비의 우화"]'
 
-        Chatbot(KB, LLMAnswerer(gen)).ask("7.1 신규 무기 뭐야?")
+        Chatbot(KB, LLMAnswerer(gen)).ask("7.0에서 카에데하라 카즈하 뭐 바뀌었어?")
         Chatbot(KB, LLMAnswerer(gen)).ask("카에데하라 카즈하의 원소는 뭐야?")
         self.assertEqual(calls, [None, ("]",)])     # 문장 답은 끝까지, 이름 목록은 기존대로 ']'에서 멈춤
 
@@ -196,6 +197,33 @@ class AddedRecordLineTest(unittest.TestCase):
         texts = {e["title"]: e["text"] for e in ev}
         self.assertEqual(texts["초월의 열쇠"], "6.7 초월의 열쇠: 신규 무기 추가")
         self.assertIn("→", texts["암철검"])
+
+
+
+class EmptyPatchAnswerTest(unittest.TestCase):
+    """11/10 코랩(7.2 데이터): 근거가 1~3줄인 패치 질문 4개에 3B가 []로 답했다."""
+
+    def test_added_list_needs_no_model(self):
+        gen = FakeGenerate("[]")
+        bot = Chatbot(KB, LLMAnswerer(gen))
+        self.assertEqual(bot.ask("7.2 신규 캐릭터 누구야?")["answer"], ["7.2 신규 캐릭터: 미탸, 발레리"])
+        self.assertEqual(bot.ask("5.0 신규 캐릭터 누구야?")["answer"], ["5.0 신규 캐릭터: 카치나, 키니치, 말라니"])
+        self.assertEqual(bot.ask("7.2 신규 무기 뭐야?")["answer"], ["7.2 신규 무기: 별빛 계시"])
+        self.assertEqual(gen.prompts, [])                       # 신규 목록은 모델을 부르지 않는다
+
+    def test_empty_model_answer_falls_back_to_evidence(self):
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate("[]"))).ask("5.6에서 엠버 뭐 바뀌었어?")
+        self.assertEqual(r["answer"], ["일반 공격 이름: 일반 공격·신궁 → 명사수"])
+        self.assertIn("변경 기록에서 찾은 내용", r["message"])
+
+    def test_specific_part_question_keeps_empty_answer(self):
+        # '원소 폭발 바뀌었어?'의 []는 '그 부분은 안 바뀜'일 수 있어서 근거로 채우지 않는다
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate("[]"))).ask("7.0에서 산드로네 원소 폭발 바뀌었어?")
+        self.assertEqual(r["answer"], [])
+
+    def test_model_answer_is_kept_when_not_empty(self):
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate('["일반 공격: 이름이 명사수로 바뀌었다"]'))).ask("5.6에서 엠버 뭐 바뀌었어?")
+        self.assertEqual(r["answer"], ["일반 공격: 이름이 명사수로 바뀌었다"])
 
 
 if __name__ == "__main__":
