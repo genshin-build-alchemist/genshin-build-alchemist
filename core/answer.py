@@ -129,7 +129,7 @@ def load_text_examples():
 
 
 def _cut(text, limit):
-    return text if len(text) <= limit else text[:limit] + " …(생략)"
+    return text if len(text) <= limit else text[:limit] + " …"   # '(생략)'이라고 쓰면 모델이 '생략된 내용이 있다'를 답에 따라 썼다
 
 
 def _clip(text, limit):

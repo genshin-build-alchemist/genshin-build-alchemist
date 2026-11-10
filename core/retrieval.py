@@ -121,8 +121,10 @@ def retrieve(rr, kb, pool=None):
     if rr.route == "patch":
         records = patch_records(rr, kb)
         # 기록이 적으면(한 캐릭터·한 무기) 바뀌기 전 → 후 본문을 근거로, 많으면 한 줄 요약으로
+        # 신규·삭제 기록은 본문이 '신규 추가됨' 한 줄뿐이라 늘 한 줄 요약으로 쓴다
         detail = len(records) <= PATCH_DETAIL_MAX
-        return [_ev("patch", r["entity_name"], patch_text(r) if detail else f"{r['version']} {patch_line(r)}", r)
+        return [_ev("patch", r["entity_name"],
+                    patch_text(r) if detail and r["change_type"] == "modified" else f"{r['version']} {patch_line(r)}", r)
                 for r in records[:PATCH_MAX_LINES]]
 
     if rr.route == "build":

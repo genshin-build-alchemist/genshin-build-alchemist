@@ -70,7 +70,7 @@ class TextPromptTest(unittest.TestCase):
 
     def test_long_evidence_is_clipped(self):
         prompt = build_text_prompt("질문", [{"text": "가" * 5000}])
-        self.assertIn("…(생략)", prompt)
+        self.assertIn(" …", prompt)
         self.assertLess(prompt.count("가"), 1000)
 
 
@@ -182,6 +182,20 @@ class GroupPatchLinesTest(unittest.TestCase):
         from core.router import Router
         ev = retrieve(Router(KB).route("7.0에서 카에데하라 카즈하 뭐 바뀌었어?"), KB)
         self.assertIn("별 확산", build_text_prompt("q", ev).split("[근거]")[-1])
+
+
+class AddedRecordLineTest(unittest.TestCase):
+    def test_new_character_uses_summary_line(self):
+        # '7.0 신규 캐릭터 누구야?'에 근거가 '[원신 7.0 데이터 변경] 알료샤 - 캐릭터 / 신규 추가됨'으로 들어가
+        # 예시('7.1 나비의 우화: 신규 무기 추가')와 모양이 달라 모델이 [] 로 답했다 -> 신규는 늘 한 줄 요약
+        ev = Chatbot(KB).ask("7.0 신규 캐릭터 누구야?")["evidence"]
+        self.assertEqual([e["text"] for e in ev], ["7.0 알료샤: 신규 캐릭터 추가", "7.0 오데트: 신규 캐릭터 추가"])
+
+    def test_modified_record_keeps_detail(self):
+        ev = Chatbot(KB).ask("6.7에서 바뀐 무기 알려줘")["evidence"]
+        texts = {e["title"]: e["text"] for e in ev}
+        self.assertEqual(texts["초월의 열쇠"], "6.7 초월의 열쇠: 신규 무기 추가")
+        self.assertIn("→", texts["암철검"])
 
 
 if __name__ == "__main__":
