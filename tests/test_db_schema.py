@@ -12,7 +12,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from db.make_documents_seed import insert_sql, make_documents_seed, sql_text
+from db.make_documents_seed import SRC, insert_sql, make_documents_seed, sql_text
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = ROOT / "db" / "schema.sql"
@@ -53,8 +53,9 @@ class DocumentsSeedTest(unittest.TestCase):
             out = Path(d) / "seed.sql"
             n = make_documents_seed(out=out)
             text = out.read_text(encoding="utf-8")
-        self.assertEqual(n, 1430)
-        self.assertEqual(text.count("INSERT INTO documents"), 1430)
+        n_docs = len(SRC.read_text(encoding="utf-8").splitlines())    # documents_ko.jsonl 한 줄 = 문서 1개
+        self.assertEqual(n, n_docs)
+        self.assertEqual(text.count("INSERT INTO documents"), n_docs)
         self.assertTrue(text.startswith("-- 자동 생성 파일") and text.rstrip().endswith("COMMIT;"))
 
 

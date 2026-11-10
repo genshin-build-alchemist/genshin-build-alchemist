@@ -87,6 +87,15 @@ class CollectorGitTest(unittest.TestCase):
         self.assertEqual([s["version"] for s in window], ["1.1", "1.2"])
         self.assertTrue(all(r["version"] == "1.2" for r in records))
 
+    def test_since_starts_from_that_version(self):
+        window, records = collect_changes(self.repo, since="1.2", ref="HEAD")
+        self.assertEqual([s["version"] for s in window], ["1.1", "1.2"])     # 1.2의 변경 = 1.1 -> 1.2 비교
+        self.assertTrue(all(r["version"] == "1.2" for r in records))
+        window, _ = collect_changes(self.repo, since="1.0", ref="HEAD")
+        self.assertEqual([s["version"] for s in window], ["1.0", "1.1", "1.2"])
+        with self.assertRaises(ValueError):
+            collect_changes(self.repo, since="9.0", ref="HEAD")
+
     def test_documents_are_readable_and_have_metadata(self):
         _, records = collect_changes(self.repo, last=2, ref="HEAD")
         docs = {d["id"]: d for d in to_rag_documents(records)}

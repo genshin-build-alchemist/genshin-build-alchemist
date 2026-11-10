@@ -26,7 +26,7 @@ class PatchRouteTest(unittest.TestCase):
 
 class PatchRecordsTest(unittest.TestCase):
     def test_character_without_version_searches_all_versions(self):
-        # 버전 없이 캐릭터만 물으면 최신 버전(7.1)이 아니라 수집된 모든 버전에서 찾는다
+        # 버전 없이 캐릭터만 물으면 최신 버전이 아니라 수집된 모든 버전에서 찾는다
         recs = patch_records(ROUTER.route("산드로네 패치로 뭐 바뀌었어?"), KB)
         self.assertTrue(recs)
         self.assertEqual({r["entity_name"] for r in recs}, {"산드로네"})
@@ -38,7 +38,19 @@ class PatchRecordsTest(unittest.TestCase):
         self.assertTrue(all(r["folder"] == "weapons" and r["change_type"] == "added" for r in recs))
 
     def test_version_outside_data(self):
-        self.assertEqual(patch_records(ROUTER.route("5.0 패치 내용 알려줘"), KB), [])
+        self.assertEqual(patch_records(ROUTER.route("4.0 패치 내용 알려줘"), KB), [])
+
+    def test_collected_range(self):
+        # 팀 결정: 패치 데이터는 5.0부터 (collector --since 5.0). 표기만 바뀐 기록은 수집 때 걸러진다
+        self.assertEqual(KB.versions[0], "5.0")
+        self.assertEqual(KB.version_range, f"5.0~{KB.latest_version}")
+        from collector.patchnotes.noise import noise_rule
+        noisy = [(r["version"], r["entity_name"], c["field"]) for r in KB.patches for c in r["changes"] if noise_rule(c)]
+        self.assertEqual(noisy, [])
+
+    def test_older_version_question(self):
+        recs = patch_records(ROUTER.route("5.0 신규 캐릭터 누구야?"), KB)
+        self.assertEqual({r["entity_name"] for r in recs}, {"카치나", "키니치", "말라니"})
 
 
 class PatchAnswerTest(unittest.TestCase):

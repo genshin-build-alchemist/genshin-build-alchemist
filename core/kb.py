@@ -1,7 +1,7 @@
 """데이터(지식 베이스) 불러오기. 파일 위치는 data/ 폴더 기준.
 
-- characters_ko.json : 캐릭터 124명의 원소·무기·성급·지역 (FR-01)
-- items_ko.json      : 무기 255개, 성유물 63세트 (FR-02)
+- characters_ko.json : 캐릭터 126명의 원소·무기·성급·지역 (FR-01)
+- items_ko.json      : 무기 256개, 성유물 63세트 (FR-02)
 - patch_changes.json : 버전별 변경 기록 (FR-03·04, collector/가 만든다)
 - build_cards/*.json : 팀이 작성하는 빌드 카드 (FR-06). 이름이 _ 로 시작하는 파일은 양식이라 건너뛴다
 """
@@ -63,6 +63,13 @@ class KnowledgeBase:
     @property
     def latest_version(self):
         return self.versions[-1] if self.versions else None
+
+    @property
+    def version_range(self):
+        """수집된 버전 범위 (안내 문구용). 예: '5.0~7.2'"""
+        if not self.versions:
+            return "없음"
+        return self.versions[0] if len(self.versions) == 1 else f"{self.versions[0]}~{self.versions[-1]}"
 
 
 def load_build_cards(folder):

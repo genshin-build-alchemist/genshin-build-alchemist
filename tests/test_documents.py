@@ -96,10 +96,17 @@ class CommittedDocumentsTest(unittest.TestCase):
 
     def test_counts_and_clean(self):
         kinds = Counter(d["kind"] for d in self.docs)
-        self.assertEqual(kinds["character"], 124)
+        self.assertEqual(kinds["character"], 126)
         self.assertEqual(kinds["artifact"], 63)
         self.assertEqual(len({d["doc_id"] for d in self.docs}), len(self.docs))
         self.assertFalse([d["doc_id"] for d in self.docs if TAG.search(d["text"])])
+
+    def test_same_data_commit(self):
+        # 검색 문서와 캐릭터·아이템 데이터는 같은 genshin-db 커밋에서 만든다 (core/documents.py DATA_COMMIT, core/kb_data.py)
+        from core.documents import DATA_COMMIT
+        for name in ("characters_ko.json", "items_ko.json"):
+            data = json.loads((ROOT / "data" / name).read_text(encoding="utf-8"))
+            self.assertTrue(data["commit"].startswith(DATA_COMMIT), name)
 
     def test_character_docs_match_characters_ko(self):
         # 문서 메타데이터가 평가셋의 정답 출처(characters_ko.json)와 같아야 검색·평가가 어긋나지 않는다

@@ -104,7 +104,7 @@ class LLMRouteTest(unittest.TestCase):
 
     def test_no_evidence_no_call(self):
         gen = FakeGenerate('["지어낸 답"]')
-        r = Chatbot(KB, LLMAnswerer(gen)).ask("5.0 패치 내용 알려줘")
+        r = Chatbot(KB, LLMAnswerer(gen)).ask("4.0 패치 내용 알려줘")
         self.assertFalse(r["found"])
         self.assertEqual(gen.prompts, [])
 

@@ -17,7 +17,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 
 | 폴더 | 하는 일 | PRD | 담당 |
 |---|---|---|---|
-| `data/` | 캐릭터 124명, 무기 255개·성유물 63세트, 패치 변경 기록, 빌드 카드 | FR-01·02·06 | A. 데이터 |
+| `data/` | 캐릭터 126명, 무기 256개·성유물 63세트, 패치 변경 기록, 빌드 카드 | FR-01·02·06 | A. 데이터 |
 | `collector/` | genshin-db 깃 이력에서 패치 변경 기록 추출 | FR-03·04 | A. 데이터 |
 | `core/router.py` | 질문 종류 판별 (경로 5개) | FR-W1 | B. RAG |
 | `core/retrieval.py` | 경로별 근거 검색 | RAG | B. RAG |
@@ -81,7 +81,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
   "needs_recheck": false,
   "model": "mock-rule",
   "method": "rag",
-  "data_version": "49a6544 2026-09-21 7.1 assemble"
+  "data_version": "8e5badd 2026-11-04 7.2 actual"
 }
 ```
 
@@ -108,7 +108,7 @@ python3 -m core.validate
 python3 db/make_seed.py && python3 db/make_documents_seed.py && psql "$DATABASE_URL" -f db/schema.sql && psql "$DATABASE_URL" -f db/seed_characters.sql && psql "$DATABASE_URL" -f db/seed_documents.sql
 ```
 
-- `documents`: 검색용 문서 1,430개 (`data/docs/documents_ko.jsonl`), `chunks`: 청크 + 임베딩 `vector(768)`
+- `documents`: 검색용 문서 1,696개 (`data/docs/documents_ko.jsonl`), `chunks`: 청크 + 임베딩 `vector(768)`
 - `characters`: 캐릭터 표, `chat_logs`: 대화 기록 (API 응답과 칸 이름을 맞춤)
 - API에서 대화 기록을 DB에 저장하는 부분은 아직 연결하지 않았습니다 (`api/main.py`의 TODO).
 
@@ -154,12 +154,15 @@ print("API 주소:", ngrok.connect(8000).public_url)   # 이 주소 + /docs 로 
 ## 패치 변경 기록 다시 모으기
 
 ```bash
-cd collector && python3 collect_patchnotes.py --last 8 && cp out/patch_changes.json ../data/
+cd collector && python3 collect_patchnotes.py --since 5.0 && cp out/patch_changes.json ../data/ && cd .. && python3 -m core.documents --fetch && python3 -m core.kb_data && python3 db/make_documents_seed.py && python3 db/make_seed.py
 ```
 
-수집 버전을 늘리면(`--last 8` 이상) 패치 질문 평가 문항도 늘어납니다. 처음 실행할 때 genshin-db 저장소를 내려받느라 시간이 걸립니다.
+- 지금 데이터는 **5.0~7.2** (변경 기록 325건)입니다. 처음 실행할 때 genshin-db 저장소를 내려받느라 시간이 걸립니다.
+- 표기만 바뀐 변경(성우 정보, 5.6의 일반 공격 이름 표기 102건 등)은 수집할 때 자동으로 거릅니다 (`collector/patchnotes/noise.py`). 5.0~7.2 기준 453건 → 325건
+- 패치 기록을 바꾸면 검색 문서(`data/docs/documents_ko.jsonl`)와 DB 시드(`db/seed_documents.sql`)도 같이 다시 만듭니다 (위 명령에 포함)
+- 캐릭터·무기·성유물 데이터(`data/characters_ko.json`, `data/items_ko.json`)는 `core/kb_data.py`가 같은 genshin-db 커밋(`core/documents.py`의 `DATA_COMMIT`, 지금 7.2)에서 만듭니다. 이 커밋을 바꾸면 평가셋도 새 버전(`info_v3` …)으로 만들어야 합니다 (`data/eval/README.md`)
 
 ## 데이터 출처
 
-- [genshin-db](https://github.com/theBowja/genshin-db) (MIT), 한국어 데이터, 커밋 `49a6544` (7.1)
-- 최신 캐릭터 일부는 지역(13명)·원소(4명) 정보가 없어서 해당 질문은 답하지 않습니다.
+- [genshin-db](https://github.com/theBowja/genshin-db) (MIT), 한국어 데이터, 커밋 `8e5badd` (7.2)
+- 최신 캐릭터 일부는 지역(8명)·원소(4명) 정보가 없어서 해당 질문은 답하지 않습니다.

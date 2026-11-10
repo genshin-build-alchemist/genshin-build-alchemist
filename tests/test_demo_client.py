@@ -13,7 +13,7 @@ OK_BODY = {
     "evidence": [{"kind": "character", "title": "카에데하라 카즈하",
                   "doc_id": "character:kaedeharakazuha", "text": "..."}],
     "found": True, "needs_recheck": False, "model": "mock-rule", "method": "rag",
-    "data_version": "49a6544 2026-09-21 7.1 assemble",
+    "data_version": "8e5badd 2026-11-04 7.2 actual",
 }
 
 

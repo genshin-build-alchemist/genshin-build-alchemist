@@ -1,6 +1,6 @@
 {
  "source": "theBowja/genshin-db (MIT) src/data/Korean/weapons, artifacts",
- "commit": "49a6544 2026-09-21 7.1 assemble",
+ "commit": "8e5badd 2026-11-04 7.2 actual",
  "weapons": [
   {
    "key": "absolution",
@@ -1657,6 +1657,14 @@
    "rarity": "5성",
    "main_stat": "원소 마스터리",
    "effect_name": "바람과 태양에 바치는 연기 제사"
+  },
+  {
+   "key": "starsealededict",
+   "name": "별빛 계시",
+   "weapon": "법구",
+   "rarity": "5성",
+   "main_stat": "치명타 피해",
+   "effect_name": "수성의 궤적"
   },
   {
    "key": "sturdybone",

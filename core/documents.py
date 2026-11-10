@@ -32,7 +32,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_COMMIT = "49a6544"                       # data/*.json과 같은 genshin-db 커밋 (7.1)
+DATA_COMMIT = "8e5badd"                       # data/*.json과 같은 genshin-db 커밋 (7.2, 바꾸면 python3 -m core.kb_data도 다시)
+DATA_VERSION = "7.2"
 DEFAULT_GENSHIN_DB = ROOT / "collector" / "cache" / "genshin-db"
 OUT_DIR = ROOT / "data" / "docs"
 FOLDERS = ("characters", "talents", "constellations", "weapons", "artifacts")
@@ -275,7 +276,7 @@ def make_report(docs, stats, raw):
     for d in docs:
         lengths.setdefault(d["kind"], []).append(len(d["text"]))
     lines = ["# 문서 전처리 전후 비교표", "",
-             f"genshin-db 한국어 데이터 커밋 `{DATA_COMMIT}` (7.1) + 패치 변경 기록 → `data/docs/documents_ko.jsonl`",
+             f"genshin-db 한국어 데이터 커밋 `{DATA_COMMIT}` ({DATA_VERSION}) + 패치 변경 기록 → `data/docs/documents_ko.jsonl`",
              "만드는 코드: `core/documents.py` (`python3 -m core.documents`)", "",
              "## 1. 전체 요약", "",
              "| 종류 | 원본 | 문서 | 문서 평균 길이(자) | 최대 길이(자) |", "| --- | --- | --- | --- | --- |"]
