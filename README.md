@@ -26,7 +26,7 @@ pip install -r requirements.txt && python3 -m unittest discover -s tests -t . &&
 | `core/pipeline.py` | 위를 이어 붙인 `ask()` → API 응답 형식 | FR-08 | B. RAG |
 | `api/main.py` | FastAPI `POST /ask`, `GET /health` | FR-07 | D. 서비스 |
 | `db/` | PostgreSQL 스키마, 캐릭터 시드 SQL 생성 | FR-09 | D. 서비스 |
-| `notebooks/` | 코랩 단계별 평가, 프롬프트·모델 비교 (결과 JSON) | FR-E1~E3, FR-M1~M3 | C. 모델 실험 |
+| `notebooks/` | 실행용 `run_chatbot.ipynb`(점검·시연 서버), 실험용 `01~03`(평가, 프롬프트·모델 비교, 보조 지표 → 결과 JSON) | FR-E1~E3, FR-M1~M3 | C. 모델 실험 |
 | `dashboard/` | 결과 JSON을 읽는 전후 비교 화면 | FR-E4 | D. 서비스 |
 | `demo/` | Gradio 시연 화면 (코랩, 실제 모델) | FR-M4 | D. 서비스 |
 | `tests/` | PRD 9장 테스트 시나리오 | 9장 | 전원 |
@@ -135,7 +135,7 @@ bot = Chatbot(load_kb(), answerer_from_env({"GBA_ANSWERER": "llm"}))
 bot.ask("알베도 원소가 뭐야?")
 ```
 
-**코랩 + ngrok으로 API 띄우기 (D)**: 코랩 보안 비밀에 `NGROK_TOKEN`(ngrok 가입 후 받는 토큰)을 넣고, 저장소를 받은 셀 다음에 실행합니다.
+**코랩 + ngrok으로 API 띄우기 (D)**: [![코랩에서 열기](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/genshin-build-alchemist/genshin-build-alchemist/blob/main/notebooks/run_chatbot.ipynb) `notebooks/run_chatbot.ipynb`를 위에서부터 실행하면 됩니다 (4번 칸이 모델을 한 번만 올려 서버로 씁니다). 아래는 노트북 없이 직접 띄우는 방법입니다. 코랩 보안 비밀에 `NGROK_TOKEN`(ngrok 가입 후 받는 토큰)을 넣고, 저장소를 받은 셀 다음에 실행합니다.
 
 ```python
 !pip -q install pyngrok
