@@ -18,11 +18,6 @@ from core.router import Router
 
 FIELD_KO = {"element": "원소", "weapon": "무기", "rarity": "성급", "region": "지역"}
 PATCH_FOLDER_KO = {"characters": "캐릭터", "weapons": "무기", "talents": "스킬·특성", "constellations": "명의 자리"}
-SENTENCE_MIN_CHARS = 25     # 답 항목이 이보다 길면 이름·값이 아니라 문장으로 본다
-
-
-def is_sentences(answer):
-    return any(len(a) >= SENTENCE_MIN_CHARS for a in answer)
 
 
 class Chatbot:
@@ -77,7 +72,8 @@ class Chatbot:
         if not answer:
             return "근거는 찾았지만 질문에 맞는 답이 없어요."
         joined = ", ".join(answer)
-        if is_sentences(answer):        # 문장 답(실제 모델의 패치·아이템 답)은 한 줄에 하나씩
+        # 문장 답(실제 모델의 패치·아이템 답)은 한 줄에 하나씩. 모의 답변기는 이름 목록이라 아래 문구 그대로
+        if rr.route in getattr(self.answerer, "sentence_routes", ()):
             return self._sentence_message(rr, answer)
         if rr.route == "lookup":
             label = FIELD_KO.get(rr.asked_field)

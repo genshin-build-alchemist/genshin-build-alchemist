@@ -23,6 +23,8 @@
 #         doc_id는 대화 기록(chat_logs.retrieved_doc_ids)과 검색 채점에 쓰인다. 벡터 검색 결과의 doc_id를 그대로 넣으면 된다
 #  규칙: 학습용(DEV) 질문은 평가용 캐릭터 문서를 검색하지 않는다 (pool 인자로 범위 제한)
 #  막히면: A에게 질문. 예시 셀은 A가 디스코드로 공유
+import re
+
 from core.kb import slot_label
 from core.validate import recheck_reasons
 
@@ -76,10 +78,16 @@ def patch_records(rr, kb):
     return out
 
 
+# 근거 본문에서 뺄 줄: 수치 표의 자리표시자({param7:F1P} 등, 사람이 읽을 수 없음),
+# 무기 재련 2~5단계(1단계와 숫자만 다름), 재련 수치 목록(values #)
+PATCH_SKIP_LINE = re.compile(r"\{param|^- r[2-5] |^- r\d values")
+
+
 def patch_text(r):
-    """변경 기록 1건의 본문 (바뀌기 전 → 후). 문서 파일(documents_ko.jsonl)의 patch 문서와 같은 글."""
+    """변경 기록 1건의 본문 (바뀌기 전 → 후). patch 문서(documents_ko.jsonl)에서 읽을 수 없는 줄만 뺀 글."""
     from collector.patchnotes.documents import make_document_text
-    return make_document_text(r)
+    lines = [line for line in make_document_text(r).split("\n") if not PATCH_SKIP_LINE.search(line)]
+    return "\n".join(line.replace("- r1 ", "- 재련 1단계 ", 1) for line in lines)
 
 
 def doc_id_for(kind, data):

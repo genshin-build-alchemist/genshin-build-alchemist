@@ -106,13 +106,16 @@ def parse_list_answer(text):
 # 이 경로들은 근거를 요약한 짧은 문장 목록으로 답한다. 목록 형식은 그대로라 API·화면은 바뀌지 않는다.
 TEXT_ROUTES = ("patch", "item")
 TEXT_MAX_NEW_TOKENS = 320          # 문장 5개까지 (이름 목록용 160으로는 잘린다)
-TEXT_EVIDENCE_CHARS = 700          # 근거 1개당 글자 수 상한 (무기 재련 1~5단계 설명이 길다)
+TEXT_TOTAL_CHARS = 3600            # 근거 전체 글자 수 상한. 근거가 적으면 1개당 더 길게 넣는다
+TEXT_LINE_CHARS = 300              # 근거 한 줄 상한 (스킬 설명 한 줄이 600자를 넘기도 한다)
 TEXT_RULES = ("규칙:\n"
               "- 아래 근거만 보고 질문에 답하세요. 근거에 없는 내용은 쓰지 마세요.\n"
               "- 답은 JSON 배열로 출력하고, 각 항목은 짧은 한국어 문장 하나로 쓰세요. 예: [\"A: B로 바뀌었다\"]\n"
               "- 항목은 최대 5개입니다. 근거가 많으면 질문과 가장 관련 있는 것부터 쓰세요.\n"
               "- 이름, 숫자, 퍼센트는 근거에 적힌 그대로 쓰세요.\n"
-              "- 바뀐 내용은 '→' 앞(전)과 뒤(후)를 비교해서 무엇이 달라졌는지만 쓰세요.\n"
+              "- 바뀐 내용은 '→' 앞(전)과 뒤(후)를 비교해서 무엇이 달라졌는지만 쓰세요. 근거 문장을 그대로 베끼지 마세요.\n"
+              "- 각 항목 앞에 바뀐 부분 이름을 붙이세요. 예: 원소 폭발, 명의 자리 1, 재련 1단계\n"
+              "- 근거가 한 줄 요약 목록이면 신규 캐릭터, 신규 무기, 수정된 것처럼 종류별로 묶어 쓰세요.\n"
               "- 근거에 질문의 답이 없으면 빈 배열 []을 출력하세요.\n"
               "- 문장 안에 큰따옴표(\")는 쓰지 마세요.")
 TEXT_EXAMPLES_PATH = Path(__file__).with_name("text_examples.json")
@@ -125,9 +128,14 @@ def load_text_examples():
         return json.load(f)["examples"]
 
 
-def _clip(text, limit=TEXT_EVIDENCE_CHARS):
-    text = str(text)
+def _cut(text, limit):
     return text if len(text) <= limit else text[:limit] + " …(생략)"
+
+
+def _clip(text, limit):
+    """근거 1개 줄이기: 긴 줄은 줄마다 자르고(뒤쪽 줄이 통째로 잘려 나가지 않게), 전체도 limit까지."""
+    lines = [_cut(line, TEXT_LINE_CHARS) for line in str(text).split("\n")]
+    return _cut("\n".join(lines), limit)
 
 
 def build_text_prompt(question, evidence):
@@ -136,7 +144,8 @@ def build_text_prompt(question, evidence):
     for ex in load_text_examples():
         answer = json.dumps(ex["answer"], ensure_ascii=False)
         blocks.append(f"[예시 근거]\n{context_text(ex['evidence'])}\n예시 질문: {ex['question']}\n예시 답: {answer}")
-    context = context_text([_clip(e["text"]) for e in evidence])
+    per = max(500, min(1800, TEXT_TOTAL_CHARS // max(len(evidence), 1)))   # 근거 1개당 글자 수
+    context = context_text([_clip(e["text"], per) for e in evidence])
     blocks.append(f"[근거]\n{context}\n(위 근거에 있는 내용만 사용하세요.)")
     blocks.append(f"[질문]\n{question}\n답:")
     return "\n\n".join(blocks)
@@ -262,6 +271,8 @@ def clean_answer(pred, texts, cutoff=POST_CUTOFF):
 
 
 class LLMAnswerer:
+    sentence_routes = TEXT_ROUTES   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
+
     def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True):
         self.generate_fn = generate_fn
         self.name = name

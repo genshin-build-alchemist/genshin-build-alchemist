@@ -109,5 +109,39 @@ class LLMRouteTest(unittest.TestCase):
         self.assertEqual(gen.prompts, [])
 
 
+class PatchEvidenceCleanTest(unittest.TestCase):
+    """코랩 실제 모델 확인(11/10)에서 나온 문제를 막는 테스트."""
+
+    def test_unreadable_lines_removed(self):
+        # 산드로네 답에 '{param11:F1P}' 같은 자리표시자가 그대로 나왔다 -> 근거에서 뺀다
+        ev = Chatbot(KB).ask("7.0에서 산드로네 원소 폭발 바뀌었어?")["evidence"]
+        text = "\n".join(e["text"] for e in ev)
+        self.assertNotIn("{param", text)
+        self.assertIn("원소 폭발", text)
+
+    def test_weapon_refinements_2_to_5_removed(self):
+        # 6.7 무기 질문이 [] 로 나왔다: 재련 1~5단계가 반복돼 근거가 길었다 -> 1단계만 남긴다
+        ev = Chatbot(KB).ask("6.7에서 바뀐 무기 알려줘")["evidence"]
+        text = "\n".join(e["text"] for e in ev)
+        self.assertIn("재련 1단계", text)
+        self.assertNotIn("- r2 ", text)
+        self.assertNotIn("values #", text)
+
+    def test_burst_line_reaches_prompt(self):
+        # 근거를 앞에서부터 자르면 뒤쪽 '원소 폭발' 줄이 잘려 나갔다 -> 줄마다 자른다
+        q = "7.0에서 산드로네 원소 폭발 바뀌었어?"
+        prompt = build_text_prompt(q, Chatbot(KB).ask(q)["evidence"])
+        self.assertIn("원소 폭발 설명", prompt.split("[근거]")[-1])
+
+    def test_short_llm_answer_uses_sentence_message(self):
+        # 짧은 문장 답이 '7.0 버전 신규 캐릭터: 7.0 신규 캐릭터는 ...'처럼 겹쳐 보였다
+        gen = FakeGenerate('["7.0 신규 캐릭터는 알료샤, 오데트이다"]')
+        r = Chatbot(KB, LLMAnswerer(gen)).ask("7.0 신규 캐릭터 누구야?")
+        self.assertEqual(r["message"], "7.0 버전의 변경 기록에서 찾은 내용:\n- 7.0 신규 캐릭터는 알료샤, 오데트이다")
+
+    def test_mock_patch_message_unchanged(self):
+        self.assertEqual(Chatbot(KB).ask("7.0 신규 캐릭터 누구야?")["message"], "7.0 버전 신규 캐릭터: 알료샤, 오데트")
+
+
 if __name__ == "__main__":
     unittest.main()
