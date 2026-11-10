@@ -7,11 +7,29 @@
 
 ## 노트북 목록
 
+노트북은 두 종류입니다. **실행용**은 완성된 챗봇을 돌리기만 하고(`run_` 으로 시작), **실험용**은 번호를 붙여 실험할 때마다 늘려 갑니다(`01_`, `02_` …).
+실험이 끝난 노트북도 지우지 않고 기록으로 남깁니다.
+
+**실행용** (점검 · 시연 · 발표)
+
+| 파일 | 하는 일 |
+|---|---|
+| `run_chatbot.ipynb` | 최신 main으로 챗봇 실행: 버전 확인 → 모델 → 대표 질문 점검(✓/✗) → API 서버 + ngrok 시연 주소 → 평가 결과 표. 위에서부터 차례로 실행 |
+
+[![코랩에서 열기](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/genshin-build-alchemist/genshin-build-alchemist/blob/main/notebooks/run_chatbot.ipynb) ← 항상 이 링크로 엽니다. 깃허브 main의 최신 노트북이 열리고, 셀 1이 최신 코드·데이터를 받아 옵니다.
+- 코랩에서 고친 내용은 깃허브에 저장되지 않습니다. 노트북을 고치려면 맥(VS Code)에서 고쳐 PR로 올리고, 머지 뒤 링크로 다시 엽니다
+- 보안 비밀(`NGROK_TOKEN` 등)은 처음 열 때 "노트북 액세스"를 허용해 주면 됩니다
+
+**실험용** (번호 순서 = 만든 순서)
+
 | 파일 | 하는 일 | 상태 |
 |---|---|---|
-| `01_eval_info.ipynb` | 1단계 캐릭터 정보 평가: 고정 평가셋(628문항), baseline · prompt_v2 · rag · rag_v3 · rag_v4 비교, 사람 질문 평가, 파인튜닝용 학습 질문 저장 | 사용 가능 |
-| `02_model_compare.ipynb` | 모델 비교: rag_v4 프롬프트 고정, 모델만 바꿔 DEV로 macro F1·응답 시간 비교 | 예정 |
-| `04_gradio_demo.ipynb` | 실제 모델 Gradio 시연 (D) | 예정 |
+| `01_eval_info.ipynb` | 1단계 캐릭터 정보 평가: 고정 평가셋(628문항), baseline · prompt_v2 · rag · rag_v3 · rag_v4 비교, 사람 질문 평가, 파인튜닝용 학습 질문 저장. **공식 채점은 여기서** | 사용 가능 |
+| `02_model_compare.ipynb` | 모델 비교: rag_v4 프롬프트 고정, 모델만 바꿔 DEV로 macro F1·응답 시간 비교 | 사용 가능 |
+| `03_aux_metrics.ipynb` | 보조 지표: 정답률 · 거절 정확도 · 환각률 (C) | 사용 가능 |
+
+- 새 실험은 `04_…`처럼 다음 번호로 만듭니다. 실행용 노트북에 실험 코드를 넣지 않습니다.
+- 코랩에서 깃허브 노트북을 열었다면, main이 바뀐 뒤에는 탭을 닫고 **다시 열어야** 노트북 안의 설정(평가셋 이름·지문)도 최신이 됩니다.
 
 ## 처음 한 번만 하는 준비
 
