@@ -170,6 +170,37 @@ def group_patch_lines(evidence):
     return lines
 
 
+# 질문이 특정 부분을 콕 집어 물으면(예: '원소 폭발 바뀌었어?') 모델의 빈 답 []이 '그 부분은 안 바뀜'일 수 있어 대신 채우지 않는다
+PATCH_PART_WORDS = ("일반 공격", "원소 스킬", "원소 폭발", "고유 특성", "명의 자리", "운명의 자리", "별자리", "명좌", "재련")
+
+
+def patch_added_answer(rr, evidence):
+    """'7.2 신규 캐릭터 누구야?'처럼 신규 목록만 묻는 질문은 모델 없이 근거를 묶어 답한다.
+    목록은 근거에 이름이 다 있어서 지어낼 것이 없고, 3B가 근거가 1~3줄일 때 []로 답하는 일이 있었다 (11/10 코랩, 7.2·5.0 신규 질문)."""
+    if rr.route != "patch" or not rr.patch_added or not evidence:
+        return None
+    if not all(e.get("kind") == "patch" and e.get("data") and e["data"]["change_type"] == "added" for e in evidence):
+        return None
+    return group_patch_lines(evidence) or None
+
+
+def patch_fallback_answer(question, evidence, limit=5):
+    """모델이 패치 근거를 받고도 []로 답했을 때 근거에서 바로 뽑은 줄 (질문이 특정 부분을 물었으면 None).
+    예) '5.6에서 엠버 뭐 바뀌었어?' -> '일반 공격 이름: 일반 공격·신궁 → 명사수'"""
+    if any(w in question for w in PATCH_PART_WORDS):
+        return None
+    patches = [e for e in evidence if e.get("kind") == "patch" and e.get("data")]
+    if not patches:
+        return None
+    if len(patches) > 5:
+        return group_patch_lines(patches)[:limit]
+    lines = []
+    for e in patches:
+        body = [l[2:].strip() for l in str(e["text"]).split("\n") if l.startswith("- ")]
+        lines += body or [str(e["text"]).split("\n")[0]]
+    return [_cut(l, TEXT_LINE_CHARS) for l in lines[:limit]] or None
+
+
 def build_text_prompt(question, evidence):
     """문장 답 프롬프트: 규칙 + 예시 4개 + 근거 + 질문."""
     blocks = [TEXT_RULES]
@@ -335,9 +366,16 @@ class LLMAnswerer:
     def answer(self, question, rr, evidence):
         if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답
             # ']'에서 멈추지 않는다: 모델이 [["문장1"], ["문장2"]]처럼 배열을 겹쳐 쓰면 첫 문장에서 잘렸다 (11/10 코랩 확인)
+            fixed = patch_added_answer(rr, evidence)
+            if fixed:                   # 신규 목록은 모델 없이 (빠르고 항상 근거 그대로)
+                self.last_raw = ""
+                return fixed
             self.last_raw = self._generate(build_text_prompt(question, evidence),
                                            max_new_tokens=TEXT_MAX_NEW_TOKENS, stop_strings=None)
-            return parse_text_answer(self.last_raw)
+            answer = parse_text_answer(self.last_raw)
+            if not answer and rr.route == "patch":     # 근거가 있는데 []: 근거 줄을 그대로 보여 준다
+                answer = patch_fallback_answer(question, evidence) or []
+            return answer
         self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
         if self.postprocess and rr.route in POST_ROUTES:
