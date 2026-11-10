@@ -1,7 +1,7 @@
 {
  "source": "theBowja/genshin-db (MIT) src/data/Korean/characters",
- "commit": "49a6544 2026-09-21 7.1 assemble",
- "count": 124,
+ "commit": "8e5badd 2026-11-04 7.2 actual",
+ "count": 126,
  "characters": [
   {
    "key": "aether",
@@ -49,7 +49,7 @@
    "element": "번개",
    "weapon": "장병기",
    "rarity": "4성",
-   "region": null
+   "region": "스네즈나야"
   },
   {
    "key": "amber",
@@ -588,6 +588,14 @@
    "region": "몬드"
   },
   {
+   "key": "mitya",
+   "name": "미탸",
+   "element": "번개",
+   "weapon": "법구",
+   "rarity": "5성",
+   "region": "스네즈나야"
+  },
+  {
    "key": "mona",
    "name": "모나",
    "element": "물",
@@ -673,7 +681,7 @@
    "element": "얼음",
    "weapon": "한손검",
    "rarity": "5성",
-   "region": null
+   "region": "스네즈나야"
   },
   {
    "key": "ororon",
@@ -729,7 +737,7 @@
    "element": "얼음",
    "weapon": "양손검",
    "rarity": "5성",
-   "region": null
+   "region": "스네즈나야"
   },
   {
    "key": "sangonomiyakokomi",
@@ -820,6 +828,14 @@
    "region": "수메르"
   },
   {
+   "key": "valeriy",
+   "name": "발레리",
+   "element": "번개",
+   "weapon": "한손검",
+   "rarity": "4성",
+   "region": "스네즈나야"
+  },
+  {
    "key": "varesa",
    "name": "바레사",
    "element": "번개",
@@ -849,7 +865,7 @@
    "element": "바람",
    "weapon": "한손검",
    "rarity": "5성",
-   "region": null
+   "region": "스네즈나야"
   },
   {
    "key": "vodyanitsa",
@@ -857,7 +873,7 @@
    "element": "물",
    "weapon": "법구",
    "rarity": "5성",
-   "region": null
+   "region": "스네즈나야"
   },
   {
    "key": "wanderer",

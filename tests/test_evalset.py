@@ -7,12 +7,12 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EVALSET = ROOT / "data" / "eval" / "questions_info_v1.json"
+EVALSET = ROOT / "data" / "eval" / "questions_info_v2.json"
 NOTEBOOK = ROOT / "notebooks" / "01_eval_info.ipynb"
 CHARACTERS = ROOT / "data" / "characters_ko.json"
 
 # 고정본 지문. 바꾸려면 data/eval/README.md의 '새 버전' 절차를 따른다.
-EXPECTED_SHA256 = "2e5f54373b7ba38551cf401042df1efcde916fba2e0f9df48462c2f3cb5b50c7"
+EXPECTED_SHA256 = "5677082a29dca568cb6222c092061ff0c27983c7cc3d8a03fcd0901736c61ad7"
 
 
 def questions_sha256(qs):
@@ -32,7 +32,7 @@ class FrozenEvalSetTest(unittest.TestCase):
         sha = questions_sha256(self.questions)
         self.assertEqual(sha, EXPECTED_SHA256, "고정 평가셋이 바뀌었습니다. 손으로 고쳤다면 되돌리세요.")
         self.assertEqual(self.data["sha256"], EXPECTED_SHA256)
-        self.assertEqual(self.data["dataset_version"], "info_v1")
+        self.assertEqual(self.data["dataset_version"], "info_v2")
 
     def test_notebook_expects_same_fingerprint(self):
         source = "".join("".join(c["source"]) for c in json.loads(NOTEBOOK.read_text(encoding="utf-8"))["cells"])
@@ -41,11 +41,11 @@ class FrozenEvalSetTest(unittest.TestCase):
 
     def test_counts(self):
         count = Counter((q["split"], q["type"]) for q in self.questions)
-        self.assertEqual(len(self.questions), 611)
-        self.assertEqual(sum(v for (sp, _), v in count.items() if sp == "eval"), 115)
+        self.assertEqual(len(self.questions), 628)
+        self.assertEqual(sum(v for (sp, _), v in count.items() if sp == "eval"), 121)
         self.assertEqual({f"{sp}_{t}": count[(sp, t)] for sp in ("train", "eval")
                           for t in ("lookup", "filter", "unknown")}, self.data["counts"])
-        self.assertEqual(len(self.eval_chars), 22)
+        self.assertEqual(len(self.eval_chars), 23)
 
     def test_ids_unique_and_fields_present(self):
         ids = [q["id"] for q in self.questions]

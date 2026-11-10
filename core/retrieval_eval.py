@@ -24,13 +24,13 @@
   report = evaluate_retrieval(my_search, dev_questions())   # 검색 방식을 고를 때는 DEV 60문항만
   print_report(report)
 
-  - 학습용(DEV) 질문의 pool에는 평가용 캐릭터 22명의 문서가 빠져 있다. 검색 결과는 반드시 pool 안에서 고른다.
-  - 평가 115문항(eval_questions())은 최종 방식을 정한 뒤 한 번만 본다.
+  - 학습용(DEV) 질문의 pool에는 평가용 캐릭터 23명의 문서가 빠져 있다. 검색 결과는 반드시 pool 안에서 고른다.
+  - 평가 121문항(eval_questions())은 최종 방식을 정한 뒤 한 번만 본다.
 
   - 말투 변형 질문: csv_questions(STYLE_DEV) 로 같은 방식으로 잰다 (띄어쓰기 없음, 존댓말 등 note 칸으로 나눠 보기)
 
 실행: python3 -m core.retrieval_eval           -> 지금 키워드 검색(core/retrieval.py)의 기준점 출력
-      python3 -m core.retrieval_eval --write   -> data/eval/evidence_info_v1.json 다시 만들기
+      python3 -m core.retrieval_eval --write   -> data/eval/evidence_info_v2.json 다시 만들기
 """
 import hashlib
 import json
@@ -43,8 +43,8 @@ from core.human_questions import answer_for_target
 from core.kb import load_kb
 
 ROOT = Path(__file__).resolve().parent.parent
-EVALSET = ROOT / "data" / "eval" / "questions_info_v1.json"
-EVIDENCE = ROOT / "data" / "eval" / "evidence_info_v1.json"
+EVALSET = ROOT / "data" / "eval" / "questions_info_v2.json"
+EVIDENCE = ROOT / "data" / "eval" / "evidence_info_v2.json"
 DOCS = ROOT / "data" / "docs" / "documents_ko.jsonl"
 STYLE_DEV = ROOT / "data" / "eval" / "style_questions_dev.csv"     # 학습용 캐릭터, 마음껏 봐도 됨
 STYLE_EVAL = ROOT / "data" / "eval" / "style_questions_v1.csv"     # 평가용 캐릭터, 마지막에 한 번만
@@ -59,7 +59,7 @@ def load_evalset(path=EVALSET):
 
 
 def eval_questions(data=None):
-    """평가 115문항. 최종 방식을 정한 뒤 한 번만 본다."""
+    """평가 121문항. 최종 방식을 정한 뒤 한 번만 본다."""
     data = data or load_evalset()
     return [q for q in data["questions"] if q["split"] == "eval"]
 
@@ -150,7 +150,7 @@ def allowed_doc_ids(q, docs, eval_names):
 
 
 def build_evidence(data=None, kb=None):
-    """평가셋 611문항 전체의 정답 근거 + DEV id 목록 (data/eval/evidence_info_v1.json 내용)."""
+    """평가셋 628문항 전체의 정답 근거 + DEV id 목록 (data/eval/evidence_info_v2.json 내용)."""
     data = data or load_evalset()
     kb = kb or load_kb()
     name_to_doc = character_doc_ids(kb)
@@ -274,7 +274,7 @@ def main(argv):
         return 0
     kb = load_kb()
     search = keyword_search_fn(kb)
-    for label, qs in (("DEV 60문항", dev_questions()), ("평가 115문항", eval_questions())):
+    for label, qs in (("DEV 60문항", dev_questions()), ("평가 121문항", eval_questions())):
         print(f"\n[키워드 검색 기준점 / {label}]")
         print_report(evaluate_retrieval(search, qs, kb=kb))
     print("\n[키워드 검색 기준점 / 말투 변형 질문 개발용 1,748문항]")

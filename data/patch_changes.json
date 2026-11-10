@@ -1,5 +1,3568 @@
 [
   {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "characters",
+    "entity_id": "kachina",
+    "entity_name": "카치나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "characters",
+    "entity_id": "kinich",
+    "entity_name": "키니치",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "characters",
+    "entity_id": "mualani",
+    "entity_name": "말라니",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "constellations",
+    "entity_id": "kachina",
+    "entity_name": "카치나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "constellations",
+    "entity_id": "kinich",
+    "entity_name": "키니치",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "constellations",
+    "entity_id": "mualani",
+    "entity_name": "말라니",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "talents",
+    "entity_id": "kachina",
+    "entity_name": "카치나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "talents",
+    "entity_id": "kinich",
+    "entity_name": "키니치",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "talents",
+    "entity_id": "mualani",
+    "entity_name": "말라니",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "ashgravendrinkinghorn",
+    "entity_name": "푸른 문양 뿔잔",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "chainbreaker",
+    "entity_name": "사슬 파괴자",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "earthshaker",
+    "entity_name": "대지를 울리는 자",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "fangofthemountainking",
+    "entity_name": "산왕의 엄니",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "fluteofezpitzal",
+    "entity_name": "에스피찰의 피리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "footprintoftherainbow",
+    "entity_name": "무지개의 행적",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "ringofyaxche",
+    "entity_name": "약스체의 고리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.0",
+    "from_version": "4.8",
+    "data_commit": "3781983",
+    "data_date": "2024-08-27",
+    "folder": "weapons",
+    "entity_id": "surfsup",
+    "entity_name": "서핑 타임",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "characters",
+    "entity_id": "xilonen",
+    "entity_name": "실로닌",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "constellations",
+    "entity_id": "xilonen",
+    "entity_name": "실로닌",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "talents",
+    "entity_id": "kachina",
+    "entity_name": "카치나",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive3/description",
+        "before": "밤혼이 고갈된 후, 카치나는 열소를 소모해 밤혼 가호를 유지한다.\n나타의 열소 메커니즘 구역에서, 밤혼 전달·카치나를 진행할 수 있다. 현재 필드 위의 캐릭터가 대시, 등반 또는 특정 특성이 부여한 이동 상태이거나, 일정 높이의 공중에서 카치나가 교체 등장 시 발동: 카치나가 밤혼 가호 상태에 진입하고 쌩쌩이에 탑승해 등장한다. 또한 밤혼을 30pt 획득한다. 자신의 파티는 10초마다 밤혼 전달을 최대 1회 발동할 수 있다.\n또한 나타 지역에서 카치나가 쌩쌩이에 탑승 시, 등반에 소모되는 스태미나가 90% 감소한다",
+        "after": "밤혼이 소진된 후, 카치나는 열소를 소모해 밤혼 가호를 유지한다.\n나타의 열소 메커니즘 구역에서, 밤혼 전달·카치나를 진행할 수 있다. 현재 필드 위의 캐릭터가 대시, 등반 또는 특정 특성이 부여한 이동 상태이거나, 일정 높이의 공중에서 카치나가 교체 등장 시 발동: 카치나가 밤혼 가호 상태에 진입하고 쌩쌩이에 탑승해 등장한다. 또한 밤혼을 30pt 획득한다. 자신의 파티는 10초마다 밤혼 전달을 최대 1회 발동할 수 있다.\n또한 나타 지역에서 카치나가 쌩쌩이에 탑승 시, 등반에 소모되는 스태미나가 90% 감소한다"
+      }
+    ]
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "talents",
+    "entity_id": "mualani",
+    "entity_name": "말라니",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive3/description",
+        "before": "밤혼이 고갈된 후, 말라니는 열소를 소모해 밤혼 가호를 유지한다.\n나타의 열소 메커니즘 구역에서, 밤혼 전달·말라니를 진행할 수 있다. 현재 필드 위의 캐릭터가 대시, 수영 또는 특정 특성이 부여한 이동 상태이거나, 일정 높이의 공중에서 말라니가 교체 등장 시 발동: 말라니가 밤혼 가호 상태에 진입하고 밤혼을 40pt 획득한다. 자신의 파티는 밤혼 전달을 10초마다 최대 1회 발동할 수 있다.\n또한 밤혼 가호 상태의 말라니가 수면 또는 액체 열소 위에서 이동 시: 나타 지역에서 소모되는 밤혼 또는 열소가 75% 감소하고, 나타 밖에서 소모되는 밤혼이 35% 감소한다",
+        "after": "밤혼이 소진된 후, 말라니는 열소를 소모해 밤혼 가호를 유지한다.\n나타의 열소 메커니즘 구역에서, 밤혼 전달·말라니를 진행할 수 있다. 현재 필드 위의 캐릭터가 대시, 수영 또는 특정 특성이 부여한 이동 상태이거나, 일정 높이의 공중에서 말라니가 교체 등장 시 발동: 말라니가 밤혼 가호 상태에 진입하고 밤혼을 40pt 획득한다. 자신의 파티는 밤혼 전달을 10초마다 최대 1회 발동할 수 있다.\n또한 밤혼 가호 상태의 말라니가 수면 또는 액체 열소 위에서 이동 시: 나타 지역에서 소모되는 밤혼 또는 열소가 75% 감소하고, 나타 밖에서 소모되는 밤혼이 35% 감소한다"
+      }
+    ]
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "talents",
+    "entity_id": "xilonen",
+    "entity_name": "실로닌",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "weapons",
+    "entity_id": "fruitfulhook",
+    "entity_name": "수확의 갈고리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "weapons",
+    "entity_id": "mountainbracingbolt",
+    "entity_name": "산을 고정하는 못",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "weapons",
+    "entity_id": "peakpatrolsong",
+    "entity_name": "바위산을 맴도는 노래",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.1",
+    "from_version": "5.0",
+    "data_commit": "4185db6",
+    "data_date": "2024-10-14",
+    "folder": "weapons",
+    "entity_id": "sturdybone",
+    "entity_name": "견고한 골검",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "characters",
+    "entity_id": "chasca",
+    "entity_name": "차스카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "characters",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "constellations",
+    "entity_id": "chasca",
+    "entity_name": "차스카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "constellations",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "talents",
+    "entity_id": "chasca",
+    "entity_name": "차스카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "talents",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "astralvulturescrimsonplumage",
+    "entity_name": "붉은 깃 별독수리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "calamityofeshu",
+    "entity_name": "에슈의 재앙",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "flowerwreathedfeathers",
+    "entity_name": "꽃장식 깃",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "thefirstgreatmagic",
+    "entity_name": "최초의 대마술",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "강공격으로 주는 피해가 16% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착자 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 16%/32%/48% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 4%/7%/10% 증가한다",
+        "after": "강공격으로 주는 피해가 16% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착 캐릭터 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 16%/32%/48% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 4%/7%/10% 증가한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "강공격으로 주는 피해가 20% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착자 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 20%/40%/60% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 6%/9%/12% 증가한다",
+        "after": "강공격으로 주는 피해가 20% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착 캐릭터 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 20%/40%/60% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 6%/9%/12% 증가한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "강공격으로 주는 피해가 24% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착자 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 24%/48%/72% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 8%/11%/14% 증가한다",
+        "after": "강공격으로 주는 피해가 24% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착 캐릭터 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 24%/48%/72% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 8%/11%/14% 증가한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "강공격으로 주는 피해가 28% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착자 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 28%/56%/84% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 10%/13%/16% 증가한다",
+        "after": "강공격으로 주는 피해가 28% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착 캐릭터 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 28%/56%/84% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 10%/13%/16% 증가한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "강공격으로 주는 피해가 32% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착자 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 32%/64%/96% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 12%/15%/18% 증가한다",
+        "after": "강공격으로 주는 피해가 32% 증가한다. 파티 내에 장착 캐릭터와 동일한 원소 타입의 캐릭터 1명당(장착 캐릭터 자신 포함) 1스택의 「트릭」 효과를 획득하고, 장착 캐릭터와 다른 원소 타입을 가진 캐릭터 1명당, 1스택의 「연기」 효과를 획득한다. 1/2/3스택 또는 3스택 이상의 「트릭」 효과를 받을 시, 공격력이 32%/64%/96% 증가한다. 1/2/3스택 또는 3스택 이상의 「연기」 효과를 받을 시, 이동 속도가 12%/15%/18% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "urakumisugiri",
+    "entity_name": "우라쿠의 미스기리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "일반 공격으로 주는 피해가 16% 증가하고, 원소전투 스킬로 주는 피해가 24% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착자의 방어력이 20% 증가한다",
+        "after": "일반 공격으로 주는 피해가 16% 증가하고, 원소전투 스킬로 주는 피해가 24% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착 캐릭터의 방어력이 20% 증가한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "일반 공격으로 주는 피해가 20% 증가하고, 원소전투 스킬로 주는 피해가 30% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착자의 방어력이 25% 증가한다",
+        "after": "일반 공격으로 주는 피해가 20% 증가하고, 원소전투 스킬로 주는 피해가 30% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착 캐릭터의 방어력이 25% 증가한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "일반 공격으로 주는 피해가 24% 증가하고, 원소전투 스킬로 주는 피해가 36% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착자의 방어력이 30% 증가한다",
+        "after": "일반 공격으로 주는 피해가 24% 증가하고, 원소전투 스킬로 주는 피해가 36% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착 캐릭터의 방어력이 30% 증가한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "일반 공격으로 주는 피해가 28% 증가하고, 원소전투 스킬로 주는 피해가 42% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착자의 방어력이 35% 증가한다",
+        "after": "일반 공격으로 주는 피해가 28% 증가하고, 원소전투 스킬로 주는 피해가 42% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착 캐릭터의 방어력이 35% 증가한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "일반 공격으로 주는 피해가 32% 증가하고, 원소전투 스킬로 주는 피해가 48% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착자의 방어력이 40% 증가한다",
+        "after": "일반 공격으로 주는 피해가 32% 증가하고, 원소전투 스킬로 주는 피해가 48% 증가한다. 주변에 있는 파티 내 캐릭터가 필드 위에서 바위 원소 피해를 준 후, 상술한 효과가 100% 증가한다. 지속 시간: 15초. 또한 장착 캐릭터의 방어력이 40% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.2",
+    "from_version": "5.1",
+    "data_commit": "23b5343",
+    "data_date": "2024-11-21",
+    "folder": "weapons",
+    "entity_id": "waveridingwhirl",
+    "entity_name": "돌아오는 파도",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "characters",
+    "entity_id": "citlali",
+    "entity_name": "시틀라리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "characters",
+    "entity_id": "lanyan",
+    "entity_name": "남연",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "characters",
+    "entity_id": "mavuika",
+    "entity_name": "마비카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "constellations",
+    "entity_id": "chasca",
+    "entity_name": "차스카",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c6/description",
+        "before": "차스카의 다중 조준에 필요한 차지 시간이 감소한다. 또한 고유 특성 「총알 트릭」의 「결속 전환」 발동 후, 차스카가 「수확」 상태를 획득한다. 이어지는 3초 동안 차스카의 다음번 원소전투 스킬 영혼 올가미의 다중 조준 발동 시 차지가 즉시 완료되고, 이번 다중 조준의그림자 추적탄과 빛나는 그림자 추적탄의 치명타 피해가 120% 증가한다. 3초마다 「수확」 효과를 최대 1회 획득할 수 있다.\n상술한 효과는 고유 특성 「총알 트릭」을 해금해야 한다",
+        "after": "차스카의 다중 조준에 필요한 차지 시간이 감소한다. 또한 고유 특성 「총알 트릭」의 「결속 전환」 발동 후, 차스카가 「수확」 상태를 획득한다. 이어지는 3초 동안 차스카의 다음번 원소전투 스킬 영혼 올가미의 다중 조준 발동 시 차지가 즉시 완료되고, 이번 다중 조준의 그림자 추적탄과 빛나는 그림자 추적탄의 치명타 피해가 120% 증가한다. 3초마다 「수확」 효과를 최대 1회 획득할 수 있다.\n상술한 효과는 고유 특성 「총알 트릭」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "constellations",
+    "entity_id": "citlali",
+    "entity_name": "시틀라리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "constellations",
+    "entity_id": "lanyan",
+    "entity_name": "남연",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "constellations",
+    "entity_id": "mavuika",
+    "entity_name": "마비카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "constellations",
+    "entity_id": "travelerpyro",
+    "entity_name": "여행자 (불 원소)",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "talents",
+    "entity_id": "citlali",
+    "entity_name": "시틀라리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "talents",
+    "entity_id": "lanyan",
+    "entity_name": "남연",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "talents",
+    "entity_id": "mavuika",
+    "entity_name": "마비카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "talents",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat1/description",
+        "before": "일반 공격\n활로 최대 3번 공격한다.\n강공격\n더 강력하고 정확한 조준 사격을 한다.\n조준 시 번개 원소가 화살촉에 모이고, 번개 원소가 가득 찬 화살로 강력한 번개 원소 피해를 준다.\n낙하 공격\n공중에서 화살비를 쏜 후 빠른 속도로 땅에 착지한다. 착지 시 범위 피해를 준다",
+        "after": "일반 공격\n활로 최대 3번 공격한다.\n강공격\n더 강력하고 정확한 조준 사격을 한다.\n조준 시 번개 원소가 화살촉에 모이고, 번개 원소가 가득 찬 화살로 번개 원소 피해를 준다.\n낙하 공격\n공중에서 화살비를 쏜 후 빠른 속도로 땅에 착지한다. 착지 시 범위 피해를 준다"
+      }
+    ]
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "talents",
+    "entity_id": "travelerpyro",
+    "entity_name": "여행자 (불 원소)",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "weapons",
+    "entity_id": "athousandblazingsuns",
+    "entity_name": "타오르는 천 개의 태양",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.3",
+    "from_version": "5.2",
+    "data_commit": "c848d97",
+    "data_date": "2025-01-02",
+    "folder": "weapons",
+    "entity_id": "starcallerswatch",
+    "entity_name": "별지기의 시선",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.4",
+    "from_version": "5.3",
+    "data_commit": "1946509",
+    "data_date": "2025-02-11",
+    "folder": "characters",
+    "entity_id": "yumemizukimizuki",
+    "entity_name": "유메미즈키 미즈키",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.4",
+    "from_version": "5.3",
+    "data_commit": "1946509",
+    "data_date": "2025-02-11",
+    "folder": "constellations",
+    "entity_id": "yumemizukimizuki",
+    "entity_name": "유메미즈키 미즈키",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.4",
+    "from_version": "5.3",
+    "data_commit": "1946509",
+    "data_date": "2025-02-11",
+    "folder": "talents",
+    "entity_id": "yumemizukimizuki",
+    "entity_name": "유메미즈키 미즈키",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.4",
+    "from_version": "5.3",
+    "data_commit": "1946509",
+    "data_date": "2025-02-11",
+    "folder": "weapons",
+    "entity_id": "sunnymorningsleepin",
+    "entity_name": "나른한 새해",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.4",
+    "from_version": "5.3",
+    "data_commit": "1946509",
+    "data_date": "2025-02-11",
+    "folder": "weapons",
+    "entity_id": "tamayurateinoohanashi",
+    "entity_name": "쉼터의 이야기꾼",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "characters",
+    "entity_id": "iansan",
+    "entity_name": "얀사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "characters",
+    "entity_id": "varesa",
+    "entity_name": "바레사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "constellations",
+    "entity_id": "iansan",
+    "entity_name": "얀사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "constellations",
+    "entity_id": "varesa",
+    "entity_name": "바레사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "talents",
+    "entity_id": "iansan",
+    "entity_name": "얀사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "talents",
+    "entity_id": "varesa",
+    "entity_name": "바레사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.5",
+    "from_version": "5.4",
+    "data_commit": "dcc5216",
+    "data_date": "2025-04-01",
+    "folder": "weapons",
+    "entity_id": "vividnotions",
+    "entity_name": "빛나는 마음",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "characters",
+    "entity_id": "escoffier",
+    "entity_name": "에스코피에",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "characters",
+    "entity_id": "ifa",
+    "entity_name": "이파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "constellations",
+    "entity_id": "escoffier",
+    "entity_name": "에스코피에",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "constellations",
+    "entity_id": "ifa",
+    "entity_name": "이파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "talents",
+    "entity_id": "amber",
+    "entity_name": "엠버",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat1/name",
+        "before": "일반 공격·신궁",
+        "after": "명사수"
+      }
+    ]
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "talents",
+    "entity_id": "escoffier",
+    "entity_name": "에스코피에",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "talents",
+    "entity_id": "ifa",
+    "entity_name": "이파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "talents",
+    "entity_id": "travelercryo",
+    "entity_name": "여행자 (얼음 원소)",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "weapons",
+    "entity_id": "sequenceofsolitude",
+    "entity_name": "침묵의 사격",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.6",
+    "from_version": "5.5",
+    "data_commit": "f58c9a6",
+    "data_date": "2025-05-07",
+    "folder": "weapons",
+    "entity_id": "symphonistofscents",
+    "entity_name": "맛의 지휘자",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "characters",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "characters",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "constellations",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "constellations",
+    "entity_id": "escoffier",
+    "entity_name": "에스코피에",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "에스코피에가 **냉장 모드**로 요리 장치 가동 시, 15초 동안 지속되는 「즉석 요리」 효과를 획득한다: 지속 시간 동안 에스코피에가 「냉요리」를 5스택 획득한다. 에스코피에를 제외한 주변의 필드 위 캐릭터가 일반 공격, 강공격, 낙하 공격, 원소전투 스킬 또는 원소폭발로 적에게 얼음 원소 피해를 줄 시, 「냉요리」를 1스택 소모해 주는 피해가 에스코피에 공격력의 240%만큼 증가한다.\n한 번의 얼음 원소 피해가 동시에 다수의 적에게 명중 시, 명중한 적의 수에 따라 「냉요리」의 스택이 소모된다",
+        "after": "에스코피에가 **냉장 모드**로 요리 장치 가동 시, 15초 동안 지속되는 「즉석 요리」 효과를 획득한다: 지속 시간 동안 에스코피에가 「냉요리」를 5스택 획득한다. 에스코피에를 제외한 주변에 있는 현재 필드 위 캐릭터가 일반 공격, 강공격, 낙하 공격, 원소전투 스킬 또는 원소폭발로 적에게 얼음 원소 피해를 줄 시, 「냉요리」를 1스택 소모해 주는 피해가 에스코피에 공격력의 240%만큼 증가한다.\n한 번의 얼음 원소 피해가 동시에 다수의 적에게 명중 시, 명중한 적의 수에 따라 「냉요리」의 스택이 소모된다"
+      }
+    ]
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "constellations",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "talents",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "talents",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "weapons",
+    "entity_id": "azurelight",
+    "entity_name": "창백한 섬광",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "weapons",
+    "entity_id": "predator",
+    "entity_name": "포식자",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "다음 플랫폼에서만 적용:\n\"PlayStation Network\"\n적에게 얼음 원소 피해를 준 후, 일반 공격과 강공격으로 주는 피해가 10% 증가한다. 지속 시간: 6초, 최대 중첩수: 2회. 또한, 에일로이가 포식자를 장착할 때 공격력이 66pt 증가한다",
+        "after": "다음 플랫폼에서만 적용:\n\"PlayStation™Network\"\n적에게 얼음 원소 피해를 준 후, 일반 공격과 강공격으로 주는 피해가 10% 증가한다. 지속 시간: 6초, 최대 중첩수: 2회. 또한, 에일로이가 포식자를 장착할 때 공격력이 66pt 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.7",
+    "from_version": "5.6",
+    "data_commit": "6401e33",
+    "data_date": "2025-06-18",
+    "folder": "weapons",
+    "entity_id": "swordofdescension",
+    "entity_name": "강림의 검",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "다음 플랫폼에서만 적용:\n\"PlayStation Network\"\n일반 공격과 강공격 명중 후 50%의 확률로 작은 범위 내에 공격력 200%의 피해를 준다. 해당 효과는 10초마다 1회 발동한다. 또한 여행자가 강림의 검을 장착하면 공격력이 66pt 증가한다",
+        "after": "다음 플랫폼에서만 적용:\n\"PlayStation™Network\"\n일반 공격과 강공격 명중 후 50%의 확률로 작은 범위 내에 공격력 200%의 피해를 준다. 해당 효과는 10초마다 1회 발동한다. 또한 여행자가 강림의 검을 장착하면 공격력이 66pt 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "characters",
+    "entity_id": "ineffa",
+    "entity_name": "이네파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "constellations",
+    "entity_id": "cyno",
+    "entity_name": "사이노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "사이노가 성스러운 의식·이리의 질주의 길을 여는 사자 상태일 때 감전, 초전도, 과부하, 활성, 촉진, 만개, 번개 원소 확산 반응을 발동하면, 근처에 있는 파티 내 모든 캐릭터(사이노 자신 제외)가 원소 에너지를 3pt 회복한다.\n해당 효과는 1회의 성스러운 의식·이리의 질주에서 최대 5회 발동한다",
+        "after": "사이노가 성스러운 의식·이리의 질주의 길을 여는 사자 상태일 때 감전, 달 감전, 초전도, 과부하, 활성, 촉진, 만개, 번개 원소 확산 반응을 발동하면, 근처에 있는 파티 내 모든 캐릭터(사이노 자신 제외)가 원소 에너지를 3pt 회복한다.\n해당 효과는 1회의 성스러운 의식·이리의 질주에서 최대 5회 발동한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "constellations",
+    "entity_id": "ineffa",
+    "entity_name": "이네파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "constellations",
+    "entity_id": "mona",
+    "entity_name": "모나",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "파티 내 자신의 캐릭터의 공격이 성이 상태의 적에게 명중 후 8초 동안 물 원소 관련 반응의 효과가 증가한다:\n·감전 반응으로 주는 피해+15%, 증발 반응으로 주는 피해+15%, 물 원소 확산 반응으로 주는 피해+15%\n·빙결 반응 지속 시간+15%",
+        "after": "파티 내 자신의 캐릭터의 공격이 성이 상태의 적에게 명중 후 8초 동안 물 원소 관련 반응의 효과가 증가한다:\n·감전 반응으로 주는 피해+15%, 달 감전 반응으로 주는 피해+15%, 증발 반응으로 주는 피해+15%, 물 원소 확산 반응으로 주는 피해+15%\n·빙결 반응 지속 시간+15%"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "dori",
+    "entity_name": "도리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "램프의 정령과 연결된 캐릭터가 감전, 초전도, 과부하, 활성, 촉진, 만개, 번개 원소 확산 혹은 번개 원소 결정 반응을 발동하면 영혼을 달래는 램프·번뇌 해결포의 재사용 대기시간이 1초 줄어든다.\n해당 효과는 3초마다 최대 1회 발동한다",
+        "after": "램프의 정령과 연결된 캐릭터가 감전, 달 감전, 초전도, 과부하, 활성, 촉진, 만개, 번개 원소 확산 혹은 번개 원소 결정 반응을 발동하면 영혼을 달래는 램프·번뇌 해결포의 재사용 대기시간이 1초 줄어든다.\n해당 효과는 3초마다 최대 1회 발동된다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "eula",
+    "entity_name": "유라",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "홀드하여 얼음 파도의 와류 발동 시 한 번에 냉혹한 마음 효과를 2스택 소모하면, 즉시 폭발하는 부서진 빛의 검이 생성된다. 이는 파도를 얼리는 광검으로 생성된 빛의 검 기초 피해의 50%에 해당하는 물리 피해를 준다",
+        "after": "홀드하여 얼음 파도의 와류 발동 시 한 번에 냉혹한 마음 효과를 2스택 소모하면, 즉시 폭발하는 부서진 빛의 검이 생성된다. 이는 파도를 얼리는 광검으로 생성된 빛의 검 기본 피해의 50%에 해당하는 물리 피해를 준다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "ifa",
+    "entity_name": "이파",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "이파가 밤혼 가호 상태 시, 파티 내 모든 캐릭터의 밤혼 총합에 기반해, 이파가 밤혼 1pt당 **「구급 비결」**을 1pt 획득한다. 구급 비결: 주변에 있는 파티 내 캐릭터가 발동한 확산 반응과 감전 반응으로 주는 피해가 증가한다",
+        "after": "이파가 밤혼 가호 상태 시, 파티 내 모든 캐릭터의 밤혼 총합에 기반해, 이파가 밤혼 1pt당 **「구급 비결」**을 1pt 획득한다. 구급 비결: 주변에 있는 파티 내 캐릭터가 발동한 확산, 감전, 달 감전 반응으로 주는 피해가 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "ineffa",
+    "entity_name": "이네파",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "neuvillette",
+    "entity_name": "느비예트",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 개화, 물 원소 확산 또는 물 원소 결정 반응을 발동할 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다. 지속 시간: 30초, 최대 중첩수: 3스택.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다",
+        "after": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 달 감전, 개화, 물 원소 확산 또는 물 원소 결정 반응 발동 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다. 지속 시간: 30초, 최대 중첩수: 3스택.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 주변에 있는 캐릭터가 「밤혼 발산」 발동 후, 올로룬이 밤혼을 40pt 획득한다. 원소전투 스킬 발동 후 15초 동안, 파티 내에 있는 다른 캐릭터의 물 원소 또는 번개 원소 타입 공격이 적에게 명중 시, 올로룬이 밤혼을 5pt 획득한다. 해당 효과는 0.3초마다 최대 1회 발동되며 지속 시간 동안 최대 10회 발동된다.\n올로룬의 밤혼 최대치: 80pt\n또한 주변에 있는 적이 감전 반응의 피해를 받거나, 파티 내 주변에 있는 다른 캐릭터가 밤혼 성질의 피해를 줄 시, 만약 올로룬이 밤혼을 최소 10pt 보유하고 있으면 올로룬이 밤혼을 10pt 소모해 밤혼 가호 상태에 진입하고 「초감각」 효과를 발동한다: 올로룬 공격력의 160%에 기반해 주변에 있는 최대 4기의 적에게 밤혼 성질의 번개 원소 피해를 준다. 상술한 효과는 1.8초마다 최대 1회 발동된다.\n밤혼 가호·올로룬\n올로룬의 밤혼 가호 상태는 최대 6초 지속된다",
+        "after": "파티 내 주변에 있는 캐릭터가 「밤혼 발산」 발동 후, 올로룬이 밤혼을 40pt 획득한다. 원소전투 스킬 발동 후 15초 동안, 파티 내에 있는 다른 캐릭터의 물 원소 또는 번개 원소 타입 공격이 적에게 명중 시, 올로룬이 밤혼을 5pt 획득한다. 해당 효과는 0.3초마다 최대 1회 발동되며 지속 시간 동안 최대 10회 발동된다.\n올로룬의 밤혼 최대치: 80pt\n또한 주변에 있는 적이 감전 또는 달 감전 반응의 피해를 받거나, 파티 내 주변에 있는 다른 캐릭터가 밤혼 성질의 피해를 줄 시, 만약 올로룬이 밤혼을 최소 10pt 보유하고 있으면 올로룬이 밤혼을 10pt 소모해 밤혼 가호 상태에 진입하고 「초감각」 효과를 발동한다: 올로룬 공격력의 160%에 기반해 주변에 있는 최대 4기의 적에게 밤혼 성질의 번개 원소 피해를 준다. 상술한 효과는 1.8초마다 최대 1회 발동된다.\n밤혼 가호·올로룬\n올로룬의 밤혼 가호 상태는 최대 6초 지속된다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "talents",
+    "entity_id": "sethos",
+    "entity_name": "세토스",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat2/description",
+        "before": "우레를 모아 번개 원소 범위 피해를 주고 빠르게 후퇴한다. 만약 이번 공격이 적에게 감전, 초전도, 과부하, 활성, 촉진, 만개, 또는 번개 원소 확산 반응을 발동시키면, 세토스는 일정 원소 에너지를 회복한다.",
+        "after": "우레를 모아 번개 원소 범위 피해를 주고 빠르게 후퇴한다. 만약 이번 공격이 적에게 감전, 달 감전, 초전도, 과부하, 활성, 촉진, 만개, 또는 번개 원소 확산 반응을 발동시키면, 세토스는 일정 원소 에너지를 회복한다."
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "weapons",
+    "entity_id": "darkironsword",
+    "entity_name": "암철검",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "과부하, 초전도, 감전, 활성, 촉진, 만개 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 20% 증가한다",
+        "after": "과부하, 초전도, 감전, 활성, 촉진, 만개, 달 감전 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 20% 증가한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "과부하, 초전도, 감전, 활성, 촉진, 만개 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 25% 증가한다",
+        "after": "과부하, 초전도, 감전, 활성, 촉진, 만개, 달 감전 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 25% 증가한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "과부하, 초전도, 감전, 활성, 촉진, 만개 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 30% 증가한다",
+        "after": "과부하, 초전도, 감전, 활성, 촉진, 만개, 달 감전 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 30% 증가한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "과부하, 초전도, 감전, 활성, 촉진, 만개 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 35% 증가한다",
+        "after": "과부하, 초전도, 감전, 활성, 촉진, 만개, 달 감전 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 35% 증가한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "과부하, 초전도, 감전, 활성, 촉진, 만개 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 40% 증가한다",
+        "after": "과부하, 초전도, 감전, 활성, 촉진, 만개, 달 감전 혹은 번개 원소 확산 반응 발동 후 12초 동안 공격력이 40% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "weapons",
+    "entity_id": "emeraldorb",
+    "entity_name": "비취 오브",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "증발, 감전, 빙결, 개화 혹은 물 원소 확산 반응 후 12초 동안 공격력이 20% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 20% 증가한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "증발, 감전, 빙결, 개화 혹은 물 원소 확산 반응 후 12초 동안 공격력이 25% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 25% 증가한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "증발, 감전, 빙결, 개화 혹은 물 원소 확산 반응 후 12초 동안 공격력이 30% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 30% 증가한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "증발, 감전, 빙결, 개화 혹은 물 원소 확산 반응 후 12초 동안 공격력이 35% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 35% 증가한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "증발, 감전, 빙결, 개화 혹은 물 원소 확산 반응 후 12초 동안 공격력이 40% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 40% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "weapons",
+    "entity_id": "flameforgedinsight",
+    "entity_name": "불로 벼린 지혜",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "5.8",
+    "from_version": "5.7",
+    "data_commit": "fd2c894",
+    "data_date": "2025-07-30",
+    "folder": "weapons",
+    "entity_id": "fracturedhalo",
+    "entity_name": "파멸의 빛고리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "characters",
+    "entity_id": "aino",
+    "entity_name": "아이노",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "characters",
+    "entity_id": "flins",
+    "entity_name": "플린스",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "characters",
+    "entity_id": "lauma",
+    "entity_name": "라우마",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "aino",
+    "entity_name": "아이노",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "collei",
+    "entity_name": "콜레이",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "고유 특성 「되돌아오는 잎새」가 다음과 같이 전환된다:\n부메랑이 되돌아올 때, 캐릭터에게 고유 특성 「되돌아오는 잎새」의 「신엽」 상태가 부여되고, 지속적으로 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n스쳐 지나가는 풀잎이 발동된 후 신엽 상태가 사라지기 전에 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 반응을 발동할 경우 해당 신엽 효과의 지속 시간이 3초 증가한다.\n신엽 효과는 해당 방식으로 최대 1회까지 지속 시간이 연장된다. 신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다.\n고유 특성 「되돌아오는 잎새」를 해금해야 한다",
+        "after": "고유 특성 「되돌아오는 잎새」가 다음과 같이 전환된다:\n부메랑이 되돌아올 때, 캐릭터에게 고유 특성 「되돌아오는 잎새」의 「신엽」 상태가 부여되고, 지속적으로 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n스쳐 지나가는 풀잎이 발동된 후 신엽 상태가 사라지기 전에 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개, 발화 또는 달 개화 반응을 발동할 경우 해당 신엽 효과의 지속 시간이 3초 증가한다.\n신엽 효과는 해당 방식으로 최대 1회까지 지속 시간이 연장된다. 신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다.\n고유 특성 「되돌아오는 잎새」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "달리아가 원소폭발 물빛 기도의 「찬송」 효과를 1스택 획득할 때마다 원소 에너지를 2.5pt 회복한다",
+        "after": "달리아가 원소폭발 **물빛 기도**의 「찬송」 효과를 1스택 획득할 때마다 원소 에너지를 2.5pt 회복한다"
+      },
+      {
+        "field": "c2/description",
+        "before": "달리아가 원소폭발 물빛 기도의 「찬송」 효과를 소모해 수호 보호막을 소환한 후, 수호 보호막의 보호를 받고 있는 캐릭터의 보호막 강화 효과가 25% 증가한다. 지속 시간: 12초",
+        "after": "달리아가 원소폭발 **물빛 기도**의 「찬송」 효과를 소모해 수호 보호막을 소환한 후, 수호 보호막의 보호를 받고 있는 캐릭터의 보호막 강화 효과가 25% 증가한다. 지속 시간: 12초"
+      },
+      {
+        "field": "c3/description",
+        "before": "원소폭발 물빛 기도의 스킬 레벨+3\n최대 Lv.15까지 상승",
+        "after": "원소폭발 **물빛 기도**의 스킬 레벨+3\n최대 Lv.15까지 상승"
+      },
+      {
+        "field": "c4/description",
+        "before": "원소폭발 물빛 기도의 「페보니우스의 수호」 효과 지속 시간이 3초 증가한다",
+        "after": "원소폭발 **물빛 기도**의 「페보니우스의 수호」 효과 지속 시간이 3초 증가한다"
+      },
+      {
+        "field": "c5/description",
+        "before": "원소전투 스킬 신성한 침례식의 스킬 레벨+3\n최대 Lv.15까지 상승",
+        "after": "원소전투 스킬 **신성한 침례식**의 스킬 레벨+3\n최대 Lv.15까지 상승"
+      },
+      {
+        "field": "c6/description",
+        "before": "원소폭발 물빛 기도의 「페보니우스의 수호」 효과의 영향을 받는 현재 필드 위 캐릭터의 공격 속도가 10% 증가한다.\n또한 페보니우스의 수호의 영향을 받는 현재 필드 위 캐릭터가 전투 불능 상태에 빠지면 즉시:\n·해당 캐릭터를 부활시킨다.\n·해당 캐릭터의 HP를 100% 회복시킨다.\n해당 효과는 15분마다 1회만 발동된다",
+        "after": "원소폭발 **물빛 기도**의 「페보니우스의 수호」 효과의 영향을 받는 현재 필드 위 캐릭터의 공격 속도가 10% 증가한다.\n또한 페보니우스의 수호의 영향을 받는 현재 필드 위 캐릭터가 전투 불능 상태에 빠지면 즉시:\n·해당 캐릭터를 부활시킨다.\n·해당 캐릭터의 HP를 100% 회복시킨다.\n해당 효과는 15분마다 1회만 발동된다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "flins",
+    "entity_name": "플린스",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "kaveh",
+    "entity_name": "카베",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "카베가 발동한 개화 반응으로 생성된 풀 원핵이 폭발 시 주는 피해가 60% 증가한다",
+        "after": "카베가 발동한 개화 또는 달 개화 반응으로 생성된 풀 원핵이 폭발 시 주는 피해가 60% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "lauma",
+    "entity_name": "라우마",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "nahida",
+    "entity_name": "나히다",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "나히다 자신이 새긴 스칸다 씨앗 상태의 적은 다음과 같은 효과의 영향을 받는다.\n·받은 연소, 개화, 만개, 발화 반응 피해가 치명타를 발생시킬 수 있다. 치명타 확률은 20%, 치명타 피해는 100%로 고정된다.\n·활성, 촉진, 발산 반응의 영향을 받은 후 8초 동안 방어력이 30% 감소한다",
+        "after": "나히다 자신이 새긴 스칸다 씨앗 상태의 적은 다음과 같은 효과의 영향을 받는다.\n·받은 연소, 개화, 만개, 발화 반응 피해가 치명타를 발생시킬 수 있다. 치명타 확률은 20%, 치명타 피해는 100%로 고정된다. 해당 효과가 제공하는 치명타 확률은, 원소 반응에 치명타 발생을 부여하는 동일 종류의 효과와 중첩될 수 있다.\n·활성, 촉진, 발산 반응의 영향을 받은 후 8초 동안 방어력이 30% 감소한다.\n·달 개화 반응으로 주는 피해의 치명타 확률이 10%, 치명타 피해가 20% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "nilou",
+    "entity_name": "닐루",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "「황금잔의 선물」 효과를 부여받은 캐릭터가 적에게 물 원소 피해를 준 후, 해당 적의 물 원소 내성이 35% 감소한다. 지속 시간: 10초. 개화 반응을 발동하여 적에게 피해를 준 후, 해당 적의 풀 원소 내성이 35% 감소한다. 지속 시간: 10초.\n고유 특성 「꽃보라가 맴도는 정원」을 해금해야 한다",
+        "after": "「황금잔의 선물」 효과를 부여받은 캐릭터가 적에게 물 원소 피해를 준 후, 해당 적의 물 원소 내성이 35% 감소한다. 지속 시간: 10초. 적에게 개화 또는 달 개화 반응 피해를 준 후, 해당 적의 풀 원소 내성이 35% 감소한다. 지속 시간: 10초.\n고유 특성 「꽃보라가 맴도는 정원」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c3/description",
+        "before": "원소폭발 극악기·멸의 스킬 레벨+3\n최대 Lv.15까지 상승",
+        "after": "원소폭발 **극악기·멸**의 스킬 레벨+3\n최대 Lv.15까지 상승"
+      },
+      {
+        "field": "c5/description",
+        "before": "원소전투 스킬 극악기·섬의 스킬 레벨+3\n최대 Lv.15까지 상승",
+        "after": "원소전투 스킬 **극악기·섬**의 스킬 레벨+3\n최대 Lv.15까지 상승"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "constellations",
+    "entity_id": "tighnari",
+    "entity_name": "타이나리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "뒤엉킨 덩굴 화살 발동 시, 근처에 있는 파티 내 모든 캐릭터의 원소 마스터리가 60pt 증가한다. 지속 시간: 8초. 뒤엉킨 덩굴 화살이 연소, 개화, 활성, 발산 반응 발동 시, 원소 마스터리가 추가로 60pt 증가하고 해당 상태의 지속 시간이 리셋된다",
+        "after": "뒤엉킨 덩굴 화살 발동 시, 근처에 있는 파티 내 모든 캐릭터의 원소 마스터리가 60pt 증가한다. 지속 시간: 8초. 뒤엉킨 덩굴 화살이 연소, 개화, 활성, 발산 또는 달 개화 반응 발동 시, 원소 마스터리가 추가로 60pt 증가하고 해당 상태의 지속 시간이 리셋된다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "aino",
+    "entity_name": "아이노",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "baizhu",
+    "entity_name": "백출",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive2/description",
+        "before": "무간 보호막의 치유를 받은 캐릭터는 「목운의 해」 효과를 획득한다: 백출 HP 최대치의 50000pt 범위 내에서 1000pt마다 해당 캐릭터가 연소, 개화, 만개, 발화 반응으로 주는 피해가 2% 증가하고 촉진, 발산 반응으로 주는 피해가 0.8% 증가한다. 지속 시간: 6초",
+        "after": "무간 보호막의 치유를 받은 캐릭터는 「목운의 해」 효과를 획득한다: 백출 HP 최대치의 50000pt 범위 내에서 1000pt마다 해당 캐릭터가 연소, 개화, 만개, 발화 반응으로 주는 피해가 2% 증가하고 촉진, 발산 반응으로 주는 피해가 0.8%, 달 개화 반응 피해가 0.7% 증가한다. 지속 시간: 6초"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "collei",
+    "entity_name": "콜레이",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "부메랑이 되돌아오기 전 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 반응 발동 시, 부메랑이 되돌아오면서 캐릭터에게 「신엽」 상태를 부여하고 지속해서 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다",
+        "after": "부메랑이 되돌아오기 전 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개, 발화 또는 달 개화 반응 발동 시, 부메랑이 되돌아오면서 캐릭터에게 「신엽」 상태를 부여하고 지속해서 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다"
+      },
+      {
+        "field": "passive2/description",
+        "before": "콜린엔바 영역 내의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 반응 발동 시 영역의 지속 시간이 1초 연장된다.\n냥냥 비책 1회 발동 중, 해당 방식으로 최대 3회까지 지속 시간이 연장된다",
+        "after": "콜린엔바 영역 내의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개, 발화 또는 달 개화 반응 발동 시 영역의 지속 시간이 1초 연장된다.\n냥냥 비책 1회 발동 중, 해당 방식으로 최대 3회까지 지속 시간이 연장된다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "원소폭발 물빛 기도의 「페보니우스의 수호」 효과를 받는 캐릭터가 적에게 빙결 반응 발동 시, 달리아에게 「찬송」 효과를 2스택 부여한다. 해당 효과는 8초마다 최대 1회 발동된다",
+        "after": "원소폭발 **물빛 기도**의 「페보니우스의 수호」 효과를 받는 캐릭터가 적에게 빙결 반응 발동 시, 달리아에게 「찬송」 효과를 2스택 부여한다. 해당 효과는 8초마다 최대 1회 발동된다"
+      },
+      {
+        "field": "passive2/description",
+        "before": "파티 내 자신의 현재 필드 위 캐릭터가 원소폭발 물빛 기도의 「페보니우스의 수호」 효과의 영향을 받을 시, 공격 속도가 달리아 HP 최대치에 기반해 증가한다: HP 최대치 1000pt마다 공격 속도가 0.5% 증가한다. 해당 방식으로 공격 속도가 최대 20%까지 증가한다",
+        "after": "파티 내 자신의 현재 필드 위 캐릭터가 원소폭발 **물빛 기도**의 「페보니우스의 수호」 효과의 영향을 받을 시, 공격 속도가 달리아 HP 최대치에 기반해 증가한다: HP 최대치 1000pt마다 공격 속도가 0.5% 증가한다. 해당 방식으로 공격 속도가 최대 20%까지 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "flins",
+    "entity_name": "플린스",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "ineffa",
+    "entity_name": "이네파",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive3/description",
+        "before": "파티 내 캐릭터가 감전 반응 발동 시, 달 감전 반응으로 전환되며, 이네파의 공격력에 기반해 달 감전 반응의 기본 피해가 증가한다: 공격력 100pt마다 기본 피해가 0.7% 증가하며, 해당 방식으로 피해가 최대 14% 증가한다.\n새로운 달이 떠오를 때, 추가 축복을 받을 수 있을지도 모른다…",
+        "after": "파티 내 캐릭터가 감전 반응 발동 시, 달 감전 반응으로 전환되며, 이네파의 공격력에 기반해 달 감전 반응의 기본 피해가 증가한다: 공격력 100pt마다 기본 피해가 0.7% 증가하며, 해당 방식으로 피해가 최대 14% 증가한다.\n이네파가 파티에 있을 경우 파티의 달빛 징조가 1레벨 상승한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "kaveh",
+    "entity_name": "카베",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat3/description",
+        "before": "「메흐락」의 힘을 완전히 해방하여 정육면체 모양의 측량 공간을 생성해 공간 안의 적에게 풀 원소 범위 피해를 주고 범위 내의 모든 풀 원핵을 즉시 폭발시킨다. 또한 일정 시간 동안 카베의 전투력이 강화된다:\n·카베의 일반 공격, 강공격, 낙하 공격의 공격 범위가 증가하고 공격 피해가 다른 원소 부여 효과로 대체될 수 없는 풀 원소 피해로 전환된다.\n·파티 내 자신의 캐릭터가 개화 반응으로 생성한 풀 원핵 폭발로 주는 피해가 증가한다.\n·카베의 경직 저항력이 증가한다.\n해당 효과는 카베가 퇴장하면 사라진다.",
+        "after": "「메흐락」의 힘을 완전히 해방하여 정육면체 모양의 측량 공간을 생성해 공간 안의 적에게 풀 원소 범위 피해를 주고 범위 내의 모든 풀 원핵을 즉시 폭발시킨다. 또한 일정 시간 동안 카베의 전투력이 강화된다:\n·카베의 일반 공격, 강공격, 낙하 공격의 공격 범위가 증가하고 공격 피해가 다른 원소 부여 효과로 대체될 수 없는 풀 원소 피해로 전환된다.\n·파티 내 자신의 캐릭터가 개화 또는 달 개화 반응으로 생성한 풀 원핵 폭발로 주는 피해가 증가한다.\n·카베의 경직 저항력이 증가한다.\n해당 효과는 카베가 퇴장하면 사라진다."
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "lauma",
+    "entity_name": "라우마",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "neuvillette",
+    "entity_name": "느비예트",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 달 감전, 개화, 물 원소 확산 또는 물 원소 결정 반응 발동 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다. 지속 시간: 30초, 최대 중첩수: 3스택.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다",
+        "after": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 달 감전, 개화, 달 개화, 물 원소 확산 또는 물 원소 결정 반응 발동 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다. 지속 시간: 30초, 최대 중첩수: 3스택.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "talents",
+    "entity_id": "nilou",
+    "entity_name": "닐루",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 모든 캐릭터의 원소 타입이 풀 원소와 물 원소 캐릭터로 이루어져 있고, 최소 1명의 풀 원소 캐릭터와 1명의 물 원소 캐릭터가 있는 경우,\n닐루의 칠역의 춤의 세 번째 춤이 완료될 때, 근처에 있는 모든 캐릭터에게 30초 동안 지속되는 「황금잔의 선물」 효과를 부여한다.\n황금잔의 선물 효과를 부여받은 캐릭터가 풀 원소 공격을 받으면 근처에 있는 모든 캐릭터의 원소 마스터리가 100pt 증가한다. 지속 시간: 10초. 또한, 개화 반응 발동 시 풀 원핵 대신 「풍요의 핵」을 생성한다.\n풍요의 핵은 풀 원핵에 비해 생성 후 더 빠르게 폭발하고, 더 넓은 영향 범위를 가진다.\n풍요의 핵은 만개 및 발화 반응을 발동할 수 없고, 풀 원핵과 최대 수량을 공유한다. 풍요의 핵의 공격은 개화 반응의 풀 원핵의 공격으로 간주한다.\n파티 내 캐릭터의 원소 타입이 고유 특성 발동 조건을 만족하지 않을 경우 이미 존재하는 황금잔의 선물 효과가 사라진다",
+        "after": "파티 내 모든 캐릭터의 원소 타입이 풀 원소와 물 원소 캐릭터로 이루어져 있고, 최소 1명의 풀 원소 캐릭터와 1명의 물 원소 캐릭터가 있는 경우,\n닐루의 칠역의 춤의 세 번째 춤이 완료될 때, 근처에 있는 모든 캐릭터에게 30초 동안 지속되는 「황금잔의 선물」 효과를 부여한다.\n황금잔의 선물 효과를 부여받은 캐릭터가 풀 원소 공격을 받으면 근처에 있는 모든 캐릭터의 원소 마스터리가 100pt 증가한다. 지속 시간: 10초. 또한, 개화 또는 달 개화 반응 발동 시 풀 원핵 대신 「풍요의 핵」을 생성한다.\n풍요의 핵은 풀 원핵에 비해 생성 후 더 빠르게 폭발하고, 더 넓은 영향 범위를 가진다.\n풍요의 핵은 만개 및 발화 반응을 발동할 수 없고, 풀 원핵과 최대 수량을 공유한다. 풍요의 핵의 공격은 개화 반응의 풀 원핵의 공격으로 간주한다.\n파티 내 캐릭터의 원소 타입이 고유 특성 발동 조건을 만족하지 않을 경우 이미 존재하는 황금잔의 선물 효과가 사라진다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "blackmarrowlantern",
+    "entity_name": "검은 골수의 등불",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "bloodsoakedruins",
+    "entity_name": "피로 물든 성",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "emeraldorb",
+    "entity_name": "비취 오브",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 20% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 달 개화 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 20% 증가한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 25% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 달 개화 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 25% 증가한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 30% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 달 개화 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 30% 증가한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 35% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 달 개화 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 35% 증가한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "증발, 감전, 빙결, 개화, 달 감전 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 40% 증가한다",
+        "after": "증발, 감전, 빙결, 개화, 달 감전 달 개화 또는 물 원소 확산 반응 발동 후 12초 동안 공격력이 40% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "etherlightspindlelute",
+    "entity_name": "금빛 류트",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "flameforgedinsight",
+    "entity_name": "불로 벼린 지혜",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "감전, 달 감전 또는 개화 반응 발동 시, 원소 에너지를 12pt 회복하고 15초 동안 원소 마스터리가 60pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 12pt 회복하고 15초 동안 원소 마스터리가 60pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+      },
+      {
+        "field": "r2/description",
+        "before": "감전, 달 감전 또는 개화 반응 발동 시, 원소 에너지를 15pt 회복하고 15초 동안 원소 마스터리가 75pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 15pt 회복하고 15초 동안 원소 마스터리가 75pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+      },
+      {
+        "field": "r3/description",
+        "before": "감전, 달 감전 또는 개화 반응 발동 시, 원소 에너지를 18pt 회복하고 15초 동안 원소 마스터리가 90pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 18pt 회복하고 15초 동안 원소 마스터리가 90pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+      },
+      {
+        "field": "r4/description",
+        "before": "감전, 달 감전 또는 개화 반응 발동 시, 원소 에너지를 21pt 회복하고 15초 동안 원소 마스터리가 105pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 21pt 회복하고 15초 동안 원소 마스터리가 105pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+      },
+      {
+        "field": "r5/description",
+        "before": "감전, 달 감전 또는 개화 반응 발동 시, 원소 에너지를 24pt 회복하고 15초 동안 원소 마스터리가 120pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 24pt 회복하고 15초 동안 원소 마스터리가 120pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "forestregalia",
+    "entity_name": "숲의 리게일리어",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 60pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 60pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r2/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 75pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 75pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r3/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 90pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 90pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r4/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 105pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 105pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r5/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 120pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 120pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "masterkey",
+    "entity_name": "만능 열쇠",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "moonpiercer",
+    "entity_name": "달을 꿰뚫는 화살",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 16% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 16% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다"
+      },
+      {
+        "field": "r2/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 20% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 20% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다"
+      },
+      {
+        "field": "r3/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 24% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 24% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다"
+      },
+      {
+        "field": "r4/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 28% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 28% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다"
+      },
+      {
+        "field": "r5/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 32% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「소생의 잎사귀」가 생성된다. 소생의 잎사귀를 습득한 캐릭터는 공격력이 32% 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 소생의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "moonweaversdawn",
+    "entity_name": "달을 엮는 자의 새벽빛",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "nightweaverslookingglass",
+    "entity_name": "밤을 엮는 거울",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "prospectorsshovel",
+    "entity_name": "채굴의 삽",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "sapwoodblade",
+    "entity_name": "원목 검",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 60pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 60pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r2/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 75pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 75pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r3/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 90pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 90pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r4/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 105pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 105pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "r5/description",
+        "before": "연소, 활성, 촉진, 발산, 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 120pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다",
+        "after": "연소, 활성, 촉진, 발산, 개화, 달 개화, 만개 혹은 발화 발동 후, 캐릭터 주변에 최대 10초 동안 존재하는 「유식의 잎사귀」가 생성된다. 유식의 잎사귀를 습득한 캐릭터는 원소 마스터리가 120pt 증가한다. 지속 시간: 12초. 해당 방식으로 20초마다 유식의 잎사귀를 최대 1개 생성한다. 캐릭터가 대기 상태일 때도 발동된다. 유식의 잎사귀 효과는 중첩되지 않는다"
+      }
+    ]
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "serenityscall",
+    "entity_name": "고요한 휘파람",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.0",
+    "from_version": "5.8",
+    "data_commit": "6ed0a54",
+    "data_date": "2025-09-12",
+    "folder": "weapons",
+    "entity_id": "snarehook",
+    "entity_name": "그물을 뚫는 화살",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "characters",
+    "entity_id": "manekin",
+    "entity_name": "별인형·남성",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "characters",
+    "entity_id": "manekina",
+    "entity_name": "별인형·여성",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "characters",
+    "entity_id": "nefer",
+    "entity_name": "네페르",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "aino",
+    "entity_name": "아이노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "아이노가 **아이디어 집게** 또는 원소폭발 **정밀 냉수기** 발동 후, 아이노 자신의 원소 마스터리가 80pt 증가하고 주변의 현재 필드 위 다른 캐릭터의 원소 마스터리가 80pt 증가한다, 지속 시간: 15초.\n해당 운명의 자리로 획득한 원소 마스터리 증가 효과는 중첩되지 않는다",
+        "after": "아이노가 원소전투 스킬 **아이디어 집게** 또는 원소폭발 **정밀 냉수기** 발동 후, 아이노 자신의 원소 마스터리가 80pt 증가하고 주변의 현재 필드 위 다른 캐릭터의 원소 마스터리가 80pt 증가한다, 지속 시간: 15초.\n해당 운명의 자리로 획득한 원소 마스터리 증가 효과는 중첩되지 않는다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "arlecchino",
+    "entity_name": "아를레키노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "핏값 부여 시, 바로 핏값·결산이 된다.\n아를레키노가 핏값·결산 회수 시 전방에 달의 핏빛화염을 소환해 아를레키노 공격력의 900%에 해당하는 불 원소 범위 피해를 주고 아를레키노의 모든 원소 내성과 물리 내성이 20% 증가한다, 지속 시간: 15초. 해당 효과는 10초마다 최대 1회 발동한다.\n고유 특성 「고통만이 갚을 수 있고」를 해금해야 한다",
+        "after": "핏값 부여 시, 바로 핏값·결산이 된다.\n아를레키노가 핏값·결산 회수 시 전방에 달의 핏빛화염을 소환해 아를레키노 공격력의 900%에 해당하는 불 원소 범위 피해를 주고 아를레키노의 모든 원소 내성과 물리 내성이 20% 증가한다, 지속 시간: 15초. 해당 효과는 10초마다 최대 1회 발동한다.\n돌파 특성 「고통만이 갚을 수 있고」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "chasca",
+    "entity_name": "차스카",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "고유 특성 「총알 트릭」의 「결속 전환」 발동 시, 탄창에 장전된 두 번째 그림자 추적탄이 빛나는 그림자 추적탄으로 추가 전환된다.\n「결속 전환」 발동 확률이 증가한다: 파티 내에 원소 전환 조건에 부합하는 원소 타입의 캐릭터가 있을 경우 「결속 전환」의 발동 확률이 33.3% 증가해 최대 100%까지 증가한다.\n고유 특성 「총알 트릭」을 해금해야 한다.\n또한 전투 상태가 아닌 상황에서 차스카의 밤혼 가호 상태가 소모하는 밤혼과 열소가 30% 감소한다",
+        "after": "돌파 특성 「총알 트릭」의 「결속 전환」 발동 시, 탄창에 장전된 두 번째 그림자 추적탄이 빛나는 그림자 추적탄으로 추가 전환된다.\n「결속 전환」 발동 확률이 증가한다: 파티 내에 원소 전환 조건에 부합하는 원소 타입의 캐릭터가 있을 경우 「결속 전환」의 발동 확률이 33.3% 증가해 최대 100%까지 증가한다.\n돌파 특성 「총알 트릭」을 해금해야 한다.\n또한 전투 상태가 아닌 상황에서 차스카의 밤혼 가호 상태가 소모하는 밤혼과 열소가 30% 감소한다"
+      },
+      {
+        "field": "c2/description",
+        "before": "차스카 등장 시, 고유 특성 「총알 트릭」의 「빛나는 추적」을 1스택 획득한다. 해당 효과는 고유 특성 「총알 트릭」을 해금해야 한다.\n또한, 원소전투 스킬 영혼 올가미의 다중 조준 발동 시, 차스카의 빛나는 그림자 추적탄이 적에게 명중한 경우, 빛나는 그림자 추적탄의 원소 타입에 따라 차스카 공격력의 400%에 해당하는 상응하는 원소 범위 피해를 준다. 해당 피해는 강공격 피해로 간주한다. 다중 조준을 발동할 때마다 해당 효과는 최대 1회 발동된다",
+        "after": "차스카 등장 시, 돌파 특성 「총알 트릭」의 「빛나는 추적」을 1스택 획득한다. 해당 효과는 돌파 특성 「총알 트릭」을 해금해야 한다.\n또한, 원소전투 스킬 영혼 올가미의 다중 조준 발동 시, 차스카의 빛나는 그림자 추적탄이 적에게 명중한 경우, 빛나는 그림자 추적탄의 원소 타입에 따라 차스카 공격력의 400%에 해당하는 상응하는 원소 범위 피해를 준다. 해당 피해는 강공격 피해로 간주한다. 다중 조준을 발동할 때마다 해당 효과는 최대 1회 발동된다"
+      },
+      {
+        "field": "c6/description",
+        "before": "차스카의 다중 조준에 필요한 차지 시간이 감소한다. 또한 고유 특성 「총알 트릭」의 「결속 전환」 발동 후, 차스카가 「수확」 상태를 획득한다. 이어지는 3초 동안 차스카의 다음번 원소전투 스킬 영혼 올가미의 다중 조준 발동 시 차지가 즉시 완료되고, 이번 다중 조준의 그림자 추적탄과 빛나는 그림자 추적탄의 치명타 피해가 120% 증가한다. 3초마다 「수확」 효과를 최대 1회 획득할 수 있다.\n상술한 효과는 고유 특성 「총알 트릭」을 해금해야 한다",
+        "after": "차스카의 다중 조준에 필요한 차지 시간이 감소한다. 또한 돌파 특성 「총알 트릭」의 「결속 전환」 발동 후, 차스카가 「수확」 상태를 획득한다. 이어지는 3초 동안 차스카의 다음번 원소전투 스킬 영혼 올가미의 다중 조준 발동 시 차지가 즉시 완료되고, 이번 다중 조준의 그림자 추적탄과 빛나는 그림자 추적탄의 치명타 피해가 120% 증가한다. 3초마다 「수확」 효과를 최대 1회 획득할 수 있다.\n상술한 효과는 돌파 특성 「총알 트릭」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "chevreuse",
+    "entity_name": "슈브르즈",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "「협동 전술」 상태의 현재 필드 위 캐릭터(슈브르즈 자신 제외)가 과부하 반응 발동 시 원소 에너지를 6pt 회복한다. 해당 효과는 10초마다 최대 1회 발동된다.\n고유 특성 「선봉 협동 전술」을 해금해야 한다",
+        "after": "「협동 전술」 상태의 현재 필드 위 캐릭터(슈브르즈 자신 제외)가 과부하 반응 발동 시 원소 에너지를 6pt 회복한다. 해당 효과는 10초마다 최대 1회 발동된다.\n돌파 특성 「선봉 협동 전술」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "chiori",
+    "entity_name": "치오리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "하소데의 손길의 자동제어 인형 「타모토」의 공격 범위가 50% 증가한다.\n또한 파티에 치오리 외의 바위 원소 캐릭터가 존재할 경우, 하소데의 손길의 돌진 종료 시 아래 효과를 발동한다:\n·추가로 1개의 타모토를 소환한다. 해당 방식으로 치오리 자신이 소환한 타모토와 바위 원소 창조물을 통해 치오리 자신이 추가로 소환한 타모토는 동시에 최대 1개만 존재할 수 있다.\n·고유 특성 「금상첨화」를 발동한다. 해당 효과는 고유 특성 「금상첨화」를 해금해야 한다",
+        "after": "하소데의 손길의 자동제어 인형 「타모토」의 공격 범위가 50% 증가한다.\n또한 파티에 치오리 외의 바위 원소 캐릭터가 존재할 경우, 하소데의 손길의 돌진 종료 시 아래 효과를 발동한다:\n·추가로 1개의 타모토를 소환한다. 해당 방식으로 치오리 자신이 소환한 타모토와 바위 원소 창조물을 통해 치오리 자신이 추가로 소환한 타모토는 동시에 최대 1개만 존재할 수 있다.\n·돌파 특성 「금상첨화」를 발동한다. 해당 효과는 돌파 특성 「금상첨화」를 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "고유 특성 「맞춤 제작」의 후속 효과 발동 후, 8초 동안 현재 파티 내 자신의 필드 위에 있는 캐릭터의 일반 공격, 강공격 또는 낙하 공격이 주변에 있는 적에게 명중 시, 적 주변에 간단 자동제어 인형 「키누」를 1개 소환한다. 상술한 방식으로 1초마다 최대 1개의 키누를 소환할 수 있으며, 고유 특성 「맞춤 제작」의 임기응변 또는 재단이 한 번 지속되는 동안, 상술한 방식으로 최대 3개의 키누를 소환할 수 있다. 상술한 효과는 15초마다 최대 1회 발동된다.\n고유 특성 「맞춤 제작」을 해금해야 한다",
+        "after": "돌파 특성 「맞춤 제작」의 후속 효과 발동 후, 8초 동안 현재 필드 위에 있는 파티 내 자신의 캐릭터의 일반 공격, 강공격 또는 낙하 공격이 주변에 있는 적에게 명중 시, 적 주변에 간단 자동제어 인형 「키누」를 1개 소환한다. 상술한 방식으로 1초마다 최대 1개의 키누를 소환할 수 있으며, 돌파 특성 「맞춤 제작」의 임기응변 또는 재단이 한 번 지속되는 동안, 상술한 방식으로 최대 3개의 키누를 소환할 수 있다. 상술한 효과는 15초마다 최대 1회 발동된다.\n돌파 특성 「맞춤 제작」을 해금해야 한다"
+      },
+      {
+        "field": "c6/description",
+        "before": "고유 특성 「맞춤 제작」의 후속 효과 발동 후, 치오리 자신의 하소데의 손길의 재사용 대기시간이 12초 감소한다. 고유 특성 「맞춤 제작」을 해금해야 한다.\n또한, 치오리 자신의 일반 공격으로 주는 피해가 치오리 자신의 방어력의 235%만큼 증가한다",
+        "after": "돌파 특성 「맞춤 제작」의 후속 효과 발동 후, 치오리 자신의 하소데의 손길의 재사용 대기시간이 12초 감소한다. 돌파 특성 「맞춤 제작」을 해금해야 한다.\n또한, 치오리 자신의 일반 공격으로 주는 피해가 치오리 자신의 방어력의 235%만큼 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "citlali",
+    "entity_name": "시틀라리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "시틀라리의 원소 마스터리가 125pt 증가하고, 하얀빛 보호막의 보호를 받고 있거나 이즈파파가 따라다니고 있는 다른 캐릭터의 원소 마스터리가 250pt 증가한다.\n또한 원소전투 스킬 검은 서리별 발동 시, 주변에 있는 현재 필드 위 캐릭터에게 하얀빛 보호막을 부여한다.\n또한 고유 특성 「다섯 번째 하늘의 서리비」 효과가 증가한다:\n이즈파파 존재 기간 동안, 주변에 있는 파티 내 캐릭터가 빙결 또는 융해 반응 발동 후, 이번 반응의 영향을 받은 적의 불 원소와 물 원소 내성이 추가로 20% 감소한다, 지속 시간: 12초. 해당 효과는 고유 특성 「다섯 번째 하늘의 서리비」를 해금해야 한다",
+        "after": "시틀라리의 원소 마스터리가 125pt 증가하고, 하얀빛 보호막의 보호를 받고 있거나 이즈파파가 따라다니고 있는 다른 캐릭터의 원소 마스터리가 250pt 증가한다.\n또한 원소전투 스킬 검은 서리별 발동 시, 주변에 있는 현재 필드 위 캐릭터에게 하얀빛 보호막을 부여한다.\n또한 돌파 특성 「다섯 번째 하늘의 서리비」 효과가 증가한다:\n이즈파파 존재 기간 동안, 주변에 있는 파티 내 캐릭터가 빙결 또는 융해 반응 발동 후, 이번 반응의 영향을 받은 적의 불 원소와 물 원소 내성이 추가로 20% 감소한다, 지속 시간: 12초. 해당 효과는 돌파 특성 「다섯 번째 하늘의 서리비」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "clorinde",
+    "entity_name": "클로린드",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "고유 특성 「밤을 가르는 불꽃」의 효과를 강화한다: 주변에 있는 파티 내 캐릭터가 적에게 번개 원소 관련 반응을 발동한 후, 클로린드 공격력의 30%를 기반으로 클로린드의 일반 공격과 곧 꺼질 여광이 주는 번개 원소 피해가 증가한다. 지속 시간: 15초, 최대 중첩수: 3스택. 스택마다 독립적으로 계산하며 3스택 상태 시, 클로린드의 경직 저항력이 증가한다. 해당 방식으로 클로린드의 상술한 공격이 주는 피해가 최대 2700pt 증가한다.\n고유 특성 「밤을 가르는 불꽃」을 해금해야 한다",
+        "after": "돌파 특성 「밤을 가르는 불꽃」의 효과를 강화한다: 주변에 있는 파티 내 캐릭터가 적에게 번개 원소 관련 반응을 발동한 후, 클로린드 공격력의 30%를 기반으로 클로린드의 일반 공격과 곧 꺼질 여광이 주는 번개 원소 피해가 증가한다. 지속 시간: 15초, 최대 중첩수: 3스택. 스택마다 독립적으로 계산하며 3스택 상태 시, 클로린드의 경직 저항력이 증가한다. 해당 방식으로 클로린드의 상술한 공격이 주는 피해가 최대 2700pt 증가한다.\n돌파 특성 「밤을 가르는 불꽃」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "collei",
+    "entity_name": "콜레이",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "고유 특성 「되돌아오는 잎새」가 다음과 같이 전환된다:\n부메랑이 되돌아올 때, 캐릭터에게 고유 특성 「되돌아오는 잎새」의 「신엽」 상태가 부여되고, 지속적으로 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n스쳐 지나가는 풀잎이 발동된 후 신엽 상태가 사라지기 전에 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개, 발화 또는 달 개화 반응을 발동할 경우 해당 신엽 효과의 지속 시간이 3초 증가한다.\n신엽 효과는 해당 방식으로 최대 1회까지 지속 시간이 연장된다. 신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다.\n고유 특성 「되돌아오는 잎새」를 해금해야 한다",
+        "after": "돌파 특성 「되돌아오는 잎새」가 다음과 같이 전환된다:\n부메랑이 되돌아올 때, 캐릭터에게 돌파 특성 「되돌아오는 잎새」의 「신엽」 상태가 부여되고, 지속적으로 자신의 주변에 있는 적에게 콜레이 공격력의 40%에 해당하는 풀 원소 피해를 준다. 지속 시간: 3초.\n스쳐 지나가는 풀잎이 발동된 후 신엽 상태가 사라지기 전에 파티 내 자신의 캐릭터가 연소, 활성, 촉진, 발산, 개화, 만개, 발화 또는 달 개화 반응을 발동할 경우 해당 신엽 효과의 지속 시간이 3초 증가한다.\n신엽 효과는 해당 방식으로 최대 1회까지 지속 시간이 연장된다. 신엽 효과의 지속 시간 동안 새로운 신엽 효과가 생성되면 원래 있던 효과는 사라진다. 신엽 효과로 주는 피해는 원소전투 스킬 피해로 취급한다.\n돌파 특성 「되돌아오는 잎새」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "cyno",
+    "entity_name": "사이노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "성스러운 의식·이리의 질주 발동 후 사이노의 일반 공격의 공격 속도가 20% 증가한다. 지속 시간: 10초. 비밀스러운 의식·명계의 인도자 발동 시, 고유 특성 「낙하하는 깃털의 심판」의 「판정」 효과를 발동할 경우 해당 효과의 지속 시간이 갱신된다.\n고유 특성 「낙하하는 깃털의 심판」을 해금해야 한다",
+        "after": "성스러운 의식·이리의 질주 발동 후 사이노의 일반 공격의 공격 속도가 20% 증가한다. 지속 시간: 10초. 비밀스러운 의식·명계의 인도자 발동 시, 돌파 특성 「낙하하는 깃털의 심판」의 「판정」 효과를 발동할 경우 해당 효과의 지속 시간이 갱신된다.\n돌파 특성 「낙하하는 깃털의 심판」을 해금해야 한다"
+      },
+      {
+        "field": "c6/description",
+        "before": "성스러운 의식·이리의 질주 또는 고유 특성 「낙하하는 깃털의 심판」의 「판정」 발동 후, 사이노는 「이리의 번제」 효과를 4스택 획득한다. 사이노의 일반 공격이 적에게 명중 시, 1스택의 「이리의 번제」 효과를 소모해 기근의 번개 1줄기를 발사한다.\n「이리의 번제」 지속 시간: 8초, 최대 중첩수: 8스택. 성스러운 의식·이리의 질주의 길을 여는 사자 상태가 끝나면 사라진다.\n해당 방식으로 0.4초마다 최대 1줄기의 기근의 번개를 발사할 수 있다.\n고유 특성 「낙하하는 깃털의 심판」을 해금해야 한다",
+        "after": "성스러운 의식·이리의 질주 또는 돌파 특성 「낙하하는 깃털의 심판」의 「판정」 발동 후, 사이노는 「이리의 번제」 효과를 4스택 획득한다. 사이노의 일반 공격이 적에게 명중 시, 1스택의 「이리의 번제」 효과를 소모해 기근의 번개 1줄기를 발사한다.\n「이리의 번제」 지속 시간: 8초, 최대 중첩수: 8스택. 성스러운 의식·이리의 질주의 길을 여는 사자 상태가 끝나면 사라진다.\n해당 방식으로 0.4초마다 최대 1줄기의 기근의 번개를 발사할 수 있다.\n돌파 특성 「낙하하는 깃털의 심판」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "emilie",
+    "entity_name": "에밀리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "조향과 고유 특성 「잔향」의 이슬 향료가 주는 피해가 20% 증가한다. 후자는 고유 특성 「잔향」을 해금해야 한다.\n또한 주변에 있는 파티 내 캐릭터가 적에게 연소 반응 발동 또는 연소 상태의 적에게 풀 원소 피해를 줄 시, 추가로 향조를 1개 생성한다. 해당 효과는 2.9초마다 최대 1회 발동한다",
+        "after": "조향과 돌파 특성 「잔향」의 이슬 향료가 주는 피해가 20% 증가한다. 후자는 돌파 특성 「잔향」을 해금해야 한다.\n또한 주변에 있는 파티 내 캐릭터가 적에게 연소 반응 발동 또는 연소 상태의 적에게 풀 원소 피해를 줄 시, 추가로 향조를 1개 생성한다. 해당 효과는 2.9초마다 최대 1회 발동한다"
+      },
+      {
+        "field": "c2/description",
+        "before": "조향, 향의 궤적 또는 고유 특성 「잔향」의 이슬 향료(해당 고유 특성 해금 필요)가 적에게 명중 시, 해당 적의 풀 원소 내성이 30% 감소한다. 지속 시간: 10초",
+        "after": "조향, 향의 궤적 또는 돌파 특성 「잔향」의 이슬 향료(해당 돌파 특성 해금 필요)가 적에게 명중 시, 해당 적의 풀 원소 내성이 30% 감소한다. 지속 시간: 10초"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "escoffier",
+    "entity_name": "에스코피에",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "파티 내 캐릭터 4명의 원소 타입이 모두 물 원소 또는 얼음 원소일 경우, 에스코피에의 원소전투 스킬 **저온 조리법** 또는 원소폭발 **현란한 칼솜씨** 발동 후, 15초 동안 주변에 있는 파티 내 모든 캐릭터가 얼음 원소 피해를 줄 시의 치명타 피해가 60% 증가한다.\n고유 특성 「영감의 조미료」를 해금해야 한다",
+        "after": "파티 내 캐릭터 4명의 원소 타입이 모두 물 원소 또는 얼음 원소일 경우, 에스코피에의 원소전투 스킬 **저온 조리법** 또는 원소폭발 **현란한 칼솜씨** 발동 후, 15초 동안 주변에 있는 파티 내 모든 캐릭터가 얼음 원소 피해를 줄 시의 치명타 피해가 60% 증가한다.\n돌파 특성 「영감의 조미료」를 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "**식이요법**의 지속 시간이 6초 연장된다. 지속 시간 동안 식이요법을 통해 치유 발동 시, 일정 확률로 치유량이 100% 증가하고 에스코피에가 원소 에너지를 2pt 회복한다. 확률은 에스코피에 자신의 치명타 확률과 동일하다. 한 번의 식이요법 지속 시간 동안 해당 효과는 최대 7회 발동된다.\n고유 특성 「밥이 보약」을 해금해야 한다",
+        "after": "**식이요법**의 지속 시간이 6초 연장된다. 지속 시간 동안 식이요법을 통해 치유 발동 시, 일정 확률로 치유량이 100% 증가하고 에스코피에가 원소 에너지를 2pt 회복한다. 확률은 에스코피에 자신의 치명타 확률과 동일하다. 한 번의 식이요법 지속 시간 동안 해당 효과는 최대 7회 발동된다.\n돌파 특성 「밥이 보약」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "iansan",
+    "entity_name": "얀사",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "원소폭발 힘의 3요소 발동 시, 얀사도 고유 특성 「근력 운동」의 「표준 동작」 효과를 획득한다, 지속 시간: 15초. 또한 「표준 동작」 효과 지속 시간 동안 얀사가 대기 상태일 경우, 파티 내 자신의 현재 필드 위 캐릭터의 공격력이 30% 증가한다. 해당 효과는 고유 특성 「근력 운동」을 해금해야 한다",
+        "after": "원소폭발 힘의 3요소 발동 시, 얀사도 돌파 특성 「근력 운동」의 「표준 동작」 효과를 획득한다, 지속 시간: 15초. 또한 「표준 동작」 효과 지속 시간 동안 얀사가 대기 상태일 경우, 현재 필드 위에 있는 파티 내 자신의 캐릭터의 공격력이 30% 증가한다. 해당 효과는 돌파 특성 「근력 운동」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "ifa",
+    "entity_name": "이파",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "이파가 밤혼 가호 상태 시, 파티 내 모든 캐릭터의 밤혼 총합이 60pt를 초과한 경우, 초과한 밤혼 1pt마다 이파가 추가로 **「구급 비결」**을 4pt 획득한다.\n또한, 이파가 보유할 수 있는 「구급 비결」의 최대치가 50pt 증가한다.\n고유 특성 **응급 구조사의 시야**를 해금해야 한다",
+        "after": "이파가 밤혼 가호 상태 시, 파티 내 모든 캐릭터의 밤혼 총합이 60pt를 초과한 경우, 초과한 밤혼 1pt마다 이파가 추가로 **「구급 비결」**을 4pt 획득한다.\n또한, 이파가 보유할 수 있는 「구급 비결」의 최대치가 50pt 증가한다.\n돌파 특성 **응급 구조사의 시야**를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "kinich",
+    "entity_name": "키니치",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c6/description",
+        "before": "비늘 관통포가 적에게 명중 후, 적 사이에서 1회 튕기고 키니치의 공격력의 700%에 해당하는 풀 원소 피해를 준다.\n이번 비늘 관통포가 고유 특성 「화염령의 계약」 또는 운명의 자리 「길앞잡이 턱」의 비늘 관통포 강화 효과를 받았다면, 비늘 관통포가 발동한 튕기는 공격도 상술한 강화 효과를 받는다",
+        "after": "비늘 관통포가 적에게 명중 후, 적 사이에서 1회 튕기고 키니치의 공격력의 700%에 해당하는 풀 원소 피해를 준다.\n이번 비늘 관통포가 돌파 특성 「화염령의 계약」 또는 운명의 자리 「길앞잡이 턱」의 비늘 관통포 강화 효과를 받았다면, 비늘 관통포가 발동한 튕기는 공격도 상술한 강화 효과를 받는다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "lanyan",
+    "entity_name": "남연",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "고유 특성 「사방 봉인검의 점괘」의 원소 전환 발동 후, 남연이 이번 원소전투 스킬 현조의 날갯짓의 달빛 제비 고리를 적에게 투척 시, 추가로 달빛 제비 고리를 1개 더 투척한다.\n고유 특성 「사방 봉인검의 점괘」를 해금해야 한다",
+        "after": "돌파 특성 「사방 봉인검의 점괘」의 원소 전환 발동 후, 남연이 이번 원소전투 스킬 현조의 날갯짓의 달빛 제비 고리를 적에게 투척 시, 추가로 달빛 제비 고리를 1개 더 투척한다.\n돌파 특성 「사방 봉인검의 점괘」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "mavuika",
+    "entity_name": "마비카",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "고유 특성 「키온고지」 효과 강화:\n원소폭발 불타는 하늘 발동 후의 피해 증가 효과가 시간에 따라 감소하지 않는다. 또한 추가로 피해 보너스를 10% 획득한다.\n고유 특성 「키온고지」를 해금해야 한다",
+        "after": "돌파 특성 「키온고지」 효과 강화:\n원소폭발 불타는 하늘 발동 후의 피해 증가 효과가 시간에 따라 감소하지 않는다. 또한 추가로 피해 보너스를 10% 획득한다.\n돌파 특성 「키온고지」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "mika",
+    "entity_name": "미카",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "별서리 소용돌이의 서리흐름 화살이 처음으로 적에게 명중하거나 얼음별 비콘이 적에게 명중 시, 고유 특성 「견제 사격」의 탐지 효과를 1스택 생성한다.\n고유 특성 「견제 사격」을 해금해야 한다",
+        "after": "별서리 소용돌이의 서리흐름 화살이 처음으로 적에게 명중하거나 얼음별 비콘이 적에게 명중 시, 돌파 특성 「견제 사격」의 탐지 효과를 1스택 생성한다.\n돌파 특성 「견제 사격」을 해금해야 한다"
+      },
+      {
+        "field": "c6/description",
+        "before": "별서리 소용돌이의 영혼의 바람 상태에서 탐지 효과 최대 중첩수가 1스택 증가한다. 고유 특성 「견제 사격」을 해금해야 한다.\n또한 영혼의 바람 상태인 필드 위 캐릭터 물리 피해의 치명타 피해가 60% 증가한다",
+        "after": "별서리 소용돌이의 영혼의 바람 상태에서 탐지 효과 최대 중첩수가 1스택 증가한다. 돌파 특성 「견제 사격」을 해금해야 한다.\n또한 영혼의 바람 상태인 현재 필드 위 캐릭터 물리 피해의 치명타 피해가 60% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "mualani",
+    "entity_name": "말라니",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "밤혼 가호 상태 진입 시, 말라니는 파도를 가르는 샤크의 파도 기세를 2스택 획득한다. 말라니가 빵빵볼 획득 시, 파도 기세를 1스택 획득한다.\n또한 말라니가 한 번의 밤혼 가호 기간 동안 빵빵볼을 2개 획득하면, 2초 동안 추가로 밤혼 12pt를 회복한다.\n고유 특성 「내열 타입 민물 빵빵이」를 해금해야 한다",
+        "after": "밤혼 가호 상태 진입 시, 말라니는 파도를 가르는 샤크의 파도 기세를 2스택 획득한다. 말라니가 빵빵볼 획득 시, 파도 기세를 1스택 획득한다.\n또한 말라니가 한 번의 밤혼 가호 기간 동안 빵빵볼을 2개 획득하면, 2초 동안 추가로 밤혼 12pt를 회복한다.\n돌파 특성 「내열 타입 민물 빵빵이」를 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "빵빵볼 획득 시, 말라니가 원소 에너지를 8pt 회복한다. 해당 효과는 고유 특성 「내열 타입 민물 빵빵이」를 해금해야 한다.\n또한 보글보글탄으로 주는 피해가 75% 증가한다",
+        "after": "빵빵볼 획득 시, 말라니가 원소 에너지를 8pt 회복한다. 해당 효과는 돌파 특성 「내열 타입 민물 빵빵이」를 해금해야 한다.\n또한 보글보글탄으로 주는 피해가 75% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "nefer",
+    "entity_name": "네페르",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "neuvillette",
+    "entity_name": "느비예트",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "느비예트 등장 시, 고유 특성 「생존한 고대바다의 계승자」의 「생존한 용의 영광」을 1스택 획득한다. 고유 특성 「생존한 고대바다의 계승자」를 해금해야 한다.\n또한, 차지 강공격·심증 형성과 강공격·공정한 판결 진행 시 느비예트의 경직 저항력이 증가한다",
+        "after": "느비예트 등장 시, 돌파 특성 「생존한 고대바다의 계승자」의 「생존한 용의 영광」을 1스택 획득한다. 돌파 특성 「생존한 고대바다의 계승자」를 해금해야 한다.\n또한, 차지 강공격·심증 형성과 강공격·공정한 판결 진행 시 느비예트의 경직 저항력이 증가한다"
+      },
+      {
+        "field": "c2/description",
+        "before": "고유 특성 「생존한 고대바다의 계승자」가 강화된다: 「생존한 용의 영광」 1스택마다 강공격·공정한 판결의 치명타 피해가 14% 증가한다. 해당 방식으로 최대 42%까지 증가한다.\n고유 특성 「생존한 고대 바다의 계승자」를 해금해야 한다",
+        "after": "돌파 특성 「생존한 고대바다의 계승자」가 강화된다: 「생존한 용의 영광」 1스택마다 강공격·공정한 판결의 치명타 피해가 14% 증가한다. 해당 방식으로 최대 42%까지 증가한다.\n돌파 특성 「생존한 고대 바다의 계승자」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "nilou",
+    "entity_name": "닐루",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "「황금잔의 선물」 효과를 부여받은 캐릭터가 적에게 물 원소 피해를 준 후, 해당 적의 물 원소 내성이 35% 감소한다. 지속 시간: 10초. 적에게 개화 또는 달 개화 반응 피해를 준 후, 해당 적의 풀 원소 내성이 35% 감소한다. 지속 시간: 10초.\n고유 특성 「꽃보라가 맴도는 정원」을 해금해야 한다",
+        "after": "「황금잔의 선물」 효과를 부여받은 캐릭터가 적에게 물 원소 피해를 준 후, 해당 적의 물 원소 내성이 35% 감소한다. 지속 시간: 10초. 적에게 개화 또는 달 개화 반응 피해를 준 후, 해당 적의 풀 원소 내성이 35% 감소한다. 지속 시간: 10초.\n돌파 특성 「꽃보라가 맴도는 정원」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "ororon",
+    "entity_name": "올로룬",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "원소전투 스킬 밤빛 줄의 영혼공이 추가로 2회 튕긴다.\n또한 영혼공이 적에게 명중 후, 해당 적에게 「검은 밤」 효과를 부여한다. 지속 시간: 12초. 「검은 밤」 효과의 영향을 받고 있는 적에게 고유 특성 「밤그늘의 공감각」이 발동한 「초감각」으로 주는 피해가 50% 증가한다. 해당 효과는 고유 특성 「밤그늘의 공감각」을 해금해야 한다",
+        "after": "원소전투 스킬 밤빛 줄의 영혼공이 추가로 2회 튕긴다.\n또한 영혼공이 적에게 명중 후, 해당 적에게 「검은 밤」 효과를 부여한다. 지속 시간: 12초. 「검은 밤」 효과의 영향을 받고 있는 적에게 돌파 특성 「밤그늘의 공감각」이 발동한 「초감각」으로 주는 피해가 50% 증가한다. 해당 효과는 돌파 특성 「밤그늘의 공감각」을 해금해야 한다"
+      },
+      {
+        "field": "c6/description",
+        "before": "고유 특성 「밤그늘의 공감각」의 「현상 초감각」 발동 후, 파티 내 자신의 현재 필드 위 캐릭터의 공격력이 10% 증가한다. 지속 시간 9초. 해당 효과 최대 중첩수: 3스택. 스택마다 지속 시간은 독립적으로 계산한다.\n또한 원소폭발 어둠의 메아리 발동 시, 「현상 초감각」과 같은 효과를 1회 발동해, 기존의 200%에 해당하는 피해를 준다.\n해당 효과는 고유 특성 「밤그늘의 공감각」을 해금해야 한다",
+        "after": "돌파 특성 「밤그늘의 공감각」의 「현상 초감각」 발동 후, 현재 필드 위에 있는 파티 내 자신의 캐릭터의 공격력이 10% 증가한다. 지속 시간 9초. 해당 효과 최대 중첩수: 3스택. 스택마다 지속 시간은 독립적으로 계산한다.\n또한 원소폭발 어둠의 메아리 발동 시, 「현상 초감각」과 같은 효과를 1회 발동해, 기존의 200%에 해당하는 피해를 준다.\n해당 효과는 돌파 특성 「밤그늘의 공감각」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "sethos",
+    "entity_name": "세토스",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "아래 임의 조건 중 하나를 충족 시, 세토스의 번개 원소 피해 보너스가 15% 증가한다. 지속 시간: 10초, 최대 중첩수: 2스택. 스택마다 지속 시간은 독립적으로 계산된다:\n·조준 사격으로 원소 에너지 소모. 해당 효과는 고유 특성 「솔개의 수수께끼」를 해금해야 한다.\n·고대 의식·울리는 천둥과 모래로 원소 반응을 발동해 원소 에너지 회복.\n·비밀 의식·그림자를 꿰뚫는 황혼 발동",
+        "after": "아래 임의 조건 중 하나를 충족 시, 세토스의 번개 원소 피해 보너스가 15% 증가한다. 지속 시간: 10초, 최대 중첩수: 2스택. 스택마다 지속 시간은 독립적으로 계산된다:\n·조준 사격으로 원소 에너지 소모. 해당 효과는 돌파 특성 「솔개의 수수께끼」를 해금해야 한다.\n·고대 의식·울리는 천둥과 모래로 원소 반응을 발동해 원소 에너지 회복.\n·비밀 의식·그림자를 꿰뚫는 황혼 발동"
+      },
+      {
+        "field": "c6/description",
+        "before": "그림자 관통 화살이 적에게 명중한 후, 고유 특성 「솔개의 수수께끼」로 소모한 원소 에너지가 반환된다. 해당 효과는 15초마다 최대 1회 발동된다. 고유 특성 「솔개의 수수께끼」를 해금해야 한다",
+        "after": "그림자 관통 화살이 적에게 명중한 후, 돌파 특성 「솔개의 수수께끼」로 소모한 원소 에너지가 반환된다. 해당 효과는 15초마다 최대 1회 발동된다. 돌파 특성 「솔개의 수수께끼」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "sigewinne",
+    "entity_name": "시그윈",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "통통 물요법의 치료 방울이 추가로 3번 튕긴다. 처음 3번 튕길 때 큰 방울이 작아지지 않는다.\n고유 특성 「적당한 휴식은 필수」 효과가 증가한다: 치료 방울이 튕길 시, 시그윈에게 진정 카운트를 1스택 부여한다. 또한 진정 카운트로 얻는 피해 증가량이 변경된다: 30000pt를 초과한 시그윈의 HP 최대치를 기반으로, 1000pt마다 피해가 100pt 증가한다. 해당 방식으로 이번 원소전투 스킬이 주는 피해가 최대 3500pt 증가한다. 해당 효과는 고유 특성 「적당한 휴식은 필수」를 해금해야 한다",
+        "after": "통통 물요법의 치료 방울이 추가로 3번 튕긴다. 처음 3번 튕길 때 큰 방울이 작아지지 않는다.\n돌파 특성 「적당한 휴식은 필수」 효과가 증가한다: 치료 방울이 튕길 시, 시그윈에게 진정 카운트를 1스택 부여한다. 또한 진정 카운트로 얻는 피해 증가량이 변경된다: 30000pt를 초과한 시그윈의 HP 최대치를 기반으로, 1000pt마다 피해가 100pt 증가한다. 해당 방식으로 이번 원소전투 스킬이 주는 피해가 최대 3500pt 증가한다. 해당 효과는 돌파 특성 「적당한 휴식은 필수」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "고유 특성 **이치 너머의 이치**의 효과가 강화된다: 허계 균열을 1개 흡수할 때마다, 수정 칼날 하나를 소환해 주변의 적을 공격하고 스커크 공격력의 500%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 강공격 피해로 간주한다.\n고유 특성 「이치 너머의 이치」를 해금해야 한다",
+        "after": "돌파 특성 **이치 너머의 이치**의 효과가 강화된다: 허계 균열을 1개 흡수할 때마다, 수정 칼날 하나를 소환해 주변의 적을 공격하고 스커크 공격력의 500%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 강공격 피해로 간주한다.\n돌파 특성 「이치 너머의 이치」를 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "고유 특성 **흐름의 적멸**의 효과가 강화된다: 죽음의 강 효과 스택마다 스커크의 공격력이 10%/20%/40% 증가한다.\n고유 특성 「흐름의 적멸」을 해금해야 한다",
+        "after": "돌파 특성 **흐름의 적멸**의 효과가 강화된다: 죽음의 강 효과 스택마다 스커크의 공격력이 10%/20%/40% 증가한다.\n돌파 특성 「흐름의 적멸」을 해금해야 한다"
+      },
+      {
+        "field": "c6/description",
+        "before": "스커크가 고유 특성 **이치 너머의 이치**의 효과를 통해 허계 균열을 1개 흡수할 때마다 극악기·참 효과를 1스택 획득한다. 스커크는 해당 효과를 소모해 협동 공격을 할 수 있고, **일곱빛 섬광** 모드에서 받는 피해가 감소한다. 해당 효과 지속 시간: 15초, 최대 중첩수: 3스택. 스택마다 지속 시간은 독립적으로 계산된다.\n고유 특성 「이치 너머의 이치」를 해금해야 한다.\n극악기·참\n·원소폭발 극악기·멸 발동 시, 모든 극악기·참 스택을 소모하여 협동 공격을 진행한다. 극악기·참 스택마다 스커크 공격력의 750%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 원소폭발 피해로 간주한다.\n·스커크가 일곱빛 섬광모드에서 일반 공격의 세 번째 또는 다섯 번째 공격으로 적 명중 시, 극악기·참을 1스택 소모해 협동 공격을 3회 진행한다. 협동 공격마다 스커크 공격력의 180%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 일반 공격 피해로 간주한다.\n·스커크가 일곱빛 섬광 모드에서 피해를 받을 시 극악기·참을 1스택 소모해 이번 받는 피해를 80% 감소시키고, 주변의 적을 3회 공격한다. 공격마다 스커크 공격력의 180%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 강공격 피해로 간주한다",
+        "after": "스커크가 돌파 특성 **이치 너머의 이치**의 효과를 통해 허계 균열을 1개 흡수할 때마다 극악기·참 효과를 1스택 획득한다. 스커크는 해당 효과를 소모해 협동 공격을 할 수 있고, **일곱빛 섬광** 모드에서 받는 피해가 감소한다. 해당 효과 지속 시간: 15초, 최대 중첩수: 3스택. 스택마다 지속 시간은 독립적으로 계산된다.\n돌파 특성 「이치 너머의 이치」를 해금해야 한다.\n극악기·참\n·원소폭발 극악기·멸 발동 시, 모든 극악기·참 스택을 소모하여 협동 공격을 진행한다. 극악기·참 스택마다 스커크 공격력의 750%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 원소폭발 피해로 간주한다.\n·스커크가 일곱빛 섬광모드에서 일반 공격의 세 번째 또는 다섯 번째 공격으로 적 명중 시, 극악기·참을 1스택 소모해 협동 공격을 3회 진행한다. 협동 공격마다 스커크 공격력의 180%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 일반 공격 피해로 간주한다.\n·스커크가 일곱빛 섬광 모드에서 피해를 받을 시 극악기·참을 1스택 소모해 이번 받는 피해를 80% 감소시키고, 주변의 적을 3회 공격한다. 공격마다 스커크 공격력의 180%에 해당하는 얼음 원소 피해를 준다. 해당 피해는 강공격 피해로 간주한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "travelerdendro",
+    "entity_name": "여행자 (풀 원소)",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "풀빛 연화등이 변화하는 등불로 전환된 후, 고유 특성 「무성한 야생초」의 밝게 빛나는 연꽃빛 효과를 5스택 획득한다.\n고유 특성 「무성한 야생초」를 해금해야 한다",
+        "after": "풀빛 연화등이 변화하는 등불로 전환된 후, 돌파 특성 「무성한 야생초」의 밝게 빛나는 연꽃빛 효과를 5스택 획득한다.\n돌파 특성 「무성한 야생초」를 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "travelerhydro",
+    "entity_name": "여행자 (물 원소)",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "원천의 방울 습득 후, 여행자는 원소 에너지를 2pt 회복한다.\n고유 특성 「티 없이 맑은 물」을 해금해야 한다",
+        "after": "원천의 방울 습득 후, 여행자는 원소 에너지를 2pt 회복한다.\n돌파 특성 「티 없이 맑은 물」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "varesa",
+    "entity_name": "바레사",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "고유 특성 「연속! 세 번의 도약」의 효과가 강화된다:\n특수 낙하 공격·대화산 폭발 진행 시에도 바레사가 「무지개 낙하」를 획득한다. 지속 시간: 5초.\n바레사의 열혈 상태 여부와 상관없이 「무지개 낙하」 지속 시간 동안 낙하 공격 시, 추락 충격이 추가로 공격력의 180%에 해당하는 피해를 주도록 변경된다. 해당 효과는 고유 특성 「연속! 세 번의 도약」을 해금해야 한다.\n또한 바레사가 밤혼 가호 상태의 「맹렬한 돌격」 모드 시, 소모하는 밤혼 또는 열소가 30% 감소한다",
+        "after": "돌파 특성 「연속! 세 번의 도약」의 효과가 강화된다:\n특수 낙하 공격·대화산 폭발 진행 시에도 바레사가 「무지개 낙하」를 획득한다. 지속 시간: 5초.\n바레사의 열혈 상태 여부와 상관없이 「무지개 낙하」 지속 시간 동안 낙하 공격 시, 추락 충격이 추가로 공격력의 180%에 해당하는 피해를 주도록 변경된다. 해당 효과는 돌파 특성 「연속! 세 번의 도약」을 해금해야 한다.\n또한 바레사가 밤혼 가호 상태의 「맹렬한 돌격」 모드 시, 소모하는 밤혼 또는 열소가 30% 감소한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "wanderer",
+    "entity_name": "방랑자",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "바람의 자태 상태일 때 방랑자의 부유·단절과 부유·칼바람 영역의 공격 속도가 10% 증가한다.\n고유 특성 「몽상의 바람」이 발사한 바람 화살이 추가로 공격력의 25%만큼 피해를 가한다. 해당 효과는 고유 특성 「몽상의 바람」을 해금해야 한다",
+        "after": "바람의 자태 상태일 때 방랑자의 부유·단절과 부유·칼바람 영역의 공격 속도가 10% 증가한다.\n돌파 특성 「몽상의 바람」이 발사한 바람 화살이 추가로 공격력의 25%만큼 피해를 준다. 해당 효과는 돌파 특성 「몽상의 바람」을 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "우화·바람이 전하는 노래 발동 시, 고유 특성 「꽃이 된 옥」의 원소 타입에 따른 강화 효과를 발동했을 경우, 발동 안 된 랜덤 강화 효과 1개를 추가로 획득한다. 강화 효과는 동시에 최대 3종류까지 획득할 수 있다.\n고유 특성 「꽃이 된 옥」을 해금해야 한다",
+        "after": "우화·바람이 전하는 노래 발동 시, 돌파 특성 「꽃이 된 옥」의 원소 타입에 따른 강화 효과를 발동했을 경우, 발동 안 된 랜덤 강화 효과 1개를 추가로 획득한다. 강화 효과는 동시에 최대 3종류까지 획득할 수 있다.\n돌파 특성 「꽃이 된 옥」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "wriothesley",
+    "entity_name": "라이오슬리",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "고유 특성 「정의는 밝혀지기 마련」의 「은혜로운 훈계」가 다음으로 변경된다:\n라이오슬리의 HP가 60% 미만이거나 얼음송곳니 돌진의 혹한의 징벌 상태 지속 시간 동안 격퇴권의 다섯 번째 공격이 명중하면 「은혜로운 훈계」를 획득한다. 2.5초마다 「은혜로운 훈계」 효과를 최대 1회 획득할 수 있다.\n또한, 징벌·도약권이 다음과 같이 강화된다:\n·주는 피해 증가가 200%로 한층 더 증가한다.\n·명중 시 혹한의 징벌 상태라면 해당 상태의 지속 시간이 4초 연장된다. 해당 방식으로 한 번의 혹한의 징벌 상태 지속 시간 동안, 지속 시간을 최대 1회 연장할 수 있다.\n고유 특성 「정의는 밝혀지기 마련」을 해금해야 한다",
+        "after": "돌파 특성 「정의는 밝혀지기 마련」의 「은혜로운 훈계」가 다음으로 변경된다:\n라이오슬리의 HP가 60% 미만이거나 얼음송곳니 돌진의 혹한의 징벌 상태 지속 시간 동안 격퇴권의 다섯 번째 공격이 명중하면 「은혜로운 훈계」를 획득한다. 2.5초마다 「은혜로운 훈계」 효과를 최대 1회 획득할 수 있다.\n또한, 징벌·도약권이 다음과 같이 강화된다:\n·주는 피해 증가가 200%로 한층 더 증가한다.\n·명중 시 혹한의 징벌 상태라면 해당 상태의 지속 시간이 4초 연장된다. 해당 방식으로 한 번의 혹한의 징벌 상태 지속 시간 동안, 지속 시간을 최대 1회 연장할 수 있다.\n돌파 특성 「정의는 밝혀지기 마련」을 해금해야 한다"
+      },
+      {
+        "field": "c2/description",
+        "before": "짓씹는 흑금늑대 발동 시 고유 특성 「죗값은 치르기 마련」의 「처벌 칙령」 효과 스택마다 주는 피해가 40% 증가한다.\n고유 특성 「죗값은 치르기 마련」을 해금해야 한다",
+        "after": "짓씹는 흑금늑대 발동 시 돌파 특성 「죗값은 치르기 마련」의 「처벌 칙령」 효과 스택마다 주는 피해가 40% 증가한다.\n돌파 특성 「죗값은 치르기 마련」을 해금해야 한다"
+      },
+      {
+        "field": "c4/description",
+        "before": "징벌·도약권으로 회복하는 라이오슬리의 HP 회복량이 HP 최대치의 50%로 증가한다. 고유 특성 「정의는 밝혀지기 마련」을 해금해야 한다.\n또한, 라이오슬리가 치유를 받을 때 이번 회복량이 초과된 경우, 라이오슬리의 필드 존재 여부에 따라 다음 효과가 적용된다: 현재 필드에 있을 경우, 라이오슬리의 공격 속도가 20% 증가한다. 지속 시간: 4초. 대기 상태일 경우, 파티 내 모든 자신의 캐릭터의 공격 속도가 10% 증가한다. 지속 시간: 6초. 이 두 가지 공격 속도 증가 효과는 중첩되지 않는다",
+        "after": "징벌·도약권으로 회복하는 라이오슬리의 HP 회복량이 HP 최대치의 50%로 증가한다. 돌파 특성 「정의는 밝혀지기 마련」을 해금해야 한다.\n또한, 라이오슬리가 치유를 받을 때 이번 회복량이 초과된 경우, 라이오슬리의 필드 존재 여부에 따라 다음 효과가 적용된다: 현재 필드에 있을 경우, 라이오슬리의 공격 속도가 20% 증가한다. 지속 시간: 4초. 대기 상태일 경우, 파티 내 모든 자신의 캐릭터의 공격 속도가 10% 증가한다. 지속 시간: 6초. 이 두 가지 공격 속도 증가 효과는 중첩되지 않는다"
+      },
+      {
+        "field": "c6/description",
+        "before": "징벌·도약권의 치명타 확률이 10%, 치명타 피해가 80% 증가한다. 또한 추가로 얼음송곳을 생성해 기존의 100%에 해당하는 얼음 원소 피해를 준다. 해당 방식으로 주는 피해는 강공격 피해로 간주한다.\n고유 특성 「정의는 밝혀지기 마련」을 해금해야 한다",
+        "after": "징벌·도약권의 치명타 확률이 10%, 치명타 피해가 80% 증가한다. 또한 추가로 얼음송곳을 생성해 기존의 100%에 해당하는 얼음 원소 피해를 준다. 해당 방식으로 주는 피해는 강공격 피해로 간주한다.\n돌파 특성 「정의는 밝혀지기 마련」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "constellations",
+    "entity_id": "xianyun",
+    "entity_name": "한운",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "아침 학구름의 하늘다리 발동 후, 한운의 공격력이 20% 증가한다. 지속 시간: 15초.\n또한 고유 특성 「동굴 속 선인?」의 효과가 증가한다: 밤을 수놓는 대나무별의 대나무별이 선력 추진 보유 시, 주변에 있는 현재 필드 위 캐릭터의 낙하 공격의 추락 충격으로 주는 피해가 증가한다. 증가량은 한운의 공격력의 400%에 해당한다. 해당 방식으로 주변에 있는 현재 필드 위 캐릭터의 낙하 공격으로 주는 추락 충격 피해가 최대 18000pt 증가한다.\n한 번의 낙하 공격으로 주는 추락 충격 피해 중, 1기의 적에게만 해당 피해 증가 효과가 적용되며 각 캐릭터는 0.4초마다 최대 1회 발동할 수 있다.\n해당 효과는 고유 특성 「동굴 속 선인?」을 해금해야 한다",
+        "after": "아침 학구름의 하늘다리 발동 후, 한운의 공격력이 20% 증가한다. 지속 시간: 15초.\n또한 돌파 특성 「동굴 속 선인?」의 효과가 증가한다: 밤을 수놓는 대나무별의 대나무별이 선력 추진 보유 시, 주변에 있는 현재 필드 위 캐릭터의 낙하 공격의 추락 충격으로 주는 피해가 증가한다. 증가량은 한운의 공격력의 400%에 해당한다. 해당 방식으로 주변에 있는 현재 필드 위 캐릭터의 낙하 공격으로 주는 추락 충격 피해가 최대 18000pt 증가한다.\n한 번의 낙하 공격으로 주는 추락 충격 피해 중, 1기의 적에게만 해당 피해 증가 효과가 적용되며 각 캐릭터는 0.4초마다 최대 1회 발동할 수 있다.\n해당 효과는 돌파 특성 「동굴 속 선인?」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "chevreuse",
+    "entity_name": "슈브르즈",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 모든 캐릭터의 원소 타입이 불 원소와 번개 원소이며 불 원소 캐릭터와 번개 원소 캐릭터가 각각 최소 1명씩 있을 경우:\n슈브르즈가 주변에 있는 파티 내 캐릭터에게 「협동 전술」을 부여한다: 캐릭터가 과부하 반응 발동 후, 해당 반응의 영향을 받은 적의 불 원소와 번개 원소 내성이 40% 감소한다. 지속 시간: 6초.\n파티 내 캐릭터의 원소 타입이 고유 특성의 조건을 만족하지 못할 시, 협동 전술 효과가 사라진다",
+        "after": "파티 내 모든 캐릭터의 원소 타입이 불 원소와 번개 원소이며 불 원소 캐릭터와 번개 원소 캐릭터가 각각 최소 1명씩 있을 경우:\n슈브르즈가 주변에 있는 파티 내 캐릭터에게 「협동 전술」을 부여한다: 캐릭터가 과부하 반응 발동 후, 해당 반응의 영향을 받은 적의 불 원소와 번개 원소 내성이 40% 감소한다. 지속 시간: 6초.\n파티 내 캐릭터의 원소 타입이 돌파 특성의 조건을 만족하지 못할 시, 협동 전술 효과가 사라진다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "cyno",
+    "entity_name": "사이노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive2/description",
+        "before": "사이노의 원소 마스터리에 기반하여 자신의 아래 공격의 피해량이 증가한다.\n·길을 여는 사자 상태에서의 일반 공격: 원소 마스터리의 150%\n·고유 특성 「낙하하는 깃털의 심판」의 기근의 번개: 원소 마스터리의 250%",
+        "after": "사이노의 원소 마스터리에 기반하여 자신의 아래 공격의 피해량이 증가한다.\n·길을 여는 사자 상태에서의 일반 공격: 원소 마스터리의 150%\n·돌파 특성 「낙하하는 깃털의 심판」의 기근의 번개: 원소 마스터리의 250%"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "dahlia",
+    "entity_name": "달리아",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat3/description",
+        "before": "경건한 마음과 노래로 신에게 기도해 주변의 적에게 물 원소 범위 피해를 주며, 파티 내 자신의 캐릭터에게 「페보니우스의 수호」 효과를 부여하고 수호 보호막을 소환한다.\n수호 보호막의 피해 흡수량은 달리아 HP 최대치의 영향을 받으며, 물 원소 피해에 대해 250%의 흡수 효과가 있다.\n페보니우스의 수호\n효과 지속 시간 동안 수호 보호막이 피해를 받아 파괴될 시, 달리아는 찬송 효과를 1스택 소모해 수호 보호막을 다시 소환할 수 있다.\n달리아는 아래 방식으로 찬송 효과를 획득할 수 있다:\n·페보니우스의 수호 효과의 영향을 받고 있는 파티 내 자신의 현재 필드 위 캐릭터가 일반 공격으로 적을 4회 명중할 때마다 달리아가 찬송 효과를 1스택 획득한다.\n·고유 특성 「부드러운 바람의 총아」 효과 발동 후(고유 특성 「부드러운 바람의 총아」 해금 필요).\n달리아는 매번 페보니우스의 수호 효과 지속 시간 동안, 찬송 효과를 최대 4스택 획득할 수 있다",
+        "after": "경건한 마음과 노래로 신에게 기도해 주변의 적에게 물 원소 범위 피해를 주며, 파티 내 자신의 캐릭터에게 「페보니우스의 수호」 효과를 부여하고 수호 보호막을 소환한다.\n수호 보호막의 피해 흡수량은 달리아 HP 최대치의 영향을 받으며, 물 원소 피해에 대해 250%의 흡수 효과가 있다.\n페보니우스의 수호\n효과 지속 시간 동안 수호 보호막이 피해를 받아 파괴될 시, 달리아는 찬송 효과를 1스택 소모해 수호 보호막을 다시 소환할 수 있다.\n달리아는 아래 방식으로 찬송 효과를 획득할 수 있다:\n·페보니우스의 수호 효과의 영향을 받고 있는 파티 내 자신의 현재 필드 위 캐릭터가 일반 공격으로 적을 4회 명중할 때마다 달리아가 찬송 효과를 1스택 획득한다.\n·돌파 특성 「부드러운 바람의 총아」 효과 발동 후(돌파 특성 「부드러운 바람의 총아」 해금 필요).\n달리아는 매번 페보니우스의 수호 효과 지속 시간 동안, 찬송 효과를 최대 4스택 획득할 수 있다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "lauma",
+    "entity_name": "라우마",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat2/description",
+        "before": "오래된 기도를 읊으며 **서리숲 성역**을 펼친다. 짧은 터치 또는 홀드에 따라 각기 다른 효과가 발생한다.\n짧은 터치\n수렵의 찬송가를 읊어 풀 원소 범위 피해를 준다.\n홀드\n최소 1개의 **풀 이슬**이 있을 때 발동할 수 있다. 라우마가 모든 풀 이슬을 소모해 안식의 찬송가를 읊으면 풀 원소 범위 피해 1회와 달 개화 반응 피해로 간주하는 풀 원소 범위 피해를 1회 준다. 라우마는 소모한 풀 이슬 수량에 따라 풀 이슬 1개당 **「달의 영창」**을 1스택 획득한다. 홀드로 원소전투 스킬을 발동할 때마다 해당 방식으로 풀이슬이 최대 3개 소모된다.\n또한, 라우마의 원소전투 스킬 또는 서리숲 성역 공격이 적에게 명중 시 10초 동안 해당 적의 풀 원소 내성과 물 원소 내성이 감소한다",
+        "after": "오래된 기도를 읊으며 **서리숲 성역**을 펼친다. 짧은 터치 또는 홀드에 따라 각기 다른 효과가 발생한다.\n짧은 터치\n수렵의 찬송가를 읊어 풀 원소 범위 피해를 준다.\n홀드\n최소 1개의 **풀 이슬**이 있을 때 발동할 수 있다. 라우마가 모든 풀 이슬을 소모해 안식의 찬송가를 읊으면 풀 원소 범위 피해 1회와 달 개화 반응 피해로 간주하는 풀 원소 범위 피해를 1회 준다. 라우마는 소모한 풀 이슬 수량에 따라 풀 이슬 1개당 **「달의 영창」**을 1스택 획득한다. 홀드로 원소전투 스킬을 발동할 때마다 해당 방식으로 풀 이슬이 최대 3개 소모된다.\n또한, 라우마의 원소전투 스킬 또는 서리숲 성역 공격이 적에게 명중 시 10초 동안 해당 적의 풀 원소 내성과 물 원소 내성이 감소한다"
+      },
+      {
+        "field": "combat3/description",
+        "before": "모든 생명의 염원이 대지를 비추는 달빛이 되길. 라우마가 극북의 성가를 읊으면 **「푸른 찬송가」**를 18스택 획득한다.\n또한, 라우마가「달의 영창」**** 을 보유한 상태에서 원소폭발을 발동하거나 원소폭발 발동 후 15초 내에 「달의 영창」을 획득하면 모든 「달의 영창」을 소모하고, 소모한 스택에 따라 스택 당 라우마가 「푸른 찬송가」를 6스택 획득한다. 원소폭발을 발동할 때마다 혹은 원소폭발 발동 후 15초 내에 「달의 영창」을 획득할 때마다 해당 효과는 1회만 발동한다.\n푸른 찬송가\n주변에 있는 파티 내 캐릭터가 개화, 만개, 발화, 달 개화 반응 피해를 줄 때 「푸른 찬송가」를 1스택 소모해 주는 피해를 증가시킨다. 증가량은 라우마의 원소 마스터리에 기반한다. 상술한 피해가 동시에 여러 명의 적에게 명중 시, 명중된 적의 수량에 따라 「푸른 찬송가」 스택 수가 소모된다.\n「푸른 찬송가」 스택의 지속 시간은 독립적으로 계산된다",
+        "after": "모든 생명의 염원이 대지를 비추는 달빛이 되길. 라우마가 극북의 성가를 읊으면 **「푸른 찬송가」**를 18스택 획득한다.\n또한, 라우마가 **「달의 영창」** 을 보유한 상태에서 원소폭발을 발동하거나 원소폭발 발동 후 15초 내에 「달의 영창」을 획득하면 모든 「달의 영창」을 소모하고, 소모한 스택에 따라 스택 당 라우마가 「푸른 찬송가」를 6스택 획득한다. 원소폭발을 발동할 때마다 혹은 원소폭발 발동 후 15초 내에 해당 효과는 1회만 발동한다.\n푸른 찬송가\n주변에 있는 파티 내 캐릭터가 개화, 만개, 발화, 달 개화 반응 피해를 줄 때 「푸른 찬송가」를 1스택 소모해 주는 피해를 증가시킨다. 증가량은 라우마의 원소 마스터리에 기반한다. 상술한 피해가 동시에 여러 명의 적에게 명중 시, 명중된 적의 수량에 따라 「푸른 찬송가」 스택 수가 소모된다.\n「푸른 찬송가」 스택의 지속 시간은 독립적으로 계산된다"
+      },
+      {
+        "field": "passive1/description",
+        "before": "라우마가 원소전투 스킬 **성가·밤의 안식** 발동 후 20초 동안, 파티의 달빛 징조에 따라 각기 다른 강화 효과가 생성된다. 레벨이 다른 달빛 징조가 제공하는 강화 효과는 중첩되지 않는다.\n달빛 징조·초승\n주변에 있는 파티 내 모든 캐릭터가 발동한 개화, 만개, 발화 반응으로 주는 피해에서 치명타가 발생할 수 있다. 치명타 확률은 15%, 치명타 피해는 100%로 고정된다. 해당 효과가 제공하는 치명타 확률은, 원소 반응에 치명타 발생을 부여하는 동일 종류의 효과와 중첩될 수 있다.\n달빛 징조·보름\n주변에 있는 파티 내 모든 캐릭터가 주는 달 개화 반응 피해와 치명타 확률이 10%, 치명타 피해가 20% 증가한다",
+        "after": "라우마가 원소전투 스킬 **성가·밤의 안식** 발동 후 20초 동안, 파티의 달빛 징조에 따라 각기 다른 강화 효과가 생성된다. 레벨이 다른 달빛 징조가 제공하는 강화 효과는 중첩되지 않는다.\n달빛 징조·초승\n주변에 있는 파티 내 모든 캐릭터가 발동한 개화, 만개, 발화 반응으로 주는 피해에서 치명타가 발생할 수 있다. 치명타 확률은 15%, 치명타 피해는 100%로 고정된다. 해당 효과가 제공하는 치명타 확률은, 원소 반응에 치명타 발생을 부여하는 동일 종류의 효과와 중첩될 수 있다.\n달빛 징조·보름\n주변에 있는 파티 내 모든 캐릭터가 주는 달 개화 반응 피해의 치명타 확률이 10%, 치명타 피해가 20% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "manekin",
+    "entity_name": "별인형·남성",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "manekina",
+    "entity_name": "별인형·여성",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "mika",
+    "entity_name": "미카",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive2/description",
+        "before": "동시에 푸른 깃털의 기도의 매의 깃털 상태와 별서리 소용돌이의 영혼의 바람 상태 중인 필드 위 캐릭터의 공격으로 치명타 발생 시, 고유 특성 「견제 사격」의 탐지 효과를 1스택 생성한다. 1번의 영혼의 바람 상태 지속 시간 내에, 해당 방식으로 탐지 효과를 최대 1스택 생성한다.\n또한 영혼의 바람 상태의 탐지 효과 최대 중첩수가 1스택 증가한다.\n고유 특성 「견제 사격」을 해금해야 한다",
+        "after": "동시에 푸른 깃털의 기도의 매의 깃털 상태와 별서리 소용돌이의 영혼의 바람 상태 중인 현재 필드 위 캐릭터의 공격으로 치명타 발생 시, 돌파 특성 「견제 사격」의 탐지 효과를 1스택 생성한다. 1번의 영혼의 바람 상태 지속 시간 내에, 해당 방식으로 탐지 효과를 최대 1스택 생성한다.\n또한 영혼의 바람 상태의 탐지 효과 최대 중첩수가 1스택 증가한다.\n돌파 특성 「견제 사격」을 해금해야 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "nefer",
+    "entity_name": "네페르",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "nilou",
+    "entity_name": "닐루",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 모든 캐릭터의 원소 타입이 풀 원소와 물 원소 캐릭터로 이루어져 있고, 최소 1명의 풀 원소 캐릭터와 1명의 물 원소 캐릭터가 있는 경우,\n닐루의 칠역의 춤의 세 번째 춤이 완료될 때, 근처에 있는 모든 캐릭터에게 30초 동안 지속되는 「황금잔의 선물」 효과를 부여한다.\n황금잔의 선물 효과를 부여받은 캐릭터가 풀 원소 공격을 받으면 근처에 있는 모든 캐릭터의 원소 마스터리가 100pt 증가한다. 지속 시간: 10초. 또한, 개화 또는 달 개화 반응 발동 시 풀 원핵 대신 「풍요의 핵」을 생성한다.\n풍요의 핵은 풀 원핵에 비해 생성 후 더 빠르게 폭발하고, 더 넓은 영향 범위를 가진다.\n풍요의 핵은 만개 및 발화 반응을 발동할 수 없고, 풀 원핵과 최대 수량을 공유한다. 풍요의 핵의 공격은 개화 반응의 풀 원핵의 공격으로 간주한다.\n파티 내 캐릭터의 원소 타입이 고유 특성 발동 조건을 만족하지 않을 경우 이미 존재하는 황금잔의 선물 효과가 사라진다",
+        "after": "파티 내 모든 캐릭터의 원소 타입이 풀 원소와 물 원소 캐릭터로 이루어져 있고, 최소 1명의 풀 원소 캐릭터와 1명의 물 원소 캐릭터가 있는 경우,\n닐루의 칠역의 춤의 세 번째 춤이 완료될 때, 근처에 있는 모든 캐릭터에게 30초 동안 지속되는 「황금잔의 선물」 효과를 부여한다.\n황금잔의 선물 효과를 부여받은 캐릭터가 풀 원소 공격을 받으면 근처에 있는 모든 캐릭터의 원소 마스터리가 100pt 증가한다. 지속 시간: 10초. 또한, 개화 또는 달 개화 반응 발동 시 풀 원핵 대신 「풍요의 핵」을 생성한다.\n풍요의 핵은 풀 원핵에 비해 생성 후 더 빠르게 폭발하고, 더 넓은 영향 범위를 가진다.\n풍요의 핵은 만개 및 발화 반응을 발동할 수 없고, 풀 원핵과 최대 수량을 공유한다. 풍요의 핵의 공격은 개화 반응의 풀 원핵의 공격으로 간주한다.\n파티 내 캐릭터의 원소 타입이 돌파 특성 발동 조건을 만족하지 않을 경우 이미 존재하는 황금잔의 선물 효과가 사라진다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "skirk",
+    "entity_name": "스커크",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat3/description",
+        "before": "스커크의 원소폭발은 원소 에너지가 아닌 **뱀의 계략**에서 나온다.\n스커크가 뱀의 계략을 최소 50pt 보유 시, 스커크는 모든 뱀의 계략을 소모해 원소폭발을 발동할 수 있다. 이때 전방의 공간을 찢고 빠른 속도로 연속 참격을 날려 얼음 원소 범위 피해를 준다. 또한 발동 시 스커크가 보유한 뱀의 계략이 50pt를 초과하면, 초과한 뱀의 계략 1pt당 이번 원소폭발로 주는 피해가 증가한다. 해당 방식으로 뱀의 계략을 최대 12pt까지 계산한다.\n스커크가 **일곱빛 섬광** 모드 시, 원소폭발 「극악기·멸」이 「극악기·진」으로 대체된다.\n극악기·진\n뱀의 계략을 소모하지 않고 발동할 수 있는 특수 원소폭발.\n발동 후, 스커크가 일곱빛 섬광 모드가 종료될 때까지 지속되는 고갈 효과를 획득한다. 고유 특성 **이치 너머의 이치**를 해금한 후, 스커크가 주변 일정 범위 내의 허계 균열을 흡수한다.\n고갈 효과 지속 시간 동안 0.1초마다 스커크의 일반 공격이 적에게 명중 후, 이번 일반 공격으로 주는 피해가 증가한다. 만약 극악기·진 발동 시, 허계 균열을 흡수했다면 흡수한 허계 균열 수량에 따라 이번 일반 공격으로 주는 피해가 더 증가한다.\n해당 효과는 10회 발동 후 사라진다",
+        "after": "스커크의 원소폭발은 원소 에너지가 아닌 **뱀의 계략**에서 나온다.\n스커크가 뱀의 계략을 최소 50pt 보유 시, 스커크는 모든 뱀의 계략을 소모해 원소폭발을 발동할 수 있다. 이때 전방의 공간을 찢고 빠른 속도로 연속 참격을 날려 얼음 원소 범위 피해를 준다. 또한 발동 시 스커크가 보유한 뱀의 계략이 50pt를 초과하면, 초과한 뱀의 계략 1pt당 이번 원소폭발로 주는 피해가 증가한다. 해당 방식으로 뱀의 계략을 최대 12pt까지 계산한다.\n스커크가 **일곱빛 섬광** 모드 시, 원소폭발 「극악기·멸」이 「극악기·진」으로 대체된다.\n극악기·진\n뱀의 계략을 소모하지 않고 발동할 수 있는 특수 원소폭발.\n발동 후, 스커크가 일곱빛 섬광 모드가 종료될 때까지 지속되는 고갈 효과를 획득한다. 돌파 특성 **이치 너머의 이치**를 해금한 후, 스커크가 주변 일정 범위 내의 허계 균열을 흡수한다.\n고갈 효과 지속 시간 동안 0.1초마다 스커크의 일반 공격이 적에게 명중 후, 이번 일반 공격으로 주는 피해가 증가한다. 만약 극악기·진 발동 시, 허계 균열을 흡수했다면 흡수한 허계 균열 수량에 따라 이번 일반 공격으로 주는 피해가 더 증가한다.\n해당 효과는 10회 발동 후 사라진다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "xilonen",
+    "entity_name": "실로닌",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat2/description",
+        "before": "열정으로 대지를 울려라! 실로닌이 고속 전투용 칼날바퀴 장비를 장착하고 전방으로 일정 거리를 돌진해, 실로닌의 방어력에 기반한 밤혼 성질의 바위 원소 피해를 준다.\n발동 후, 실로닌은 밤혼을 45pt 획득하고 밤혼 가호 상태에 진입한다. 해당 상태에서 실로닌은 「칼날바퀴 수렵」 모드로 전환된다.\n음원 샘플\n실로닌에게는 3개의 샘플 수집기가 있으며, 파티 내 다른 캐릭터의 원소 타입에 따라 다양한 「음형」을 나타낸다. 또한 활성화 시 주변에 있는 적의 상응하는 원소 내성을 감소시킨다.\n3개의 샘플 수집기가 초기에 기록한 「음원 샘플」은 모두 바위 원소이며, 파티 내 불 원소, 물 원소, 얼음 원소 또는 번개 원소 타입 캐릭터가 1명 있을 때마다, 바위 원소 샘플 1개가 상응하는 원소 타입으로 전환된다.\n밤혼 가호 상태 시, 실로닌이 휴대한 바위 원소 「음원 샘플」은 활성화 상태를 계속 유지한다. 고유 특성 「네토틸리즈틀리」 해금 후, 실로닌은 고유 특성 「네토틸리즈틀리」 발동 효과를 통해 자신의 밤혼을 회복할 수 있다. 밤혼이 최대치 달성 시, 실로닌은 밤혼을 모두 소모하여 실로닌 자신이 휴대한 「음원 샘플」 3개를 활성화한다. 지속 시간: 15초.\n「음원 샘플」 활성화 시, 주변에 있는 적의 상응하는 원소 내성이 감소한다. 같은 원소 타입의 「음원 샘플」의 효과는 중첩되지 않는다. 실로닌이 대기 상태 시에도 해당 효과가 생성된다.\n밤혼 가호·실로닌\n지속적으로 밤혼을 소모한다. 밤혼을 모두 소모하거나 재발동 시, 실로닌의 밤혼 가호가 종료된다. 밤혼 가호 상태 특성:\n·「칼날바퀴 수렵」 모드로 전환되고, 실로닌의 이동 속도와 등반 속도가 증가한다. 또한 등반 시 오셀롯 형태로 고속 도약할 수 있다.\n·실로닌의 밤혼 가호 상태의 제약: 밤혼 가호 상태에서 실로닌의 밤혼에는 9초의 제한 시간이 있다. 제한 시간 초과 후, 실로닌의 밤혼이 즉시 소진된다.\n밤혼 가호 상태에서 밤혼이 소진된 후, 실로닌은 고유 특성 「네토틸리즈틀리」로 밤혼을 생성할 수 없다.",
+        "after": "열정으로 대지를 울려라! 실로닌이 고속 전투용 칼날바퀴 장비를 장착하고 전방으로 일정 거리를 돌진해, 실로닌의 방어력에 기반한 밤혼 성질의 바위 원소 피해를 준다.\n발동 후, 실로닌은 밤혼을 45pt 획득하고 밤혼 가호 상태에 진입한다. 해당 상태에서 실로닌은 「칼날바퀴 수렵」 모드로 전환된다.\n음원 샘플\n실로닌에게는 3개의 샘플 수집기가 있으며, 파티 내 다른 캐릭터의 원소 타입에 따라 다양한 「음형」을 나타낸다. 또한 활성화 시 주변에 있는 적의 상응하는 원소 내성을 감소시킨다.\n3개의 샘플 수집기가 초기에 기록한 「음원 샘플」은 모두 바위 원소이며, 파티 내 불 원소, 물 원소, 얼음 원소 또는 번개 원소 타입 캐릭터가 1명 있을 때마다, 바위 원소 샘플 1개가 상응하는 원소 타입으로 전환된다.\n밤혼 가호 상태 시, 실로닌이 휴대한 바위 원소 「음원 샘플」은 활성화 상태를 계속 유지한다. 돌파 특성 「네토틸리즈틀리」 해금 후, 실로닌은 돌파 특성 「네토틸리즈틀리」 발동 효과를 통해 자신의 밤혼을 회복할 수 있다. 밤혼이 최대치 달성 시, 실로닌은 밤혼을 모두 소모하여 실로닌 자신이 휴대한 「음원 샘플」 3개를 활성화한다. 지속 시간: 15초.\n「음원 샘플」 활성화 시, 주변에 있는 적의 상응하는 원소 내성이 감소한다. 같은 원소 타입의 「음원 샘플」의 효과는 중첩되지 않는다. 실로닌이 대기 상태 시에도 해당 효과가 생성된다.\n밤혼 가호·실로닌\n지속적으로 밤혼을 소모한다. 밤혼을 모두 소모하거나 재발동 시, 실로닌의 밤혼 가호가 종료된다. 밤혼 가호 상태 특성:\n·「칼날바퀴 수렵」 모드로 전환되고, 실로닌의 이동 속도와 등반 속도가 증가한다. 또한 등반 시 오셀롯 형태로 고속 도약할 수 있다.\n·실로닌의 밤혼 가호 상태의 제약: 밤혼 가호 상태에서 실로닌의 밤혼에는 9초의 제한 시간이 있다. 제한 시간 초과 후, 실로닌의 밤혼이 즉시 소진된다.\n밤혼 가호 상태에서 밤혼이 소진된 후, 실로닌은 돌파 특성 「네토틸리즈틀리」로 밤혼을 생성할 수 없다."
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "talents",
+    "entity_id": "yoimiya",
+    "entity_name": "요이미야",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive2/description",
+        "before": "유금 운간초 발동 후 15초 동안 주변에 있는 파티 내 모든 캐릭터(요이미야 자신 제외)의 공격력이 10% 증가한다. 또한 요이미야가 유금 운간초를 발동하면 고유 특성 「소매불 백경도」의 중첩 스택에 따라 1스택마다 추가로 공격력이 1% 증가한다",
+        "after": "유금 운간초 발동 후 15초 동안 주변에 있는 파티 내 모든 캐릭터(요이미야 자신 제외)의 공격력이 10% 증가한다. 또한 요이미야가 유금 운간초를 발동하면 돌파 특성 「소매불 백경도」의 중첩 스택에 따라 1스택마다 추가로 공격력이 1% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "weapons",
+    "entity_id": "dawningfrost",
+    "entity_name": "서릿빛 새벽",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "weapons",
+    "entity_id": "etherlightspindlelute",
+    "entity_name": "금빛 류트",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r4/description",
+        "before": "원소전투 스킬 발동 후, 20초 동안 장착 캐릭터의 원소 마스터리가 175ptpt 증가한다",
+        "after": "원소전투 스킬 발동 후, 20초 동안 장착 캐릭터의 원소 마스터리가 175pt 증가한다"
+      },
+      {
+        "field": "r4/values[0]",
+        "before": "175pt",
+        "after": "175"
+      }
+    ]
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "weapons",
+    "entity_id": "reliquaryoftruth",
+    "entity_name": "진실의 함",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.1",
+    "from_version": "6.0",
+    "data_commit": "d935ce5",
+    "data_date": "2025-10-24",
+    "folder": "weapons",
+    "entity_id": "sacrificersstaff",
+    "entity_name": "신성한 제사의 지팡이",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "characters",
+    "entity_id": "durin",
+    "entity_name": "두린",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "characters",
+    "entity_id": "jahoda",
+    "entity_name": "야호다",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "constellations",
+    "entity_id": "durin",
+    "entity_name": "두린",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "constellations",
+    "entity_id": "jahoda",
+    "entity_name": "야호다",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "talents",
+    "entity_id": "durin",
+    "entity_name": "두린",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "talents",
+    "entity_id": "jahoda",
+    "entity_name": "야호다",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "talents",
+    "entity_id": "nefer",
+    "entity_name": "네페르",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive4/description",
+        "before": "노드크라이에서 20시간의 탐사 파견 임무 수행 시 획득하는 보상이 25% 증가한다.\n또한 「비밀의 집」 주인으로서, 네페르는 다양한 방식으로 각 세력의 정보를 얻을 수 있는 것 같다. 그리고 나샤 마을의 세력들은 이런 정보에 관심이 많다…",
+        "after": "노드크라이에서 20시간의 탐사 파견 임무 수행 시 획득하는 보상이 25% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "talents",
+    "entity_id": "venti",
+    "entity_name": "벤티",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat1/attributes/labels[10]",
+        "before": null,
+        "after": "폭풍 화살 피해|일반 공격 피해의 {param12:F1P}"
+      }
+    ]
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "weapons",
+    "entity_id": "athameartis",
+    "entity_name": "검은 침식",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "weapons",
+    "entity_id": "rainbowserpentsrainbow",
+    "entity_name": "무지개뱀의 현",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.2",
+    "from_version": "6.1",
+    "data_commit": "a608962",
+    "data_date": "2025-12-06",
+    "folder": "weapons",
+    "entity_id": "thedaybreakchronicles",
+    "entity_name": "여명이 트는 역사",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "characters",
+    "entity_id": "columbina",
+    "entity_name": "콜롬비나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "characters",
+    "entity_id": "illuga",
+    "entity_name": "일루가",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "characters",
+    "entity_id": "zibai",
+    "entity_name": "자백",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "aino",
+    "entity_name": "아이노",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c6/description",
+        "before": "원소폭발 **정밀 냉수기** 발동 후 15초 동안 주변에 있는 현재 필드 위 캐릭터가 발동한 감전, 개화, 달 감전, 달 개화로 주는 피해가 15% 증가한다.\n달빛 징조·보름: 상술한 반응으로 주는 피해가 추가로 20% 증가한다",
+        "after": "원소폭발 **정밀 냉수기** 발동 후 15초 동안 주변에 있는 현재 필드 위 캐릭터가 발동한 감전, 개화, 달 감전, 달 개화, 달 결정 반응으로 주는 피해가 15% 증가한다.\n달빛 징조·보름: 상술한 반응으로 주는 피해가 추가로 20% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "albedo",
+    "entity_name": "알베도",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c6/description",
+        "before": "태양꽃 범위 안에 있는 현재 필드 위 캐릭터가 결정 반응으로 생성된 보호막의 보호를 받고 있을 경우 주는 피해가 17% 증가한다",
+        "after": "태양꽃 범위 안에 있는 현재 필드 위 캐릭터가 결정 반응으로 생성된 보호막의 보호를 받고 있거나 태양꽃 범위 안에 달빛 조각이 존재할 경우, 주는 피해가 17% 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "columbina",
+    "entity_name": "콜롬비나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "gorou",
+    "entity_name": "고로",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "대장의 위용 지속 시간 동안, 주변 필드 위 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하면 고로가 펼친 대장의 위용 스킬의 지속 시간이 1초 증가한다.\n해당 효과는 0.1초마다 최대 1회 발동 가능하며, 해당 방식으로 지속 시간을 최대 3초 늘릴 수 있다",
+        "after": "대장의 위용 지속 시간 동안, 주변 필드 위 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응을 발동하면 고로가 펼친 대장의 위용 스킬의 지속 시간이 1초 증가한다.\n해당 효과는 0.1초마다 최대 1회 발동 가능하며, 해당 방식으로 지속 시간을 최대 3초 늘릴 수 있다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "illuga",
+    "entity_name": "일루가",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "kachina",
+    "entity_name": "카치나",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "카치나가 쌩쌩이에 탑승 또는 하차 시, 주변에 있는 결정 반응으로 생성된 결정 조각을 획득한다.\n또한 파티 내 캐릭터가 결정 조각 획득 시, 카치나가 원소 에너지를 3pt 회복한다. 해당 방식으로 5초마다 원소 에너지를 최대 1회 회복한다",
+        "after": "카치나가 쌩쌩이에 탑승 또는 하차 시, 주변에 있는 결정 반응으로 생성된 결정 조각을 획득한다.\n또한 파티 내 캐릭터가 결정 조각을 획득하거나 달 결정 반응을 발동하면 카치나가 원소 에너지를 3pt 회복한다. 해당 방식으로 5초마다 원소 에너지를 최대 1회 회복한다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "mona",
+    "entity_name": "모나",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c1/description",
+        "before": "파티 내 자신의 캐릭터의 공격이 성이 상태의 적에게 명중 후 8초 동안 물 원소 관련 반응의 효과가 증가한다:\n·감전 반응으로 주는 피해+15%, 달 감전 반응으로 주는 피해+15%, 증발 반응으로 주는 피해+15%, 물 원소 확산 반응으로 주는 피해+15%\n·빙결 반응 지속 시간+15%",
+        "after": "파티 내 자신의 캐릭터의 공격이 성이 상태의 적에게 명중 후 8초 동안 물 원소 관련 반응의 효과가 증가한다:\n·감전 반응으로 주는 피해+15%, 달 감전 반응으로 주는 피해+15%, 증발 반응으로 주는 피해+15%, 물 원소 확산 반응으로 주는 피해+15%, 달 결정 반응으로 주는 피해+15%\n·빙결 반응 지속 시간+15%"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "yunjin",
+    "entity_name": "운근",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c4/description",
+        "before": "운근이 결정 반응을 발동하면 방어력이 20% 증가한다. 지속 시간: 12초",
+        "after": "운근이 결정 반응, 달 결정 반응을 발동하면 방어력이 20% 증가한다. 지속 시간: 12초"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "constellations",
+    "entity_id": "zibai",
+    "entity_name": "자백",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "talents",
+    "entity_id": "columbina",
+    "entity_name": "콜롬비나",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "talents",
+    "entity_id": "illuga",
+    "entity_name": "일루가",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "talents",
+    "entity_id": "navia",
+    "entity_name": "나비아",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat2/description",
+        "before": "파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득할 시 나비아가 「결정 파편」을 1개 획득한다. 「결정 파편」은 최대 6개까지 획득할 수 있고, 발동할 때마다 보유한 「결정 파편」의 지속 시간이 갱신된다.\n발동 시 나비아는 모든 「결정 파편」을 소모해 우아하면서도 치명적인 우산총을 펼치고, 적을 꿰뚫는 「장미탄」을 여러 발 발사해 명중한 적에게 바위 원소 피해를 준다.\n0/1/2/3개 또는 그 이상의 「결정 파편」 소모 시, 각각 「장미탄」을 5/7/9/11개씩 발사한다. 동일한 적에게 명중한 「장미탄」이 많을수록 해당 적에게 주는 피해가 증가한다. 「장미탄」 11개가 모두 명중하면 기존의 200%에 해당하는 피해를 준다.\n또한, 「결정 파편」을 3개 넘게 소모할 경우, 3개를 초과한 「결정 파편」 1개당 이번 사격으로 주는 피해가 추가로 15% 증가한다.\n홀드\n조준 상태로 진입해 결정 반응으로 생성된 주변의 결정 조각을 지속적으로 획득하고 홀드 종료 시 짧은 터치와 동일한 「장미탄」을 발사한다.\n초기 사용 가능 횟수: 2회.\n아르케의 힘: 우시아\n일정 시간마다 나비아가 우산총으로 사격 시 솟구치는 칼날을 소환해 우시아 성질의 바위 원소 피해를 준다.",
+        "after": "파티 내 캐릭터가 결정 반응으로 생성한 결정 조각을 획득하거나, 달 결정 반응 발동 시 나비아가 「결정 파편」을 1개 획득한다. 「결정 파편」은 최대 6개까지 획득할 수 있고, 발동할 때마다 보유한 「결정 파편」의 지속 시간이 갱신된다. 달 결정 반응으로 나비아는 1초마다 「결정 파편」을 최대 1개 축적할 수 있다.\n발동 시 나비아는 모든 「결정 파편」을 소모해 우아하면서도 치명적인 우산총을 펼치고, 적을 꿰뚫는 「장미탄」을 여러 발 발사해 명중한 적에게 바위 원소 피해를 준다.\n0/1/2/3개 또는 그 이상의 「결정 파편」 소모 시, 각각 「장미탄」을 5/7/9/11개씩 발사한다. 동일한 적에게 명중한 「장미탄」이 많을수록 해당 적에게 주는 피해가 증가한다. 「장미탄」 11개가 모두 명중하면 기존의 200%에 해당하는 피해를 준다.\n또한, 「결정 파편」을 3개 넘게 소모할 경우, 3개를 초과한 「결정 파편」 1개당 이번 사격으로 주는 피해가 추가로 15% 증가한다.\n홀드\n조준 상태로 진입해 결정 반응으로 생성된 주변의 결정 조각을 지속적으로 획득하고 홀드 종료 시 짧은 터치와 동일한 「장미탄」을 발사한다.\n초기 사용 가능 횟수: 2회.\n아르케의 힘: 우시아\n일정 시간마다 나비아가 우산총으로 사격 시 솟구치는 칼날을 소환해 우시아 성질의 바위 원소 피해를 준다."
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "talents",
+    "entity_id": "neuvillette",
+    "entity_name": "느비예트",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive1/description",
+        "before": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 달 감전, 개화, 달 개화, 물 원소 확산 또는 물 원소 결정 반응 발동 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다. 지속 시간: 30초, 최대 중첩수: 3스택.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다",
+        "after": "파티 내 캐릭터가 적에게 증발, 빙결, 감전, 달 감전, 개화, 달 개화, 물 원소 확산, 물 원소 결정 반응 또는 달 결정 반응 발동 시 느비예트에게 「생존한 용의 영광」 효과가 생성된다. 지속 시간: 30초, 최대 중첩수: 3스택. 이 효과를 얻은 느비예트의 강공격·공정한 판결은 기존의 110%/125%/160%에 해당하는 피해를 준다.\n생성된 「생존한 용의 영광」 효과는 각 원소 반응마다 독립적으로 존재한다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "talents",
+    "entity_id": "zibai",
+    "entity_name": "자백",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "weapons",
+    "entity_id": "flameforgedinsight",
+    "entity_name": "불로 벼린 지혜",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 12pt 회복하고 15초 동안 원소 마스터리가 60pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화, 달 개화, 결정 또는 달 결정 반응 발동 시, 원소 에너지를 12pt 회복하고, 15초 동안 원소 마스터리가 60pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동된다"
+      },
+      {
+        "field": "r2/description",
+        "before": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 15pt 회복하고 15초 동안 원소 마스터리가 75pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화, 달 개화, 결정 또는 달 결정 반응 발동 시, 원소 에너지를 15pt 회복하고 15초 동안 원소 마스터리가 75pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동된다"
+      },
+      {
+        "field": "r3/description",
+        "before": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 18pt 회복하고 15초 동안 원소 마스터리가 90pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화, 달 개화, 결정 또는 달 결정 반응 발동 시, 원소 에너지를 18pt 회복하고 15초 동안 원소 마스터리가 90pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동된다"
+      },
+      {
+        "field": "r4/description",
+        "before": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 21pt 회복하고 15초 동안 원소 마스터리가 105pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화, 달 개화, 결정 또는 달 결정 반응 발동 시, 원소 에너지를 21pt 회복하고 15초 동안 원소 마스터리가 105pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동된다"
+      },
+      {
+        "field": "r5/description",
+        "before": "감전, 달 감전, 개화 또는 달 개화 반응 발동 시, 원소 에너지를 24pt 회복하고 15초 동안 원소 마스터리가 120pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동한다",
+        "after": "감전, 달 감전, 개화, 달 개화, 결정 또는 달 결정 반응 발동 시, 원소 에너지를 24pt 회복하고 15초 동안 원소 마스터리가 120pt 증가한다. 해당 효과는 15초마다 최대 1회 발동된다. 장착 캐릭터가 대기 상태일 때도 해당 효과가 발동된다"
+      }
+    ]
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "weapons",
+    "entity_id": "lightbearingmoonshard",
+    "entity_name": "신월의 달빛",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "weapons",
+    "entity_id": "nocturnescurtaincall",
+    "entity_name": "막간의 야상곡",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.3",
+    "from_version": "6.2",
+    "data_commit": "ec73772",
+    "data_date": "2026-01-14",
+    "folder": "weapons",
+    "entity_id": "verdict",
+    "entity_name": "판정",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "공격력이 20% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각 획득 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 18% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다",
+        "after": "공격력이 20% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 18% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다. 달 결정 반응으로 1초마다 「약인」을 최대 1개 획득할 수 있다"
+      },
+      {
+        "field": "r2/description",
+        "before": "공격력이 25% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각 획득 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 22.5% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다",
+        "after": "공격력이 25% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 22.5% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다. 달 결정 반응으로 1초마다 「약인」을 최대 1개 획득할 수 있다"
+      },
+      {
+        "field": "r3/description",
+        "before": "공격력이 30% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각 획득 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 27% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다",
+        "after": "공격력이 30% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 27% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다. 달 결정 반응으로 1초마다 「약인」을 최대 1개 획득할 수 있다"
+      },
+      {
+        "field": "r4/description",
+        "before": "공격력이 35% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각 획득 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 31.5% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다",
+        "after": "공격력이 35% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 31.5% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다. 달 결정 반응으로 1초마다 「약인」을 최대 1개 획득할 수 있다"
+      },
+      {
+        "field": "r5/description",
+        "before": "공격력이 40% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득할 시 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 36% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다",
+        "after": "공격력이 40% 증가한다. 파티 내 캐릭터가 결정 반응으로 생성된 결정 조각을 획득하거나 달 결정 반응 발동 시, 장착 캐릭터가 「약인」을 1개 획득하여 원소전투 스킬로 주는 피해가 36% 증가한다. 약인은 15초 동안 지속되며 동시에 최대 2개까지 보유할 수 있다. 모든 약인은 장착 캐릭터가 원소전투 스킬로 피해를 준 후 0.2초가 지나면 사라진다. 달 결정 반응으로 1초마다 「약인」을 최대 1개 획득할 수 있다"
+      }
+    ]
+  },
+  {
+    "version": "6.4",
+    "from_version": "6.3",
+    "data_commit": "284f9d1",
+    "data_date": "2026-02-25",
+    "folder": "characters",
+    "entity_id": "varka",
+    "entity_name": "바르카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.4",
+    "from_version": "6.3",
+    "data_commit": "284f9d1",
+    "data_date": "2026-02-25",
+    "folder": "constellations",
+    "entity_id": "varka",
+    "entity_name": "바르카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.4",
+    "from_version": "6.3",
+    "data_commit": "284f9d1",
+    "data_date": "2026-02-25",
+    "folder": "talents",
+    "entity_id": "columbina",
+    "entity_name": "콜롬비나",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive2/description",
+        "before": "**달 영역** 안에 있는 캐릭터가 달빛 반응 발동 시, 다음과 같은 효과를 각각 획득한다:\n·달 감전 반응: 번개구름이 조건에 부합하는 목표에게 뇌격 진행 시, 33%의 확률로 추가 뇌격이 1회 발동된다.\n·달 개화 반응: 달 개화 반응 발동 시, 파티에 특수한 **달빛 풀 이슬**을 제공한다. 18초마다 해당 방식으로 파티가 달빛 풀 이슬을 최대 3개 획득할 수 있다.\n·달 결정 반응: 달빛 조각 화음 발동 시, 달빛 조각마다 33% 확률로 1회의 추가 공격을 한다",
+        "after": "**달 영역** 안에 있는 캐릭터가 달빛 반응 발동 시, 다음과 같은 효과를 각각 획득한다:\n·달 감전 반응: 번개구름이 조건에 부합하는 목표에게 뇌격 진행 시, 33%의 확률로 추가 뇌격이 1회 발동된다.\n·달 개화 반응: 달 개화 반응 발동 시, 파티에 특수한 **달빛 풀 이슬**을 1개 제공한다. 18초마다 해당 방식으로 파티가 달빛 풀 이슬을 최대 3개 획득할 수 있다.\n·달 결정 반응: 달빛 조각 화음 발동 시, 달빛 조각마다 33% 확률로 1회의 추가 공격을 한다"
+      }
+    ]
+  },
+  {
+    "version": "6.4",
+    "from_version": "6.3",
+    "data_commit": "284f9d1",
+    "data_date": "2026-02-25",
+    "folder": "talents",
+    "entity_id": "varka",
+    "entity_name": "바르카",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.4",
+    "from_version": "6.3",
+    "data_commit": "284f9d1",
+    "data_date": "2026-02-25",
+    "folder": "weapons",
+    "entity_id": "gestofthemightywolf",
+    "entity_name": "늑대의 무용담",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.5",
+    "from_version": "6.4",
+    "data_commit": "9bcd379",
+    "data_date": "2026-04-11",
+    "folder": "characters",
+    "entity_id": "linnea",
+    "entity_name": "린네아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.5",
+    "from_version": "6.4",
+    "data_commit": "9bcd379",
+    "data_date": "2026-04-11",
+    "folder": "constellations",
+    "entity_id": "linnea",
+    "entity_name": "린네아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.5",
+    "from_version": "6.4",
+    "data_commit": "9bcd379",
+    "data_date": "2026-04-11",
+    "folder": "talents",
+    "entity_id": "linnea",
+    "entity_name": "린네아",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.5",
+    "from_version": "6.4",
+    "data_commit": "9bcd379",
+    "data_date": "2026-04-11",
+    "folder": "weapons",
+    "entity_id": "goldenfrostboundoath",
+    "entity_name": "서리 맺힌 금빛 가지",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "characters",
+    "entity_id": "lohen",
+    "entity_name": "로엔",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "characters",
+    "entity_id": "nicole",
+    "entity_name": "니콜",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "characters",
+    "entity_id": "prune",
+    "entity_name": "프루네",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "constellations",
+    "entity_id": "lohen",
+    "entity_name": "로엔",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "constellations",
+    "entity_id": "nicole",
+    "entity_name": "니콜",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "constellations",
+    "entity_id": "prune",
+    "entity_name": "프루네",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "talents",
+    "entity_id": "lohen",
+    "entity_name": "로엔",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "talents",
+    "entity_id": "nicole",
+    "entity_name": "니콜",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "talents",
+    "entity_id": "prune",
+    "entity_name": "프루네",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "talents",
+    "entity_id": "yaemiko",
+    "entity_name": "야에 미코",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "passive3/description",
+        "before": "캐릭터 특성 소재 합성 시 25%의 확률로 같은 지역의 다른 랜덤 특성 소재 하나를 추가로 획득한다. 등급과 합성에 소모하는 소재는 같다",
+        "after": "캐릭터 특성 소재 합성 시 25%의 확률로 같은 지역의 다른 랜덤 특성 소재 하나를 추가로 획득한다. 등급은 합성에 소모한 소재의 등급과 같다"
+      }
+    ]
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "weapons",
+    "entity_id": "angelosheptades",
+    "entity_name": "일곱빛 계시",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "6.6",
+    "from_version": "6.5",
+    "data_commit": "acd86e0",
+    "data_date": "2026-05-20",
+    "folder": "weapons",
+    "entity_id": "disasterandremorse",
+    "entity_name": "재앙",
+    "change_type": "added",
+    "changes": []
+  },
+  {
     "version": "6.7",
     "from_version": "6.6",
     "data_commit": "12ff731",
@@ -200,23 +3763,6 @@
     "data_commit": "12ff731",
     "data_date": "2026-06-30",
     "folder": "talents",
-    "entity_id": "lohen",
-    "entity_name": "로엔",
-    "change_type": "modified",
-    "changes": [
-      {
-        "field": "combat3/attributes/labels[1]",
-        "before": "투쟁심 1pt당 기본 피해 증가|{param2:F2P}",
-        "after": "투쟁심 1pt당 기존 피해 증가|{param2:F2P}"
-      }
-    ]
-  },
-  {
-    "version": "6.7",
-    "from_version": "6.6",
-    "data_commit": "12ff731",
-    "data_date": "2026-06-30",
-    "folder": "talents",
     "entity_id": "qiqi",
     "entity_name": "치치",
     "change_type": "modified",
@@ -302,11 +3848,6 @@
         "field": "combat2/description",
         "before": "요괴를 부려 해결할 수 있는 귀찮은 일에 야에가 굳이 직접 나설 필요는 없다.\n빠르게 움직여 「살생앵(殺生櫻)」을 남긴다.\n살생앵\n특성:\n·간헐적으로 주변의 적 1기에게 낙뢰를 내려 번개 원소 피해를 준다.\n·근처에 다른 살생앵이 있을 경우, 살생앵의 등급이 상승해 해당 공격으로 주는 피해가 증가한다.\n사용 가능 횟수: 3회.\n살생앵은 동시에 최대 3그루까지 존재할 수 있으며, 살생앵이 생성될 때 초기 등급은 1단계이다. 초기 등급은 3단계까지 상승 가능하다. 살생앵의 생성 위치와 이미 존재하는 살생앵의 거리가 가까울 경우, 원래 존재하던 살생앵이 소멸한다.",
         "after": "요괴를 부려 해결할 수 있는 귀찮은 일에 야에가 굳이 직접 나설 필요는 없다.\n빠르게 움직여 「살생앵」을 남긴다.\n살생앵\n특성:\n·간헐적으로 주변의 적 1기에게 낙뢰를 내려 번개 원소 피해를 준다.\n·근처에 다른 살생앵이 있을 경우, 살생앵의 등급이 상승해 해당 공격으로 주는 피해가 증가한다.\n사용 가능 횟수: 3회.\n살생앵은 동시에 최대 3그루까지 존재할 수 있으며, 살생앵이 생성될 때 초기 등급은 1단계이다. 초기 등급은 3단계까지 상승 가능하다. 살생앵의 생성 위치와 이미 존재하는 살생앵의 거리가 가까울 경우, 원래 존재하던 살생앵이 소멸한다."
-      },
-      {
-        "field": "combat2/flavorText",
-        "before": "「가지에 봉인된 여우령은 전부 사람을 해치는 요괴로 전락한 야칸이지. 야칸은 우리 천호(天狐)보다 미천하니 녀석들을 부리는 게 불편하진 않아. 그나저나 우리 여우들이 등급을 매긴다고 너희 인간들도 그렇게 하면 안 돼. 여우랑 사람 중에 어느 쪽의 급이 더 높냐니, 후후…」",
-        "after": "「가지에 봉인된 여우령은 전부 사람을 해치는 요괴로 전락한 야칸이지. 야칸은 우리 천호보다 미천하니 녀석들을 부리는 게 불편하진 않아. 그나저나 우리 여우들이 등급을 매긴다고 너희 인간들도 그렇게 하면 안 돼. 여우랑 사람 중에 어느 쪽의 급이 더 높냐니, 후후…」"
       },
       {
         "field": "combat3/description",
@@ -527,50 +4068,6 @@
     "entity_name": "알료샤",
     "change_type": "added",
     "changes": []
-  },
-  {
-    "version": "7.0",
-    "from_version": "6.7",
-    "data_commit": "7c5cf17",
-    "data_date": "2026-09-21",
-    "folder": "characters",
-    "entity_id": "manekin",
-    "entity_name": "별인형·남성",
-    "change_type": "modified",
-    "changes": [
-      {
-        "field": "birthday",
-        "before": "11월 30일",
-        "after": ""
-      },
-      {
-        "field": "birthdaymmdd",
-        "before": "0/0",
-        "after": ""
-      }
-    ]
-  },
-  {
-    "version": "7.0",
-    "from_version": "6.7",
-    "data_commit": "7c5cf17",
-    "data_date": "2026-09-21",
-    "folder": "characters",
-    "entity_id": "manekina",
-    "entity_name": "별인형·여성",
-    "change_type": "modified",
-    "changes": [
-      {
-        "field": "birthday",
-        "before": "11월 30일",
-        "after": ""
-      },
-      {
-        "field": "birthdaymmdd",
-        "before": "0/0",
-        "after": ""
-      }
-    ]
   },
   {
     "version": "7.0",
@@ -815,21 +4312,6 @@
     "change_type": "modified",
     "changes": [
       {
-        "field": "combat1/attributes/labels[6]",
-        "before": "연산 과열 시 피해|{param7:F1P}",
-        "after": "강공격 냉각 광선 별 확산 피해|{param11:F1P}"
-      },
-      {
-        "field": "combat1/attributes/labels[7]",
-        "before": "낙하 기간 피해|{param8:F1P}",
-        "after": "연산 과열 시 피해|{param7:F1P}"
-      },
-      {
-        "field": "combat1/attributes/labels[8]",
-        "before": "저공/고공 추락 충격 피해|{param9:P}/{param10:P}",
-        "after": "낙하 기간 피해|{param8:F1P}"
-      },
-      {
         "field": "combat1/attributes/labels[9]",
         "before": null,
         "after": "저공/고공 추락 충격 피해|{param9:P}/{param10:P}"
@@ -840,11 +4322,6 @@
         "after": "일반 공격\n계산식으로 무기를 조종하는 실을 만들고, 검으로 최대 3번 공격한다.\n강공격\n만능 범용 자동 장치 「파지오」를 소환하여 **연산** 모드로 전환시킨다: 전방의 적에게 난사 공격을 하고, 주기적으로 냉각 광선을 발사하여 얼음 원소 범위 피해를 준다.\n**섬광·별빛**: 냉각 광선이 상응하는 별빛 반응 피해로 간주되는 얼음 원소 범위 피해를 주는 것으로 전환된다.\n연산 모드에서 파지오의 **연산량**이 지속적으로 증가하고, 냉각 광선 발사 시 연산량이 추가로 증가한다.\n연산량이 최대치인 100pt에 도달한 경우, 파지오는 연산 과열 모드로 전환되어, 더 긴 간격으로 적을 사격하여 얼음 원소 피해를 준다. 또한 연산 모드로 전환할 수 없다.\n연산 모드가 아닌 경우, 파지오의 연산량은 서서히 감소한다. 산드로네가 대기 상태일 때는 파지오의 수리에 집중하여 연산량 감소 속도가 기존의 300%까지 빨라진다.\n연산량이 50pt 미만으로 감소할 경우, 파지오가 연산 과열 모드를 해제한다.\n낙하 공격\n공중에서 땅을 내려찍어 경로상의 적을 공격하고 착지 시 범위 피해를 입힌다"
       },
       {
-        "field": "combat2/attributes/labels[2]",
-        "before": "재사용 대기시간|{param3:F1}초",
-        "after": "프리즘탄 별 확산 피해|{param4:F1P}"
-      },
-      {
         "field": "combat2/attributes/labels[3]",
         "before": null,
         "after": "재사용 대기시간|{param3:F1}초"
@@ -853,16 +4330,6 @@
         "field": "combat2/description",
         "before": "숙녀의 완벽한 예법을 갖추고, 티타임용 특수작전 장치에 탑승하여 6초 동안 전방으로 부유한다. 이 기간 동안 산드로네는 부유 방향을 조작할 수 있으며, 대시를 짧게 누르면 스태미나를 10pt 소모해 우아한 고속 부유 모드에 진입하고, 1초당 스태미나를 15pt씩 소모해 더 빠른 속도로 부유한다.\n부유를 시작할 때 주변에 적이 있으면, 산드로네는 프리즘 공명포를 1개 소환해 포악한 적에게 2발의 프리즘탄을 발사해 얼음 원소 피해를 준다.\n섬광·별 초전도: 두 번째 프리즘탄은 별 초전도 반응 피해로 간주되는 얼음 원소 피해를 준다.\n티타임용 특수작전 장치에 탑승하면 산드로네는 우아한 자태로 조용히 파지오를 수리해, **연산량**을 빠르게 감소시킨다",
         "after": "숙녀의 완벽한 예법을 갖추고, 티타임용 특수작전 장치에 탑승하여 6초 동안 전방으로 부유한다. 이 기간 동안 산드로네는 부유 방향을 조작할 수 있으며, 대시를 짧게 누르면 스태미나를 10pt 소모해 우아한 고속 부유 모드에 진입하고, 1초당 스태미나를 15pt씩 소모해 더 빠른 속도로 부유한다.\n부유를 시작할 때 주변에 적이 있으면, 산드로네는 프리즘 공명포를 1개 소환해 포악한 적에게 2발의 프리즘탄을 발사해 얼음 원소 피해를 준다.\n**섬광·별빛**: 두 번째 프리즘탄은 상응하는 별빛 반응 피해로 간주되는 얼음 원소 피해를 준다.\n티타임용 특수작전 장치에 탑승하면 산드로네는 우아한 자태로 조용히 파지오를 수리해, **연산량**을 빠르게 감소시킨다"
-      },
-      {
-        "field": "combat3/attributes/labels[3]",
-        "before": "재사용 대기시간|{param4:F1}초",
-        "after": "부성 온도 광선 별 확산 피해|{param6:F1P}"
-      },
-      {
-        "field": "combat3/attributes/labels[4]",
-        "before": "원소 에너지|{param5:I}",
-        "after": "재사용 대기시간|{param4:F1}초"
       },
       {
         "field": "combat3/attributes/labels[5]",
@@ -1045,11 +4512,6 @@
         "after": "무기를 휘둘러 전방을 향해 찌르고 차가운 얼음 안개를 방출해 전방에 얼음 원소 피해를 주며 자신의 주변에 혹한의 별을 생성한다.\n혹한의 별\n·파티 내 자신의 캐릭터를 따라다니며, 간헐적으로 얼음 결정을 발사하여 주변의 적을 공격해 얼음 원소 피해를 준다.\n섬광·별 초전도: 혹한의 별은 더 이상 간헐적으로 얼음 결정을 발사하지 않고, 여행자의 일반 공격, 강공격 또는 낙하 공격이 적에게 명중 시, 얼음 결정을 1개 발사해 적에게 협동 공격을 진행한다. 0.2초마다 최대 1회 발동된다.\n·얼음 결정이 적에게 명중 시, 여행자에게 **차가운 별빛**이 1스택 누적된다. 해당 효과 최대 중첩수: 8스택.\n·비전투 상태일 때, 차가운 별빛은 30초 후 사라진다."
       },
       {
-        "field": "combat2/flavorText",
-        "before": null,
-        "after": "페이몬과 함께 나뭇가지에 서리가 맺히는 모습을 관찰한 적이 있다"
-      },
-      {
         "field": "combat2/name",
         "before": null,
         "after": "얼음 안개검"
@@ -1108,11 +4570,6 @@
         "field": "combat3/description",
         "before": null,
         "after": "얼음 원소의 힘을 사용해 투창을 생성한 뒤 적에게 던져, 얼음 원소 피해를 여러 번 준다.\n발동 시 여행자는 모든 **차가운 별빛** 스택을 소모해 이번 원소폭발로 주는 피해를 증가시킨다. 8스택의 차가운 별빛을 소모했을 경우 투창으로 주는 피해 횟수도 증가한다.\n**섬광·별빛**: 이번 원소폭발이 상응하는 별빛 반응 피해로 간주되는 얼음 원소 피해를 주는 것으로 전환된다."
-      },
-      {
-        "field": "combat3/flavorText",
-        "before": null,
-        "after": "페이몬과 함께 고드름의 날카로움을 느껴본 적이 있다"
       },
       {
         "field": "combat3/name",
@@ -1178,16 +4635,6 @@
     "entity_name": "유메미즈키 미즈키",
     "change_type": "modified",
     "changes": [
-      {
-        "field": "combat2/attributes/labels[3]",
-        "before": "원소 마스터리 1pt당 확산 피해 증가 백분율|{param2:F2P}",
-        "after": "원소 마스터리 100pt당 확산 피해 증가 백분율|{param2:F2P}"
-      },
-      {
-        "field": "combat2/attributes/labels[4]",
-        "before": "재사용 대기시간|{param3:F1}초",
-        "after": "원소 마스터리 100pt당 별 확산 피해 증가 백분율|{param6:F2P}"
-      },
       {
         "field": "combat2/attributes/labels[5]",
         "before": null,
@@ -1388,23 +4835,6 @@
     "entity_name": "옥빛 장궁",
     "change_type": "added",
     "changes": []
-  },
-  {
-    "version": "7.0",
-    "from_version": "6.7",
-    "data_commit": "7c5cf17",
-    "data_date": "2026-09-21",
-    "folder": "weapons",
-    "entity_id": "prizedisshinblade-01",
-    "entity_name": "「잇신의 기술」 명검",
-    "change_type": "modified",
-    "changes": [
-      {
-        "field": "baseStatText",
-        "before": "0%",
-        "after": "NaN"
-      }
-    ]
   },
   {
     "version": "7.0",
@@ -1657,5 +5087,150 @@
     "entity_name": "얼어붙은 심장",
     "change_type": "added",
     "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "characters",
+    "entity_id": "mitya",
+    "entity_name": "미탸",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "characters",
+    "entity_id": "valeriy",
+    "entity_name": "발레리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "constellations",
+    "entity_id": "mitya",
+    "entity_name": "미탸",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "constellations",
+    "entity_id": "valeriy",
+    "entity_name": "발레리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "constellations",
+    "entity_id": "vodyanitsa",
+    "entity_name": "보댜니차",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "c2/description",
+        "before": "원소전투 스킬 서곡·아침의 물결의 봄빛 호른이 적 공격 시, 보댜니차가 「흑백의 화음」 효과를 획득해 파티 내 현재 필드 위 캐릭터가 주는 물 원소 피해와 얼음 원소 피해의 치명타 피해가 50% 증가한다, 지속 시간: 5초.\n현재 필드 위에 표류 돌풍이 존재하거나 표류 돌풍 폭발 후 5초 이내인 경우, 파티 내 현재 필드 위 캐릭터가 주는 별 확산 반응 피해의 치명타 피해가 60% 증가하는 것으로 변경된다, 지속 시간: 5초.\n또한, 원소전투 스킬 서곡·아침의 물결이 강화된다: **아득한 노래** 효과의 지속 시간이 9초 연장된다",
+        "after": "원소전투 스킬 서곡·아침의 물결의 봄빛 호른이 적 공격 시, 보댜니차가 「흑백의 화음」 효과를 획득해 현재 필드 위에 있는 파티 내 자신의 캐릭터가 주는 물 원소 피해와 얼음 원소 피해의 치명타 피해가 50% 증가한다, 지속 시간: 5초.\n현재 필드 위에 표류 돌풍이 존재하거나 표류 돌풍 폭발 후 5초 이내인 경우, 현재 필드 위에 있는 파티 내 자신의 캐릭터가 주는 별 확산 반응 피해의 치명타 피해가 60% 증가하는 것으로 변경된다, 지속 시간: 5초.\n또한, 원소전투 스킬 서곡·아침의 물결이 강화된다: **아득한 노래** 효과의 지속 시간이 9초 연장된다"
+      }
+    ]
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "talents",
+    "entity_id": "mitya",
+    "entity_name": "미탸",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "talents",
+    "entity_id": "valeriy",
+    "entity_name": "발레리",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "talents",
+    "entity_id": "vodyanitsa",
+    "entity_name": "보댜니차",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "combat2/description",
+        "before": "물 님프의 원래 모습을 드러내 물 원소 범위 피해를 주고, 아득한 노래 효과를 획득한다: 지속 시간 동안, 보댜니차가 오래된 봄빛 호른을 소환하고, 간헐적으로 빠르게 적 1명의 근처로 이동해 공격하여 물 원소 피해를 준다.\n상술한 두 종류의 공격에 명중한 적의 물 원소 내성과 얼음 원소 내성이 감소한다.\n또한, 아득한 노래 효과 지속 시간 동안 현재 필드 위에 있는 파티 내 자신의 캐릭터의 경직 저항력을 증가시키고, 간헐적으로 HP를 회복시킨다. 회복량은 보댜니차의 HP 최대치에 기반한다",
+        "after": "물 님프의 원래 모습을 드러내 물 원소 범위 피해를 주고, 아득한 노래 효과를 획득한다: 지속 시간 동안, 보댜니차가 오래된 봄빛 호른을 소환한다. 소환된 호른은 간헐적으로 빠르게 적 1명의 근처로 이동해 공격하여 물 원소 피해를 준다.\n상술한 두 종류의 공격에 명중한 적의 물 원소 내성과 얼음 원소 내성이 감소한다.\n또한, 아득한 노래 효과 지속 시간 동안 현재 필드 위에 있는 파티 내 자신의 캐릭터의 경직 저항력을 증가시키고, 간헐적으로 HP를 회복시킨다. 회복량은 보댜니차의 HP 최대치에 기반한다"
+      }
+    ]
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "weapons",
+    "entity_id": "predator",
+    "entity_name": "포식자",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "다음 플랫폼에서만 적용:\n\"PlayStation™Network\"\n적에게 얼음 원소 피해를 준 후, 일반 공격과 강공격으로 주는 피해가 10% 증가한다. 지속 시간: 6초, 최대 중첩수: 2회. 또한, 에일로이가 포식자를 장착할 때 공격력이 66pt 증가한다",
+        "after": "다음 플랫폼에서만 적용:\n\"PlayStation®\"\n적에게 얼음 원소 피해를 준 후, 일반 공격과 강공격으로 주는 피해가 10% 증가한다. 지속 시간: 6초, 최대 중첩수: 2회. 또한, 에일로이가 포식자를 장착할 때 공격력이 66pt 증가한다"
+      }
+    ]
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "weapons",
+    "entity_id": "starsealededict",
+    "entity_name": "별빛 계시",
+    "change_type": "added",
+    "changes": []
+  },
+  {
+    "version": "7.2",
+    "from_version": "7.1",
+    "data_commit": "8e5badd",
+    "data_date": "2026-11-04",
+    "folder": "weapons",
+    "entity_id": "swordofdescension",
+    "entity_name": "강림의 검",
+    "change_type": "modified",
+    "changes": [
+      {
+        "field": "r1/description",
+        "before": "다음 플랫폼에서만 적용:\n\"PlayStation™Network\"\n일반 공격과 강공격 명중 후 50%의 확률로 작은 범위 내에 공격력 200%의 피해를 준다. 해당 효과는 10초마다 1회 발동한다. 또한 여행자가 강림의 검을 장착하면 공격력이 66pt 증가한다",
+        "after": "다음 플랫폼에서만 적용:\n\"PlayStation®\"\n일반 공격과 강공격 명중 후 50%의 확률로 작은 범위 내에 공격력 200%의 피해를 준다. 해당 효과는 10초마다 1회 발동한다. 또한 여행자가 강림의 검을 장착하면 공격력이 66pt 증가한다"
+      }
+    ]
   }
 ]

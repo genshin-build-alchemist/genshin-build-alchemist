@@ -90,7 +90,7 @@ class PipelineTest(unittest.TestCase):
         # 9장: 데이터에 없는 질문에 지어내지 않는가 -> 근거가 없으면 모델을 부르지 않는다
         spy = SpyAnswerer()
         bot = Chatbot(KB, spy)
-        for q in ("아르셀리아의 원소는 뭐야?", "원신에서 제일 센 캐릭터는?", "5.0 패치 내용 알려줘",
+        for q in ("아르셀리아의 원소는 뭐야?", "원신에서 제일 센 캐릭터는?", "4.0 패치 내용 알려줘",
                   "알베도 추천 성유물은?"):     # 기본 데이터에는 빌드 카드가 없음
             r = bot.ask(q)
             self.assertFalse(r["found"], q)
@@ -98,7 +98,7 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(spy.calls, 0)
 
     def test_patch_version_outside_data(self):
-        r = self.bot.ask("5.0 패치 내용 알려줘")
+        r = self.bot.ask("4.0 패치 내용 알려줘")
         self.assertFalse(r["found"])
         self.assertIn("수집된 버전", r["message"])
 

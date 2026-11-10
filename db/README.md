@@ -6,9 +6,9 @@ PRD 8장 결정: 벡터 DB와 대화 기록을 PostgreSQL 하나에서 관리합
 
 | 표 | 내용 | 누가 채우나 |
 |---|---|---|
-| `documents` | 검색용 문서 1,430개 (`data/docs/documents_ko.jsonl`). 조건 검색용 칸(name, element, weapon, rarity, region, version)은 metadata에서 자동 계산 | A (시드 SQL) |
+| `documents` | 검색용 문서 1,696개 (`data/docs/documents_ko.jsonl`). 조건 검색용 칸(name, element, weapon, rarity, region, version)은 metadata에서 자동 계산 | A (시드 SQL) |
 | `chunks` | 청크 + 임베딩 `vector(768)` (granite-embedding-311m-multilingual-r2). `strategy`(청킹 방식)와 `embedding_model`로 여러 버전을 같이 보관 | B (코랩에서 임베딩) |
-| `characters` | 캐릭터 124명 (SQL 조건 검색) | A (시드 SQL) |
+| `characters` | 캐릭터 126명 (SQL 조건 검색) | A (시드 SQL) |
 | `chat_logs` | 대화 기록 (질문, 경로, 답, 근거, 응답 시간, 검색 문서) | D (API) |
 
 `documents`와 `chunks`를 나눈 이유: 청킹 방식(문서 단위 vs 길이 기준)이나 임베딩 모델을 바꿔 비교할 때 문서를 다시 넣지 않고 청크만 추가하면 됩니다 (도전 과제·심화 대비).

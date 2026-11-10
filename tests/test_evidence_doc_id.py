@@ -41,7 +41,7 @@ class RetrieveDocIdTest(unittest.TestCase):
         self.router = Router(KB)
 
     def test_evaluation_questions(self):
-        data = json.loads((ROOT / "data" / "eval" / "questions_info_v1.json").read_text(encoding="utf-8"))
+        data = json.loads((ROOT / "data" / "eval" / "questions_info_v2.json").read_text(encoding="utf-8"))
         for q in data["questions"]:
             for e in retrieve(self.router.route(q["question"]), KB):
                 self.assertIn(e["doc_id"], DOC_IDS, q["id"])

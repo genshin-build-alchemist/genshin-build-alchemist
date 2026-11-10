@@ -62,7 +62,7 @@ class Chatbot:
             if rr.route == "build":
                 return f"{rr.character}의 빌드 가이드가 아직 없어요."
             if rr.route == "patch":
-                versions = ", ".join(self.kb.versions)
+                versions = self.kb.version_range
                 if rr.character and not rr.version:
                     return f"{rr.character}의 변경 기록을 데이터에서 찾지 못했어요. (수집된 버전: {versions})"
                 version = rr.version or self.kb.latest_version
@@ -86,7 +86,7 @@ class Chatbot:
             if rr.character:
                 if rr.version:
                     return f"{rr.version} 버전 {rr.character}의 바뀐 부분: {joined}"
-                return f"{rr.character}의 바뀐 부분 (수집된 버전 {', '.join(self.kb.versions)}): {joined}"
+                return f"{rr.character}의 바뀐 부분 (수집된 버전 {self.kb.version_range}): {joined}"
             version = rr.version or self.kb.latest_version
             label = PATCH_FOLDER_KO.get(rr.patch_folder)
             if rr.patch_added:

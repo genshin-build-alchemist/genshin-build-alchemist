@@ -29,7 +29,7 @@ class ApiTest(unittest.TestCase):
     def test_health(self):
         r = self.client.get("/health")
         self.assertEqual(r.status_code, 200)
-        self.assertEqual(r.json()["characters"], 124)
+        self.assertEqual(r.json()["characters"], 126)
         self.assertEqual(r.json()["model"], "mock-rule")          # 기본은 모의 답변기 (GBA_ANSWERER 없음)
 
     def test_ask(self):
@@ -83,8 +83,8 @@ class SeedTest(unittest.TestCase):
             out = Path(d) / "seed.sql"
             n = make_seed(out=out)
             text = out.read_text(encoding="utf-8")
-        self.assertEqual(n, 124)
-        self.assertEqual(text.count("INSERT INTO characters"), 124)
+        self.assertEqual(n, 126)
+        self.assertEqual(text.count("INSERT INTO characters"), 126)
         self.assertIn("ON CONFLICT (key)", text)
 
     def test_sql_quoting(self):

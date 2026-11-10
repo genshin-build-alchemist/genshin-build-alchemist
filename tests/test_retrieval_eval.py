@@ -22,7 +22,7 @@ class EvidenceFileTest(unittest.TestCase):
     def test_file_is_up_to_date(self):
         saved = json.loads(EVIDENCE.read_text(encoding="utf-8"))
         self.assertEqual(saved, build_evidence(DATA, KB),
-                         "evidence_info_v1.json이 코드와 다름: python3 -m core.retrieval_eval --write")
+                         "evidence_info_v2.json이 코드와 다름: python3 -m core.retrieval_eval --write")
         self.assertEqual(saved["questions_sha256"], DATA["sha256"])
 
     def test_every_question_has_valid_evidence(self):
@@ -60,7 +60,7 @@ class DevSetTest(unittest.TestCase):
         self.assertTrue(all(q["split"] == "train" for q in dev))
         self.assertEqual(sum(q["type"] == "filter" for q in dev), 16)
         self.assertEqual(sum(q["type"] == "unknown" for q in dev), 4)
-        self.assertEqual(len(eval_questions(DATA)), 115)
+        self.assertEqual(len(eval_questions(DATA)), 121)
 
 
 class ScoreTest(unittest.TestCase):

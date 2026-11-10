@@ -100,12 +100,19 @@ def diff_versions(repo, old, new):
     return records
 
 
-def collect_changes(repo, last=3, ref=DEFAULT_REF):
-    """최근 last개 버전 구간(예: 6.6->6.7, 6.7->7.0 ...)의 변경 기록을 모두 모은다."""
+def collect_changes(repo, last=3, ref=DEFAULT_REF, since=None):
+    """버전 구간(예: 6.6->6.7, 6.7->7.0 ...)의 변경 기록을 모두 모은다.
+    since를 주면 그 버전부터 최신까지(예: since='5.0' -> 4.8->5.0 ... 7.1->7.2), 없으면 최근 last개 구간."""
     snapshots = version_snapshots(repo, ref)
     if len(snapshots) < 2:
         raise ValueError("버전 커밋이 2개 미만이라 비교할 수 없습니다.")
-    window = snapshots[-(last + 1):]
+    if since:
+        start = next((i for i, s in enumerate(snapshots) if _version_key(s["version"]) >= _version_key(since)), None)
+        if start is None:
+            raise ValueError(f"{since} 이후 버전 커밋이 없습니다.")
+        window = snapshots[max(start - 1, 0):]      # 시작 버전의 바로 앞 버전과 비교해야 그 버전의 변경이 나온다
+    else:
+        window = snapshots[-(last + 1):]
     records = []
     for old, new in zip(window, window[1:]):
         records.extend(diff_versions(repo, old, new))

@@ -12,7 +12,7 @@ from core.kb import load_kb
 from core.retrieval import retrieve
 from core.router import Router
 
-EVALSET = Path(__file__).resolve().parent.parent / "data" / "eval" / "questions_info_v1.json"
+EVALSET = Path(__file__).resolve().parent.parent / "data" / "eval" / "questions_info_v2.json"
 KB = load_kb()
 ROUTER = Router(KB)
 DATA = json.loads(EVALSET.read_text(encoding="utf-8"))
