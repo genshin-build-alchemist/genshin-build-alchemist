@@ -1,42 +1,143 @@
+
 """아이템(무기·성유물) 질문 벡터 검색 (기본 과업 2-1). 담당: 한동우 (B)
 
-retrieval.py의 item 경로가 질문에 무기·성유물 이름이 없을 때 이 파일의 item_vector_search()를 부른다.
-이 파일만 채우면 되고, 라우터·검색·답변 쪽은 이미 연결돼 있다 (core/router.py, core/retrieval.py).
-
-지켜야 할 약속 (테스트: tests/test_item_route.py)
-  item_vector_search(question, k=5) -> doc_id 목록, 가까운 순
-      예: ["weapon:dragonsbane", "weapon:kitaincrossspear", ...]
-      - doc_id는 data/docs/documents_ko.jsonl 과 같은 형식 ("weapon:{key}", "artifact:{key}")
-      - 무기·성유물 문서만 돌려준다 (캐릭터·패치 문서는 빼기)
-      - 임베딩 파일·모델·패키지가 없거나 오류가 나면 예외를 던지지 말고 [] 를 돌려준다
-        (그러면 챗봇은 '찾지 못했어요'라고 답한다. GPU·DB 없는 환경에서도 API가 떠야 한다)
-  set_item_index(encode, vectors, doc_ids)
-      - 검색에 쓸 재료를 넣는 함수. 테스트는 가짜 encode와 작은 벡터로 이 함수를 부른다
-      - encode(문장 목록) -> numpy 배열 (문장 수, 차원), 길이 1로 정규화된 벡터
-
-TODO(B) 위에서부터 순서대로, 끝나면 [ ] -> [x]
- 1. [ ] 무기·성유물 임베딩 파일 만들기: embed_and_save 셀에서 KINDS = ["weapon", "artifact"]
-        -> 드라이브 data/embeddings/doc__granite-r2__weapon-artifact.{npy,jsonl,meta.json}
- 2. [ ] load_item_index(folder): 위 .npy(벡터)와 .jsonl(doc_id)을 읽고, 같은 모델로 encode 함수를 만들어 set_item_index() 호출
-        모델: ibm-granite/granite-embedding-311m-multilingual-r2, normalize_embeddings=True, 앞말 없이 (문서와 똑같이)
-        torch, sentence_transformers 같은 무거운 import는 함수 안에서 한다
- 3. [ ] item_vector_search(): 질문 벡터와 문서 벡터의 내적(정규화돼 있으니 코사인) 상위 k개 doc_id
-        어제 만드신 vector_search()의 numpy 검색을 그대로 쓰면 된다
- 4. [ ] tests/test_item_route.py 의 ItemVectorSearchTest 위 @unittest.skip 줄을 지우고 통과시키기
- 5. [ ] 비교표: 아이템 질문 20~30개 + 정답 doc_id로 이름 매칭 vs 벡터 Hit@1, Hit@5 (core/retrieval_eval.py의 evaluate_retrieval)
-        질문 형식 {"id", "type": "item", "split": "eval", "question", "gold_docs": ["weapon:..."]}
- 막히면: A에게 질문
+retrieval.py의 item 경로에서 호출하는 벡터 검색 기능.
 """
 
-_INDEX = {"encode": None, "vectors": None, "doc_ids": []}
+import json
+from pathlib import Path
+
+import numpy as np
+
+
+_INDEX = {
+    "encode": None,
+    "vectors": None,
+    "doc_ids": []
+}
 
 
 def set_item_index(encode, vectors, doc_ids):
-    """검색 재료 넣기. encode(문장 목록) -> (n, d) 배열, vectors: (문서 수, d) 배열, doc_ids: 문서 id 목록 (vectors와 같은 순서)."""
-    _INDEX.update(encode=encode, vectors=vectors, doc_ids=list(doc_ids))
+    """검색에 사용할 인코더, 벡터, 문서 ID를 저장한다."""
+
+    vectors = np.asarray(vectors, dtype=np.float32)
+
+    if vectors.ndim != 2:
+        raise ValueError("vectors는 2차원 배열이어야 합니다.")
+
+    if len(vectors) != len(doc_ids):
+        raise ValueError("vectors와 doc_ids의 개수가 다릅니다.")
+
+    _INDEX.update(
+        encode=encode,
+        vectors=vectors,
+        doc_ids=list(doc_ids)
+    )
+
+
+def load_item_index(folder):
+    """임베딩 파일을 불러오고 검색 인덱스를 설정한다."""
+
+    _INDEX.update(encode=None, vectors=None, doc_ids=[])
+
+    try:
+        folder = Path(folder)
+
+        vector_path = folder / "doc__granite-r2__weapon-artifact.npy"
+        doc_path = folder / "doc__granite-r2__weapon-artifact.jsonl"
+
+        if not vector_path.exists() or not doc_path.exists():
+            return False
+
+        vectors = np.load(vector_path, allow_pickle=False)
+
+        doc_ids = []
+
+        with open(doc_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    item = json.loads(line)
+                    doc_ids.append(item["doc_id"])
+
+        if vectors.ndim != 2 or len(vectors) != len(doc_ids):
+            return False
+
+        if not np.isfinite(vectors).all():
+            return False
+
+        valid_indices = [
+            i for i, doc_id in enumerate(doc_ids)
+            if doc_id.startswith(("weapon:", "artifact:"))
+        ]
+
+        vectors = vectors[valid_indices]
+        doc_ids = [doc_ids[i] for i in valid_indices]
+
+        if not doc_ids:
+            return False
+
+        from sentence_transformers import SentenceTransformer
+
+        model = SentenceTransformer(
+            "ibm-granite/granite-embedding-311m-multilingual-r2"
+        )
+
+        def encode(texts):
+            return model.encode(
+                texts,
+                normalize_embeddings=True,
+                convert_to_numpy=True
+            )
+
+        set_item_index(encode, vectors, doc_ids)
+
+        return True
+
+    except Exception:
+        _INDEX.update(encode=None, vectors=None, doc_ids=[])
+        return False
 
 
 def item_vector_search(question, k=5):
-    """질문 -> 비슷한 무기·성유물 문서 doc_id 상위 k개. 재료가 없거나 실패하면 []."""
-    # TODO(B) 3번: 여기를 채운다. 지금은 비어 있어서 이름 없는 아이템 질문은 '찾지 못했어요'로 답한다
-    return []
+    """질문과 가까운 무기·성유물 문서의 doc_id를 반환한다."""
+
+    try:
+        encode = _INDEX["encode"]
+        vectors = _INDEX["vectors"]
+        doc_ids = _INDEX["doc_ids"]
+
+        if encode is None or vectors is None or not doc_ids:
+            return []
+
+        if not isinstance(question, str) or not question.strip():
+            return []
+
+        k = int(k)
+
+        if k <= 0:
+            return []
+
+        query_vector = np.asarray(
+            encode([question]),
+            dtype=np.float32
+        )
+
+        if query_vector.ndim == 1:
+            query_vector = query_vector.reshape(1, -1)
+
+        if query_vector.shape[0] != 1:
+            return []
+
+        if query_vector.shape[1] != vectors.shape[1]:
+            return []
+
+        if not np.isfinite(query_vector).all():
+            return []
+
+        scores = np.dot(vectors, query_vector[0])
+        top_indices = np.argsort(scores)[::-1][:k]
+
+        return [doc_ids[i] for i in top_indices]
+
+    except Exception:
+        return []
