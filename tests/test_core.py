@@ -158,6 +158,13 @@ class AnswerTest(unittest.TestCase):
         self.assertEqual(parse_list_answer("불, 물"), ["불", "물"])
         self.assertEqual(parse_list_answer("[]"), [])
 
+    def test_recheck_shown_with_llm_answerer(self):
+        # 실제 모델 답변기(빌드 = 카드 목록)에서도 '재확인 필요'가 메시지에 남는가
+        bot = Chatbot(KB_WITH_CARDS, LLMAnswerer(lambda prompt, **kw: "[]", explain_build=False))
+        r = bot.ask("사유 성유물 추천해줘")
+        self.assertTrue(r["needs_recheck"])
+        self.assertIn("재확인 필요", r["message"])
+
     def test_llm_answerer_uses_evidence_in_prompt(self):
         seen = {}
 
