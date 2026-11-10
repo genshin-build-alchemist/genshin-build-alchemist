@@ -3,8 +3,8 @@
 import json
 import unittest
 
-from core.answer import (LLMAnswerer, TEXT_MAX_NEW_TOKENS, build_text_prompt, load_text_examples,
-                         parse_list_answer, parse_text_answer)
+from core.answer import (LLMAnswerer, TEXT_MAX_NEW_TOKENS, build_text_prompt, clean_build_explain,
+                         load_text_examples, parse_list_answer, parse_text_answer)
 from core.kb import load_kb
 from core.pipeline import Chatbot
 
@@ -224,6 +224,47 @@ class EmptyPatchAnswerTest(unittest.TestCase):
     def test_model_answer_is_kept_when_not_empty(self):
         r = Chatbot(KB, LLMAnswerer(FakeGenerate('["일반 공격: 이름이 명사수로 바뀌었다"]'))).ask("5.6에서 엠버 뭐 바뀌었어?")
         self.assertEqual(r["answer"], ["일반 공격: 이름이 명사수로 바뀌었다"])
+
+
+class BuildAnswerTest(unittest.TestCase):
+    """11/10 코랩: rag_v4 이름 목록 프롬프트로는 '카즈하 빌드 추천해줘'에 3B가 []를 냈다.
+    추천 목록은 카드 그대로, 모델은 카드 설명(notes)으로 '이유' 한 문장만."""
+    Q = "카에데하라 카즈하 빌드 추천해줘"
+    CARD = KB.card_by_character["카에데하라 카즈하"]
+
+    def test_lists_come_from_card_even_if_model_fails(self):
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate("[]"))).ask(self.Q)
+        self.assertEqual(r["answer"][0], "추천 무기: " + ", ".join(self.CARD["weapons"]))
+        self.assertIn("추천 성유물: 청록색 그림자", r["answer"])
+        self.assertEqual(r["answer"][-1], "이유: " + self.CARD["notes"])     # 모델이 실패하면 카드 설명 원문
+        self.assertTrue(r["message"].startswith("카에데하라 카즈하 빌드 (GenshinBuilds"))
+
+    def test_model_writes_only_the_reason(self):
+        gen = FakeGenerate("원소 마스터리를 올리면 확산으로 팀 피해를 키울 수 있어서 마스터리 위주로 맞춘다.")
+        r = Chatbot(KB, LLMAnswerer(gen)).ask(self.Q)
+        self.assertEqual(r["answer"][-1], "이유: 원소 마스터리를 올리면 확산으로 팀 피해를 키울 수 있어서 마스터리 위주로 맞춘다.")
+        self.assertEqual(len(gen.prompts), 1)
+        self.assertIn(self.CARD["notes"], gen.prompts[0])
+        self.assertNotIn("오래된 자유의 서약", gen.prompts[0])           # 목록은 모델에게 주지 않는다
+
+    def test_made_up_number_falls_back_to_notes(self):
+        notes = "원소 마스터리를 최대한 올린다."
+        self.assertEqual(clean_build_explain("원소 마스터리를 1000까지 올리면 피해가 300% 오른다.", notes), notes)
+        self.assertEqual(clean_build_explain("", notes), notes)
+
+    def test_section_by_question(self):
+        bot = Chatbot(KB, LLMAnswerer(FakeGenerate("[]"), explain_build=False))
+        weapons = bot.ask("카에데하라 카즈하 무기 추천해줘")["answer"]
+        self.assertTrue(weapons[0].startswith("추천 무기:"))
+        self.assertFalse(any(a.startswith("추천 성유물") for a in weapons))
+        arts = bot.ask("카에데하라 카즈하 성유물 추천해줘")["answer"]
+        self.assertFalse(any(a.startswith("추천 무기") for a in arts))
+        self.assertTrue(any(a.startswith("주옵션:") for a in arts))
+
+    def test_no_model_call_when_explain_off(self):
+        gen = FakeGenerate("[]")
+        Chatbot(KB, LLMAnswerer(gen, explain_build=False)).ask(self.Q)
+        self.assertEqual(gen.prompts, [])
 
 
 if __name__ == "__main__":

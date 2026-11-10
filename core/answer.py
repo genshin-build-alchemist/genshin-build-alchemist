@@ -201,6 +201,51 @@ def patch_fallback_answer(question, evidence, limit=5):
     return [_cut(l, TEXT_LINE_CHARS) for l in lines[:limit]] or None
 
 
+# ── 빌드 답 (build) ─────────────────────────────────────────
+# rag_v4(이름 목록) 프롬프트로는 3B가 빌드 카드 근거에 []를 냈다 (11/10 코랩, '카즈하 빌드 추천해줘').
+# 추천 목록은 사람이 확인한 카드 그대로 보여 주고(모델이 바꾸거나 지어낼 틈이 없게), 모델은 카드 설명(notes)으로 '이유' 한 문장만 쓴다.
+BUILD_SECTION_WORDS = (
+    ("weapons", ("무기",)),
+    ("artifacts", ("성유물", "세트", "주옵", "부옵", "주스탯", "부스탯")),
+)
+BUILD_EXPLAIN_MAX_TOKENS = 120
+MAIN_STAT_LABELS = (("sands", "시간의 모래"), ("goblet", "공간의 성배"), ("circlet", "이성의 왕관"))
+NUMBER = re.compile(r"\d+(?:\.\d+)?")
+
+
+def build_card_lines(question, card, rechecks=()):
+    """빌드 카드 -> 답 줄. 질문이 무기만 물으면 무기만, 성유물·옵션을 물으면 성유물·주옵션·부옵션만, 아니면 전부."""
+    ms = card.get("main_stats") or {}
+    main = " / ".join(f"{label} {ms[k]}" for k, label in MAIN_STAT_LABELS if ms.get(k))
+    sections = {
+        "weapons": [f"추천 무기: {', '.join(card['weapons'])}"] if card.get("weapons") else [],
+        "artifacts": ([f"추천 성유물: {', '.join(card['artifact_sets'])}"] if card.get("artifact_sets") else [])
+                     + ([f"주옵션: {main}"] if main else [])
+                     + ([f"부옵션 우선순위: {' > '.join(card['substats'])}"] if card.get("substats") else []),
+    }
+    asked = [k for k, words in BUILD_SECTION_WORDS if any(w in question for w in words)]
+    lines = [line for k in (asked or list(sections)) for line in sections[k]]
+    lines += [f"재확인 필요: {r['version']}에서 {r['target']} 변경 ({', '.join(r['parts'])})" for r in rechecks]
+    return lines
+
+
+def build_explain_prompt(card):
+    return ("아래는 원신 캐릭터 빌드 설명입니다.\n\n"
+            f"[설명]\n{card['notes']}\n\n"
+            f"규칙: 위 설명만 보고 {card['character']}의 빌드를 이렇게 맞추는 이유를 쉬운 한국어 한 문장으로 쓰세요. "
+            "설명에 없는 무기, 성유물, 숫자는 쓰지 마세요. 문장만 출력하세요.")
+
+
+def clean_build_explain(text, notes):
+    """모델이 쓴 이유 한 문장. 비었거나, 너무 길거나, 설명에 없는 숫자가 나오면 카드 설명 원문을 쓴다."""
+    t = str(text).strip().split("\n")[0].strip().strip("\"'[]「」").strip()
+    if not 10 <= len(t) <= 200:
+        return notes
+    if set(NUMBER.findall(t)) - set(NUMBER.findall(notes)):     # 근거에 없는 수치 = 지어낸 것
+        return notes
+    return t
+
+
 def build_text_prompt(question, evidence):
     """문장 답 프롬프트: 규칙 + 예시 4개 + 근거 + 질문."""
     blocks = [TEXT_RULES]
@@ -344,13 +389,14 @@ def clean_answer(pred, texts, cutoff=POST_CUTOFF):
 
 
 class LLMAnswerer:
-    sentence_routes = TEXT_ROUTES   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
+    sentence_routes = TEXT_ROUTES + ("build",)   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
 
-    def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True):
+    def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True, explain_build=True):
         self.generate_fn = generate_fn
         self.name = name
         self.method = method
         self.postprocess = postprocess
+        self.explain_build = explain_build      # False면 빌드 '이유'에 카드 설명 원문을 그대로 쓴다 (모델 호출 없음)
         self.last_raw = ""          # 마지막 모델 원문 (오답 분석용)
 
     def _generate(self, prompt, **options):
@@ -363,7 +409,25 @@ class LLMAnswerer:
                 if not kwargs or i == len(tries) - 1:
                     raise
 
+    def _build_answer(self, question, evidence):
+        """빌드: 목록은 카드 그대로, '이유'만 모델 (실패하면 카드 설명 원문)."""
+        self.last_raw = ""
+        card = next((e["data"] for e in evidence if e["kind"] == "build_card"), None)
+        if not card:
+            return []
+        lines = build_card_lines(question, card, [e["data"] for e in evidence if e["kind"] == "recheck"])
+        notes = (card.get("notes") or "").strip()
+        if notes:
+            if self.explain_build:
+                self.last_raw = self._generate(build_explain_prompt(card),
+                                               max_new_tokens=BUILD_EXPLAIN_MAX_TOKENS, stop_strings=None)
+                notes = clean_build_explain(self.last_raw, notes)
+            lines.append(f"이유: {notes}")
+        return lines
+
     def answer(self, question, rr, evidence):
+        if rr.route == "build":
+            return self._build_answer(question, evidence)
         if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답
             # ']'에서 멈추지 않는다: 모델이 [["문장1"], ["문장2"]]처럼 배열을 겹쳐 쓰면 첫 문장에서 잘렸다 (11/10 코랩 확인)
             fixed = patch_added_answer(rr, evidence)
