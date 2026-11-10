@@ -41,15 +41,20 @@ def make_generate(tokenizer, model, torch, max_new_tokens=MAX_NEW_TOKENS):
     API에 질문이 동시에 와도 GPU 메모리가 넘치지 않게 한 번에 하나씩 생성한다."""
     lock = threading.Lock()
 
-    def generate(prompt, max_new_tokens=max_new_tokens):
+    def generate(prompt, max_new_tokens=max_new_tokens, stop_strings=("]",)):
+        """stop_strings: 이 글자가 나오면 멈춘다. 이름 목록은 ']'(기본), 문장 답은 None(배열이 여러 겹일 수 있어 끝까지)."""
         messages = [{"role": "user", "content": prompt}]
         text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = tokenizer(text, return_tensors="pt").to(model.device)
         kwargs = dict(max_new_tokens=max_new_tokens, do_sample=False, pad_token_id=tokenizer.eos_token_id)
         with lock, torch.no_grad():
-            try:
-                out = model.generate(**inputs, **kwargs, stop_strings=["]"], tokenizer=tokenizer)
-            except (TypeError, ValueError):   # 오래된 transformers는 stop_strings를 모른다
+            out = None
+            if stop_strings:
+                try:
+                    out = model.generate(**inputs, **kwargs, stop_strings=list(stop_strings), tokenizer=tokenizer)
+                except (TypeError, ValueError):   # 오래된 transformers는 stop_strings를 모른다
+                    out = None
+            if out is None:
                 out = model.generate(**inputs, **kwargs)
         return tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
 

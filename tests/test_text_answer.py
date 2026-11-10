@@ -143,5 +143,23 @@ class PatchEvidenceCleanTest(unittest.TestCase):
         self.assertEqual(Chatbot(KB).ask("7.0 신규 캐릭터 누구야?")["message"], "7.0 버전 신규 캐릭터: 알료샤, 오데트")
 
 
+class StopStringTest(unittest.TestCase):
+    def test_nested_arrays_are_flattened(self):
+        # 코랩에서 모델이 [["문장1"], ["문장2"]]처럼 겹쳐 썼다
+        text = '[\n  ["신규 무기: 나비의 우화, 새순"],\n  ["스킬 수정: 오데트(원소 스킬)"]\n]'
+        self.assertEqual(parse_text_answer(text), ["신규 무기: 나비의 우화, 새순", "스킬 수정: 오데트(원소 스킬)"])
+
+    def test_text_mode_does_not_stop_at_bracket(self):
+        calls = []
+
+        def gen(prompt, max_new_tokens=None, stop_strings=("]",)):
+            calls.append(stop_strings)
+            return '["7.1 신규 무기: 나비의 우화"]'
+
+        Chatbot(KB, LLMAnswerer(gen)).ask("7.1 신규 무기 뭐야?")
+        Chatbot(KB, LLMAnswerer(gen)).ask("카에데하라 카즈하의 원소는 뭐야?")
+        self.assertEqual(calls, [None, ("]",)])     # 문장 답은 끝까지, 이름 목록은 기존대로 ']'에서 멈춤
+
+
 if __name__ == "__main__":
     unittest.main()

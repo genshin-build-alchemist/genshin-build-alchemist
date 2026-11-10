@@ -158,7 +158,10 @@ def parse_text_answer(text):
         try:
             items = json.loads(text[start:end + 1])
             if isinstance(items, list):
-                return [str(x).strip() for x in items if str(x).strip()][:5]
+                flat = []
+                for x in items:   # [["문장1"], ["문장2"]]처럼 겹친 배열은 펼친다
+                    flat.extend(x if isinstance(x, list) else [x])
+                return [str(x).strip() for x in flat if str(x).strip()][:5]
         except json.JSONDecodeError:
             pass
     if start != -1:     # 대괄호 안쪽만 (닫는 ]가 없으면 끝까지: 답이 길이 제한에서 잘린 경우)
@@ -280,18 +283,21 @@ class LLMAnswerer:
         self.postprocess = postprocess
         self.last_raw = ""          # 마지막 모델 원문 (오답 분석용)
 
-    def _generate(self, prompt, max_new_tokens=None):
-        """generate_fn이 max_new_tokens를 받으면 넘기고, 못 받으면 그냥 부른다 (노트북의 generate와 호환)."""
-        if max_new_tokens is None:
-            return self.generate_fn(prompt)
-        try:
-            return self.generate_fn(prompt, max_new_tokens=max_new_tokens)
-        except TypeError:
-            return self.generate_fn(prompt)
+    def _generate(self, prompt, **options):
+        """generate_fn이 받을 수 있는 옵션(max_new_tokens, stop_strings)만 넘긴다 (노트북의 옛 generate(prompt)와도 호환)."""
+        tries = [options, {k: v for k, v in options.items() if k != "stop_strings"}, {}]
+        for i, kwargs in enumerate(tries):
+            try:
+                return self.generate_fn(prompt, **kwargs)
+            except TypeError:
+                if not kwargs or i == len(tries) - 1:
+                    raise
 
     def answer(self, question, rr, evidence):
         if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답
-            self.last_raw = self._generate(build_text_prompt(question, evidence), TEXT_MAX_NEW_TOKENS)
+            # ']'에서 멈추지 않는다: 모델이 [["문장1"], ["문장2"]]처럼 배열을 겹쳐 쓰면 첫 문장에서 잘렸다 (11/10 코랩 확인)
+            self.last_raw = self._generate(build_text_prompt(question, evidence),
+                                           max_new_tokens=TEXT_MAX_NEW_TOKENS, stop_strings=None)
             return parse_text_answer(self.last_raw)
         self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
