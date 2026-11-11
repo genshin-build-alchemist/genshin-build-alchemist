@@ -4,7 +4,6 @@
 import json
 from pathlib import Path
 
-import numpy as np
 
 
 _INDEX = {
@@ -16,6 +15,7 @@ _INDEX = {
 
 def set_item_index(encode, vectors, doc_ids):
     """검색에 사용할 임베딩 모델과 벡터 인덱스를 등록한다."""
+    import numpy as np
 
     # 인덱스 초기화
     if encode is None and vectors is None and not doc_ids:
@@ -42,6 +42,8 @@ def set_item_index(encode, vectors, doc_ids):
 
 def load_item_index(folder):
     """저장된 무기·성유물 임베딩 파일을 불러온다."""
+    import numpy as np
+    
     _INDEX.update(encode=None, vectors=None, doc_ids=[])
 
     try:
@@ -104,6 +106,8 @@ def load_item_index(folder):
 
 def item_vector_search(question, k=5):
     """질문과 유사한 무기·성유물 문서 ID를 반환한다."""
+    import numpy as np
+    
     try:
         encode = _INDEX["encode"]
         vectors = _INDEX["vectors"]
@@ -139,9 +143,21 @@ def item_vector_search(question, k=5):
         # 정규화된 벡터의 내적 = 코사인 유사도
         scores = np.dot(vectors, query_vector[0])
 
-        top_indices = np.argsort(scores)[::-1][:k]
+        top_indices = np.argsort(scores)[::-1]
 
-        return [doc_ids[i] for i in top_indices]
+        results = []
+        seen = set()
 
+        for i in top_indices:
+            doc_id = doc_ids[i]
+            if doc_id in seen:
+                continue
+            seen.add(doc_id)
+            results.append(doc_id)
+            if len(results) == k:
+                break
+
+        return results
+            
     except Exception:
         return []
