@@ -7,7 +7,7 @@
 
 검색 방식을 임베딩(Chroma 또는 PostgreSQL pgvector)으로 바꿔도 이 반환 형식만 지키면 된다.
 """
-# 벡터 검색: 아이템(무기·성유물) 질문에만 쓴다 -> core/vector.py (TODO(B)는 그 파일에)
+# 벡터 검색: 아이템(무기·성유물) 질문에만 쓴다 -> core/vector.py (재료는 load_item_index로 넣는다)
 #  캐릭터 조회·조건 검색·패치는 키워드 검색 그대로 (기본 단계 결정, 하이브리드는 다음 프로젝트)
 import json
 import re
@@ -163,8 +163,8 @@ def retrieve(rr, kb, pool=None):
         if rr.item:     # 이름이 있으면 그 문서 1개 (키워드 검색)
             info = (kb.weapon_by_name if rr.item_kind == "weapon" else kb.artifact_by_name).get(rr.item)
             return [item_evidence(rr.item_kind, info)] if info else []
-        from core.vector import item_vector_search     # 이름이 없으면 벡터 검색 (core/vector.py)
-        try:
+        try:                                            # 이름이 없으면 벡터 검색 (core/vector.py)
+            from core.vector import item_vector_search
             doc_ids = item_vector_search(rr.question, k=ITEM_TOP_K)
         except Exception:   # 벡터 검색이 실패해도 API는 멈추지 않는다 -> 근거 없음
             doc_ids = []
