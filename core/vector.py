@@ -1,10 +1,22 @@
+"""아이템(무기·성유물) 질문 벡터 검색 (기본 과업 2-1). 담당: 한동우 (B)
 
-"""아이템(무기·성유물) 질문 벡터 검색."""
+retrieval.py의 item 경로가 질문에 무기·성유물 이름이 없을 때 item_vector_search()를 부른다.
+
+약속 (테스트: tests/test_item_route.py)
+  load_item_index(folder) -> True/False
+      드라이브 data/embeddings/doc__granite-r2__weapon-artifact.{npy,jsonl} 을 읽고 같은 모델로 질문 encode 함수를 만든다.
+      실행 노트북(notebooks/run_chatbot.ipynb) 2번 칸에서 부른다. 파일·패키지가 없으면 False (챗봇은 그대로 뜬다)
+  set_item_index(encode, vectors, doc_ids)
+      검색 재료 넣기. encode(문장 목록) -> (문장 수, 차원) 정규화 벡터. 테스트는 가짜 encode로 부른다
+  item_vector_search(question, k=5) -> doc_id 목록, 가까운 순 (예: ["weapon:skywardharp", ...])
+      무기·성유물 문서만, 같은 doc_id는 한 번만. 재료가 없거나 오류가 나면 []
+  item_index_size() -> 지금 들어 있는 문서 수 (0이면 벡터 검색 꺼짐)
+
+numpy, sentence_transformers 같은 import는 함수 안에서 한다 (GPU·패키지 없는 환경에서도 API가 떠야 한다).
+"""
 
 import json
 from pathlib import Path
-
-
 
 _INDEX = {
     "encode": None,
@@ -102,6 +114,11 @@ def load_item_index(folder):
     except Exception:
         _INDEX.update(encode=None, vectors=None, doc_ids=[])
         return False
+
+
+def item_index_size():
+    """지금 들어 있는 검색 문서 수. 0이면 벡터 검색이 꺼진 상태."""
+    return len(_INDEX["doc_ids"])
 
 
 def item_vector_search(question, k=5):

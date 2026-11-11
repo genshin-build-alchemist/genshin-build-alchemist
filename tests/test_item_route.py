@@ -97,8 +97,17 @@ class ItemVectorSearchTest(unittest.TestCase):
         self.assertEqual(set(top2), {"weapon:dragonsbane", "artifact:wandererstroupe"})
 
     def test_empty_index_returns_empty(self):
+        self.assertEqual(vector.item_index_size(), 3)
         vector.set_item_index(None, None, [])
+        self.assertEqual(vector.item_index_size(), 0)
         self.assertEqual(vector.item_vector_search("아무 질문"), [])
+
+    def test_load_missing_folder_is_false(self):
+        """임베딩 파일이 없는 폴더면 False, 검색 재료는 비워진다 (API는 그대로 뜬다)."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            self.assertFalse(vector.load_item_index(d))
+        self.assertEqual(vector.item_index_size(), 0)
 
     def test_chatbot_uses_vector_results(self):
         r = Chatbot(KB).ask("치명타 올려주는 무기 뭐 있어?")
