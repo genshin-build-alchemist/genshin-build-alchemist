@@ -73,7 +73,6 @@ class ItemRetrieveTest(unittest.TestCase):
         self.assertEqual([e["kind"] for e in ev], ["weapon", "artifact"])
 
 
-@unittest.skip("TODO(B): core/vector.py 의 item_vector_search() 를 채운 뒤 이 줄을 지우고 통과시키기")
 class ItemVectorSearchTest(unittest.TestCase):
     """가짜 임베딩(낱말이 들어 있으면 그 축이 1)으로 검색 순서를 확인한다. 실제 모델 없이 돌아간다."""
 
