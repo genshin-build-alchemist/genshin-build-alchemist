@@ -19,10 +19,10 @@
 
 | 파트 | 하는 일 | 주로 만지는 곳 |
 |---|---|---|
-| A. 데이터 (+메인 코드 관리) | 수집, 평가셋, 문서 전처리, 빌드 카드 | `data/`, `collector/`, `core/validate.py` |
-| B. RAG | 라우터, 검색, 출처 메타데이터 | `core/router.py`, `core/retrieval.py`, `core/pipeline.py` |
-| C. 모델 실험 | 프롬프트, 답변 후처리, 모델 비교, 코랩 실험 | `core/answer.py`, `notebooks/` |
-| D. 서비스·대시보드 | FastAPI, Gradio 시연, DB, 전후 비교 대시보드 | `api/`, `db/`, `dashboard/`, `demo/` |
+| A. 데이터 + 메인 코드 (이승우) | 수집, 평가셋, 문서 전처리, 라우터·경로별 검색·파이프라인, 패치·빌드 답 | `data/`, `collector/`, `core/router.py`, `core/retrieval.py`, `core/pipeline.py`, `core/validate.py` |
+| B. RAG (한동우) | 아이템(무기·성유물) 벡터 검색, 임베딩, 키워드 vs 벡터 Hit@k | `core/vector.py` |
+| C. 모델 실험 (임준규) | 프롬프트, 답변 후처리, 모델 비교, 코랩 실험 | `core/answer.py`, `notebooks/` |
+| D. 서비스·대시보드 (백수현) | FastAPI, Streamlit 웹 화면, DB, 전후 비교 대시보드 | `api/`, `db/`, `dashboard/`, `demo/` |
 
 ## 3. 폴더 구조
 
@@ -36,7 +36,7 @@ data/        characters_ko.json(126명) items_ko.json(무기 256, 성유물 63)
 collector/   genshin-db 깃 이력에서 패치 변경 추출
 notebooks/   코랩 평가·학습 노트북
 dashboard/   결과 JSON을 읽는 전후 비교 화면 (Streamlit)
-demo/        Gradio 시연 화면
+demo/        Streamlit 웹 화면 (Streamlit Cloud)
 tests/       PRD 9장 테스트 시나리오
 ```
 
@@ -53,7 +53,8 @@ tests/       PRD 9장 테스트 시나리오
 | lookup | 알베도 원소가 뭐야? | 그 캐릭터 문서 1개 |
 | filter | 몬드 출신 5성 캐릭터 누구 있어? | 조건 키워드로 찾은 캐릭터 최대 30명 |
 | patch | 7.0에서 사유 뭐 바뀌었어? | 그 버전의 변경 기록 |
-| build | 알베도 추천 성유물은? | 빌드 카드 + 무기·성유물 정보 + 재확인 표시 |
+| item | 치명타 올려주는 활 뭐 있어? | 이름이 있으면 그 문서, 없으면 벡터 검색 상위 5개 (`core/vector.py`) |
+| build | 알베도 추천 성유물은? | 빌드 카드 + 무기·성유물 정보 + 재확인 표시 (추천 목록은 카드 그대로) |
 | unknown | 원신에서 제일 센 캐릭터는? | 없음 → **모델을 부르지 않고** "찾지 못했어요" |
 
 - 이름 매칭은 경계 정규식으로 한다. 한 글자 이름(소, 진)이 단어 안에서 잡히면 안 된다 ("원소"의 "소" X).
