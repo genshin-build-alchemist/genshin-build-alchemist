@@ -226,6 +226,31 @@ class EmptyPatchAnswerTest(unittest.TestCase):
         self.assertEqual(r["answer"], ["일반 공격: 이름이 명사수로 바뀌었다"])
 
 
+class EmptyItemAnswerTest(unittest.TestCase):
+    """11/12 시연 서버: '치명타 올려주는 활 뭐야?'에 벡터 검색 근거 5개를 받고도 3B가 []로 답했다."""
+
+    def setUp(self):
+        import numpy as np
+        from core import vector
+        self.vector = vector
+        ids = ["weapon:ravenbow", "weapon:messenger", "weapon:slingshot"]
+        vector.set_item_index(lambda texts: np.array([[1, 0, 0]], dtype=np.float32), np.eye(3, dtype=np.float32), ids)
+
+    def tearDown(self):
+        self.vector.set_item_index(None, None, [])
+
+    def test_empty_model_answer_falls_back_to_matching_items(self):
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate("[]"))).ask("치명타 올려주는 활 뭐야?")
+        self.assertEqual(r["route"], "item")
+        self.assertTrue(r["answer"])
+        self.assertTrue(all("치명타" in a for a in r["answer"]), r["answer"])   # 주옵션이 치명타인 무기만
+        self.assertTrue(any(a.startswith("탄궁") for a in r["answer"]), r["answer"])
+
+    def test_model_answer_is_kept_when_not_empty(self):
+        r = Chatbot(KB, LLMAnswerer(FakeGenerate('["탄궁: 치명타 확률 6.8%"]'))).ask("치명타 올려주는 활 뭐야?")
+        self.assertEqual(r["answer"], ["탄궁: 치명타 확률 6.8%"])
+
+
 class BuildAnswerTest(unittest.TestCase):
     """11/10 코랩: rag_v4 이름 목록 프롬프트로는 '카즈하 빌드 추천해줘'에 3B가 []를 냈다.
     추천 목록은 카드 그대로, 모델은 카드 설명(notes)으로 '이유' 한 문장만."""
