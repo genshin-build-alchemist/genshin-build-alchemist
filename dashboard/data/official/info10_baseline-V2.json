@@ -1,0 +1,2708 @@
+{
+  "experiment_id": "info10_baseline-V2",
+  "method": "baseline",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset_version": "info_v2",
+  "created_at": "2026-11-10T06:24:05",
+  "seconds": 199.9,
+  "limit": null,
+  "config": {
+    "code_version": "main@af0c97c",
+    "max_new_tokens": 160,
+    "few_shot": 3,
+    "example_prompt": "북두는 몇 성 캐릭터야?\nJSON 배열로만 답하세요."
+  },
+  "metrics": {
+    "n": 121,
+    "macro_f1": 0.0208,
+    "micro_precision": 0.0097,
+    "micro_recall": 0.0104,
+    "micro_f1": 0.01,
+    "empty_answers": 19,
+    "avg_seconds": 1.65,
+    "max_seconds": 8.4
+  },
+  "by_type": {
+    "filter": {
+      "n": 26,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 3.276,
+      "max_seconds": 8.4
+    },
+    "lookup": {
+      "n": 87,
+      "macro_f1": 0.0059,
+      "micro_precision": 0.0156,
+      "micro_recall": 0.023,
+      "micro_f1": 0.0186,
+      "empty_answers": 17,
+      "avg_seconds": 1.193,
+      "max_seconds": 2.852
+    },
+    "unknown": {
+      "n": 8,
+      "macro_f1": 0.25,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 2,
+      "avg_seconds": 1.343,
+      "max_seconds": 2.293
+    }
+  },
+  "by_field": {
+    "element": {
+      "n": 23,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 1.342,
+      "max_seconds": 2.293
+    },
+    "element+rarity": {
+      "n": 4,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 4.869,
+      "max_seconds": 8.4
+    },
+    "element+weapon": {
+      "n": 3,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 3.436,
+      "max_seconds": 4.458
+    },
+    "rarity": {
+      "n": 25,
+      "macro_f1": 0.0206,
+      "micro_precision": 0.0444,
+      "micro_recall": 0.087,
+      "micro_f1": 0.0588,
+      "empty_answers": 0,
+      "avg_seconds": 1.292,
+      "max_seconds": 2.852
+    },
+    "region": {
+      "n": 22,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 2,
+      "avg_seconds": 1.123,
+      "max_seconds": 2.015
+    },
+    "region+element": {
+      "n": 14,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 2.784,
+      "max_seconds": 4.495
+    },
+    "region+rarity": {
+      "n": 4,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 2.772,
+      "max_seconds": 3.318
+    },
+    "weapon": {
+      "n": 25,
+      "macro_f1": 0.08,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 17,
+      "avg_seconds": 1.066,
+      "max_seconds": 1.62
+    },
+    "weapon+rarity": {
+      "n": 1,
+      "macro_f1": 0.0,
+      "micro_precision": 0.0,
+      "micro_recall": 0.0,
+      "micro_f1": 0.0,
+      "empty_answers": 0,
+      "avg_seconds": 5.338,
+      "max_seconds": 5.338
+    }
+  },
+  "per_question": [
+    {
+      "id": "lookup_rarity_beidou",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "북두는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "北斗",
+        "五"
+      ],
+      "raw": "[\"北斗\", \"五\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 2.852
+    },
+    {
+      "id": "lookup_rarity_furina",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "푸리나는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 2.073
+    },
+    {
+      "id": "filter_region-이나즈마_element-바람",
+      "type": "filter",
+      "field": "region+element",
+      "question": "이나즈마 출신 바람 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "사유",
+        "시카노인 헤이조",
+        "유메미즈키 미즈키",
+        "카에데하라 카즈하"
+      ],
+      "pred": [
+        "{'name': '나이나즈마', 'element': '바람'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"나이나즈마\",\n        \"element\": \"바람\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 4,
+      "seconds": 2.274
+    },
+    {
+      "id": "lookup_rarity_nahida",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "나히다는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "나히다",
+        "1"
+      ],
+      "raw": "[\"나히다\", 1]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.148
+    },
+    {
+      "id": "lookup_element_alhaitham",
+      "type": "lookup",
+      "field": "element",
+      "question": "알하이탐의 원소는 뭐야?",
+      "gold": [
+        "풀"
+      ],
+      "pred": [
+        "aluminum",
+        "hydride"
+      ],
+      "raw": "[\" aluminum \", \" hydride \"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.143
+    },
+    {
+      "id": "lookup_element_flins",
+      "type": "lookup",
+      "field": "element",
+      "question": "플린스의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "수"
+      ],
+      "raw": "[\"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.917
+    },
+    {
+      "id": "filter_region-폰타인_element-바위",
+      "type": "filter",
+      "field": "region+element",
+      "question": "폰타인 출신 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "나비아"
+      ],
+      "pred": [
+        "{'name': '파이어볼', 'species': '바위 원소'}",
+        "{'name': '스톤워크', 'species': '바위 원소'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"파이어볼\",\n        \"species\": \"바위 원소\"\n    },\n    {\n        \"name\": \"스톤워크\",\n        \"species\": \"바위 원소\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 3.322
+    },
+    {
+      "id": "filter_region-수메르_element-불",
+      "type": "filter",
+      "field": "region+element",
+      "question": "수메르 출신 불 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "데히야"
+      ],
+      "pred": [
+        "{'name': 'Enki', 'origin': '수메르'}",
+        "{'name': 'Ninhursag', 'origin': '수메르'}",
+        "{'name': 'Ea', 'origin': '수메르'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"Enki\",\n        \"origin\": \"수메르\"\n    },\n    {\n        \"name\": \"Ninhursag\",\n        \"origin\": \"수메르\"\n    },\n    {\n        \"name\": \"Ea\",\n        \"origin\": \"수메르\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 4.373
+    },
+    {
+      "id": "lookup_weapon_beidou",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "북두는 어떤 무기를 써?",
+      "gold": [
+        "양손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.85
+    },
+    {
+      "id": "filter_region-스네즈나야_rarity-4성",
+      "type": "filter",
+      "field": "region+rarity",
+      "question": "스네즈나야 출신 4성 캐릭터를 모두 알려줘",
+      "gold": [
+        "발레리",
+        "알료샤"
+      ],
+      "pred": [
+        "{'name': '스네즈', 'species': '캐리비안'}",
+        "{'name': '나야', 'species': '캐리비안'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"스네즈\",\n        \"species\": \"캐리비안\"\n    },\n    {\n        \"name\": \"나야\",\n        \"species\": \"캐리비안\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 2,
+      "seconds": 2.888
+    },
+    {
+      "id": "unknown_09",
+      "type": "unknown",
+      "field": "weapon",
+      "question": "키리안테는 어떤 무기를 써?",
+      "gold": [],
+      "pred": [],
+      "raw": "[]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 0.84
+    },
+    {
+      "id": "lookup_rarity_dahlia",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "달리아는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "花卉"
+      ],
+      "raw": "[\"花卉\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.922
+    },
+    {
+      "id": "unknown_11",
+      "type": "unknown",
+      "field": "region",
+      "question": "솔베른의 출신 지역은 어디야?",
+      "gold": [],
+      "pred": [
+        "네덜란드"
+      ],
+      "raw": "[\"네덜란드\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "seconds": 1.055
+    },
+    {
+      "id": "filter_element-바위_rarity-5성",
+      "type": "filter",
+      "field": "element+rarity",
+      "question": "5성 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "나비아",
+        "린네아",
+        "실로닌",
+        "아라타키 이토",
+        "알베도",
+        "자백",
+        "종려",
+        "치오리"
+      ],
+      "pred": [
+        "```json",
+        "[",
+        "{",
+        "\"name\": \"Obsidian\"",
+        "\"description\": \"Obsidian is a dark volcanic glass that can be used to create powerful weapons and armor. It is often associated with strength and protection.\"",
+        "}",
+        "{",
+        "\"name\": \"Quartz\"",
+        "\"description\": \"Quartz is a crystal that can be used for various magical purposes. It is often associated with clarity and focus.\"",
+        "}",
+        "{",
+        "\"name\": \"Amethyst\"",
+        "\"description\": \"Amethyst is a purple quartz crystal that is believed to have calming and spiritual properties. It is often associated with wisdom and tranquility.\"",
+        "}",
+        "{",
+        "\"name\": \"Jasper\"",
+        "\"description\": \"Jasper is a colorful variety of chalcedony that is"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"Obsidian\",\n        \"description\": \"Obsidian is a dark volcanic glass that can be used to create powerful weapons and armor. It is often associated with strength and protection.\"\n    },\n    {\n        \"name\": \"Quartz\",\n        \"description\": \"Quartz is a crystal that can be used for various magical purposes. It is often associated with clarity and focus.\"\n    },\n    {\n        \"name\": \"Amethyst\",\n        \"description\": \"Amethyst is a purple quartz crystal that is believed to have calming and spiritual properties. It is often associated with wisdom and tranquility.\"\n    },\n    {\n        \"name\": \"Jasper\",\n        \"description\": \"Jasper is a colorful variety of chalcedony that is",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 12,
+      "fn": 8,
+      "seconds": 8.4
+    },
+    {
+      "id": "lookup_weapon_lumine",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "루미네는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.835
+    },
+    {
+      "id": "filter_element-바위_weapon-장병기",
+      "type": "filter",
+      "field": "element+weapon",
+      "question": "장병기를 쓰는 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "운근",
+        "일루가",
+        "종려",
+        "카치나"
+      ],
+      "pred": [
+        "{'캐릭터명': '바위', '종류': '장병기', '원소': '바위'}",
+        "{'캐릭터명': '돌', '종류': '장병기', '원소': '바위'}"
+      ],
+      "raw": "[\n    {\"캐릭터명\": \"바위\", \"종류\": \"장병기\", \"원소\": \"바위\"},\n    {\"캐릭터명\": \"돌\", \"종류\": \"장병기\", \"원소\": \"바위\"}\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 4,
+      "seconds": 3.183
+    },
+    {
+      "id": "lookup_element_freminet",
+      "type": "lookup",
+      "field": "element",
+      "question": "프레미네의 원소는 뭐야?",
+      "gold": [
+        "얼음"
+      ],
+      "pred": [
+        "수"
+      ],
+      "raw": "[\"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.955
+    },
+    {
+      "id": "lookup_region_alhaitham",
+      "type": "lookup",
+      "field": "region",
+      "question": "알하이탐의 출신 지역은 어디야?",
+      "gold": [
+        "수메르"
+      ],
+      "pred": [
+        "대한민국"
+      ],
+      "raw": "[\"대한민국\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.051
+    },
+    {
+      "id": "filter_region-리월_element-바위",
+      "type": "filter",
+      "field": "region+element",
+      "question": "리월 출신 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "운근",
+        "응광",
+        "종려"
+      ],
+      "pred": [
+        "{'name': '바위', 'origin': '리월'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"바위\",\n        \"origin\": \"리월\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 3,
+      "seconds": 2.243
+    },
+    {
+      "id": "lookup_region_linnea",
+      "type": "lookup",
+      "field": "region",
+      "question": "린네아의 출신 지역은 어디야?",
+      "gold": [
+        "노드크라이"
+      ],
+      "pred": [
+        "스웨덴"
+      ],
+      "raw": "[\"스웨덴\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.662
+    },
+    {
+      "id": "lookup_element_kaedeharakazuha",
+      "type": "lookup",
+      "field": "element",
+      "question": "카에데하라 카즈하의 원소는 뭐야?",
+      "gold": [
+        "바람"
+      ],
+      "pred": [
+        "水系",
+        "忍者"
+      ],
+      "raw": "[\"水系\", \"忍者\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.325
+    },
+    {
+      "id": "lookup_element_escoffier",
+      "type": "lookup",
+      "field": "element",
+      "question": "에스코피에의 원소는 뭐야?",
+      "gold": [
+        "얼음"
+      ],
+      "pred": [
+        "Si",
+        "O",
+        "Ca",
+        "Fe"
+      ],
+      "raw": "[\"Si\", \"O\", \"Ca\", \"Fe\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 1,
+      "seconds": 1.328
+    },
+    {
+      "id": "filter_region-나타_element-불",
+      "type": "filter",
+      "field": "region+element",
+      "question": "나타 출신 불 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "마비카"
+      ],
+      "pred": [
+        "{'name': '나타'}",
+        "{'name': '원소'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"나타\"\n    },\n    {\n        \"name\": \"원소\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.888
+    },
+    {
+      "id": "lookup_element_fischl",
+      "type": "lookup",
+      "field": "element",
+      "question": "피슬의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "물",
+        "가스",
+        "기체"
+      ],
+      "raw": "[\"물\", \"가스\", \"기체\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.25
+    },
+    {
+      "id": "lookup_weapon_kaeya",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "케이아는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.834
+    },
+    {
+      "id": "filter_region-폰타인_rarity-4성",
+      "type": "filter",
+      "field": "region+rarity",
+      "question": "폰타인 출신 4성 캐릭터를 모두 알려줘",
+      "gold": [
+        "리넷",
+        "샤를로트",
+        "슈브르즈",
+        "프레미네"
+      ],
+      "pred": [
+        "{'캐릭터': '아리스토'}",
+        "{'캐릭터': '바이올린'}",
+        "{'캐릭터': '피아노'}",
+        "{'캐릭터': '베이시스트'}"
+      ],
+      "raw": "[\n    {\"캐릭터\": \"아리스토\"},\n    {\"캐릭터\": \"바이올린\"},\n    {\"캐릭터\": \"피아노\"},\n    {\"캐릭터\": \"베이시스트\"}\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 4,
+      "seconds": 2.781
+    },
+    {
+      "id": "lookup_weapon_kaedeharakazuha",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "카에데하라 카즈하는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [
+        "검"
+      ],
+      "raw": "[\n    \"검\"\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.037
+    },
+    {
+      "id": "lookup_region_fischl",
+      "type": "lookup",
+      "field": "region",
+      "question": "피슬의 출신 지역은 어디야?",
+      "gold": [
+        "몬드"
+      ],
+      "pred": [
+        "중국",
+        "일본",
+        "대만"
+      ],
+      "raw": "[\"중국\", \"일본\", \"대만\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 2.015
+    },
+    {
+      "id": "lookup_rarity_kaeya",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "케이아는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.528
+    },
+    {
+      "id": "lookup_rarity_alhaitham",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "알하이탐은 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.125
+    },
+    {
+      "id": "lookup_weapon_dahlia",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "달리아는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.843
+    },
+    {
+      "id": "lookup_rarity_fischl",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "피슬은 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "2"
+      ],
+      "raw": "[\"2\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.91
+    },
+    {
+      "id": "lookup_rarity_escoffier",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "에스코피에는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "raw": "[\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"]",
+      "precision": 0.1,
+      "recall": 1.0,
+      "f1": 0.1818,
+      "tp": 1,
+      "fp": 9,
+      "fn": 0,
+      "seconds": 2.122
+    },
+    {
+      "id": "lookup_weapon_valeriy",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "발레리는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.84
+    },
+    {
+      "id": "filter_region-리월_element-바람",
+      "type": "filter",
+      "field": "region+element",
+      "question": "리월 출신 바람 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "남연",
+        "소",
+        "한운"
+      ],
+      "pred": [
+        "{'name': '바람의 노래', 'species': '원소', 'origin': '리월'}",
+        "{'name': '바람의 화살', 'species': '원소', 'origin': '리월'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"바람의 노래\",\n        \"species\": \"원소\",\n        \"origin\": \"리월\"\n    },\n    {\n        \"name\": \"바람의 화살\",\n        \"species\": \"원소\",\n        \"origin\": \"리월\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 3,
+      "seconds": 3.561
+    },
+    {
+      "id": "filter_region-나타_element-물",
+      "type": "filter",
+      "field": "region+element",
+      "question": "나타 출신 물 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "말라니"
+      ],
+      "pred": [
+        "{'name': '수', 'element': '물'}",
+        "{'name': '가위', 'element': '물'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"수\",\n        \"element\": \"물\"\n    },\n    {\n        \"name\": \"가위\",\n        \"element\": \"물\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 2.86
+    },
+    {
+      "id": "unknown_12",
+      "type": "unknown",
+      "field": "element",
+      "question": "하이델린의 원소는 뭐야?",
+      "gold": [],
+      "pred": [
+        "C",
+        "H",
+        "N",
+        "O",
+        "S"
+      ],
+      "raw": "[\"C\", \"H\", \"N\", \"O\", \"S\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 5,
+      "fn": 0,
+      "seconds": 2.293
+    },
+    {
+      "id": "lookup_weapon_escoffier",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "에스코피에는 어떤 무기를 써?",
+      "gold": [
+        "장병기"
+      ],
+      "pred": [
+        "Machine Gun",
+        "Rifle",
+        "Shotgun",
+        "Pistol"
+      ],
+      "raw": "[\"Machine Gun\", \"Rifle\", \"Shotgun\", \"Pistol\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 1,
+      "seconds": 1.468
+    },
+    {
+      "id": "lookup_rarity_yoimiya",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "요이미야는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "요이미야"
+      ],
+      "raw": "[\"요이미야\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.072
+    },
+    {
+      "id": "lookup_rarity_freminet",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "프레미네는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "프레미네",
+        "3"
+      ],
+      "raw": "[\"프레미네\", 3]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.157
+    },
+    {
+      "id": "lookup_element_yelan",
+      "type": "lookup",
+      "field": "element",
+      "question": "야란의 원소는 뭐야?",
+      "gold": [
+        "물"
+      ],
+      "pred": [
+        "수",
+        "가",
+        "공",
+        "정"
+      ],
+      "raw": "[\"수\", \"가\", \"공\", \"정\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 1,
+      "seconds": 1.298
+    },
+    {
+      "id": "lookup_rarity_ororon",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "올로룬은 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.908
+    },
+    {
+      "id": "lookup_weapon_yoimiya",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "요이미야는 어떤 무기를 써?",
+      "gold": [
+        "활"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.83
+    },
+    {
+      "id": "filter_region-나타_rarity-5성",
+      "type": "filter",
+      "field": "region+rarity",
+      "question": "나타 출신 5성 캐릭터를 모두 알려줘",
+      "gold": [
+        "마비카",
+        "말라니",
+        "바레사",
+        "시틀라리",
+        "실로닌",
+        "차스카",
+        "키니치"
+      ],
+      "pred": [
+        "{'name': '나타', 'level': 5, 'type': '캐릭터'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"나타\",\n        \"level\": 5,\n        \"type\": \"캐릭터\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 7,
+      "seconds": 2.102
+    },
+    {
+      "id": "filter_region-이나즈마_element-풀",
+      "type": "filter",
+      "field": "region+element",
+      "question": "이나즈마 출신 풀 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "키라라"
+      ],
+      "pred": [
+        "{'name': '나이나즈마', 'species': '풀 원소'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"나이나즈마\",\n        \"species\": \"풀 원소\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 2.236
+    },
+    {
+      "id": "filter_region-리월_element-불",
+      "type": "filter",
+      "field": "region+element",
+      "question": "리월 출신 불 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "가명",
+        "신염",
+        "연비",
+        "향릉",
+        "호두"
+      ],
+      "pred": [
+        "{'name': '아이언', 'species': '불원소'}",
+        "{'name': '스톰', 'species': '불원소'}",
+        "{'name': '블랙', 'species': '불원소'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"아이언\",\n        \"species\": \"불원소\"\n    },\n    {\n        \"name\": \"스톰\",\n        \"species\": \"불원소\"\n    },\n    {\n        \"name\": \"블랙\",\n        \"species\": \"불원소\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 5,
+      "seconds": 4.495
+    },
+    {
+      "id": "lookup_element_linnea",
+      "type": "lookup",
+      "field": "element",
+      "question": "린네아의 원소는 뭐야?",
+      "gold": [
+        "바위"
+      ],
+      "pred": [
+        "수"
+      ],
+      "raw": "[\"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.913
+    },
+    {
+      "id": "lookup_region_wriothesley",
+      "type": "lookup",
+      "field": "region",
+      "question": "라이오슬리의 출신 지역은 어디야?",
+      "gold": [
+        "폰타인"
+      ],
+      "pred": [
+        "독일"
+      ],
+      "raw": "[\"독일\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.952
+    },
+    {
+      "id": "lookup_weapon_yelan",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "야란은 어떤 무기를 써?",
+      "gold": [
+        "활"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.83
+    },
+    {
+      "id": "lookup_rarity_rosaria",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "로자리아는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "로자리아"
+      ],
+      "raw": "[\"로자리아\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.054
+    },
+    {
+      "id": "lookup_rarity_alyosha",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "알료샤는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "소설가"
+      ],
+      "raw": "[\"소설가\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.004
+    },
+    {
+      "id": "lookup_region_yelan",
+      "type": "lookup",
+      "field": "region",
+      "question": "야란의 출신 지역은 어디야?",
+      "gold": [
+        "리월"
+      ],
+      "pred": [
+        "서울"
+      ],
+      "raw": "[\"서울\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.973
+    },
+    {
+      "id": "filter_element-풀_weapon-한손검",
+      "type": "filter",
+      "field": "element+weapon",
+      "question": "한손검을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "알하이탐",
+        "키라라"
+      ],
+      "pred": [
+        "{'name': '아이언', 'weapon': '한손검', 'element': '풀'}",
+        "{'name': '바람의 자매들', 'weapon': '한손검', 'element': '풀'}",
+        "{'name': '숲 속의 여우', 'weapon': '한손검', 'element': '풀'}"
+      ],
+      "raw": "[\n    {\"name\": \"아이언\", \"weapon\": \"한손검\", \"element\": \"풀\"},\n    {\"name\": \"바람의 자매들\", \"weapon\": \"한손검\", \"element\": \"풀\"},\n    {\"name\": \"숲 속의 여우\", \"weapon\": \"한손검\", \"element\": \"풀\"}\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 2,
+      "seconds": 4.458
+    },
+    {
+      "id": "lookup_element_nicole",
+      "type": "lookup",
+      "field": "element",
+      "question": "니콜의 원소는 뭐야?",
+      "gold": [
+        "불"
+      ],
+      "pred": [
+        "물리",
+        "화학"
+      ],
+      "raw": "[\"물리\", \"화학\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.84
+    },
+    {
+      "id": "lookup_weapon_furina",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "푸리나는 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.848
+    },
+    {
+      "id": "lookup_region_beidou",
+      "type": "lookup",
+      "field": "region",
+      "question": "북두의 출신 지역은 어디야?",
+      "gold": [
+        "리월"
+      ],
+      "pred": [
+        "중국"
+      ],
+      "raw": "[\"중국\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.957
+    },
+    {
+      "id": "lookup_weapon_rosaria",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "로자리아는 어떤 무기를 써?",
+      "gold": [
+        "장병기"
+      ],
+      "pred": [
+        "sword",
+        "bow_and_arrow"
+      ],
+      "raw": "[\"sword\", \"bow_and_arrow\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.112
+    },
+    {
+      "id": "lookup_rarity_yelan",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "야란은 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "[\"야란\"",
+        "{\"성\": \"남성\"}}]"
+      ],
+      "raw": "[\"야란\", {\"성\": \"남성\"}}]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.278
+    },
+    {
+      "id": "lookup_region_furina",
+      "type": "lookup",
+      "field": "region",
+      "question": "푸리나의 출신 지역은 어디야?",
+      "gold": [
+        "폰타인"
+      ],
+      "pred": [
+        "서울"
+      ],
+      "raw": "[\"서울\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.947
+    },
+    {
+      "id": "lookup_rarity_arlecchino",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "아를레키노는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.907
+    },
+    {
+      "id": "lookup_element_wriothesley",
+      "type": "lookup",
+      "field": "element",
+      "question": "라이오슬리의 원소는 뭐야?",
+      "gold": [
+        "얼음"
+      ],
+      "pred": [
+        "수"
+      ],
+      "raw": "[\"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.909
+    },
+    {
+      "id": "lookup_region_flins",
+      "type": "lookup",
+      "field": "region",
+      "question": "플린스의 출신 지역은 어디야?",
+      "gold": [
+        "노드크라이"
+      ],
+      "pred": [
+        "미국"
+      ],
+      "raw": "[\"미국\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.936
+    },
+    {
+      "id": "unknown_08",
+      "type": "unknown",
+      "field": "element",
+      "question": "오르페아의 원소는 뭐야?",
+      "gold": [],
+      "pred": [
+        "물",
+        "불",
+        "가스",
+        "가운데"
+      ],
+      "raw": "[\"물\", \"불\", \"가스\", \"가운데\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 0,
+      "seconds": 1.415
+    },
+    {
+      "id": "lookup_element_kaeya",
+      "type": "lookup",
+      "field": "element",
+      "question": "케이아의 원소는 뭐야?",
+      "gold": [
+        "얼음"
+      ],
+      "pred": [
+        "수"
+      ],
+      "raw": "[\"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.006
+    },
+    {
+      "id": "unknown_13",
+      "type": "unknown",
+      "field": "weapon",
+      "question": "마르코사는 어떤 무기를 써?",
+      "gold": [],
+      "pred": [],
+      "raw": "[]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 1.48
+    },
+    {
+      "id": "unknown_10",
+      "type": "unknown",
+      "field": "rarity",
+      "question": "나디르는 몇 성 캐릭터야?",
+      "gold": [],
+      "pred": [
+        "나디르"
+      ],
+      "raw": "[\"나디르\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "seconds": 1.732
+    },
+    {
+      "id": "filter_region-노드크라이_element-바위",
+      "type": "filter",
+      "field": "region+element",
+      "question": "노드크라이 출신 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "린네아",
+        "일루가"
+      ],
+      "pred": [
+        "{'name': '바위', 'species': '노드크라이', 'element': '바위'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"바위\",\n        \"species\": \"노드크라이\",\n        \"element\": \"바위\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 2,
+      "seconds": 2.522
+    },
+    {
+      "id": "lookup_rarity_valeriy",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "발레리는 몇 성 캐릭터야?",
+      "gold": [
+        "4성"
+      ],
+      "pred": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "raw": "[\"1\", \"2\", \"3\", \"4\", \"5\"]",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333,
+      "tp": 1,
+      "fp": 4,
+      "fn": 0,
+      "seconds": 1.438
+    },
+    {
+      "id": "filter_region-몬드_element-바위",
+      "type": "filter",
+      "field": "region+element",
+      "question": "몬드 출신 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "노엘",
+        "알베도"
+      ],
+      "pred": [
+        "{'name': 'Mondego Stone'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"Mondego Stone\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 2,
+      "seconds": 1.574
+    },
+    {
+      "id": "filter_element-풀_rarity-4성",
+      "type": "filter",
+      "field": "element+rarity",
+      "question": "4성 풀 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "요요",
+        "카베",
+        "콜레이",
+        "키라라"
+      ],
+      "pred": [
+        "{'name': '수', 'element': '수'}",
+        "{'name': '공', 'element': '공'}",
+        "{'name': '지', 'element': '지'}",
+        "{'name': '물', 'element': '물'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"수\",\n        \"element\": \"수\"\n    },\n    {\n        \"name\": \"공\",\n        \"element\": \"공\"\n    },\n    {\n        \"name\": \"지\",\n        \"element\": \"지\"\n    },\n    {\n        \"name\": \"물\",\n        \"element\": \"물\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 4,
+      "seconds": 4.041
+    },
+    {
+      "id": "lookup_weapon_nahida",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "나히다는 어떤 무기를 써?",
+      "gold": [
+        "법구"
+      ],
+      "pred": [
+        "{'name': 'Saihan', 'type': 'sword'}"
+      ],
+      "raw": "[\"{'name': 'Saihan', 'type': 'sword'}\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.62
+    },
+    {
+      "id": "lookup_weapon_manekin",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "별인형·남성은 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.449
+    },
+    {
+      "id": "lookup_element_ororon",
+      "type": "lookup",
+      "field": "element",
+      "question": "올로룬의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "aluminum",
+        "lithium",
+        "iron"
+      ],
+      "raw": "[\" aluminum \", \" lithium \", \" iron \"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.901
+    },
+    {
+      "id": "lookup_region_kaeya",
+      "type": "lookup",
+      "field": "region",
+      "question": "케이아의 출신 지역은 어디야?",
+      "gold": [
+        "몬드"
+      ],
+      "pred": [
+        "서울"
+      ],
+      "raw": "[\"서울\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.041
+    },
+    {
+      "id": "filter_element-번개_rarity-5성",
+      "type": "filter",
+      "field": "element+rarity",
+      "question": "5성 번개 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "각청",
+        "라이덴 쇼군",
+        "미탸",
+        "바레사",
+        "사이노",
+        "야에 미코",
+        "이네파",
+        "클로린드",
+        "플린스"
+      ],
+      "pred": [
+        "{'name': '불', 'element': '화성'}",
+        "{'name': '물', 'element': '수성'}",
+        "{'name': '가스', 'element': '가스성'}",
+        "{'name': '가위', 'element': '토성'}",
+        "{'name': '보석', 'element': '천성'}"
+      ],
+      "raw": "```json\n[\n    {\"name\": \"불\", \"element\": \"화성\"},\n    {\"name\": \"물\", \"element\": \"수성\"},\n    {\"name\": \"가스\", \"element\": \"가스성\"},\n    {\"name\": \"가위\", \"element\": \"토성\"},\n    {\"name\": \"보석\", \"element\": \"천성\"}\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 5,
+      "fn": 9,
+      "seconds": 4.119
+    },
+    {
+      "id": "filter_element-바람_rarity-4성",
+      "type": "filter",
+      "field": "element+rarity",
+      "question": "4성 바람 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "남연",
+        "리넷",
+        "사유",
+        "설탕",
+        "시카노인 헤이조",
+        "야호다",
+        "이파",
+        "파루잔",
+        "프루네"
+      ],
+      "pred": [
+        "{'name': '바람의 원수', 'element': '바람'}",
+        "{'name': '바람의 여신', 'element': '바람'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"바람의 원수\",\n        \"element\": \"바람\"\n    },\n    {\n        \"name\": \"바람의 여신\",\n        \"element\": \"바람\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 9,
+      "seconds": 2.915
+    },
+    {
+      "id": "filter_region-폰타인_element-바람",
+      "type": "filter",
+      "field": "region+element",
+      "question": "폰타인 출신 바람 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "리넷"
+      ],
+      "pred": [
+        "{'name': '파이어볼', 'species': '바람 원소'}",
+        "{'name': '비행기', 'species': '바람 원소'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"파이어볼\",\n        \"species\": \"바람 원소\"\n    },\n    {\n        \"name\": \"비행기\",\n        \"species\": \"바람 원소\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 3.073
+    },
+    {
+      "id": "lookup_weapon_linnea",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "린네아는 어떤 무기를 써?",
+      "gold": [
+        "활"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.427
+    },
+    {
+      "id": "lookup_region_valeriy",
+      "type": "lookup",
+      "field": "region",
+      "question": "발레리의 출신 지역은 어디야?",
+      "gold": [
+        "스네즈나야"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.46
+    },
+    {
+      "id": "lookup_rarity_nicole",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "니콜은 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "여성"
+      ],
+      "raw": "[\"여성\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.039
+    },
+    {
+      "id": "lookup_element_rosaria",
+      "type": "lookup",
+      "field": "element",
+      "question": "로자리아의 원소는 뭐야?",
+      "gold": [
+        "얼음"
+      ],
+      "pred": [
+        "수",
+        "가스",
+        "암석"
+      ],
+      "raw": "[\"수\", \"가스\", \"암석\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.257
+    },
+    {
+      "id": "lookup_region_nahida",
+      "type": "lookup",
+      "field": "region",
+      "question": "나히다의 출신 지역은 어디야?",
+      "gold": [
+        "수메르"
+      ],
+      "pred": [
+        "서울"
+      ],
+      "raw": "[\"서울\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.945
+    },
+    {
+      "id": "lookup_element_yoimiya",
+      "type": "lookup",
+      "field": "element",
+      "question": "요이미야의 원소는 뭐야?",
+      "gold": [
+        "불"
+      ],
+      "pred": [
+        "토"
+      ],
+      "raw": "[\"토\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.908
+    },
+    {
+      "id": "lookup_rarity_lumine",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "루미네는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.927
+    },
+    {
+      "id": "lookup_weapon_arlecchino",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "아를레키노는 어떤 무기를 써?",
+      "gold": [
+        "장병기"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.829
+    },
+    {
+      "id": "lookup_region_dahlia",
+      "type": "lookup",
+      "field": "region",
+      "question": "달리아의 출신 지역은 어디야?",
+      "gold": [
+        "몬드"
+      ],
+      "pred": [
+        "유럽",
+        "아시아"
+      ],
+      "raw": "[\"유럽\", \"아시아\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.162
+    },
+    {
+      "id": "lookup_region_rosaria",
+      "type": "lookup",
+      "field": "region",
+      "question": "로자리아의 출신 지역은 어디야?",
+      "gold": [
+        "몬드"
+      ],
+      "pred": [
+        "에스파냐"
+      ],
+      "raw": "[\"에스파냐\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.038
+    },
+    {
+      "id": "lookup_element_arlecchino",
+      "type": "lookup",
+      "field": "element",
+      "question": "아를레키노의 원소는 뭐야?",
+      "gold": [
+        "불"
+      ],
+      "pred": [
+        "수",
+        "기"
+      ],
+      "raw": "[\"수\",\"기\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 0.992
+    },
+    {
+      "id": "lookup_rarity_linnea",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "린네아는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "린네아"
+      ],
+      "raw": "[\"린네아\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.004
+    },
+    {
+      "id": "lookup_region_freminet",
+      "type": "lookup",
+      "field": "region",
+      "question": "프레미네의 출신 지역은 어디야?",
+      "gold": [
+        "폰타인"
+      ],
+      "pred": [
+        "대한민국"
+      ],
+      "raw": "[\"대한민국\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.661
+    },
+    {
+      "id": "lookup_element_alyosha",
+      "type": "lookup",
+      "field": "element",
+      "question": "알료샤의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "인간"
+      ],
+      "raw": "[\"인간\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.644
+    },
+    {
+      "id": "lookup_rarity_flins",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "플린스는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "플린스"
+      ],
+      "raw": "[\"플린스\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.378
+    },
+    {
+      "id": "unknown_15",
+      "type": "unknown",
+      "field": "region",
+      "question": "이스벨라의 출신 지역은 어디야?",
+      "gold": [],
+      "pred": [
+        "프랑스"
+      ],
+      "raw": "[\"프랑스\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "seconds": 1.019
+    },
+    {
+      "id": "filter_element-바위_weapon-한손검",
+      "type": "filter",
+      "field": "element+weapon",
+      "question": "한손검을 쓰는 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "실로닌",
+        "알베도",
+        "자백",
+        "치오리"
+      ],
+      "pred": [
+        "{'name': '석원', 'weapon': '한손검'}",
+        "{'name': '돌산', 'weapon': '한손검'}"
+      ],
+      "raw": "[\n    {\n        \"name\": \"석원\",\n        \"weapon\": \"한손검\"\n    },\n    {\n        \"name\": \"돌산\",\n        \"weapon\": \"한손검\"\n    }\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 4,
+      "seconds": 2.668
+    },
+    {
+      "id": "lookup_region_kaedeharakazuha",
+      "type": "lookup",
+      "field": "region",
+      "question": "카에데하라 카즈하의 출신 지역은 어디야?",
+      "gold": [
+        "이나즈마"
+      ],
+      "pred": [
+        "도쿄"
+      ],
+      "raw": "[\"도쿄\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.964
+    },
+    {
+      "id": "lookup_rarity_wriothesley",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "라이오슬리는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.911
+    },
+    {
+      "id": "lookup_region_arlecchino",
+      "type": "lookup",
+      "field": "region",
+      "question": "아를레키노의 출신 지역은 어디야?",
+      "gold": [
+        "스네즈나야"
+      ],
+      "pred": [
+        "프랑스"
+      ],
+      "raw": "[\"프랑스\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.994
+    },
+    {
+      "id": "lookup_rarity_kaedeharakazuha",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "카에데하라 카즈하는 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "카에데하라 카즈하",
+        "에피소드",
+        "주인공"
+      ],
+      "raw": "[\"카에데하라 카즈하\", \"에피소드\", \"주인공\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.716
+    },
+    {
+      "id": "filter_region-몬드_element-바람",
+      "type": "filter",
+      "field": "region+element",
+      "question": "몬드 출신 바람 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "바르카",
+        "벤티",
+        "설탕",
+        "진",
+        "프루네"
+      ],
+      "pred": [
+        "{'name': 'Mondeos Wind', 'species': 'Elemental Wind'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"Mondeos Wind\",\n        \"species\": \"Elemental Wind\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 5,
+      "seconds": 2.207
+    },
+    {
+      "id": "lookup_element_nahida",
+      "type": "lookup",
+      "field": "element",
+      "question": "나히다의 원소는 뭐야?",
+      "gold": [
+        "풀"
+      ],
+      "pred": [
+        "수",
+        "气",
+        "방"
+      ],
+      "raw": "[\"수\",\"气\",\"방\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.739
+    },
+    {
+      "id": "lookup_element_dahlia",
+      "type": "lookup",
+      "field": "element",
+      "question": "달리아의 원소는 뭐야?",
+      "gold": [
+        "물"
+      ],
+      "pred": [
+        "H",
+        "C",
+        "O",
+        "N",
+        "P",
+        "S"
+      ],
+      "raw": "[\"H\", \"C\", \"O\", \"N\", \"P\", \"S\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 6,
+      "fn": 1,
+      "seconds": 2.065
+    },
+    {
+      "id": "lookup_region_escoffier",
+      "type": "lookup",
+      "field": "region",
+      "question": "에스코피에의 출신 지역은 어디야?",
+      "gold": [
+        "폰타인"
+      ],
+      "pred": [
+        "에스코피에"
+      ],
+      "raw": "[\"에스코피에\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.078
+    },
+    {
+      "id": "lookup_weapon_alhaitham",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "알하이탐은 어떤 무기를 써?",
+      "gold": [
+        "한손검"
+      ],
+      "pred": [
+        "sword",
+        "bow_and_arrow"
+      ],
+      "raw": "[\"sword\", \"bow_and_arrow\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.129
+    },
+    {
+      "id": "filter_weapon-양손검_rarity-5성",
+      "type": "filter",
+      "field": "weapon+rarity",
+      "question": "양손검을 쓰는 5성 캐릭터를 모두 알려줘",
+      "gold": [
+        "나비아",
+        "다이루크",
+        "데히야",
+        "마비카",
+        "바르카",
+        "산드로네",
+        "아라타키 이토",
+        "유라",
+        "키니치"
+      ],
+      "pred": [
+        "{'캐릭터': '장길산', '직업': '양손검사'}",
+        "{'캐릭터': '이문세', '직업': '양손검사'}",
+        "{'캐릭터': '김영하', '직업': '양손검사'}",
+        "{'캐릭터': '강동원', '직업': '양손검사'}",
+        "{'캐릭터': '이병헌', '직업': '양손검사'}"
+      ],
+      "raw": "[\n    {\"캐릭터\": \"장길산\", \"직업\": \"양손검사\"},\n    {\"캐릭터\": \"이문세\", \"직업\": \"양손검사\"},\n    {\"캐릭터\": \"김영하\", \"직업\": \"양손검사\"},\n    {\"캐릭터\": \"강동원\", \"직업\": \"양손검사\"},\n    {\"캐릭터\": \"이병헌\", \"직업\": \"양손검사\"}\n]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 5,
+      "fn": 9,
+      "seconds": 5.338
+    },
+    {
+      "id": "lookup_weapon_alyosha",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "알료샤는 어떤 무기를 써?",
+      "gold": [
+        "장병기"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.833
+    },
+    {
+      "id": "filter_region-이나즈마_element-바위",
+      "type": "filter",
+      "field": "region+element",
+      "question": "이나즈마 출신 바위 원소 캐릭터를 모두 알려줘",
+      "gold": [
+        "고로",
+        "아라타키 이토",
+        "치오리"
+      ],
+      "pred": [
+        "{'name': '나이나즈마 바위', 'species': '원소'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"나이나즈마 바위\",\n        \"species\": \"원소\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 3,
+      "seconds": 2.347
+    },
+    {
+      "id": "lookup_weapon_fischl",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "피슬은 어떤 무기를 써?",
+      "gold": [
+        "활"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.465
+    },
+    {
+      "id": "lookup_weapon_freminet",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "프레미네는 어떤 무기를 써?",
+      "gold": [
+        "양손검"
+      ],
+      "pred": [
+        "sword"
+      ],
+      "raw": "[\"sword\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 1.312
+    },
+    {
+      "id": "lookup_rarity_manekin",
+      "type": "lookup",
+      "field": "rarity",
+      "question": "별인형·남성은 몇 성 캐릭터야?",
+      "gold": [
+        "5성"
+      ],
+      "pred": [
+        "별인형",
+        "남성"
+      ],
+      "raw": "[\"별인형\", \"남성\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.18
+    },
+    {
+      "id": "lookup_element_beidou",
+      "type": "lookup",
+      "field": "element",
+      "question": "북두의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "금",
+        "황금",
+        "철"
+      ],
+      "raw": "[\"금\", \"황금\", \"철\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 3,
+      "fn": 1,
+      "seconds": 1.209
+    },
+    {
+      "id": "lookup_element_furina",
+      "type": "lookup",
+      "field": "element",
+      "question": "푸리나의 원소는 뭐야?",
+      "gold": [
+        "물"
+      ],
+      "pred": [
+        "H",
+        "O"
+      ],
+      "raw": "[\"H\", \"O\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.092
+    },
+    {
+      "id": "unknown_14",
+      "type": "unknown",
+      "field": "rarity",
+      "question": "티엔류는 몇 성 캐릭터야?",
+      "gold": [],
+      "pred": [
+        "3"
+      ],
+      "raw": "[\"3\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "seconds": 0.913
+    },
+    {
+      "id": "lookup_region_alyosha",
+      "type": "lookup",
+      "field": "region",
+      "question": "알료샤의 출신 지역은 어디야?",
+      "gold": [
+        "스네즈나야"
+      ],
+      "pred": [
+        "러시아"
+      ],
+      "raw": "[\"러시아\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.994
+    },
+    {
+      "id": "lookup_weapon_flins",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "플린스는 어떤 무기를 써?",
+      "gold": [
+        "장병기"
+      ],
+      "pred": [
+        "Machine Gun"
+      ],
+      "raw": "[\"Machine Gun\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.968
+    },
+    {
+      "id": "lookup_weapon_nicole",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "니콜은 어떤 무기를 써?",
+      "gold": [
+        "법구"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.831
+    },
+    {
+      "id": "lookup_region_ororon",
+      "type": "lookup",
+      "field": "region",
+      "question": "올로룬의 출신 지역은 어디야?",
+      "gold": [
+        "나타"
+      ],
+      "pred": [
+        "서울"
+      ],
+      "raw": "[\"서울\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "seconds": 0.96
+    },
+    {
+      "id": "lookup_region_yoimiya",
+      "type": "lookup",
+      "field": "region",
+      "question": "요이미야의 출신 지역은 어디야?",
+      "gold": [
+        "이나즈마"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 0.834
+    },
+    {
+      "id": "lookup_weapon_ororon",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "올로룬은 어떤 무기를 써?",
+      "gold": [
+        "활"
+      ],
+      "pred": [],
+      "raw": "[]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.009
+    },
+    {
+      "id": "filter_region-리월_rarity-5성",
+      "type": "filter",
+      "field": "region+rarity",
+      "question": "리월 출신 5성 캐릭터를 모두 알려줘",
+      "gold": [
+        "각청",
+        "감우",
+        "백출",
+        "소",
+        "신학",
+        "야란",
+        "종려",
+        "치치",
+        "한운",
+        "호두"
+      ],
+      "pred": [
+        "{'name': '리월', 'characteristics': '5성', 'origin': '출신'}"
+      ],
+      "raw": "```json\n[\n    {\n        \"name\": \"리월\",\n        \"characteristics\": \"5성\",\n        \"origin\": \"출신\"\n    }\n]\n",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 10,
+      "seconds": 3.318
+    },
+    {
+      "id": "lookup_element_valeriy",
+      "type": "lookup",
+      "field": "element",
+      "question": "발레리의 원소는 뭐야?",
+      "gold": [
+        "번개"
+      ],
+      "pred": [
+        "수",
+        "기",
+        "화",
+        "철",
+        "수"
+      ],
+      "raw": "[\"수\", \"기\", \"화\", \"철\", \"수\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 1,
+      "seconds": 1.472
+    },
+    {
+      "id": "lookup_weapon_wriothesley",
+      "type": "lookup",
+      "field": "weapon",
+      "question": "라이오슬리는 어떤 무기를 써?",
+      "gold": [
+        "법구"
+      ],
+      "pred": [
+        "sword",
+        "bow_and_arrow"
+      ],
+      "raw": "[\"sword\", \"bow_and_arrow\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "seconds": 1.125
+    }
+  ],
+  "notes": "질문만 그대로"
+}

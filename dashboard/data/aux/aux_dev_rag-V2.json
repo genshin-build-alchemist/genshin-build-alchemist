@@ -1,0 +1,78 @@
+{
+  "experiment_id": "aux_dev_rag-V2",
+  "source_experiment": "dev_rag-V2",
+  "method": "rag",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset_version": "info_v2-dev",
+  "created_at": "2026-11-10T07:17:48",
+  "config": {
+    "code_version": "main@0e126c2",
+    "notebook": "03_aux_metrics"
+  },
+  "metrics": {
+    "n": 60,
+    "accuracy": 0.3667,
+    "refusal_accuracy": 1.0,
+    "hallucination_rate": 0.0882,
+    "answered": 34,
+    "hallucinated_questions": 3
+  },
+  "hallucinations": [
+    {
+      "id": "filter_element-번개_weapon-한손검",
+      "question": "한손검을 쓰는 번개 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "근거"
+      ],
+      "not_in_evidence": [
+        "근거"
+      ]
+    },
+    {
+      "id": "filter_element-바람_weapon-한손검",
+      "question": "한손검을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "닐루",
+        "카미사토 아야토",
+        "행추"
+      ],
+      "not_in_evidence": [
+        "카미사토 아야토",
+        "행추"
+      ]
+    },
+    {
+      "id": "filter_element-풀_weapon-법구",
+      "question": "법구를 쓰는 풀 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "네프르",
+        "라우마",
+        "백출",
+        "남연",
+        "느비예트",
+        "리사",
+        "말라니",
+        "모나",
+        "미탸",
+        "바레사",
+        "바바라",
+        "방랑자",
+        "보댜니차",
+        "산고노미야 코코미",
+        "샤를로트",
+        "시카노인 헤이조",
+        "시틀라리",
+        "야에 미코",
+        "응광",
+        "콜레이",
+        "콜롬비나",
+        "클레",
+        "키니치"
+      ],
+      "not_in_evidence": [
+        "네프르"
+      ]
+    }
+  ],
+  "notes": "보조 지표: 정답률(F1=1 비율), 거절 정확도(unknown에 [] 비율), 환각률(답한 문항 중 근거에 없는 답이 섞인 비율)"
+}

@@ -12,3 +12,5 @@ checkpoints/
 .ipynb_checkpoints/
 db/seed_documents.sql
 .streamlit/secrets.toml
+# 대시보드는 후처리본(_post)을 읽지 않음 -> 깃에 올리지 않음 (dashboard/README.md 2-2)
+dashboard/data/**/*_post.json
