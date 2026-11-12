@@ -201,6 +201,32 @@ def patch_fallback_answer(question, evidence, limit=5):
     return [_cut(l, TEXT_LINE_CHARS) for l in lines[:limit]] or None
 
 
+
+def item_fallback_answer(question, evidence, limit=5):
+    """모델이 아이템 근거를 받고도 []로 답했을 때 근거에서 바로 뽑은 줄 (11/12 시연 서버, '치명타 올려주는 활 뭐야?').
+    무기는 '이름 (성급 종류): 주옵션 ...', 성유물은 '이름 (성유물 세트): 2세트 효과 ...'.
+    질문 낱말(예: 치명타)이 주옵션에 들어간 무기가 있으면 그 무기만 남긴다."""
+    lines, matched = [], []
+    for e in evidence:
+        if e.get("kind") not in ("weapon", "artifact"):
+            continue
+        rows = [r.strip() for r in str(e.get("text", "")).split("\n") if r.strip()]
+        if not rows:
+            continue
+        head = rows[0].split(":")[0] if ":" in rows[0] and "(" not in rows[0] else rows[0]
+        if e["kind"] == "weapon":
+            stat = next((r.split("주옵션:")[-1].strip() for r in rows if "주옵션:" in r), "")
+            if not stat and ", 주옵션 " in rows[0]:          # 이름으로 찾은 근거: '탄궁: 3성 활, 주옵션 치명타 확률'
+                stat = rows[0].split(", 주옵션 ")[-1].strip()
+            line = f"{head}: 주옵션 {stat}" if stat else head
+            if stat and any(w in question for w in stat.replace("%", " ").split() if len(w) >= 2 and not w[0].isdigit()):
+                matched.append(line)
+        else:
+            effect = next((r for r in rows if r.startswith("2세트 효과")), "")
+            line = f"{head}: {effect}" if effect else head
+        lines.append(_cut(line, TEXT_LINE_CHARS))
+    return (matched or lines)[:limit] or None
+
 # ── 빌드 답 (build) ─────────────────────────────────────────
 # rag_v4(이름 목록) 프롬프트로는 3B가 빌드 카드 근거에 []를 냈다 (11/10 코랩, '카즈하 빌드 추천해줘').
 # 추천 목록은 사람이 확인한 카드 그대로 보여 주고(모델이 바꾸거나 지어낼 틈이 없게), 모델은 카드 설명(notes)으로 '이유' 한 문장만 쓴다.
@@ -440,6 +466,8 @@ class LLMAnswerer:
             answer = parse_text_answer(self.last_raw)
             if not answer and rr.route == "patch":     # 근거가 있는데 []: 근거 줄을 그대로 보여 준다
                 answer = patch_fallback_answer(question, evidence) or []
+            if not answer and rr.route == "item":
+                answer = item_fallback_answer(question, evidence) or []
             return answer
         self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
