@@ -1,0 +1,97 @@
+{
+  "experiment_id": "aux_dev_prompt_v2-V2",
+  "source_experiment": "dev_prompt_v2-V2",
+  "method": "prompt_v2",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset_version": "info_v2-dev",
+  "created_at": "2026-11-10T07:17:47",
+  "config": {
+    "code_version": "main@0e126c2",
+    "notebook": "03_aux_metrics"
+  },
+  "metrics": {
+    "n": 60,
+    "accuracy": 0.0667,
+    "refusal_accuracy": 1.0,
+    "hallucination_rate": 0.875,
+    "answered": 8,
+    "hallucinated_questions": 7
+  },
+  "hallucinations": [
+    {
+      "id": "filter_element-얼음_weapon-한손검",
+      "question": "한손검을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "아르셀리아"
+      ],
+      "not_in_evidence": [
+        "아르셀리아"
+      ]
+    },
+    {
+      "id": "filter_element-번개_rarity-4성",
+      "question": "4성 번개 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "레오나르도",
+        "마이클"
+      ],
+      "not_in_evidence": [
+        "레오나르도",
+        "마이클"
+      ]
+    },
+    {
+      "id": "filter_element-바람_weapon-한손검",
+      "question": "한손검을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "히에로니موس"
+      ],
+      "not_in_evidence": [
+        "히에로니موس"
+      ]
+    },
+    {
+      "id": "filter_region-몬드_element-물",
+      "question": "몬드 출신 물 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "아리아"
+      ],
+      "not_in_evidence": [
+        "아리아"
+      ]
+    },
+    {
+      "id": "filter_element-물_weapon-활",
+      "question": "활을 쓰는 물 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "히라가나 아키하라",
+        "히라가나 히로시"
+      ],
+      "not_in_evidence": [
+        "히라가나 아키하라",
+        "히라가나 히로시"
+      ]
+    },
+    {
+      "id": "filter_element-불_weapon-양손검",
+      "question": "양손검을 쓰는 불 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "히어로"
+      ],
+      "not_in_evidence": [
+        "히어로"
+      ]
+    },
+    {
+      "id": "filter_element-풀_weapon-양손검",
+      "question": "양손검을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "아르셀리아"
+      ],
+      "not_in_evidence": [
+        "아르셀리아"
+      ]
+    }
+  ],
+  "notes": "보조 지표: 정답률(F1=1 비율), 거절 정확도(unknown에 [] 비율), 환각률(답한 문항 중 근거에 없는 답이 섞인 비율)"
+}

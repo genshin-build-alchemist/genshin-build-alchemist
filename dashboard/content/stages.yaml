@@ -1,0 +1,36 @@
+# 단계 순서 · 표시 이름 · 개선점 / 알게 된 것 / 문제점
+# - order: 그래프·표·카드에 나오는 순서. 새 단계(rag_v5)는 여기에 한 줄 추가
+# - change(개선점)는 그래프 툴팁에도 나온다
+# - 글 속 숫자는 직접 쓴다. 고친 뒤 based_on.created_at을 summary.py 출력값으로 갱신 (README 3-3)
+based_on:
+  folder: official
+  created_at: "2026-11-10T06:38:09"
+
+order: [baseline, prompt_v2, rag, rag_v3, rag_v4]
+
+stages:
+  baseline:
+    label: baseline
+    change: 질문만 넣음
+    learned: "—"
+    problem: 없는 정보도 지어냄
+  prompt_v2:
+    label: prompt_v2
+    change: 규칙 + 예시 3개
+    learned: 모르는 캐릭터는 거절
+    problem: 대부분 빈 답
+  rag:
+    label: rag
+    change: 근거 문서 넣기
+    learned: 근거만으로 점수 크게 오름
+    problem: 성급·지역 빈 답
+  rag_v3:
+    label: rag_v3
+    change: 예시에도 근거 붙이기
+    learned: 원소·무기는 거의 정답
+    problem: 성급·지역 빈 답, 근거 베끼기
+  rag_v4:
+    label: rag_v4
+    change: 성급·지역 예시, 규칙 2줄
+    learned: 캐릭터 조회 거의 정답 (87문항 중 86)
+    problem: 조건 검색 그대로, 모르는 캐릭터의 성급을 지어냄

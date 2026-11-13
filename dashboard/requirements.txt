@@ -1,0 +1,5 @@
+# 대시보드(dashboard/app.py)에만 필요한 라이브러리. Streamlit Community Cloud 배포용
+# 버전 하한은 로컬에서 확인한 버전 (더 낮은 버전은 확인 안 함)
+streamlit>=1.67
+plotly>=7.1
+pyyaml>=6.0

@@ -1,0 +1,584 @@
+{
+  "experiment_id": "aux_dev_baseline-V2",
+  "source_experiment": "dev_baseline-V2",
+  "method": "baseline",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset_version": "info_v2-dev",
+  "created_at": "2026-11-10T07:17:47",
+  "config": {
+    "code_version": "main@0e126c2",
+    "notebook": "03_aux_metrics"
+  },
+  "metrics": {
+    "n": 60,
+    "accuracy": 0.0,
+    "refusal_accuracy": 0.0,
+    "hallucination_rate": 0.9184,
+    "answered": 49,
+    "hallucinated_questions": 45
+  },
+  "hallucinations": [
+    {
+      "id": "filter_element-번개_weapon-한손검",
+      "question": "한손검을 쓰는 번개 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '번개 레이트', 'ability': '한손검술과 번개 공격'}",
+        "{'name': '번개 스파이더', 'ability': '한손검술과 번개 공격'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '번개 레이트', 'ability': '한손검술과 번개 공격'}",
+        "{'name': '번개 스파이더', 'ability': '한손검술과 번개 공격'}"
+      ]
+    },
+    {
+      "id": "lookup_region_barbara",
+      "question": "바바라의 출신 지역은 어디야?",
+      "pred": [
+        "미국"
+      ],
+      "not_in_evidence": [
+        "미국"
+      ]
+    },
+    {
+      "id": "filter_element-얼음_weapon-한손검",
+      "question": "한손검을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '얼음 한손검사 1', 'element': '얼음'}",
+        "{'name': '얼음의 손자 2', 'element': '얼음'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '얼음 한손검사 1', 'element': '얼음'}",
+        "{'name': '얼음의 손자 2', 'element': '얼음'}"
+      ]
+    },
+    {
+      "id": "unknown_06",
+      "question": "세이렌하는 몇 성 캐릭터야?",
+      "pred": [
+        "세인트메리",
+        "세인트마리아"
+      ],
+      "not_in_evidence": [
+        "세인트메리",
+        "세인트마리아"
+      ]
+    },
+    {
+      "id": "filter_element-번개_rarity-4성",
+      "question": "4성 번개 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '파이어볼', 'element': '불'}",
+        "{'name': '얼러시', 'element': '얼음'}",
+        "{'name': '드래곤볼', 'element': '화염'}",
+        "{'name': '스톰볼', 'element': '우박'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '파이어볼', 'element': '불'}",
+        "{'name': '얼러시', 'element': '얼음'}",
+        "{'name': '드래곤볼', 'element': '화염'}",
+        "{'name': '스톰볼', 'element': '우박'}"
+      ]
+    },
+    {
+      "id": "filter_element-바람_weapon-한손검",
+      "question": "한손검을 쓰는 바람 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '바람의 원수', 'weapon': '한손검'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '바람의 원수', 'weapon': '한손검'}"
+      ]
+    },
+    {
+      "id": "lookup_region_lauma",
+      "question": "라우마의 출신 지역은 어디야?",
+      "pred": [
+        "스웨덴"
+      ],
+      "not_in_evidence": [
+        "스웨덴"
+      ]
+    },
+    {
+      "id": "lookup_region_navia",
+      "question": "나비아의 출신 지역은 어디야?",
+      "pred": [
+        "스위스"
+      ],
+      "not_in_evidence": [
+        "스위스"
+      ]
+    },
+    {
+      "id": "lookup_element_kachina",
+      "question": "카치나의 원소는 뭐야?",
+      "pred": [
+        "수"
+      ],
+      "not_in_evidence": [
+        "수"
+      ]
+    },
+    {
+      "id": "lookup_rarity_lyney",
+      "question": "리니는 몇 성 캐릭터야?",
+      "pred": [
+        "3"
+      ],
+      "not_in_evidence": [
+        "3"
+      ]
+    },
+    {
+      "id": "lookup_element_albedo",
+      "question": "알베도의 원소는 뭐야?",
+      "pred": [
+        "수"
+      ],
+      "not_in_evidence": [
+        "수"
+      ]
+    },
+    {
+      "id": "lookup_element_sandrone",
+      "question": "산드로네의 원소는 뭐야?",
+      "pred": [
+        "석",
+        "수"
+      ],
+      "not_in_evidence": [
+        "석",
+        "수"
+      ]
+    },
+    {
+      "id": "lookup_element_mona",
+      "question": "모나의 원소는 뭐야?",
+      "pred": [
+        "수",
+        "기"
+      ],
+      "not_in_evidence": [
+        "수",
+        "기"
+      ]
+    },
+    {
+      "id": "lookup_region_sucrose",
+      "question": "설탕의 출신 지역은 어디야?",
+      "pred": [
+        "인도"
+      ],
+      "not_in_evidence": [
+        "인도"
+      ]
+    },
+    {
+      "id": "lookup_element_prune",
+      "question": "프루네의 원소는 뭐야?",
+      "pred": [
+        "수",
+        "가"
+      ],
+      "not_in_evidence": [
+        "수",
+        "가"
+      ]
+    },
+    {
+      "id": "lookup_rarity_amber",
+      "question": "엠버는 몇 성 캐릭터야?",
+      "pred": [
+        "여"
+      ],
+      "not_in_evidence": [
+        "여"
+      ]
+    },
+    {
+      "id": "filter_region-몬드_element-물",
+      "question": "몬드 출신 물 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '몬드', 'element': '물'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '몬드', 'element': '물'}"
+      ]
+    },
+    {
+      "id": "lookup_rarity_baizhu",
+      "question": "백출은 몇 성 캐릭터야?",
+      "pred": [
+        "백출",
+        "1"
+      ],
+      "not_in_evidence": [
+        "1"
+      ]
+    },
+    {
+      "id": "unknown_07",
+      "question": "벨트라움의 출신 지역은 어디야?",
+      "pred": [
+        "스웨덴"
+      ],
+      "not_in_evidence": [
+        "스웨덴"
+      ]
+    },
+    {
+      "id": "lookup_element_mika",
+      "question": "미카의 원소는 뭐야?",
+      "pred": [
+        "수"
+      ],
+      "not_in_evidence": [
+        "수"
+      ]
+    },
+    {
+      "id": "lookup_element_keqing",
+      "question": "각청의 원소는 뭐야?",
+      "pred": [
+        "C",
+        "H",
+        "O"
+      ],
+      "not_in_evidence": [
+        "C",
+        "H",
+        "O"
+      ]
+    },
+    {
+      "id": "filter_element-풀_weapon-법구",
+      "question": "법구를 쓰는 풀 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{\"캐릭터명\": \"수소",
+        "법구\": \"원자\"}",
+        "{\"캐릭터명\": \"헬륨",
+        "법구\": \"가스\"}",
+        "{\"캐릭터명\": \"라이트니스",
+        "법구\": \"빛\"}",
+        "{\"캐릭터명\": \"네온",
+        "법구\": \"빛\"}",
+        "{\"캐릭터명\": \"아연",
+        "법구\": \"금속\"}",
+        "{\"캐릭터명\": \"비소",
+        "법구\": \"금속\"}",
+        "{\"캐릭터명\": \"규모나이트",
+        "법구\": \"물\"}",
+        "{\"캐릭터명\": \"알루미늄",
+        "법구\": \"금속\"}",
+        "{\"캐"
+      ],
+      "not_in_evidence": [
+        "{\"캐릭터명\": \"수소",
+        "법구\": \"원자\"}",
+        "{\"캐릭터명\": \"헬륨",
+        "법구\": \"가스\"}",
+        "{\"캐릭터명\": \"라이트니스",
+        "법구\": \"빛\"}",
+        "{\"캐릭터명\": \"네온",
+        "법구\": \"빛\"}",
+        "{\"캐릭터명\": \"아연",
+        "법구\": \"금속\"}",
+        "{\"캐릭터명\": \"비소",
+        "법구\": \"금속\"}",
+        "{\"캐릭터명\": \"규모나이트",
+        "법구\": \"물\"}",
+        "{\"캐릭터명\": \"알루미늄",
+        "법구\": \"금속\"}",
+        "{\"캐"
+      ]
+    },
+    {
+      "id": "lookup_region_tighnari",
+      "question": "타이나리의 출신 지역은 어디야?",
+      "pred": [
+        "대한민국"
+      ],
+      "not_in_evidence": [
+        "대한민국"
+      ]
+    },
+    {
+      "id": "lookup_weapon_kirara",
+      "question": "키라라는 어떤 무기를 써?",
+      "pred": [
+        "sword",
+        "laser"
+      ],
+      "not_in_evidence": [
+        "sword",
+        "laser"
+      ]
+    },
+    {
+      "id": "filter_region-나타_rarity-4성",
+      "question": "나타 출신 4성 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}"
+      ],
+      "not_in_evidence": [
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}",
+        "{'캐릭터': '나타', '성급': '4'}"
+      ]
+    },
+    {
+      "id": "lookup_region_mika",
+      "question": "미카의 출신 지역은 어디야?",
+      "pred": [
+        "스웨덴"
+      ],
+      "not_in_evidence": [
+        "스웨덴"
+      ]
+    },
+    {
+      "id": "lookup_rarity_mika",
+      "question": "미카는 몇 성 캐릭터야?",
+      "pred": [
+        "3"
+      ],
+      "not_in_evidence": [
+        "3"
+      ]
+    },
+    {
+      "id": "lookup_region_xiao",
+      "question": "소의 출신 지역은 어디야?",
+      "pred": [
+        "대한민국",
+        "중국",
+        "러시아"
+      ],
+      "not_in_evidence": [
+        "대한민국",
+        "중국",
+        "러시아"
+      ]
+    },
+    {
+      "id": "unknown_04",
+      "question": "엘렌시아의 원소는 뭐야?",
+      "pred": [
+        "수"
+      ],
+      "not_in_evidence": [
+        "수"
+      ]
+    },
+    {
+      "id": "filter_element-물_weapon-활",
+      "question": "활을 쓰는 물 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'원소': '수', '캐릭터': '수수'}",
+        "{'원소': '물', '캐릭터': '물고기'}",
+        "{'원소': '물', '캐릭터': '물개'}",
+        "{'원소': '물', '캐릭터': '물새'}"
+      ],
+      "not_in_evidence": [
+        "{'원소': '수', '캐릭터': '수수'}",
+        "{'원소': '물', '캐릭터': '물고기'}",
+        "{'원소': '물', '캐릭터': '물개'}",
+        "{'원소': '물', '캐릭터': '물새'}"
+      ]
+    },
+    {
+      "id": "filter_weapon-활_rarity-4성",
+      "question": "활을 쓰는 4성 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '강철활자', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '명중의 화살', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '활의 정석', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '활의 기술', 'level': 4, 'attribute': '공격력'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '강철활자', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '명중의 화살', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '활의 정석', 'level': 4, 'attribute': '공격력'}",
+        "{'name': '활의 기술', 'level': 4, 'attribute': '공격력'}"
+      ]
+    },
+    {
+      "id": "lookup_element_sucrose",
+      "question": "설탕의 원소는 뭐야?",
+      "pred": [
+        "C",
+        "H",
+        "O"
+      ],
+      "not_in_evidence": [
+        "C",
+        "H",
+        "O"
+      ]
+    },
+    {
+      "id": "lookup_region_charlotte",
+      "question": "샤를로트의 출신 지역은 어디야?",
+      "pred": [
+        "네덜란드"
+      ],
+      "not_in_evidence": [
+        "네덜란드"
+      ]
+    },
+    {
+      "id": "lookup_element_faruzan",
+      "question": "파루잔의 원소는 뭐야?",
+      "pred": [
+        "물"
+      ],
+      "not_in_evidence": [
+        "물"
+      ]
+    },
+    {
+      "id": "lookup_rarity_candace",
+      "question": "캔디스는 몇 성 캐릭터야?",
+      "pred": [
+        "캐릭터종류",
+        "개인"
+      ],
+      "not_in_evidence": [
+        "캐릭터종류",
+        "개인"
+      ]
+    },
+    {
+      "id": "filter_element-불_weapon-양손검",
+      "question": "양손검을 쓰는 불 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '불꽃의 검사', 'element': '불'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '불꽃의 검사', 'element': '불'}"
+      ]
+    },
+    {
+      "id": "lookup_rarity_yaemiko",
+      "question": "야에 미코는 몇 성 캐릭터야?",
+      "pred": [
+        "미코"
+      ],
+      "not_in_evidence": [
+        "미코"
+      ]
+    },
+    {
+      "id": "lookup_element_noelle",
+      "question": "노엘의 원소는 뭐야?",
+      "pred": [
+        "물리",
+        "화학"
+      ],
+      "not_in_evidence": [
+        "물리",
+        "화학"
+      ]
+    },
+    {
+      "id": "unknown_02",
+      "question": "미르하젤은 몇 성 캐릭터야?",
+      "pred": [
+        "미르하젤"
+      ],
+      "not_in_evidence": [
+        "미르하젤"
+      ]
+    },
+    {
+      "id": "filter_element-얼음_weapon-활",
+      "question": "활을 쓰는 얼음 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '얼음활'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '얼음활'}"
+      ]
+    },
+    {
+      "id": "filter_element-바위_weapon-활",
+      "question": "활을 쓰는 바위 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '석', 'element': ' earth'}",
+        "{'name': '돌', 'element': ' earth'}",
+        "{'name': '돌이', 'element': ' earth'}",
+        "{'name': '석이', 'element': ' earth'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '석', 'element': ' earth'}",
+        "{'name': '돌', 'element': ' earth'}",
+        "{'name': '돌이', 'element': ' earth'}",
+        "{'name': '석이', 'element': ' earth'}"
+      ]
+    },
+    {
+      "id": "filter_element-풀_weapon-양손검",
+      "question": "양손검을 쓰는 풀 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '강철', 'weapon': '양손검', 'element': '수'}",
+        "{'name': '금빛', 'weapon': '양손검', 'element': '기'}",
+        "{'name': '황금', 'weapon': '양손검', 'element': '황'}",
+        "{'name': '백금', 'weapon': '양손검', 'element': '백'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '강철', 'weapon': '양손검', 'element': '수'}",
+        "{'name': '금빛', 'weapon': '양손검', 'element': '기'}",
+        "{'name': '황금', 'weapon': '양손검', 'element': '황'}",
+        "{'name': '백금', 'weapon': '양손검', 'element': '백'}"
+      ]
+    },
+    {
+      "id": "filter_weapon-활_rarity-5성",
+      "question": "활을 쓰는 5성 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '이순신', 'level': 5}",
+        "{'name': '김유신', 'level': 5}",
+        "{'name': '장보고', 'level': 5}",
+        "{'name': '강감찬', 'level': 5}",
+        "{'name': '임꺽정', 'level': 5}"
+      ],
+      "not_in_evidence": [
+        "{'name': '이순신', 'level': 5}",
+        "{'name': '김유신', 'level': 5}",
+        "{'name': '장보고', 'level': 5}",
+        "{'name': '강감찬', 'level': 5}",
+        "{'name': '임꺽정', 'level': 5}"
+      ]
+    },
+    {
+      "id": "filter_region-나타_element-바람",
+      "question": "나타 출신 바람 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': '나타'}",
+        "{'name': '바람'}"
+      ],
+      "not_in_evidence": [
+        "{'name': '나타'}",
+        "{'name': '바람'}"
+      ]
+    },
+    {
+      "id": "filter_region-수메르_element-번개",
+      "question": "수메르 출신 번개 원소 캐릭터를 모두 알려줘",
+      "pred": [
+        "{'name': 'Enki', 'element': 'Thunderbolt'}",
+        "{'name': 'Ninhursag', 'element': 'Thunderbolt'}"
+      ],
+      "not_in_evidence": [
+        "{'name': 'Enki', 'element': 'Thunderbolt'}",
+        "{'name': 'Ninhursag', 'element': 'Thunderbolt'}"
+      ]
+    }
+  ],
+  "notes": "보조 지표: 정답률(F1=1 비율), 거절 정확도(unknown에 [] 비율), 환각률(답한 문항 중 근거에 없는 답이 섞인 비율)"
+}

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원신 챗봇 성능 개선 비교 대시보드 (와이어프레임 확정본)</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#111110;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:#C2C0B6}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+.dk{background:#1A1A19;border-radius:12px;padding:24px}
+.ttl{font-size:24px;font-weight:600;color:#F1EFE8;margin:0;line-height:1.3}
+.mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.meta{font-size:12px;color:#888780}
+.cond{font-size:11px;color:#FAC775;background:#3A2E14;border-radius:12px;padding:3px 10px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:26px;padding-bottom:16px;border-bottom:0.5px solid #3A3A38}
+.tb-btn{font-size:13px;padding:7px 14px;border-radius:8px;border:0.5px solid #444441;background:transparent;color:#888780;cursor:pointer;user-select:none}
+.tb-btn:hover{color:#D3D1C7}
+.tb-btn.on{background:#F1EFE8;border-color:#F1EFE8;color:#1A1A19;font-weight:600}
+.pn{display:none}.pn.on{display:block}
+.sum{margin:20px 0 22px;padding:14px 16px;background:#2A2A28;border-radius:8px;font-size:14px;color:#E4E2DA;line-height:2.0}
+.sum b{color:#FFFFFF;font-weight:600}
+.kh{display:flex;justify-content:flex-end;font-size:11px;color:#6E6D68;margin-bottom:8px}
+.kp{display:grid;gap:8px;margin-bottom:24px}
+.k{background:#232322;border-radius:8px;padding:12px 14px;border-left:4px solid #444441;min-width:0}
+.kl{font-size:13px;font-weight:600;color:#D3D1C7}
+.kn{font-size:24px;font-weight:600;color:#F1EFE8;margin:4px 0 2px}
+.kn small{font-size:13px;color:#B4B2A9;font-weight:400;margin-left:2px}
+.kc{font-size:11px;color:#888780}
+.km{font-size:22px;font-weight:600;color:#F1EFE8;margin:8px 0 4px;white-space:nowrap}
+.km .md{font-size:18px;margin-right:6px}
+.kv{font-size:13px;color:#888780}
+.dl{font-size:11px}.good{color:#97C459}.bad{color:#F0997B}
+.panel{background:#202020;border-radius:8px;padding:18px 18px 16px;margin-bottom:16px}
+.q{font-size:15px;font-weight:600;color:#F1EFE8;margin:0 0 20px}
+.qs{font-size:12px;color:#888780;font-weight:400}
+.qs::before{content:"|";margin:0 8px;color:#5F5E5A}
+.rs{display:flex;gap:12px;align-items:flex-start;margin:26px 0 4px;padding:14px 16px;background:#262624;border:0.5px solid #3A3A38;border-radius:8px}
+.rs .em{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#333331;display:flex;align-items:center;justify-content:center;font-size:15px}
+.rs ul{margin:0;padding-left:16px;font-size:13px;line-height:1.9;color:#D3D1C7}
+.rs li{margin-bottom:3px}
+.rs li b{color:#F1EFE8;font-weight:600}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:#333331;padding:1px 5px;border-radius:4px;color:#F1EFE8}
+svg{display:block}
+svg text{font-family:inherit}
+.lg{display:flex;gap:16px;font-size:11px;color:#B4B2A9;flex-wrap:wrap;margin:6px 0 0 11%;align-items:center;line-height:1.8}
+.sq{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.ln{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.dt{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:5px}
+.inf{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:0.5px solid #6E6D68;color:#888780;font-size:9px;margin-left:4px;cursor:help;vertical-align:middle}
+.inf:hover{border-color:#B4B2A9;color:#D3D1C7}
+.hint{font-size:11px;color:#6E6D68;margin:6px 0 0 11%}
+#tip{position:fixed;display:none;background:#2C2C2A;border:0.5px solid #5F5E5A;border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.8;color:#D3D1C7;box-shadow:0 4px 14px rgba(0,0,0,.5);pointer-events:none;z-index:9;white-space:nowrap}
+#tip b{color:#FFFFFF;font-weight:600}
+#tip .h{color:#F1EFE8;font-weight:600;margin-bottom:2px}
+#tip .c{color:#B4B2A9;border-top:0.5px solid #444441;margin-top:4px;padding-top:4px}
+#tip .d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+details{margin-top:8px;border:0.5px solid #3A3A38;border-radius:8px;padding:14px 16px}
+summary{cursor:pointer;font-size:14px;color:#E4E2DA}
+.box{margin-top:10px;background:#232322;border-radius:8px;padding:14px 16px;font-size:13px;color:#D3D1C7}
+.box>span{display:block;font-size:11px;color:#888780;margin-bottom:8px}
+.box ul{margin:0;padding-left:18px;line-height:1.85}.box li{margin-bottom:3px}.box li b{color:#F1EFE8;font-weight:600}
+.box ul ul{margin-top:2px}
+.box .sub{color:#9C9A92;font-size:12px}
+.kvt{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+.kvt td{padding:7px 8px;border-bottom:0.5px solid #2E2E2C;vertical-align:top;color:#D3D1C7;line-height:1.6}
+.kvt td:first-child{width:110px;color:#888780}
+.kvt tr:last-child td{border-bottom:none}
+.res{margin-top:10px;background:#262624;border:0.5px solid #444441;border-radius:8px;padding:14px 14px 10px}
+.res>span{display:block;font-size:13px;font-weight:600;color:#F1EFE8;margin-bottom:10px}
+.rt{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;table-layout:fixed}
+.rt th{padding:9px 10px;text-align:left;font-weight:600;font-size:12px;color:#D3D1C7;background:#333331}
+.rt th:first-child{border-radius:6px 0 0 6px}.rt th:last-child{border-radius:0 6px 6px 0}
+.rt td{padding:10px;border-bottom:0.5px solid #333331;color:#D3D1C7;vertical-align:top}
+.rt td:first-child{color:#F1EFE8;font-weight:600}
+.rt tr:last-child td{border-bottom:none}
+.rt tr.hl td{background:#2E2B45;color:#F1EFE8}
+.rt tr.hl td:first-child{border-radius:6px 0 0 6px}.rt tr.hl td:last-child{border-radius:0 6px 6px 0}
+.defs{font-size:12px;color:#9C9A92;margin-top:10px;line-height:1.8}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin:22px 0 14px;align-items:center}
+.chips>span{font-size:11px;color:#888780;margin-right:4px}
+.chip{font-size:12px;padding:4px 11px;border-radius:14px;border:0.5px solid #444441;color:#888780;user-select:none}
+.chip.on{background:#F1EFE8;color:#1A1A19;border-color:#F1EFE8;font-weight:600}
+.chip.off{opacity:.4}
+.foot{font-size:11px;color:#5F5E5A;margin-top:18px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="dk">
+<p class="ttl">원신 챗봇 성능 개선 비교 대시보드</p>
+<div class="mrow"><span class="meta">평가셋 info_v2 · 데이터 7.2</span><span class="cond" id="cond"></span></div>
+<div class="tabs" id="tabs">
+<div class="tb-btn on" data-p="p1" data-cond="공식 평가 115문항 · info_v1 임시 값 (info_v2 결과로 교체 예정)">① 성능 변화</div>
+<div class="tb-btn" data-p="p2" data-cond="DEV 60문항 · Colab T4 · 후처리 없음">② 응답 시간</div>
+<div class="tb-btn" data-p="p3" data-cond="DEV 60문항 · 후처리 없음 · 저장된 답 재채점">③ 보조 지표</div>
+<div class="tb-btn" data-p="p4" data-cond="DEV 60문항 · rag_v4 프롬프트 고정">④ 모델 비교</div>
+</div>
+
+<!-- ① 성능 변화 -->
+<div class="pn on" id="p1">
+<div class="sum">📈 전체 점수가 <b>0.019 → 0.848</b>로 올랐어요.<br>✅ 캐릭터 조회와 데이터 없음은 <b>1.0</b>에 도달했어요.<br>⚠️ 조건 검색은 <b>0.303</b>에 머물러 있어요.</div>
+<div class="kp" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<div class="k" style="border-left-color:#7F77DD"><div class="kl">전체</div><div class="kn">0.848</div><div class="kc">115문항</div></div>
+<div class="k" style="border-left-color:#85B7EB"><div class="kl">캐릭터 조회</div><div class="kn">1.0</div><div class="kc">82문항</div></div>
+<div class="k" style="border-left-color:#F0997B"><div class="kl">조건 검색</div><div class="kn">0.303</div><div class="kc">25문항</div></div>
+<div class="k" style="border-left-color:#97C459"><div class="kl">데이터 없음</div><div class="kn">1.0</div><div class="kc">8문항</div></div>
+</div>
+<div class="panel">
+<p class="q">단계별로 점수가 얼마나 올랐나<span class="qs">단계별 Macro F1 · 전체와 질문 유형별</span></p>
+<svg viewBox="0 0 640 262" width="100%" id="c1a"></svg>
+<div class="lg"><span><span class="ln" style="background:#7F77DD"></span>전체</span><span><span class="ln" style="background:#85B7EB"></span>캐릭터 조회</span><span><span class="ln" style="background:#F0997B"></span>조건 검색</span><span><span class="ln" style="background:#97C459"></span>데이터 없음</span></div>
+<div class="hint">그래프에 마우스를 올리면 단계별 점수와 개선점이 보여요</div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>근거 넣기(rag)와 성급·지역 규칙(rag_v4)에서 점수가 크게 올랐어요.</b></li>
+<li>캐릭터 조회와 데이터 없음은 1.0에 도달했어요.</li>
+<li>조건 검색은 rag_v3 이후 0.3 근처에서 멈춰 있어요.</li>
+<li>다음 개선은 조건 검색에 집중해야 해요.</li>
+</ul></div>
+</div>
+<details><summary>실험 기록 보기</summary>
+<div class="res"><span>📊 결과</span>
+<table class="rt"><tr><th style="width:90px">단계</th><th>개선점</th><th>알게 된 것</th><th>문제점</th></tr>
+<tr><td>baseline</td><td>질문만 넣음</td><td>—</td><td>없는 정보도 지어냄</td></tr>
+<tr><td>prompt_v2</td><td>규칙 + 예시 3개</td><td>모르는 캐릭터는 거절</td><td>대부분 빈 답</td></tr>
+<tr><td>rag</td><td>근거 문서 넣기</td><td>근거만으로 점수 크게 오름</td><td>성급·지역 빈 답</td></tr>
+<tr><td>rag_v3</td><td>예시에도 근거 붙이기</td><td>원소·무기는 거의 정답</td><td>성급·지역 빈 답, 근거 베끼기</td></tr>
+<tr class="hl"><td>rag_v4</td><td>성급·지역 예시, 규칙 2줄</td><td>캐릭터 조회 전부 정답</td><td>조건 검색 그대로</td></tr></table></div>
+<div class="box"><span>요약</span><ul>
+<li><b>단계마다 점수가 오름</b> → RAG(근거 넣기)와 rag_v3(예시에도 근거)가 크게 먹힘<br><span class="sub">전체 0.07 → 0.382 → 0.563</span></li>
+<li><b>rag 계열은 데이터에 없는 질문에 지어내지 않음</b><br><span class="sub">데이터 없음 rag부터 계속 1.0 · baseline은 알하이탐 출신을 "대한민국"으로 지어냄</span></li>
+<li><b>성급·지역 빈 답은 프롬프트로 해결</b> → 근거의 "5성/4성"이 성급, "지역"이 출신 지역이라고 알려줌<br><span class="sub">성급 0.08 → 1.0 · 지역 0.5 → 1.0 · 캐릭터 조회 82문항 전부 정답</span></li>
+<li><b>조건 검색은 프롬프트로 풀리지 않음</b> → 정답은 찾지만 조건에 안 맞는 캐릭터까지 나열<br><span class="sub">예: 리월 출신 바위 원소, 정답 3명 / 답 26명 · 원인은 모델이 아니라 검색 (조건이 하나만 맞아도 근거로 최대 30명이 들어옴)</span></li>
+<li><b>공정한 비교를 위한 규칙</b> → 프롬프트는 DEV 60문항으로만 고르고, 평가 문항은 단계마다 한 번만 돌림</li>
+</ul></div>
+<div class="box"><span>다음</span>조건 검색 개선 (rag_v5): 검색 단계에서 "조건 모두 만족" 캐릭터만 근거로</div>
+</details>
+</div>
+
+<!-- ② 응답 시간 -->
+<div class="pn" id="p2">
+<div class="sum">⏱️ rag_v4는 평균 <b>2.384초</b>로 응답하면서 Macro F1 <b>0.796</b> 달성<br>📈 baseline 대비 <b>0.489초</b> 느리지만 정확도는 크게 향상<br>⚠️ 조건 검색은 평균 <b>4.713초</b>로 상대적으로 느림</div>
+<div class="kh">rag_v4 기준 · baseline 대비 변화 (<span class="good">&nbsp;좋아짐&nbsp;</span>/<span class="bad">&nbsp;나빠짐</span>)</div>
+<div class="kp" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+<div class="k"><div class="kl">평균</div><div class="kn">2.384<small>초</small></div><div class="dl bad">▲ 0.489초</div></div>
+<div class="k"><div class="kl">중앙값</div><div class="kn">1.482<small>초</small></div><div class="dl bad">▲ 0.382초</div></div>
+<div class="k"><div class="kl">최대</div><div class="kn">6.59<small>초</small></div><div class="dl good">▼ 1.847초</div></div>
+<div class="k"><div class="kl">Macro F1</div><div class="kn">0.796</div><div class="dl good">▲ 0.785</div></div>
+<div class="k"><div class="kl">빈 답</div><div class="kn">4<small>개</small></div><div class="dl good">▼ 7개</div></div>
+</div>
+<div class="panel">
+<p class="q">점수가 오르는 동안 시간은 얼마나 늘었나<span class="qs">단계별 Macro F1 · 평균·중앙값 응답 시간</span></p>
+<svg viewBox="0 0 640 330" width="100%" id="c2a"></svg>
+<div class="lg"><span><span class="sq" style="background:#888780"></span>평균</span><span><span class="sq" style="background:#5F5E5A"></span>중앙값</span></div>
+<div class="hint">그래프에 마우스를 올리면 단계별 상세 내용이 보여요.</div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>품질은 크게 올리고 기다리는 시간은 거의 그대로예요.</b></li>
+<li>정확도가 0.011에서 0.796으로 오르는 동안 대기 시간은 0.489초만 늘었어요.</li>
+<li>사용자가 체감할 만큼 느려지지 않고 답의 품질만 좋아졌다는 뜻이에요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">빈 답이 많으면 빨라지나<span class="qs">단계별 빈 답 수 × 평균 응답 시간</span></p>
+<svg viewBox="0 0 640 260" width="100%" id="c2b"></svg>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>빠른 응답 중 상당수는 "모른다"고 답을 비운 결과예요.</b></li>
+<li>빈 답이 많은 단계일수록 빨랐어요 (r ≈ −0.904).</li>
+<li>속도만 보고 단계를 고르면 오히려 답을 안 하는 챗봇을 고르게 돼요.</li>
+<li>속도는 반드시 정확도와 함께 판단해야 해요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">어디서 느린가<span class="qs">단계 × 질문 유형별 평균 응답 시간</span></p>
+<svg viewBox="0 0 640 210" width="100%" id="c2c"></svg>
+<div class="lg" style="margin-left:9.5%"><span><span class="sq" style="background:#85B7EB"></span>캐릭터 조회</span><span><span class="sq" style="background:#F0997B"></span>조건 검색</span></div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>느린 원인은 조건 검색 하나로 좁혀져요.</b></li>
+<li>답을 내는 단계에서는 조건 검색이 캐릭터 조회보다 약 3배 느려요 (rag_v4: 4.713초 vs 1.548초).</li>
+<li>이름을 많이 나열할수록 오래 걸려요.</li>
+<li>근거를 줄여 답을 짧게 만드는 rag_v5가 속도 개선에도 가장 효과적이에요.</li>
+</ul></div>
+</div>
+<details><summary>실험 기록 보기</summary>
+<div class="box"><span>실험 조건</span>
+<table class="kvt">
+<tr><td>실행 환경</td><td>Google Colab, 한 런타임에서 다섯 방법을 이어서 실행</td></tr>
+<tr><td>GPU</td><td>T4 (STANDARD)</td></tr>
+<tr><td>실행 시각</td><td>2026-11-10 05:52 ~ 06:05 (UTC)<br>rag_v4를 먼저 실행(05:52 ~ 05:54)하고, 나머지 네 방법을 이어서 실행(05:58 ~ 06:05)</td></tr>
+<tr><td>준비 실행</td><td>측정 직전에 노트북 01 셀 9(속도 점검)로 다섯 방법을 1번씩 생성</td></tr>
+<tr><td>실행 순서</td><td>rag_v4 → baseline → prompt_v2 → rag → rag_v3</td></tr>
+<tr><td>코드</td><td><code>main@af0c97c</code> (결과 JSON의 <code>config.code_version</code>)</td></tr>
+<tr><td>평가셋</td><td><code>info_v2</code> (결과 JSON의 <code>dataset_version</code>: <code>info_v2-dev</code>)</td></tr>
+<tr><td>모델</td><td><code>Qwen/Qwen2.5-3B-Instruct</code>, float16</td></tr>
+<tr><td>생성 설정</td><td><code>max_new_tokens=160</code>, <code>do_sample=False</code>(샘플링 끔), <code>]</code>가 나오면 멈춤</td></tr>
+<tr><td>문항</td><td>DEV 60문항 (모든 방법이 같은 질문)</td></tr>
+</table></div>
+<div class="res"><span>📊 결과</span>
+<table class="rt" id="t2"><tr><th style="width:90px">단계</th><th>평균</th><th>중앙값</th><th>최대</th><th>Macro F1</th><th>빈 답</th></tr></table></div>
+<div class="chips"><span>단계 선택</span><div class="chip on">rag_v4</div><div class="chip off">rag_v5 (예정)</div></div>
+<div class="box"><span>주요 발견</span><ul>
+<li><b>rag_v4는 정확도 대비 속도 효율적</b> → baseline보다 0.489초 느리지만 Macro F1은 크게 향상<br><span class="sub">Macro F1 0.011 → 0.796</span></li>
+<li><b>rag_v3 → rag_v4 시간 차이 작음</b> → 프롬프트가 길어졌지만 지연 증가 미미<br><span class="sub">평균 2.223초 → 2.384초 (+0.161초)</span></li>
+<li><b>전 방법에서 빠른 응답</b><br><span class="sub">중앙값 1.5초 이하 · 최대 10초 이하</span></li>
+<li><b>조건 검색이 주요 지연 원인</b> → 여러 이름을 출력해야 해서 생성량 증가<br><span class="sub">조회 평균 1.548초 · 조건 검색 평균 4.713초 · 가장 오래 걸린 3문항 모두 조건 검색</span></li>
+<li><b>빠른 응답이 좋은 성능을 의미하지 않음</b> → 속도는 Macro F1·빈 답 수와 함께 비교<br><span class="sub">prompt_v2 평균 1.055초로 가장 빠르지만 60문항 중 52문항 빈 답</span></li>
+</ul></div>
+<div class="box"><span>다음 과제</span>조건 검색 개선 (rag_v5): 근거가 줄면 답이 짧아져 속도도 함께 좋아질 것으로 예상</div>
+</details>
+</div>
+
+<!-- ③ 보조 지표 -->
+<div class="pn" id="p3">
+<div class="sum">✅ rag_v4 정답률 <b>0.717</b>로 가장 높음 (60문항 중 43문항 완전 정답)<br>📉 RAG로 환각률 <b>0.918 → 0.089</b> 감소<br>⚠️ rag_v4 거절 정확도 <b>0.75</b>로 하락 (모르는 캐릭터 1문항에 답함)</div>
+<div class="kh">rag_v4 기준 · baseline 대비 변화 (<span class="good">&nbsp;좋아짐&nbsp;</span>/<span class="bad">&nbsp;나빠짐</span>)</div>
+<div class="kp" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="k"><div class="kl">정답률</div><div class="kn">0.717</div><div class="dl good">▲ 0.717</div></div>
+<div class="k"><div class="kl">거절 정확도</div><div class="kn">0.75</div><div class="dl good">▲ 0.75</div></div>
+<div class="k"><div class="kl">환각률</div><div class="kn">0.089</div><div class="dl good">▼ 0.829</div></div>
+</div>
+<div class="panel">
+<p class="q">답의 품질은 어떻게 변했나<span class="qs">단계별 정답률 · 거절 정확도 · 환각률</span></p>
+<svg viewBox="0 0 640 250" width="100%" id="c3a"></svg>
+<div class="lg">
+<span><span class="ln" style="background:#7F77DD"></span>정답률<span class="inf" data-tip="정답과 완전 일치(F1=1)한 문항 비율">i</span></span>
+<span><span class="ln" style="background:#97C459"></span>거절 정확도<span class="inf" data-tip="unknown 4문항 중 [] 반환 비율">i</span></span>
+<span><span class="ln" style="background:#F0997B"></span>환각률<span class="inf" data-tip="답변에 근거 없는 이름·값이 포함된 비율">i</span></span>
+</div>
+<div class="hint">그래프에 마우스를 올리면 단계별 상세 내용이 보여요.</div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>근거를 넣는 순간 지어내는 답이 거의 사라졌어요.</b></li>
+<li>환각률이 prompt_v2 0.875에서 rag 0.088로 급감했어요.</li>
+<li>그 뒤로는 환각을 낮게 유지한 채 정답률만 꾸준히 올라갔어요.</li>
+<li>rag_v4의 거절 정확도 하락은 4문항 중 1건이라 값이 크게 출렁인 거예요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">많이 답해도 지어내지 않나<span class="qs">단계별 답한 문항 수 · 그중 환각 건수</span></p>
+<svg viewBox="0 0 640 230" width="100%" id="c3b"></svg>
+<div class="lg"><span><span class="sq" style="background:#97C459"></span>근거 안에서 답함</span><span><span class="sq" style="background:#F0997B"></span>환각 포함</span><span style="color:#6E6D68">· 막대 전체 = 답한 문항 수 (60문항 중, 빈 답 제외)</span></div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>prompt_v2의 "완벽한 거절"은 답을 거의 안 해서 생긴 착시예요.</b></li>
+<li>60문항 중 8문항만 답했고, 그 8개 중 7개가 지어낸 답이었어요.</li>
+<li>rag_v4는 가장 많은 56문항에 답하면서도 환각은 5건에 그쳤어요.</li>
+<li>많이 답하면서도 지어내지 않는, 실제로 쓸 수 있는 챗봇에 가까워졌다는 뜻이에요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">남은 환각은 어디서 나오나<span class="qs">단계별 환각률 · 질문 유형별 구성</span></p>
+<svg viewBox="0 0 640 240" width="100%" id="c3c"></svg>
+<div class="lg" style="margin-left:17%"><span><span class="sq" style="background:#85B7EB"></span>캐릭터 조회</span><span><span class="sq" style="background:#F0997B"></span>조건 검색</span><span><span class="sq" style="background:none;border:1px dashed #6E6D68"></span>유형 구분 없음</span><span><span class="sq" style="background:#97C459"></span>데이터 없음</span></div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>근거를 넣자 환각 총량이 10분의 1 수준으로 줄었어요.</b></li>
+<li>prompt_v2까지는 답의 9할 가까이가 지어낸 답이었지만, rag부터는 0.09 이하로 떨어졌어요.</li>
+<li>근거를 넣은 뒤 남은 환각은 거의 조건 검색에서 나와요 (rag_v4: 5건 중 4건).</li>
+<li>조건 검색 개선(rag_v5)과 이름 후처리가 환각을 더 줄이는 다음 우선순위예요.</li>
+</ul></div>
+</div>
+<details><summary>실험 기록 보기</summary>
+<div class="res"><span>📊 결과</span>
+<table class="rt"><tr><th style="width:90px">단계</th><th>정답률</th><th>거절 정확도</th><th>환각률</th><th>환각 / 답한 문항</th></tr>
+<tr><td>baseline</td><td>0</td><td>0</td><td>0.918</td><td>45 / 49</td></tr>
+<tr><td>prompt_v2</td><td>0.067</td><td>1.0</td><td>0.875</td><td>7 / 8</td></tr>
+<tr><td>rag</td><td>0.367</td><td>1.0</td><td>0.088</td><td>3 / 34</td></tr>
+<tr><td>rag_v3</td><td>0.45</td><td>1.0</td><td>0.079</td><td>3 / 38</td></tr>
+<tr class="hl"><td>rag_v4</td><td>0.717</td><td>0.75</td><td>0.089</td><td>5 / 56</td></tr></table>
+<div class="defs">· 정답률: 정답과 완전 일치(F1 = 1)한 문항 비율<br>· 거절 정확도: unknown 4문항 중 [] 반환 비율<br>· 환각률: 답변에 근거 없는 이름·값이 포함된 비율</div></div>
+<div class="box"><span>주요 발견</span><ul>
+<li><b>rag_v4 정답률 1위</b> → 60문항 중 43문항 완전 정답<br><span class="sub">rag_v3 0.45 → rag_v4 0.717</span></li>
+<li><b>RAG 도입으로 환각 대폭 감소</b> → RAG 방식 모두 환각률 0.09 이하<br><span class="sub">baseline 0.918 → rag_v4 0.089 · baseline은 모르는 질문에도 답을 생성</span></li>
+<li><b>rag_v4 거절 정확도 하락</b> → "미르하젤은 몇 성 캐릭터야?"에 5성으로 답함<br><span class="sub">unknown 4문항뿐이라 1건에 0.25씩 변동</span></li>
+<li><b>남은 환각은 대부분 조건 검색</b><br><span class="sub">rag_v4 환각 5건 중 4건 조건 검색 · 1건은 데이터 없음 질문</span></li>
+<li><b>환각률만으로 성능 판단 불가</b> → Macro F1·빈 답 수와 함께 비교<br><span class="sub">rag_v3 0.079 / rag_v4 0.089이지만 답한 문항은 38개 → 56개</span></li>
+</ul></div>
+<div class="box"><span>다음 과제</span>조건 검색 개선 (rag_v5) · 모르는 캐릭터 거절 규칙 점검 · 근거에 있지만 조건에 안 맞는 이름까지 잡는 환각 지표 (심화)</div>
+</details>
+</div>
+
+<!-- ④ 모델 비교 -->
+<div class="pn" id="p4">
+<div class="sum">📏 모델이 크다고 반드시 성능이 좋아지는 것은 아님<br>🏆 가장 높은 Macro F1 &amp; 가장 빠른 응답 속도는 1.5B이지만, 조건 검색 재현율은 3B가 더 높음<br>🖥️ GPU를 바꿔도 성능은 같고 속도만 달라짐 (L4가 T4보다 약 1.3~1.4배 빠름)<br>⚠️ 조건 검색 성능은 모델과 관계없이 0.3~0.5 수준으로 낮음<br>✅ 최종 선택한 챗봇 LLM 모델: <b>Qwen2.5-3B</b></div>
+<div class="kp" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<div class="k"><div class="kl">Macro F1</div><div class="km"><span class="md">🥇</span>1.5B</div><div class="kv">0.862점(F1)</div></div>
+<div class="k"><div class="kl">조건 검색</div><div class="km"><span class="md">🥇</span>1.5B</div><div class="kv">0.483점(F1)</div></div>
+<div class="k"><div class="kl">캐릭터 조회</div><div class="km"><span class="md">🥇</span>1.5B · 3B</div><div class="kv">1.0점(F1)</div></div>
+<div class="k"><div class="kl">평균 응답</div><div class="km"><span class="md">🥇</span>1.5B</div><div class="kv">1.142초</div></div>
+</div>
+<div class="panel">
+<p class="q">모델을 키우면 성능이 좋아지나<span class="qs">모델 크기별 · 질문 유형별 Macro F1 (GPU L4 · 정밀도 fp16 기준)</span></p>
+<svg viewBox="0 0 640 290" width="100%" id="c4a"></svg>
+<div class="lg"><span><span class="sq" style="background:#7F77DD"></span>전체</span><span><span class="sq" style="background:#85B7EB"></span>캐릭터 조회</span><span><span class="sq" style="background:#F0997B"></span>조건 검색</span></div>
+<div class="hint">그래프에 마우스를 올리면 모델별 상세 내용이 보여요.</div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>모델 크기를 키워도 성능이 좋아지지 않아요.</b></li>
+<li>1.5B가 Macro F1 0.862로 1위예요.</li>
+<li>7B는 3B와 비슷한 수준이에요.</li>
+<li>캐릭터 조회는 세 모델 모두 거의 만점이라, 점수 차이는 대부분 조건 검색에서 나와요.</li>
+<li>7B에서 <code>'Appears in the region of 나타'</code>처럼 영어가 섞이는 답변이 발생해 캐릭터 조회 성능이 일부 하락했어요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">1.5B는 왜 점수가 높게 나왔나<span class="qs">모델별 정밀도와 재현율의 간격 · 조건 검색 평균 답 길이 (GPU L4 · 정밀도 fp16 기준)</span></p>
+<svg viewBox="0 0 640 230" width="100%" id="c4b"></svg>
+<div class="lg" style="margin-left:13%">
+<span><span class="dt" style="background:#AFA9EC"></span>정밀도<span class="inf" data-tip="모델이 쓴 답 중 정답 비율 (60문항 전체)">i</span></span>
+<span><span class="dt" style="background:#5DCAA5"></span>재현율<span class="inf" data-tip="정답 중 모델이 찾아낸 비율 (60문항 전체)">i</span></span>
+<span><span class="sq" style="background:#888780"></span>평균 답 길이<span class="inf" data-tip="조건 검색 16문항에서 답한 이름 수 평균">i</span></span>
+</div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>조건 검색에서 이름을 적게 출력해(평균 3.1명) 정밀도가 높아진 영향이에요.</b></li>
+<li>재현율은 오히려 3B가 더 높아요 (1.5B 0.67 &lt; 3B 0.84).</li>
+<li>즉, 1.5B는 답변을 보수적으로 출력하는 경향이 있어요.</li>
+<li>1.5B의 높은 점수가 조건 판단 능력이 더 좋다는 의미는 아니에요.</li>
+<li>정답이 적은 질문은 1.5B, 정답이 많은 질문은 3B가 유리해요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">모델을 키우면 속도가 빨라지나<span class="qs">모델 크기별 · 질문 유형별 평균 응답 시간 (GPU L4 · 정밀도 fp16 기준)</span></p>
+<svg viewBox="0 0 640 260" width="100%" id="c4c"></svg>
+<div class="lg"><span><span class="ln" style="background:#888780"></span>전체 평균</span><span><span class="ln" style="background:#85B7EB"></span>캐릭터 조회</span><span><span class="ln" style="background:#F0997B"></span>조건 검색</span></div>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>모델이 커질수록 느려져요.</b></li>
+<li>평균 응답 시간이 1.5B 1.142초 → 3B 1.843초 → 7B 2.085초로 늘어나요.</li>
+<li>캐릭터 조회는 모델 크기와 관계없이 1.036~1.418초로 큰 차이가 없어요.</li>
+<li>차이는 조건 검색에서 커요: 1.5B는 1.462초, 3B·7B는 3.819~3.977초예요.</li>
+<li>1.5B가 빠른 이유는 모델이 작아서이기도 하지만, 조건 검색에서 이름을 적게 쓰기 때문이기도 해요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">GPU·정밀도는 성능에 얼마나 영향을 주나<span class="qs">모델 · GPU · 정밀도별 Macro F1</span></p>
+<svg viewBox="0 0 640 330" width="100%" id="c4d"></svg>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>같은 모델 안에서는 GPU·정밀도를 바꿔도 점수가 거의 그대로예요.</b></li>
+<li>7B는 4가지 조합 모두 0.794~0.812 사이로, 차이가 0.02 이내예요.</li>
+<li>DEV 60문항 규모에서 0.01~0.02 차이는 의미 있는 차이로 보기 어려워요.</li>
+<li>그래서 정밀도는 T4에서도 쓸 수 있는 fp16으로 통일하는 게 안전해요.</li>
+</ul></div>
+</div>
+<div class="panel">
+<p class="q">GPU·정밀도는 속도에 얼마나 영향을 주나<span class="qs">모델 · GPU · 정밀도별 평균 응답 시간</span></p>
+<svg viewBox="0 0 640 330" width="100%" id="c4e"></svg>
+<div class="rs"><div class="em">💡</div><ul>
+<li><b>GPU는 점수가 아니라 속도를 바꿔요.</b></li>
+<li>같은 모델·정밀도면 L4가 T4보다 약 1.3~1.4배 빨라요.</li>
+<li>T4에서 7B fp16은 평균 12.648초로 실사용이 어렵고, 7B를 쓴다면 4bit가 현실적이에요.</li>
+<li>bf16과 fp16의 성능 차이는 크지 않아요 (7B 기준 bf16 0.794 / fp16 0.808).</li>
+</ul></div>
+</div>
+<details><summary>실험 기록 보기</summary>
+<div class="res"><span>📊 결과</span>
+<table class="rt" id="t4"><tr><th style="width:70px">모델</th><th>GPU · 정밀도</th><th>Macro F1</th><th>캐릭터 조회</th><th>조건 검색</th><th>평균 응답</th></tr></table></div>
+<div class="box"><span>주요 발견</span><ul>
+<li><b>GPU를 바꿔도 정확도는 동일</b> → 차이는 응답 속도뿐<br><span class="sub">L4가 T4보다 약 1.3~1.4배 빠름 (1.5B·3B 기준)</span></li>
+<li><b>모델 크기를 키워도 성능이 좋아지지 않음</b><br><span class="sub">1.5B 0.862 1위 · 7B는 3B와 비슷 · 7B는 영어가 섞인 답으로 캐릭터 조회 일부 하락</span></li>
+<li><b>1.5B의 높은 점수는 조건 판단 능력 때문이 아님</b><br><span class="sub">재현율 1.5B 0.67 &lt; 3B 0.84 · 답을 보수적으로 짧게 출력</span></li>
+<li><b>bf16과 fp16의 차이는 크지 않음</b><br><span class="sub">7B 기준 bf16 0.794 / fp16 0.808</span></li>
+<li><b>T4에서 7B fp16은 비효율적</b><br><span class="sub">평균 12.648초 · 메모리 부족으로 일부가 CPU로 넘어갔을 가능성</span></li>
+</ul></div>
+<div class="box"><span>현재 문제점 및 개선 방향</span><ul>
+<li><b>🔴 조건 검색 성능이 전반적으로 낮음</b>
+<ul><li>모델과 관계없이 0.3~0.5 수준</li><li>"나타 출신 4성" 질문은 9개 실험 모두 오답</li><li>모델 크기 문제가 아니라 RAG 검색·조건 처리 문제일 가능성이 큼</li><li>→ rag_v5에서 조건 검색 개선 후 재평가</li></ul></li>
+<li><b>🟠 캐릭터 이름 출력 오류가 계속 발생</b>
+<ul><li>예: 카미サト アヤカ, 노드克赖, JANSA</li><li>→ 모델 변경만으로 해결되지 않아 이름 정규화·후처리 유지</li></ul></li>
+<li><b>🟡 DEV 평가 문항 수가 적음</b>
+<ul><li>전체 60문항, 조건 검색 16문항</li><li>0.01~0.02 정도의 점수 차이는 큰 의미를 두기 어려움</li><li>→ F1 비교 외에 문항별 오류 분석이 중요</li></ul></li>
+</ul></div>
+<div class="box"><span>팀 결정 사항</span><ul>
+<li><b>챗봇 기본 모델: Qwen2.5-3B 유지</b>
+<ul><li>지금까지의 실험 결과가 3B 기준이라 비교·관리가 쉬움</li><li>1.5B는 빠르고 DEV 점수가 높지만 추가 검증 필요</li><li>7B 4bit는 현재 결과상 뚜렷한 성능 이점 없음</li></ul></li>
+<li><b>추론 서버 GPU</b>: 같은 모델·정밀도에서 점수가 같으므로 속도·비용·사용 한도로 결정</li>
+<li><b>정밀도</b>: fp16 통일 (bf16의 뚜렷한 이점이 없고 T4는 bf16 미지원)</li>
+<li><b>1.5B 공식 평가 진행 여부</b>: 평가셋은 한 번만 쓰는 규칙이라 진행 시점 논의 필요</li>
+<li><b>모델 재비교</b>: rag_v5 머지 후 1.5B / 3B / 7B 다시 비교</li>
+</ul></div>
+<div class="box"><span>다음 과제</span>rag_v5(조건 검색 개선) 이후 같은 날·같은 GPU로 1.5B / 3B / 7B 다시 비교</div>
+</details>
+</div>
+
+<div class="foot">와이어프레임 확정본 · 숫자는 각 탭의 결과 JSON 값(소수점 3자리 반올림). ① 성능 변화는 info_v2 공식 평가 결과(info10~14_*-V2.json)를 받으면 교체 예정. ④ 모델 비교는 info_v1 DEV 결과.</div>
+</div></div>
+<div id="tip"></div>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg',tip=document.getElementById('tip');
+function mk(id){const svg=document.getElementById(id);return (t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e}}
+function move(e){const w=tip.offsetWidth;let x=e.clientX+14;if(x+w>innerWidth-8)x=e.clientX-w-14;tip.style.left=x+'px';tip.style.top=(e.clientY+14)+'px'}
+function hov(el,html,on,off){el.style.cursor='help';el.addEventListener('mouseenter',()=>{tip.innerHTML=html;tip.style.display='block';on&&on()});el.addEventListener('mousemove',move);el.addEventListener('mouseleave',()=>{tip.style.display='none';off&&off()})}
+document.querySelectorAll('.inf').forEach(el=>hov(el,el.dataset.tip));
+
+// tabs
+const cond=document.getElementById('cond');
+document.querySelectorAll('#tabs .tb-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('#tabs .tb-btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('.pn').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p));cond.textContent=b.dataset.cond})});
+cond.textContent=document.querySelector('#tabs .tb-btn.on').dataset.cond;
+
+const X5=[130,248,366,484,602];
+const STAGES=['baseline','prompt_v2','rag','rag_v3','rag_v4'];
+const CHG=['질문만 넣음','규칙 + 예시 3개','근거 문서 넣기','예시에도 근거 붙이기','성급·지역 예시, 규칙 2줄'];
+
+// ① 성능 변화
+(()=>{const el=mk('c1a');const X=[110,231,352,473,594],T=16,B=206,lo=-0.06,hi=1.06,f=v=>B-(B-T)*(v-lo)/(hi-lo);
+const S=[{n:'데이터 없음',c:'#97C459',v:['0.25','1.0','1.0','1.0','1.0']},{n:'캐릭터 조회',c:'#85B7EB',v:['0.002','0','0.366','0.598','1.0']},{n:'조건 검색',c:'#F0997B',v:['0','0','0.236','0.309','0.303']},{n:'전체',c:'#7F77DD',v:['0.019','0.07','0.382','0.563','0.848']}];
+el('text',{x:16,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 16 ${(T+B)/2})`}).textContent='Macro F1';
+[0,0.25,0.5,0.75,1].forEach(v=>{el('line',{x1:70,x2:630,y1:f(v),y2:f(v),stroke:'#333331','stroke-width':0.5});el('text',{x:62,y:f(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v});
+el('line',{x1:70,x2:70,y1:T,y2:B,stroke:'#3A3A38'});el('line',{x1:70,x2:630,y1:B,y2:B,stroke:'#3A3A38'});
+const g=el('line',{x1:0,x2:0,y1:T,y2:B,stroke:'#5F5E5A','stroke-width':1,'stroke-dasharray':'3 3',opacity:0});
+STAGES.forEach((s,i)=>el('text',{x:X[i],y:226,'font-size':12,'text-anchor':'middle',fill:'#B4B2A9'}).textContent=s);
+el('text',{x:350,y:252,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='개선 단계';
+S.forEach(s=>el('polyline',{fill:'none',stroke:s.c,'stroke-width':2.5,'stroke-linejoin':'round',points:s.v.map((v,i)=>X[i]+','+f(+v)).join(' ')}));
+S.forEach(s=>s.v.forEach((v,i)=>el('circle',{cx:X[i],cy:f(+v),r:5,fill:s.c,stroke:'#202020','stroke-width':1})));
+const order=[3,1,2,0];
+X.forEach((x,i)=>{const r=el('rect',{x:x-60,y:T-8,width:120,height:B-T+16,fill:'transparent'});
+hov(r,`<div class="h">${STAGES[i]}</div>`+order.map(k=>`<div><span class="d" style="background:${S[k].c}"></span>${S[k].n} <b>${S[k].v[i]}</b></div>`).join('')+`<div class="c">개선점: ${CHG[i]}</div>`,()=>{g.setAttribute('x1',x);g.setAttribute('x2',x);g.setAttribute('opacity',1)},()=>g.setAttribute('opacity',0))})})();
+
+// ② 응답 시간
+const D2=[
+{s:'baseline',a:'1.895',m:'1.1',x:'8.437',f:'0.011',e:'11',lk:'1.112',fl:'4.01'},
+{s:'prompt_v2',a:'1.055',m:'0.897',x:'2.107',f:'0.067',e:'52',lk:'1.02',fl:'1.188'},
+{s:'rag',a:'1.724',m:'1.112',x:'7.27',f:'0.423',e:'26',lk:'1.172',fl:'3.301'},
+{s:'rag_v3',a:'2.223',m:'1.355',x:'6.819',f:'0.521',e:'22',lk:'1.355',fl:'4.613'},
+{s:'rag_v4',a:'2.384',m:'1.482',x:'6.59',f:'0.796',e:'4',lk:'1.548',fl:'4.713'}];
+const tip2=(d,i)=>`<div class="h">${d.s}</div><div>Macro F1 <b>${d.f}</b> · 빈 답 <b>${d.e}개</b></div><div>평균 <b>${d.a}초</b> · 중앙값 <b>${d.m}초</b> · 최대 <b>${d.x}초</b></div><div class="c">개선점: ${CHG[i]}</div>`;
+(()=>{const el=mk('c2a');const P1=[8,124],P2=[136,284],fy1=v=>P1[1]-12-(P1[1]-P1[0]-36)*v,fy2=v=>P2[1]-4-(P2[1]-P2[0]-30)*v/2.5;
+[[P1,'#262624','Macro F1'],[P2,'#232322','응답 시간 (초)']].forEach(([p,c,n])=>{el('rect',{x:70,y:p[0],width:566,height:p[1]-p[0],rx:6,fill:c});const cy=(p[0]+p[1])/2;el('text',{x:24,y:cy,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 24 ${cy})`}).textContent=n});
+el('polyline',{fill:'none',stroke:'#7F77DD','stroke-width':2.5,'stroke-linejoin':'round',points:D2.map((d,i)=>X5[i]+','+fy1(+d.f)).join(' ')});
+D2.forEach((d,i)=>{const X=X5[i];el('text',{x:X,y:304,'font-size':12,'text-anchor':'middle',fill:'#B4B2A9'}).textContent=d.s;
+el('circle',{cx:X,cy:fy1(+d.f),r:5,fill:'#7F77DD',stroke:'#262624','stroke-width':1});
+el('text',{x:X,y:fy1(+d.f)-10,'font-size':11,'text-anchor':'middle',fill:'#D3D1C7'}).textContent=d.f;
+el('rect',{x:X-26,y:fy2(+d.a),width:24,height:P2[1]-4-fy2(+d.a),rx:2,fill:'#888780'});
+el('rect',{x:X+2,y:fy2(+d.m),width:24,height:P2[1]-4-fy2(+d.m),rx:2,fill:'#5F5E5A'});
+el('text',{x:X-14,y:fy2(+d.a)-5,'font-size':10,'text-anchor':'middle',fill:'#D3D1C7'}).textContent=d.a;
+el('text',{x:X+14,y:fy2(+d.m)-5,'font-size':10,'text-anchor':'middle',fill:'#9C9A92'}).textContent=d.m});
+el('text',{x:353,y:324,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='개선 단계';
+const g=el('line',{x1:0,x2:0,y1:8,y2:284,stroke:'#5F5E5A','stroke-width':1,'stroke-dasharray':'3 3',opacity:0});
+X5.forEach((x,i)=>{const r=el('rect',{x:x-59,y:0,width:118,height:290,fill:'transparent'});hov(r,tip2(D2[i],i),()=>{g.setAttribute('x1',x);g.setAttribute('x2',x);g.setAttribute('opacity',1)},()=>g.setAttribute('opacity',0))})})();
+(()=>{const el=mk('c2b');const L=70,R=620,T=14,B=206,fx=v=>L+(R-L)*v/60,fy=v=>B-(B-T)*(v-0.8)/(2.6-0.8);
+el('rect',{x:L,y:T,width:R-L,height:B-T,rx:6,fill:'#232322'});
+[0,10,20,30,40,50,60].forEach(v=>el('text',{x:fx(v),y:B+18,'font-size':11,fill:'#888780','text-anchor':'middle'}).textContent=v);
+[1,1.5,2,2.5].forEach(v=>{el('line',{x1:L,x2:R,y1:fy(v),y2:fy(v),stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:L-8,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v+'초'});
+el('text',{x:20,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 20 ${(T+B)/2})`}).textContent='평균 응답 시간';
+el('text',{x:(L+R)/2,y:B+40,'font-size':11,fill:'#6E6D68','text-anchor':'middle'}).textContent='빈 답 (개, 60문항 중)';
+const tr=v=>2.441-0.025437*v;el('line',{x1:fx(2),y1:fy(tr(2)),x2:fx(56),y2:fy(tr(56)),stroke:'#5F5E5A','stroke-width':1,'stroke-dasharray':'4 4'});
+el('text',{x:R-10,y:T+18,'font-size':11,fill:'#9C9A92','text-anchor':'end'}).textContent='r ≈ −0.904 (5개 단계)';
+const off={baseline:[10,4],prompt_v2:[-10,-10,'end'],rag:[10,14],rag_v3:[10,-4],rag_v4:[10,4]};
+D2.forEach((d,i)=>{const cx=fx(+d.e),cy=fy(+d.a),o=off[d.s];
+el('text',{x:cx+o[0],y:cy+o[1],'font-size':12,fill:i==4?'#F1EFE8':'#B4B2A9','font-weight':i==4?600:400,'text-anchor':o[2]||'start'}).textContent=d.s;
+const p=el('circle',{cx,cy,r:6,fill:i==4?'#AFA9EC':'#888780',stroke:'#232322','stroke-width':1});
+const h=el('circle',{cx,cy,r:16,fill:'transparent'});hov(h,tip2(d,i),()=>p.setAttribute('r',8),()=>p.setAttribute('r',6))})})();
+(()=>{const el=mk('c2c');const T=12,B=170,fy=v=>B-(B-T)*v/5;
+[0,1,2,3,4,5].forEach(v=>{el('line',{x1:60,x2:630,y1:fy(v),y2:fy(v),stroke:'#2A2A28','stroke-width':0.5});el('text',{x:52,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v+'초'});
+D2.forEach((d,i)=>{[['lk','#85B7EB','캐릭터 조회'],['fl','#F0997B','조건 검색']].forEach(([k,c,n],t)=>{const bx=X5[i]-24+t*26,v=d[k];
+const r=el('rect',{x:bx,y:fy(+v),width:22,height:B-fy(+v),rx:2,fill:c});el('text',{x:bx+11,y:fy(+v)-5,'font-size':10,'text-anchor':'middle',fill:'#F1EFE8'}).textContent=v;
+hov(r,`<div class="h">${d.s} · ${n}</div><div>평균 <b>${v}초</b></div>`)});
+el('text',{x:X5[i],y:190,'font-size':12,'text-anchor':'middle',fill:'#B4B2A9'}).textContent=d.s})})();
+(()=>{const t=document.getElementById('t2');D2.forEach((d,i)=>{const r=document.createElement('tr');if(i==4)r.className='hl';r.innerHTML=`<td>${d.s}</td><td>${d.a}초</td><td>${d.m}초</td><td>${d.x}초</td><td>${d.f}</td><td>${d.e}개</td>`;t.appendChild(r)})})();
+
+// ③ 보조 지표
+const D3=[
+{s:'baseline',acc:'0',ref:'0',hal:'0.918',hn:45,an:49,ty:null},
+{s:'prompt_v2',acc:'0.067',ref:'1.0',hal:'0.875',hn:7,an:8,ty:[0,7,0]},
+{s:'rag',acc:'0.367',ref:'1.0',hal:'0.088',hn:3,an:34,ty:[0,3,0]},
+{s:'rag_v3',acc:'0.45',ref:'1.0',hal:'0.079',hn:3,an:38,ty:[0,3,0]},
+{s:'rag_v4',acc:'0.717',ref:'0.75',hal:'0.089',hn:5,an:56,ty:[0,4,1]}];
+const S3=[['acc','정답률','#7F77DD'],['ref','거절 정확도','#97C459'],['hal','환각률','#F0997B']];
+(()=>{const el=mk('c3a');const T=14,B=200,lo=-0.05,hi=1.05,fy=v=>B-(B-T)*(v-lo)/(hi-lo);
+el('rect',{x:70,y:4,width:566,height:206,rx:6,fill:'#232322'});
+el('text',{x:24,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 24 ${(T+B)/2})`}).textContent='비율 (0~1)';
+[0,0.5,1].forEach(v=>{el('line',{x1:74,x2:632,y1:fy(v),y2:fy(v),stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:64,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v});
+S3.forEach(([k,n,c])=>{el('polyline',{fill:'none',stroke:c,'stroke-width':2.5,'stroke-linejoin':'round',points:D3.map((d,i)=>X5[i]+','+fy(+d[k])).join(' ')});D3.forEach((d,i)=>el('circle',{cx:X5[i],cy:fy(+d[k]),r:5,fill:c,stroke:'#232322','stroke-width':1}))});
+D3.forEach((d,i)=>el('text',{x:X5[i],y:228,'font-size':12,'text-anchor':'middle',fill:'#B4B2A9'}).textContent=d.s);
+el('text',{x:353,y:246,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='개선 단계';
+const g=el('line',{x1:0,x2:0,y1:6,y2:208,stroke:'#5F5E5A','stroke-width':1,'stroke-dasharray':'3 3',opacity:0});
+X5.forEach((x,i)=>{const d=D3[i],r=el('rect',{x:x-59,y:0,width:118,height:212,fill:'transparent'});
+hov(r,`<div class="h">${d.s}</div>`+S3.map(([k,n,c])=>`<div><span class="d" style="background:${c}"></span>${n} <b>${d[k]}</b></div>`).join('')+`<div>환각 <b>${d.hn}건</b> / 답한 문항 <b>${d.an}개</b></div><div class="c">개선점: ${CHG[i]}</div>`,()=>{g.setAttribute('x1',x);g.setAttribute('x2',x);g.setAttribute('opacity',1)},()=>g.setAttribute('opacity',0))})})();
+(()=>{const el=mk('c3b');const T=14,B=180,fy=v=>B-(B-T)*v/60;
+el('text',{x:24,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 24 ${(T+B)/2})`}).textContent='문항 수';
+[0,20,40,60].forEach(v=>{el('line',{x1:70,x2:632,y1:fy(v),y2:fy(v),stroke:'#2A2A28','stroke-width':0.5});el('text',{x:62,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v});
+D3.forEach((d,i)=>{const ok=d.an-d.hn,w=40,x=X5[i]-w/2;
+el('rect',{x,y:fy(ok),width:w,height:B-fy(ok),fill:'#97C459',opacity:.85});
+el('rect',{x,y:fy(d.an),width:w,height:fy(ok)-fy(d.an),fill:'#F0997B'});
+el('text',{x:X5[i],y:fy(d.an)-6,'font-size':11,'text-anchor':'middle',fill:'#F1EFE8'}).textContent=`${d.hn} / ${d.an}`;
+el('text',{x:X5[i],y:200,'font-size':12,'text-anchor':'middle',fill:'#B4B2A9'}).textContent=d.s;
+const r=el('rect',{x:x-20,y:T,width:w+40,height:B-T,fill:'transparent'});
+hov(r,`<div class="h">${d.s}</div><div>답한 문항 <b>${d.an}개</b> · 빈 답 <b>${60-d.an}개</b></div><div>환각 포함 <b>${d.hn}건</b> · 근거 안에서 답함 <b>${d.an-d.hn}건</b></div>`)});
+el('text',{x:353,y:222,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='개선 단계'})();
+(()=>{const el=mk('c3c');const C=['#85B7EB','#F0997B','#97C459'],N=['캐릭터 조회','조건 검색','데이터 없음'];
+const L=110,R=560,fx=v=>L+(R-L)*v,bh=24,gap=14,T=12;
+el('rect',{x:L-6,y:4,width:R-L+12,height:5*(bh+gap)+4,rx:6,fill:'#232322'});
+[0,0.25,0.5,0.75,1].forEach(v=>{el('line',{x1:fx(v),x2:fx(v),y1:6,y2:5*(bh+gap)+6,stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:fx(v),y:5*(bh+gap)+24,'font-size':11,fill:'#888780','text-anchor':'middle'}).textContent=v});
+el('text',{x:(L+R)/2,y:5*(bh+gap)+44,'font-size':11,fill:'#6E6D68','text-anchor':'middle'}).textContent='환각률';
+D3.forEach((d,i)=>{const y=T+i*(bh+gap),end=fx(+d.hal);
+el('text',{x:L-14,y:y+16,'font-size':12,fill:'#D3D1C7','text-anchor':'end'}).textContent=d.s;
+if(!d.ty){el('rect',{x:L,y,width:end-L,height:bh,rx:3,fill:'none',stroke:'#6E6D68','stroke-dasharray':'4 3'})}
+else{let x=L;d.ty.forEach((v,t)=>{if(!v)return;const w=(end-L)*v/d.hn;el('rect',{x,y,width:w,height:bh,fill:C[t]});x+=w})}
+el('text',{x:end+10,y:y+16,'font-size':12,fill:'#F1EFE8','font-weight':600}).textContent=d.hal;
+const r=el('rect',{x:0,y:y-4,width:640,height:bh+8,fill:'transparent'});
+hov(r,`<div class="h">${d.s}</div><div>환각률 <b>${d.hal}</b> (${d.hn}건 / 답한 ${d.an}개)</div>`+(d.ty?d.ty.map((v,t)=>v?`<div><span class="d" style="background:${C[t]}"></span>${N[t]} <b>${v}건</b></div>`:'').join(''):'<div style="color:#888780">유형별 내역 없음</div>'))})})();
+
+// ④ 모델 비교
+const M=[{s:'1.5B',f:'0.862',lk:'1.0',fl:'0.483',t:'1.142',tl:'1.036',tf:'1.462',md:'1.043',p:'0.753',r:'0.67',n:'3.1',ml:'2.9GB'},{s:'3B',f:'0.814',lk:'1.0',fl:'0.302',t:'1.843',tl:'1.138',tf:'3.819',md:'1.15',p:'0.343',r:'0.84',n:'12.8',ml:'5.8GB'},{s:'7B',f:'0.808',lk:'0.975',fl:'0.343',t:'2.085',tl:'1.418',tf:'3.977',md:'1.434',p:'0.477',r:'0.71',n:'8.1',ml:'5.5~14.2GB'}];
+const X3=[200,370,540];
+(()=>{const el=mk('c4a');const T=14,B=200,fy=v=>B-(B-T)*v;
+el('rect',{x:70,y:4,width:566,height:206,rx:6,fill:'#232322'});
+el('text',{x:24,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 24 ${(T+B)/2})`}).textContent='Macro F1';
+[0,0.5,1].forEach(v=>{el('line',{x1:74,x2:632,y1:fy(v),y2:fy(v),stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:64,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v});
+const K=[['f','#7F77DD','전체'],['lk','#85B7EB','캐릭터 조회'],['fl','#F0997B','조건 검색']];
+M.forEach((m,i)=>{K.forEach(([k,c],j)=>{const x=X3[i]-48+j*33,v=+m[k];el('rect',{x,y:fy(v),width:30,height:B-fy(v),rx:2,fill:c});el('text',{x:x+15,y:fy(v)-6,'font-size':10,'text-anchor':'middle',fill:'#F1EFE8'}).textContent=m[k]});
+el('text',{x:X3[i],y:230,'font-size':13,'text-anchor':'middle',fill:'#E4E2DA','font-weight':600}).textContent=m.s;
+el('text',{x:X3[i],y:250,'font-size':10,'text-anchor':'middle',fill:'#888780'}).textContent='메모리 '+m.ml;
+const r=el('rect',{x:X3[i]-70,y:4,width:140,height:250,fill:'transparent'});
+hov(r,`<div class="h">Qwen2.5-${m.s} · L4 · fp16</div>`+K.map(([k,c,n])=>`<div><span class="d" style="background:${c}"></span>${n} <b>${m[k]}</b></div>`).join('')+`<div>평균 응답 <b>${m.t}초</b> · GPU 메모리 <b>${m.ml}</b></div>`)});
+el('text',{x:353,y:280,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='모델 (Qwen2.5)'})();
+(()=>{const el=mk('c4b');const L=80,R=400,fx=v=>L+(R-L)*v,L2=440,R2=570,fx2=v=>L2+(R2-L2)*v/14;
+el('rect',{x:L-8,y:26,width:R-L+16,height:176,rx:6,fill:'#232322'});
+[0,0.5,1].forEach(v=>{el('line',{x1:fx(v),x2:fx(v),y1:30,y2:198,stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:fx(v),y:218,'font-size':11,fill:'#888780','text-anchor':'middle'}).textContent=v});
+el('text',{x:(L+R)/2,y:14,'font-size':11,fill:'#6E6D68','text-anchor':'middle'}).textContent='정밀도 ↔ 재현율 (60문항 전체)';
+el('text',{x:(L2+R2)/2+20,y:14,'font-size':11,fill:'#6E6D68','text-anchor':'middle'}).textContent='조건 검색 평균 답 길이';
+M.forEach((m,i)=>{const y=62+i*54,p=fx(+m.p),r=fx(+m.r);
+el('text',{x:L-18,y:y+5,'font-size':13,fill:'#E4E2DA','text-anchor':'end','font-weight':600}).textContent=m.s;
+el('line',{x1:Math.min(p,r),x2:Math.max(p,r),y1:y,y2:y,stroke:'#5F5E5A','stroke-width':3});
+el('circle',{cx:p,cy:y,r:7,fill:'#AFA9EC'});el('circle',{cx:r,cy:y,r:7,fill:'#5DCAA5'});
+el('text',{x:p,y:y-14,'font-size':11,'text-anchor':'middle',fill:'#AFA9EC'}).textContent=m.p;
+el('text',{x:r,y:y-14,'font-size':11,'text-anchor':'middle',fill:'#5DCAA5'}).textContent=m.r;
+el('rect',{x:L2,y:y-9,width:fx2(+m.n)-L2,height:18,rx:3,fill:'#888780'});el('text',{x:fx2(+m.n)+8,y:y+5,'font-size':12,fill:'#F1EFE8','font-weight':600}).textContent=m.n+'명';
+const h=el('rect',{x:0,y:y-24,width:640,height:48,fill:'transparent'});
+hov(h,`<div class="h">Qwen2.5-${m.s} · L4 · fp16</div><div>정밀도 <b>${m.p}</b> · 재현율 <b>${m.r}</b></div><div>조건 검색 평균 답 길이 <b>${m.n}명</b> · 조건 검색 Macro F1 <b>${m.fl}</b></div>`)})})();
+(()=>{const el=mk('c4c');const T=14,B=200,fy=v=>B-(B-T)*v/5;
+el('rect',{x:70,y:4,width:566,height:206,rx:6,fill:'#232322'});
+el('text',{x:24,y:(T+B)/2,'font-size':11,fill:'#6E6D68','text-anchor':'middle',transform:`rotate(-90 24 ${(T+B)/2})`}).textContent='평균 응답 시간';
+[0,1,2,3,4,5].forEach(v=>{el('line',{x1:74,x2:632,y1:fy(v),y2:fy(v),stroke:'#2E2E2C','stroke-width':0.5});el('text',{x:64,y:fy(v)+4,'font-size':11,fill:'#888780','text-anchor':'end'}).textContent=v+'초'});
+const K=[['tf','#F0997B'],['t','#888780'],['tl','#85B7EB']];
+const LB={tf:[[0,-12,'middle'],[0,-12,'middle'],[0,-12,'middle']],t:[[-12,4,'end'],[0,-12,'middle'],[0,-12,'middle']],tl:[[0,20,'middle'],[0,20,'middle'],[0,20,'middle']]};
+K.forEach(([k,c])=>{el('polyline',{fill:'none',stroke:c,'stroke-width':2.5,'stroke-linejoin':'round',points:M.map((m,i)=>X3[i]+','+fy(+m[k])).join(' ')});
+M.forEach((m,i)=>{const [dx,dy,an]=LB[k][i];el('circle',{cx:X3[i],cy:fy(+m[k]),r:5,fill:c,stroke:'#232322','stroke-width':1});el('text',{x:X3[i]+dx,y:fy(+m[k])+dy,'font-size':10,'text-anchor':an,fill:c==='#888780'?'#D3D1C7':c}).textContent=m[k]})});
+M.forEach((m,i)=>{el('text',{x:X3[i],y:230,'font-size':13,'text-anchor':'middle',fill:'#E4E2DA','font-weight':600}).textContent=m.s;
+const r=el('rect',{x:X3[i]-70,y:4,width:140,height:230,fill:'transparent'});
+hov(r,`<div class="h">Qwen2.5-${m.s} · L4 · fp16</div><div>전체 평균 <b>${m.t}초</b> · 중앙값 <b>${m.md}초</b></div><div><span class="d" style="background:#85B7EB"></span>캐릭터 조회 <b>${m.tl}초</b></div><div><span class="d" style="background:#F0997B"></span>조건 검색 <b>${m.tf}초</b> · 평균 답 길이 <b>${m.n}명</b></div>`)});
+el('text',{x:353,y:252,'font-size':11,'text-anchor':'middle',fill:'#6E6D68'}).textContent='모델 (Qwen2.5)'})();
+const C4=[['1.5B','L4 · fp16','1.142','0.862','1.0','0.483','#1D9E75'],['1.5B','T4 · fp16','1.475','0.862','1.0','0.483','#1D9E75'],['3B','L4 · fp16','1.843','0.814','1.0','0.302','#378ADD'],['3B','T4 · fp16','2.543','0.814','1.0','0.302','#378ADD'],['7B','L4 · bf16','2.021','0.794','0.95','0.352','#D85A30'],['7B','L4 · fp16','2.085','0.808','0.975','0.343','#D85A30'],['7B','T4 · 4bit','3.846','0.812','0.95','0.418','#D85A30'],['7B','T4 · fp16','12.648','0.808','0.975','0.342','#D85A30']];
+function hbar(id,key,max,ticks,unit,axis){const el=mk(id);const L=170,R=560,fx=v=>L+(R-L)*v/max,step=36;
+ticks.forEach(v=>{el('line',{x1:fx(v),x2:fx(v),y1:4,y2:8*step,stroke:'#2A2A28','stroke-width':0.5});el('text',{x:fx(v),y:8*step+18,'font-size':11,fill:'#888780','text-anchor':'middle'}).textContent=v+unit});
+C4.forEach(([m,g,t,f,lk,fl,c],i)=>{const y=8+i*step,v=key=='t'?t:f;el('text',{x:L-12,y:y+15,'font-size':12,fill:'#D3D1C7','text-anchor':'end'}).textContent=`${m} · ${g}`;
+el('rect',{x:L,y,width:fx(+v)-L,height:22,rx:3,fill:c,opacity:g.startsWith('T4')?0.6:1});el('text',{x:fx(+v)+8,y:y+15,'font-size':12,fill:'#F1EFE8','font-weight':600}).textContent=v+(key=='t'?'초':'');
+const r=el('rect',{x:0,y:y-4,width:640,height:30,fill:'transparent'});hov(r,`<div class="h">Qwen2.5-${m} · ${g}</div><div>Macro F1 <b>${f}</b> · 평균 응답 <b>${t}초</b></div>`)});
+el('text',{x:(L+R)/2,y:8*step+38,'font-size':11,fill:'#6E6D68','text-anchor':'middle'}).textContent=axis}
+hbar('c4d','f',1,[0,0.25,0.5,0.75,1],'','Macro F1');
+hbar('c4e','t',13,[0,2,4,6,8,10,12],'초','평균 응답 시간');
+(()=>{const t=document.getElementById('t4');C4.forEach(([m,g,tt,f,lk,fl])=>{const r=document.createElement('tr');if(m==='3B')r.className='hl';r.innerHTML=`<td>${m}</td><td>${g}</td><td>${f}</td><td>${lk}</td><td>${fl}</td><td>${tt}초</td>`;t.appendChild(r)})})();
+})();
+</script>
+</body>
+</html>
