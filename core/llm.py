@@ -8,7 +8,7 @@
   GBA_ANSWERER       mock(기본, 규칙 기반 모의 답변기, GPU 필요 없음) / llm(실제 모델)
   GBA_MODEL          Qwen/Qwen2.5-3B-Instruct
   GBA_DEVICE         비우면 자동: cuda(코랩 T4) > mps(애플 실리콘 맥) > cpu(느림)
-  GBA_METHOD         rag_v4 (core/answer.py build_prompt의 방식 이름)
+  GBA_METHOD         rag_v5 (core/answer.py build_prompt의 방식 이름. rag_v4도 가능: 프롬프트 같음)
   GBA_POSTPROCESS    1(기본, 근거 이름으로 맞추기) / 0(끄기)
   GBA_MAX_NEW_TOKENS 160
 
@@ -92,5 +92,5 @@ def answerer_from_env(env=None):
     model_id = env.get("GBA_MODEL") or DEFAULT_MODEL
     generate = load_generate(model_id, env.get("GBA_DEVICE") or None,
                              int(env.get("GBA_MAX_NEW_TOKENS") or MAX_NEW_TOKENS))
-    return LLMAnswerer(generate, name=model_id, method=env.get("GBA_METHOD") or "rag_v4",
+    return LLMAnswerer(generate, name=model_id, method=env.get("GBA_METHOD") or "rag_v5",
                        postprocess=(env.get("GBA_POSTPROCESS") or "1") != "0")

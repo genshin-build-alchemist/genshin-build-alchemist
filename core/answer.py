@@ -6,7 +6,7 @@
                  generate_fn(prompt) -> 문자열 하나만 넘겨 주면 된다.
 
 답 모양은 경로마다 다르다
-- 이름·값 목록 (lookup, filter, build): rag_v4 프롬프트. 예: ["바람"], ["알베도", "진"]
+- 이름·값 목록 (lookup, filter, build): rag_v5 = rag_v4 프롬프트 + '조건 모두 만족' 근거. 예: ["바람"], ["알베도", "진"]
 - 짧은 문장 목록 (patch, item)         : 문장 답 프롬프트(build_text_prompt). 예: ["고유 특성 2: ..."]
 """
 import difflib
@@ -23,7 +23,7 @@ from core.kb import slot_label
 #         -> rag_v4: DEV 빈 답 24 -> 5 (4개는 unknown 정답), lookup 0.550 -> 1.000
 #  3. [-] filter 정밀도 올리기: 조건에 안 맞는 이름까지 답함 (micro P 0.24)
 #         -> rag_v4에서도 미해결 (DEV filter 0.199 -> 0.302, 평가 0.309 -> 0.288). 근거 문서가 평균 29개
-#         -> 프롬프트가 아니라 검색 문제라 B로 넘김 (TODO(B) 3번: 조건을 모두 만족하는 캐릭터만 근거로)
+#         -> 프롬프트가 아니라 검색 문제 -> rag_v5에서 조건을 모두 만족하는 캐릭터만 근거로 (core/retrieval.py FILTER_MODE)
 #  4. [o] 새 프롬프트(rag_v4 ...)는 노트북 셀 7의 METHODS와 make_prompt()에 추가 -> 셀 10-1의 DEV_METHODS에 넣어 비교
 #         -> rag_v4: DEV macro F1 0.486 -> 0.814
 #  5. [o] DEV에서 가장 좋은 1개만 셀 10에서 평가 115문항으로 한 번 돌리기 (평가 결과를 보고 다시 고치지 않는다)
@@ -37,7 +37,9 @@ from core.kb import slot_label
 #  9. [o] 모델 비교 (02_model_compare): rag_v4 프롬프트 고정, 모델만 바꿔 DEV로 macro F1·평균 응답 시간 비교
 #         예: Qwen2.5-1.5B(빠름) / Qwen2.5-7B 4bit(정확) / 한국어 모델 1개. 결과는 드라이브 results/ JSON
 #         -> 보고서에 '왜 Qwen2.5-3B를 골랐는지' 근거로 쓴다
-#  10. [ ] B가 조건 검색을 고치면 rag_v5(rag_v4 프롬프트 + 새 검색)를 DEV로 확인 -> 좋으면 평가 문항 한 번
+#  10. [ ] rag_v5(rag_v4 프롬프트 + '조건 모두 만족' 검색)를 DEV로 확인 -> 좋으면 평가 문항 한 번
+#         노트북 01_eval_info-V2 셀 10-1의 DEV_METHODS = ["rag_v5"]. 프롬프트·예시는 rag_v4와 글자까지 같다
+#  11. [ ] rag_v5 조건 검색 프롬프트 점검: 근거가 곧 정답 목록이 됐는데 '골라라' 지시·예시 때문에 빠뜨리는지 DEV로 확인
 #  규칙: 평가 문항, 사람 질문, style_questions_v1.csv 결과는 프롬프트 고를 때 보지 않는다
 
 RULES = ("규칙:\n"
@@ -77,12 +79,16 @@ def examples_block_v4():
     return "\n\n".join(blocks)
 
 
-def build_prompt(question, evidence, method="rag_v4"):
-    """method: baseline(질문만) / rag(규칙 + 근거) / rag_v4(규칙 + 근거가 붙은 예시 5개 + 근거, 기본값)."""
+LIST_METHODS = ("baseline", "rag", "rag_v4", "rag_v5")
+
+
+def build_prompt(question, evidence, method="rag_v5"):
+    """method: baseline(질문만) / rag(규칙 + 근거) / rag_v4·rag_v5(규칙 + 근거가 붙은 예시 5개 + 근거, 기본값).
+    rag_v5는 프롬프트가 rag_v4와 같고 근거(조건 검색)만 다르다 -> 근거는 core/retrieval.py가 만든다."""
     if method == "baseline":
         return f"{question}\nJSON 배열로만 답하세요."
     context = context_text([e["text"] for e in evidence])
-    if method == "rag_v4":
+    if method in ("rag_v4", "rag_v5"):
         return "\n\n".join([RULES_V4, examples_block_v4(),
                             f"[근거]\n{context}\n{RAG_NOTE_V4}",
                             f"[질문]\n{question}\n답:"])
@@ -375,6 +381,10 @@ class MockAnswerer:
 #  - 캐릭터 근거(lookup, filter)에만 쓴다. 패치·빌드 근거는 문장 모양이 달라 그대로 둔다
 POST_CUTOFF = 0.6
 POST_ROUTES = ("lookup", "filter")
+# 조건 검색 근거가 이보다 많으면 모델 없이 근거의 이름을 그대로 답한다 (rag_v5).
+# 근거가 '조건 모두 만족' 목록이라 그대로가 정답이고, 3B는 이름 10개쯤에서 max_new_tokens(160)에 걸려 잘린다.
+# 평가셋 조건 질문은 정답이 10명 이하라(MAX_FILTER_GOLD) 평가 점수에는 영향이 없다
+FILTER_MODEL_MAX = 10
 EVIDENCE_LABELS = ("원소 ", "무기 ", "지역 ")
 
 
@@ -418,7 +428,7 @@ def clean_answer(pred, texts, cutoff=POST_CUTOFF):
 class LLMAnswerer:
     sentence_routes = TEXT_ROUTES + ("build",)   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
 
-    def __init__(self, generate_fn, name="llm", method="rag_v4", postprocess=True, explain_build=True):
+    def __init__(self, generate_fn, name="llm", method="rag_v5", postprocess=True, explain_build=True):
         self.generate_fn = generate_fn
         self.name = name
         self.method = method
@@ -469,6 +479,10 @@ class LLMAnswerer:
             if not answer and rr.route == "item":
                 answer = item_fallback_answer(question, evidence) or []
             return answer
+        names = [e["title"] for e in evidence if e["kind"] == "character"]
+        if rr.route == "filter" and len(names) > FILTER_MODEL_MAX:   # 긴 목록은 데이터 그대로 (모델 없이)
+            self.last_raw = ""
+            return names
         self.last_raw = self._generate(build_prompt(question, evidence, self.method))
         pred = parse_list_answer(self.last_raw)
         if self.postprocess and rr.route in POST_ROUTES:

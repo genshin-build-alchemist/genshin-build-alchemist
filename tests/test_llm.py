@@ -114,7 +114,7 @@ class AnswererFromEnvTest(unittest.TestCase):
             a = llm.answerer_from_env({"GBA_ANSWERER": "llm"})
         loader.assert_called_once_with("Qwen/Qwen2.5-3B-Instruct", None, 160)
         self.assertIsInstance(a, LLMAnswerer)
-        self.assertEqual((a.name, a.method, a.postprocess), ("Qwen/Qwen2.5-3B-Instruct", "rag_v4", True))
+        self.assertEqual((a.name, a.method, a.postprocess), ("Qwen/Qwen2.5-3B-Instruct", "rag_v5", True))
 
     def test_llm_options(self):
         env = {"GBA_ANSWERER": "llm", "GBA_MODEL": "Qwen/Qwen2.5-1.5B-Instruct", "GBA_DEVICE": "mps",

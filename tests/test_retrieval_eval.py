@@ -117,7 +117,7 @@ class TargetTest(unittest.TestCase):
 
 
 class KeywordBaselineTest(unittest.TestCase):
-    """지금 키워드 검색 기준점. 템플릿 질문은 만점, 말투 변형은 띄어쓰기 없는 질문에서 0."""
+    """키워드 검색 기준점. 템플릿 질문은 만점. 말투 변형: rag_v5 별명 표·띄어쓰기 처리 전 0.681 -> 후 0.95"""
 
     def test_template_questions(self):
         search = keyword_search_fn(KB)
@@ -129,8 +129,9 @@ class KeywordBaselineTest(unittest.TestCase):
     def test_style_questions(self):
         r = evaluate_retrieval(keyword_search_fn(KB), csv_questions(STYLE_DEV, KB), kb=KB, docs=DOCS)
         notes = by_note(r)
-        self.assertEqual(notes["띄어쓰기 없음"], 0.0)
-        self.assertGreater(notes["존댓말"], 0.85)
+        self.assertGreater(notes["띄어쓰기 없음"], 0.75)     # rag_v5 전에는 0.0 (별명·한 글자 이름은 아직 못 받음)
+        self.assertEqual(notes["존댓말"], 1.0)
+        self.assertEqual(notes["짧은 반말"], 1.0)
 
 
 if __name__ == "__main__":
