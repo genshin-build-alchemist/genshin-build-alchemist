@@ -57,6 +57,10 @@ ITEM_WORDS_RE = re.compile(r"무기|성유물|재련|[24]세트|세트 효과|�
 CHARACTER_WEAPON_RE = re.compile(r"무기\s?(를|는|가)?\s?(뭐\s?)?(써|쓰|사용)")
 # 캐릭터를 묻는 말: '활 쓰는 4성 누구 있어?'는 무기가 아니라 캐릭터 조건 질문 (rag_v5)
 CHARACTER_CUE_RE = re.compile(r"캐릭|누구|쓰는|사용하는|들고 있는")
+# 아이템을 좁혀 주는 말: 무기 종류 또는 옵션. 이게 있으면 '추천'이 들어가도 아이템 질문으로 본다 (rag_v5)
+ITEM_DETAIL_RE = re.compile(r"장병기|한손검|양손검|대검|법구|카탈리스트|(?<![가-힣])(?:창|검|활)(?![가-힣])|(?<![가-힣])활(?=을|이|은)|"
+                            r"치명|공격력|방어력|체력|HP|원소 ?마스터리|마스터리|원소 ?충전|충전 ?효율|원충|치유|"
+                            r"물리 ?피해|피해 ?보너스|보호막")
 # 이름 없는 추천 질문('성유물 추천해줘')은 누구에게 맞는지 몰라 답할 근거가 없다 -> unknown (빌드 카드는 캐릭터별)
 RECOMMEND_WORDS = tuple(w for w in BUILD_WORDS if w != "성유물")
 
@@ -154,7 +158,10 @@ class Router:
         if item:
             return RouteResult("item", item=item, item_kind=item_kind, question=text)
         if any(w in text for w in RECOMMEND_WORDS) or ("성유물" in text and "추천" in text):
-            return RouteResult("unknown")
+            # '치명타 올려주는 활 추천해줘'처럼 무기 종류나 옵션을 말하면 아이템 질문 (rag_v5)
+            # '성유물 추천해줘', '활 캐릭터 추천해줘'는 누구에게 맞는지 몰라 그대로 unknown
+            if not (ITEM_DETAIL_RE.search(text) and not CHARACTER_CUE_RE.search(text)):
+                return RouteResult("unknown")
         conditions = self.find_conditions(text)
         item_words = bool(ITEM_WORDS_RE.search(text)) and not CHARACTER_WEAPON_RE.search(text)
         if conditions and (CHARACTER_CUE_RE.search(text) or not item_words):
