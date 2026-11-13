@@ -7,7 +7,7 @@
 
 답변기는 환경변수 GBA_ANSWERER로 고른다 (설명: core/llm.py 맨 위)
     mock (기본) : 규칙 기반 모의 답변기. GPU·torch 없이 로컬 PC에서 화면·API를 개발할 때
-    llm         : 실제 모델(Qwen2.5-3B, rag_v4 프롬프트 + 후처리). 평가 점수(macro F1 0.846)와 같은 설정
+    llm         : 실제 모델(Qwen2.5-3B, rag_v5 = rag_v4 프롬프트 + '조건 모두 만족' 근거 + 후처리)
 실제 모델로 실행 (맥·리눅스, 프로젝트 루트에서):
     pip install -r requirements.txt -r requirements-llm.txt && GBA_ANSWERER=llm uvicorn api.main:app
 """

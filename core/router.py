@@ -16,6 +16,8 @@ route() 의 반환 형식(RouteResult)만 지키면 나머지 코드는 그대�
 import re
 from dataclasses import dataclass, field
 
+from core.aliases import CONDITION_ALIASES, character_aliases
+
 ROUTES = ("patch", "build", "lookup", "item", "filter", "unknown")
 
 PATCH_WORDS = ("패치", "바뀐", "바뀌", "변경", "신규", "새로 나온", "새로 추가", "추가된", "상향", "하향", "너프", "버프")
@@ -25,13 +27,16 @@ BUILD_WORDS = ("추천", "빌드", "성유물", "세팅", "육성", "주옵", "�
 FIELD_WORDS = {
     "element": ("원소", "속성"),
     "weapon": ("무기",),
-    "rarity": ("몇 성", "몇성", "성급", "등급", "레어"),
+    "rarity": ("몇 성", "몇성", "성급", "등급", "레어", "5성이야", "4성이야", "5성임", "4성임", "5성인지", "4성인지"),
     "region": ("지역", "출신", "나라", "어디"),
 }
 
 # 이름 앞은 문장 시작/공백/따옴표, 뒤는 조사·공백·문장부호일 때만 이름으로 본다.
 # (한 글자 이름 '소', '진'이 '원소', '진짜' 같은 단어 안에서 잡히지 않게)
 NAME_END = r"(?=$|[\s?!.,\"'”’)]|의|은|는|이|가|을|를|도|랑|와|과|한테|에게|에서|추천|빌드)"
+# 두 글자 이상 정식 이름은 띄어쓰기 없는 질문('에일로이몇성임')도 받는다: 이름 뒤에 한글이 바로 붙어도 된다.
+# 별명('사라', '미코')과 한 글자 이름('소', '진')은 '사라진'처럼 다른 단어 안에서 잡히기 쉬워 NAME_END를 그대로 쓴다
+NAME_END_LOOSE = r"(?=$|[^A-Za-z0-9])"
 WORD_END = r"(?=$|[\s?!.,\"'”’)]|의|은|는|이|가|을|를|도|에서|출신|지역|캐릭터|쓰는|사용)"
 VERSION_RE = re.compile(r"(?<![\d.])(\d+\.\d+)(?![\d.])")
 
@@ -50,6 +55,8 @@ ITEM_WORDS_RE = re.compile(r"무기|성유물|재련|[24]세트|세트 효과|�
                            r"(?<![가-힣])(?:창|검|활)(?=$|[\s?!.,]|은|는|이|가|을|를|도|으로|로|중|좀|추천|뭐)")
 # '카덴로우는 어떤 무기를 써?'는 아이템이 아니라 캐릭터(모르는 이름)의 무기를 묻는 질문 -> item으로 보내지 않는다
 CHARACTER_WEAPON_RE = re.compile(r"무기\s?(를|는|가)?\s?(뭐\s?)?(써|쓰|사용)")
+# 캐릭터를 묻는 말: '활 쓰는 4성 누구 있어?'는 무기가 아니라 캐릭터 조건 질문 (rag_v5)
+CHARACTER_CUE_RE = re.compile(r"캐릭|누구|쓰는|사용하는|들고 있는")
 # 이름 없는 추천 질문('성유물 추천해줘')은 누구에게 맞는지 몰라 답할 근거가 없다 -> unknown (빌드 카드는 캐릭터별)
 RECOMMEND_WORDS = tuple(w for w in BUILD_WORDS if w != "성유물")
 
@@ -71,8 +78,14 @@ class RouteResult:
 class Router:
     def __init__(self, kb):
         self.kb = kb
-        names = sorted(kb.char_by_name, key=len, reverse=True)   # 긴 이름부터 (예: '여행자 (얼음 원소)')
-        self.name_patterns = [(n, re.compile(r"(?:^|[\s\"'“‘(])" + re.escape(n) + NAME_END)) for n in names]
+        # 긴 이름부터 (예: '카에데하라 카즈하'가 별명 '카즈하'보다 먼저). (찾을 낱말, 정식 이름, 정식 이름인지)
+        words = [(n, n, True) for n in kb.char_by_name]
+        words += [(a, full, False) for a, full in character_aliases(kb.char_by_name).items()]
+        words.sort(key=lambda x: len(x[0]), reverse=True)
+        start = r"(?:^|[\s\"'“‘(])"
+        self.name_patterns = [(full, re.compile(start + re.escape(w) + (NAME_END_LOOSE if exact and len(w) >= 2
+                                                                        else NAME_END)))
+                              for w, full, exact in words]
         items = [(n, "weapon") for n in kb.weapon_by_name] + [(n, "artifact") for n in kb.artifact_by_name]
         items.sort(key=lambda x: len(x[0]), reverse=True)              # 긴 이름부터 ('페보니우스 검' > '검')
         self.item_patterns = [(n, k, re.compile(r"(?:^|[\s\"'“‘(「])" + re.escape(n) + NAME_END)) for n, k in items]
@@ -80,6 +93,8 @@ class Router:
         for f in ("region", "weapon", "rarity", "element"):
             for value in sorted({c[f] for c in kb.characters if c[f]}):
                 self.condition_patterns.append((f, value, self._condition_pattern(f, value)))
+            for alias, value in CONDITION_ALIASES.get(f, {}).items():      # '창' -> 장병기 (core/aliases.py)
+                self.condition_patterns.append((f, value, self._condition_pattern(f, alias)))
 
     @staticmethod
     def _condition_pattern(field_name, value):
@@ -90,10 +105,10 @@ class Router:
             return re.compile(r"(?<!\d)" + re.escape(value[0]) + r"\s?성")
         return re.compile(r"(?<![가-힣])" + v + WORD_END)
 
-    # TODO(A) rag_v5: 이름·낱말 인식 개선. 확인: python3 -m core.route_check data/eval/style_questions_dev.csv
-    #  [ ] 띄어쓰기 없는 질문 ('알하이탐몇성임'): 지금 0%
-    #  [ ] 줄임 이름·별명 ('카즈하', '이토', '헤이조'): 별명 표를 만들어 정식 이름으로 바꾸기
-    #  [ ] 무기 종류 동의어 ('창' -> 장병기, '대검' -> 양손검, '카탈리스트' -> 법구): 지금 '창 쓰는 5성 캐릭터'가 무기 조건을 놓침
+    # rag_v5: 이름·낱말 인식 개선. 확인: python3 -m core.route_check data/eval/style_questions_dev.csv
+    #  [o] 띄어쓰기 없는 질문 ('알하이탐몇성임'): 두 글자 이상 정식 이름은 뒤에 한글이 붙어도 이름으로 본다
+    #  [o] 줄임 이름·별명 ('카즈하', '이토', '헤이조'): core/aliases.py
+    #  [o] 무기 종류 동의어 ('창' -> 장병기, '대검' -> 양손검, '카탈리스트' -> 법구): core/aliases.py
     #  평가용(style_questions_v1.csv)은 고친 뒤 한 번만 확인한다
     def find_character(self, text):
         for name, pattern in self.name_patterns:
@@ -111,8 +126,11 @@ class Router:
     def find_conditions(self, text):
         return {f: v for f, v, p in self.condition_patterns if p.search(text)}
 
-    @staticmethod
-    def find_field(text):
+    def find_field(self, text, character=None):
+        # 이름 안의 글자가 낱말로 잡히지 않게 이름을 지우고 본다 ('클레어디사람임'의 '레어')
+        if character:
+            for pattern in [p for full, p in self.name_patterns if full == character]:
+                text = pattern.sub(" ", text)
         for f, words in FIELD_WORDS.items():
             if any(w in text for w in words):
                 return f
@@ -131,7 +149,7 @@ class Router:
         if character:
             if any(w in text for w in BUILD_WORDS):
                 return RouteResult("build", character=character)
-            return RouteResult("lookup", character=character, asked_field=self.find_field(text))
+            return RouteResult("lookup", character=character, asked_field=self.find_field(text, character))
         item, item_kind = self.find_item(text)
         if item:
             return RouteResult("item", item=item, item_kind=item_kind, question=text)
@@ -139,7 +157,7 @@ class Router:
             return RouteResult("unknown")
         conditions = self.find_conditions(text)
         item_words = bool(ITEM_WORDS_RE.search(text)) and not CHARACTER_WEAPON_RE.search(text)
-        if conditions and ("캐릭터" in text or not item_words):
+        if conditions and (CHARACTER_CUE_RE.search(text) or not item_words):
             return RouteResult("filter", conditions=conditions)
         if item_words:
             return RouteResult("item", question=text)

@@ -18,7 +18,14 @@ from core.kb import slot_label
 from core.validate import recheck_reasons
 
 KIND_KO = {"characters": "캐릭터", "talents": "스킬", "constellations": "명의 자리", "weapons": "무기"}
-FILTER_TOP_K = 30
+FILTER_TOP_K = 30         # any 모드에서만 쓰는 상한 (조건 하나만 맞는 캐릭터까지 들어와서 상위 30명으로 자른다)
+# filter 경로에서 근거로 넘길 캐릭터 (rag_v5)
+#   all : 조건을 모두 만족하는 캐릭터만 (챗봇 기본). DB의 WHERE a AND b 와 같다. 근거 = 정답 목록이라 상한이 없다
+#   any : 조건을 하나라도 만족하면 (rag ~ rag_v4 방식. 평가 노트북에서 예전 결과를 재현할 때만)
+#         모델이 30명 안에서 조건을 직접 거르게 했더니 안 맞는 이름까지 따라 써서
+#         조건 검색 정밀도가 낮았다 (info14_rag_v4-V2: 조건 검색 F1 0.262, 남은 환각 5건 중 4건)
+FILTER_MODES = ("all", "any")
+FILTER_MODE = "all"
 PATCH_MAX_LINES = 60
 PATCH_DETAIL_MAX = 5      # 기록이 이 개수 이하이면 근거에 바뀌기 전 → 후 본문을 넣는다
 
@@ -118,19 +125,32 @@ def _ev(kind, title, text, data):
     return {"kind": kind, "title": title, "text": text, "data": data, "doc_id": doc_id_for(kind, data)}
 
 
-def retrieve(rr, kb, pool=None):
-    """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체)."""
+def filter_characters(conditions, pool, mode=FILTER_MODE):
+    """조건 -> 캐릭터 목록. all: 조건을 모두 만족 (이름 순), any: 맞는 조건 수가 많은 순으로 상위 FILTER_TOP_K명."""
+    if mode not in FILTER_MODES:
+        raise ValueError(f"filter_mode는 {FILTER_MODES} 중 하나: {mode!r}")
+    if not conditions:
+        return []
+    need = len(conditions) if mode == "all" else 1      # 맞아야 하는 조건 수
+    scored = []
+    for c in pool:
+        score = sum(1 for f, v in conditions.items() if c[f] == v)
+        if score >= need:
+            scored.append((-score, c["name"], c))
+    picked = [c for _, _, c in sorted(scored)]
+    return picked if mode == "all" else picked[:FILTER_TOP_K]
+
+
+def retrieve(rr, kb, pool=None, filter_mode=None):
+    """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체).
+    filter_mode: 'all'(기본, rag_v5) / 'any'(rag ~ rag_v4 재현용). 위 FILTER_MODE 설명 참고."""
     pool = kb.characters if pool is None else pool
     if rr.route == "lookup":
         return [_ev("character", c["name"], character_line(c), c) for c in pool if c["name"] == rr.character]
 
     if rr.route == "filter":
-        scored = []
-        for c in pool:
-            score = sum(1 for f, v in rr.conditions.items() if c[f] == v)
-            if score:
-                scored.append((-score, c["name"], c))
-        return [_ev("character", c["name"], character_line(c), c) for _, _, c in sorted(scored)[:FILTER_TOP_K]]
+        chars = filter_characters(rr.conditions, pool, filter_mode or FILTER_MODE)
+        return [_ev("character", c["name"], character_line(c), c) for c in chars]
 
     if rr.route == "patch":
         records = patch_records(rr, kb)

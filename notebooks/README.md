@@ -51,6 +51,13 @@
    - 셀 5: 가짜 모델 점검에서 oracle 점수가 1.0이 나와야 정상
 4. 셀 10: 처음에는 `LIMIT = 20`으로 시간을 재 보고, 괜찮으면 `None`(전체 121문항)으로 다시 실행
 
+## rag_v5 실행 (조건 검색 '조건 모두 만족')
+
+- rag_v5 = rag_v4 프롬프트·예시 그대로 + 조건 검색 근거만 '조건을 모두 만족하는 캐릭터'로 바꾼 것 (`core/retrieval.py`의 `FILTER_MODE`)
+- 노트북은 방법마다 근거 방식을 고릅니다: rag_v5만 `filter_mode="all"`, rag ~ rag_v4는 예전 결과가 그대로 나오도록 `"any"` (셀 4의 `filter_mode_for`)
+- 순서: 셀 10-1 `DEV_METHODS = ["rag_v5"]`로 DEV 실행 → `dev_rag_v4-V2`와 비교 → 좋으면 셀 10(`EVAL_METHODS = ["rag_v5"]`)으로 평가 문항 한 번
+- 보조 지표(03)는 rag_v5 결과면 자동으로 '조건 모두 만족' 근거로 환각을 셉니다
+
 ## 프롬프트 개선할 때 (DEV 세트)
 
 - 새 프롬프트(예: rag_v4)는 셀 7의 `METHODS`와 `make_prompt()`에 추가하고, **셀 10-1에서 DEV 세트(학습 질문 60개)로만 비교**합니다. 결과는 `results/dev_*.json`
