@@ -40,6 +40,7 @@ from core.kb import slot_label
 #  10. [ ] rag_v5(rag_v4 프롬프트 + '조건 모두 만족' 검색)를 DEV로 확인 -> 좋으면 평가 문항 한 번
 #         노트북 01_eval_info-V2 셀 10-1의 DEV_METHODS = ["rag_v5"]. 프롬프트·예시는 rag_v4와 글자까지 같다
 #  11. [ ] rag_v5 조건 검색 프롬프트 점검: 근거가 곧 정답 목록이 됐는데 '골라라' 지시·예시 때문에 빠뜨리는지 DEV로 확인
+#  12. [x] 빌드 이유 빈말 차단: 카드 설명의 핵심 낱말이 하나도 없으면 설명 원문 (clean_build_explain, rag_v5)
 #  규칙: 평가 문항, 사람 질문, style_questions_v1.csv 결과는 프롬프트 고를 때 보지 않는다
 
 RULES = ("규칙:\n"
@@ -268,13 +269,48 @@ def build_explain_prompt(card):
             "설명에 없는 무기, 성유물, 숫자는 쓰지 마세요. 문장만 출력하세요.")
 
 
-def clean_build_explain(text, notes):
-    """모델이 쓴 이유 한 문장. 비었거나, 너무 길거나, 설명에 없는 숫자가 나오면 카드 설명 원문을 쓴다."""
+# 빈말 판별 (rag_v5): 모델 문장이 카드 설명의 '그 캐릭터만의 낱말'을 BUILD_EXPLAIN_MIN_KEYWORDS개 이상 써야 이유로 인정한다.
+# 11/11 코랩에서 3B가 '능력을 최대한 활용할 수 있는 균형 잡힌 빌드' 같은 어느 캐릭터에나 맞는 문장을 썼다.
+# GENERIC_NOTE_WORDS: 빌드 카드 21장 설명 중 6장 이상에 나오는 낱말(원소, 피해, 서포터 ...)과 흔한 빈말 -> 핵심 낱말로 세지 않는다
+BUILD_EXPLAIN_MIN_KEYWORDS = 1
+GENERIC_NOTE_WORDS = {
+    "원소", "원소폭발", "스킬", "원소전투", "피해", "육성한다", "공격", "일반", "순으", "파티", "치명타", "딜러", "공격력",
+    "서포터", "캐릭터", "반응", "우선", "마스터리", "충전", "효율", "메인", "중심", "능력치", "확보", "서브", "필드", "세트",
+    "통해", "것이", "특성", "비례해", "확보한다", "함께", "효과", "빌드", "능력", "활용", "활용해", "활용할", "최대한",
+    "극대화", "최적", "최적화", "균형", "성능", "높이", "높이는", "높여", "위해", "있도록", "효과적", "매번", "만큼",
+    "가장", "좋은", "강력한", "다양한", "중요한", "중요하다", "이유", "때문", "덕분", "조합", "구성",
+    "전투", "높이고", "높인다", "높은", "있게", "있는", "있다", "있어", "위한", "하는", "한다", "된다", "대한", "따라",
+    "이후", "경우", "사용", "사용할", "사용하는", "가능", "필요", "모든", "기반", "위주", "안정적", "활약", "특징", "장점",
+    "무기", "성유물", "추천",
+}
+_JOSA = ("으로", "에서", "에게", "까지", "하고", "이며", "이고", "와", "과", "을", "를", "이", "가", "은", "는", "의", "에",
+         "도", "로", "만")
+
+
+def note_keywords(text, exclude=()):
+    """문장 -> 핵심 낱말 집합 (조사 떼고 두 글자 이상, 흔한 낱말·캐릭터 이름 제외)."""
+    out = set()
+    for w in re.findall(r"[가-힣A-Za-z]+", str(text)):
+        for j in _JOSA:
+            if w.endswith(j) and len(w) > len(j):
+                w = w[:-len(j)]
+                break
+        if len(w) >= 2 and w not in GENERIC_NOTE_WORDS and w not in exclude:
+            out.add(w)
+    return out
+
+
+def clean_build_explain(text, notes, character=""):
+    """모델이 쓴 이유 한 문장. 비었거나, 너무 길거나, 설명에 없는 숫자가 나오거나,
+    설명의 핵심 낱말을 거의 안 쓴 빈말이면 카드 설명 원문을 쓴다."""
     t = str(text).strip().split("\n")[0].strip().strip("\"'[]「」").strip()
     if not 10 <= len(t) <= 200:
         return notes
     if set(NUMBER.findall(t)) - set(NUMBER.findall(notes)):     # 근거에 없는 수치 = 지어낸 것
         return notes
+    name_words = set(character.split())
+    if len(note_keywords(t, name_words) & note_keywords(notes, name_words)) < BUILD_EXPLAIN_MIN_KEYWORDS:
+        return notes                                            # 카드 내용과 상관없는 빈말
     return t
 
 
@@ -458,7 +494,7 @@ class LLMAnswerer:
             if self.explain_build:
                 self.last_raw = self._generate(build_explain_prompt(card),
                                                max_new_tokens=BUILD_EXPLAIN_MAX_TOKENS, stop_strings=None)
-                notes = clean_build_explain(self.last_raw, notes)
+                notes = clean_build_explain(self.last_raw, notes, card.get("character", ""))
             lines.append(f"이유: {notes}")
         return lines
 

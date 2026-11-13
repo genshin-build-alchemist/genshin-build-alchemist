@@ -235,7 +235,7 @@ python3 db/make_seed.py && python3 db/make_documents_seed.py && psql "$DATABASE_
 1. [x] 동의어·줄임 이름 표: 창 → 장병기, 카즈하 → 카에데하라 카즈하 (`core/aliases.py`, 말투 변형 질문 경로 정확도 68.1% → 95.0%)
 2. [x] 조건 검색: 조건을 모두 맞는 캐릭터만 근거로 (`core/retrieval.py`, DEV 결과 대기)
 3. [ ] 아이템: 무기 종류·주옵션·성급(기본 4~5성)으로 거른 뒤 벡터 점수 순 (지금은 3성이 많이 잡힘)
-4. [ ] 빌드 이유: 카드 메모에 없는 빈말 막기
+4. [x] 빌드 이유: 카드 메모에 없는 빈말 막기 (`core/answer.py` `clean_build_explain`: 카드 설명의 핵심 낱말이 없으면 설명 원문)
 
 동의어가 들어간 말투 변형 질문을 더해 v4와 전후를 비교합니다.
 
