@@ -145,6 +145,20 @@ class AliasTest(unittest.TestCase):
         self.assertEqual(ROUTER.route("치명타 올려주는 활 뭐 있어?").route, "item")     # 아이템 질문은 그대로
 
 
+class OutOfDataTest(unittest.TestCase):
+    def test_question_outside_data_is_unknown(self):
+        for q in ("카즈하 좋아하는 음식 뭐야?", "알베도 생일 언제야?", "카즈하 성우 누구야?", "알베도 돌파 재료 뭐야?"):
+            self.assertEqual(ROUTER.route(q).route, "unknown", q)
+
+    def test_basic_info_still_lookup(self):
+        for q in ("카즈하 알려줘", "카즈하 원소 뭐야?", "카즈하 원소랑 좋아하는 음식 알려줘"):
+            self.assertEqual(ROUTER.route(q).route, "lookup", q)
+
+    def test_build_and_patch_unchanged(self):
+        self.assertEqual(ROUTER.route("카즈하 성유물 추천해줘").route, "build")
+        self.assertEqual(ROUTER.route("7.0에서 카즈하 뭐 바뀌었어?").route, "patch")
+
+
 class RecommendItemTest(unittest.TestCase):
     def test_item_detail_with_recommend_goes_to_item(self):
         for q in ("치명타 올려주는 활 추천해줘", "공격력 올려주는 대검 추천해줘", "원소 마스터리 올려주는 성유물 추천해줘"):

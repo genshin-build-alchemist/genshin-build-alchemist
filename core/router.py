@@ -55,6 +55,10 @@ ITEM_WORDS_RE = re.compile(r"무기|성유물|재련|[24]세트|세트 효과|�
                            r"(?<![가-힣])(?:창|검|활)(?=$|[\s?!.,]|은|는|이|가|을|를|도|으로|로|중|좀|추천|뭐)")
 # '카덴로우는 어떤 무기를 써?'는 아이템이 아니라 캐릭터(모르는 이름)의 무기를 묻는 질문 -> item으로 보내지 않는다
 CHARACTER_WEAPON_RE = re.compile(r"무기\s?(를|는|가)?\s?(뭐\s?)?(써|쓰|사용)")
+# 데이터에 없는 캐릭터 정보 (원소·무기·성급·지역 말고). 이름이 있어도 기본 정보로 답하지 않고 unknown (rag_v5)
+# 예: '카즈하 좋아하는 음식 뭐야?' -> 예전에는 기본 정보(바람, 한손검...)를 답했다 (시연 시나리오 7번)
+OUT_OF_DATA_RE = re.compile(r"좋아하는|싫어하는|좋아해|싫어해|생일|성우|취미|나이|몇 ?살|음식|키가|키는|신장|가족|"
+                            r"성격|대사|스토리|명함|의상|코스튬|재료")
 # 캐릭터를 묻는 말: '활 쓰는 4성 누구 있어?'는 무기가 아니라 캐릭터 조건 질문 (rag_v5)
 CHARACTER_CUE_RE = re.compile(r"캐릭|누구|쓰는|사용하는|들고 있는")
 # 아이템을 좁혀 주는 말: 무기 종류 또는 옵션. 이게 있으면 '추천'이 들어가도 아이템 질문으로 본다 (rag_v5)
@@ -153,7 +157,10 @@ class Router:
         if character:
             if any(w in text for w in BUILD_WORDS):
                 return RouteResult("build", character=character)
-            return RouteResult("lookup", character=character, asked_field=self.find_field(text, character))
+            field = self.find_field(text, character)
+            if field is None and OUT_OF_DATA_RE.search(text):
+                return RouteResult("unknown", character=character)
+            return RouteResult("lookup", character=character, asked_field=field)
         item, item_kind = self.find_item(text)
         if item:
             return RouteResult("item", item=item, item_kind=item_kind, question=text)
