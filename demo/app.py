@@ -1,25 +1,86 @@
-"""챗봇 웹 화면 (Streamlit). 질문 -> /ask 응답의 답(message), 근거(evidence), 응답 시간을 보여 준다.
+"""챗봇 웹 화면 (Streamlit + Custom Components v2). 화면은 demo/ui/의 HTML/CSS/JS, 파이썬은 데이터만 주고받는다.
 
 로컬 실행 (프로젝트 루트에서): streamlit run demo/app.py
+가짜 모드 (서버 없이 와이어프레임 답변): CHAT_UI_FAKE=1 streamlit run demo/app.py
 서버 주소는 Streamlit secrets의 API_URL에서 읽는다 (설명: demo/README.md)
+
+흐름: 화면에서 질문(trigger "ask") -> 질문 + 대기 카드를 대화에 넣고 다시 그림
+      -> 다음 실행에서 화면을 그린 뒤 답을 만들어 대기 카드를 바꾸고 다시 그림
 """
+import os
 import sys
+import time
 from pathlib import Path
 
 import streamlit as st
 
-# streamlit run demo/app.py 로 실행해도 같은 폴더의 client.py를 찾도록
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from client import ask_api, format_evidence, status_notes, MAX_QUESTION  # noqa: E402
+HERE = Path(__file__).resolve().parent
+# streamlit run demo/app.py 로 실행해도 같은 폴더의 파일을 찾도록
+sys.path.insert(0, str(HERE))
+import chat_logic as cl  # noqa: E402
+import fake  # noqa: E402
+from client import ask_api  # noqa: E402
 
-# docs/demo_scenario.md 시연 질문 (패치 질문 제외)
-EXAMPLES = [
-    "카에데하라 카즈하 원소 뭐야?",
-    "카즈하는 몇 성이에요?",
-    "이나즈마 출신 바람 원소 캐릭터 누구 있어?",
-    "카즈하 원소 스킬 어떤 거야?",
-    "카즈하 좋아하는 음식 뭐야?",
-]
+UI = HERE / "ui"
+FAKE = os.environ.get("CHAT_UI_FAKE") == "1"
+
+# Streamlit 기본 화면 요소(헤더, 툴바, 여백)를 숨겨서 컴포넌트가 화면 전체를 쓰게 한다
+HIDE_CHROME = """<style>
+header[data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stDecoration"],
+[data-testid="stStatusWidget"], [data-testid="stSkillsNudge"], #MainMenu, footer {display:none !important;}
+[data-testid="stMainBlockContainer"] {padding:0 !important; max-width:none !important;}
+</style>"""
+TRIGGERS = ("ask", "build", "help", "build_guide")
+
+
+@st.cache_resource
+def chat_component():
+    """화면 파일 3개를 읽어 컴포넌트를 한 번만 등록한다."""
+    read = lambda name: (UI / name).read_text(encoding="utf-8")  # noqa: E731
+    return st.components.v2.component(
+        "gb_chat", html=read("chat.html"), css=read("chat.css"), js=read("chat.js"))
+
+
+def handle_event(name, value):
+    """화면 이벤트 -> 대화 목록 변경. 답을 만들어야 하면 ss.job에 할 일을 남긴다."""
+    msgs, now = ss.messages, cl.now_kst()
+    mid = cl.next_id(msgs)
+    if name == "ask":
+        text = str(value or "").strip()
+        if not text:
+            return
+        msgs += [cl.user_message(mid, text, now), cl.pending_message(mid + 1, text)]
+        ss.job = {"type": "ask", "id": mid + 1, "question": text}
+    elif name == "build":
+        uid = str(value or "").strip()
+        if not cl.is_uid(uid):          # 화면에서 막지만 한 번 더 확인
+            return
+        msgs.append(cl.build_user_message(mid, uid, now))
+        if FAKE:                        # 가짜 모드: 로딩 단계 -> 파티 카드
+            msgs.append(cl.pending_message(mid + 1, f"UID {uid} 빌드 추천", kind="build",
+                                           steps=fake.BUILD_STEPS))
+            ss.job = {"type": "build", "id": mid + 1, "uid": uid}
+        else:                           # 서버에 빌드 기능이 없음 -> "준비 중" 안내
+            msgs.append(cl.guide_message(mid + 1, "build_ready", now, uid=uid))
+    elif name in ("help", "build_guide"):
+        msgs.append(cl.guide_message(mid, name, now))
+
+
+def run_job(job):
+    """대기 카드 자리에 들어갈 답 카드를 만든다 (화면을 그린 뒤 실행)."""
+    if job["type"] == "build":          # 가짜 모드에서만 생김
+        msg, delay = fake.build_answer(job["id"], job["uid"])
+        time.sleep(delay)
+        return msg
+    if FAKE:
+        msg, delay = fake.answer(job["id"], job["question"])
+        time.sleep(delay)
+        return msg
+    api_url = read_api_url()
+    if not api_url:
+        return cl.error_message(job["id"], job["question"], cl.NO_API_URL)
+    result = ask_api(api_url, job["question"])
+    return cl.answer_from_result(job["id"], job["question"], result)
 
 
 def read_api_url():
@@ -30,59 +91,27 @@ def read_api_url():
         return None
 
 
-def pick_example(q):
-    st.session_state.question = q
-    st.session_state.auto_submit = True
+st.set_page_config(page_title="여행자 가이드봇", page_icon="✨", layout="wide")
+st.html(HIDE_CHROME)
 
+ss = st.session_state
+ss.setdefault("messages", [])
+ss.setdefault("job", None)
 
-def show_result(result):
-    if not result["ok"]:
-        st.error(result["error"])
-        return
-    data = result["data"]
-    st.subheader("답")
-    st.write(data.get("message", ""))
-    for level, text in status_notes(data):
-        (st.warning if level == "warning" else st.info)(text)
+chat = chat_component()
+result = chat(key="chat", data=cl.view_data(ss.messages, busy=ss.job is not None),
+              **{f"on_{t}_change": lambda: None for t in TRIGGERS})
 
-    st.subheader("응답 시간")
-    st.write(f"{result['seconds']:.2f}초")
-    st.caption(f"경로 {data.get('route', '-')} · 모델 {data.get('model', '-')} · "
-               f"데이터 {data.get('data_version', '-')}")
+# 1) 화면 이벤트: 답을 만드는 중이면 무시 (두 번 눌림 방지)
+if ss.job is None:
+    for t in TRIGGERS:
+        value = getattr(result, t, None)
+        if value is not None:
+            handle_event(t, value)
+            st.rerun()
 
-    evidence = data.get("evidence") or []
-    st.subheader(f"근거 {len(evidence)}개")
-    if not evidence:
-        st.caption("근거 문서 없음")
-    for ev in map(format_evidence, evidence):
-        label = f"[{ev['kind']}] {ev['title']}" if ev["kind"] else ev["title"]
-        with st.expander(label):
-            st.caption(f"doc_id: {ev['doc_id']}")
-            st.text(ev["text"])
-
-
-st.set_page_config(page_title="Genshin Build Alchemist", page_icon="🌬️")
-st.title("원신 캐릭터 챗봇")
-st.caption("캐릭터 데이터에서 근거를 찾아 답해요. 근거가 없으면 지어내지 않고 '찾지 못했어요'라고 답해요.")
-
-api_url = read_api_url()
-if not api_url:
-    st.error("서버 주소가 설정되지 않았어요. Streamlit secrets에 API_URL을 넣어 주세요 (demo/README.md 참고).")
-    st.stop()
-
-st.write("예시 질문")
-cols = st.columns(len(EXAMPLES))
-for col, q in zip(cols, EXAMPLES):
-    col.button(q, on_click=pick_example, args=(q,))
-
-with st.form("ask_form"):
-    question = st.text_input("질문", key="question", max_chars=MAX_QUESTION,
-                             placeholder="예: 알베도 원소가 뭐야?")
-    submitted = st.form_submit_button("질문하기")
-
-if submitted or st.session_state.pop("auto_submit", False):
-    with st.spinner("답변 생성 중... (실제 모델은 몇 초 걸려요)"):
-        st.session_state.result = ask_api(api_url, question)
-
-if "result" in st.session_state:
-    show_result(st.session_state.result)
+# 2) 남은 일: 화면에 대기 카드가 그려진 뒤 답을 만들고 다시 그린다
+if ss.job is not None:
+    ss.messages = cl.replace_message(ss.messages, run_job(ss.job))
+    ss.job = None
+    st.rerun()

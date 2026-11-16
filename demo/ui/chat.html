@@ -1,0 +1,44 @@
+<!-- 여행자 가이드봇 화면 구조 (와이어프레임 v10 <body>를 옮김, 상단 wf-bar 제외). 내용은 chat.js가 data로 채운다 -->
+<div class="gb-root" id="gbRoot">
+<div class="app">
+  <aside class="side">
+    <div class="side-top">
+      <div class="brand"><div class="mark">✦</div><div class="nm"><small>원신에 대해 궁금할 땐?</small>여행자 가이드봇</div></div>
+      <p class="tagline">캐릭터·아이템·패치 정보·빌드 조합까지<br>원신 초보자를 위한 길잡이!</p>
+    </div>
+    <h4>이번 대화 기록</h4>
+    <div class="hist" id="hist"><div class="empty">아직 기록이 없어요</div><p class="hist-note" id="histNote" hidden><span>⚠️</span><span>새로고침하거나 브라우저를 닫으면<br>대화 기록이 사라져요.</span></p></div>
+    <div class="side-bottom">
+      <div class="theme-sw"><button class="on" data-theme="pastel">☀️ 몬드 파스텔</button><button data-theme="dark">🌙 미니멀 다크</button></div>
+      <button class="help-btn" id="helpBtn">
+        <span class="hi">🧭</span>
+        <span class="ht">처음이신가요?<small>사용법 둘러보기</small></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="spacer"></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="scroll" id="scroll"><div class="col" id="col"></div></div>
+    <div class="composer"><div class="inner">
+      <div class="ex-row" id="exRow"></div>
+      <div class="box" id="box">
+        <span class="pre">UID</span>
+        <input id="inp" maxlength="300" autocomplete="off">
+        <button class="pre-x" id="preX" title="질문 모드로 돌아가기">✕</button>
+        <button class="send" id="send" disabled>질문하기</button>
+      </div>
+      <div class="hint">
+        <span class="ver"><i></i>원신 7.2 패치 기준</span>
+        <span id="cnt">0 / 300</span>
+      </div>
+    </div></div>
+  </main>
+
+  <aside class="srcpanel" id="sp"><div class="sp-in">
+    <div class="sp-head"><div><h3 id="spT">출처</h3><p id="spQ"></p></div><button class="sp-close" id="spClose" title="닫기">✕</button></div>
+    <div class="sp-list" id="spList"></div>
+  </div></aside>
+</div>
+</div>
