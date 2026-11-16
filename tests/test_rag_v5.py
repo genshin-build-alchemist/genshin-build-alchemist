@@ -69,10 +69,42 @@ class FilterAllConditionsTest(unittest.TestCase):
         self.assertGreater(len(r["answer"]), FILTER_MODEL_MAX)
         self.assertTrue(all(KB.char_by_name[n]["rarity"] == "5성" for n in r["answer"]))
 
-    def test_short_list_still_uses_model(self):
+    def test_short_list_uses_model_in_rag_v5(self):
         calls = []
-        bot = Chatbot(KB, LLMAnswerer(lambda prompt, **kw: calls.append(prompt) or '["알베도"]'))
+        bot = Chatbot(KB, LLMAnswerer(lambda prompt, **kw: calls.append(prompt) or '["알베도"]', method="rag_v5"))
         bot.ask("몬드 출신 5성 캐릭터 누구 있어?")
+        self.assertEqual(len(calls), 1)
+
+
+class RagV5DataTest(unittest.TestCase):
+    """rag_v5_data (챗봇 기본): 조건 검색은 근거 그대로, 근거 없으면 모델 없이 []. 노트북 data_answer와 같은 규칙."""
+
+    def _bot(self, calls):
+        return Chatbot(KB, LLMAnswerer(lambda prompt, **kw: calls.append(prompt) or '["틀린답"]'))
+
+    def test_every_filter_question_answers_gold_without_model(self):
+        calls, wrong = [], []
+        bot = self._bot(calls)
+        for q in DATA["questions"]:
+            if q["type"] != "filter":
+                continue
+            names = {c["name"] for c in pool_for(q)}
+            pool = [c for c in KB.characters if c["name"] in names]
+            evidence = retrieve(ROUTER.route(q["question"]), KB, pool)
+            got = bot.answerer.answer(q["question"], ROUTER.route(q["question"]), evidence)
+            if sorted(got) != sorted(q["gold"]):
+                wrong.append(q["id"])
+        self.assertEqual(wrong, [])
+        self.assertEqual(calls, [])
+
+    def test_unknown_character_is_refused_without_model(self):
+        calls = []
+        r = self._bot(calls).ask("미르하젤은 몇 성이야?")
+        self.assertEqual((r["route"], r["answer"], calls), ("unknown", [], []))
+
+    def test_lookup_still_uses_model(self):
+        calls = []
+        self._bot(calls).ask("알베도 원소가 뭐야?")
         self.assertEqual(len(calls), 1)
 
 
@@ -111,6 +143,20 @@ class AliasTest(unittest.TestCase):
     def test_character_cue_goes_to_filter(self):
         self.assertEqual(ROUTER.route("활 쓰는 4성 누구 있어?").route, "filter")
         self.assertEqual(ROUTER.route("치명타 올려주는 활 뭐 있어?").route, "item")     # 아이템 질문은 그대로
+
+
+class OutOfDataTest(unittest.TestCase):
+    def test_question_outside_data_is_unknown(self):
+        for q in ("카즈하 좋아하는 음식 뭐야?", "알베도 생일 언제야?", "카즈하 성우 누구야?", "알베도 돌파 재료 뭐야?"):
+            self.assertEqual(ROUTER.route(q).route, "unknown", q)
+
+    def test_basic_info_still_lookup(self):
+        for q in ("카즈하 알려줘", "카즈하 원소 뭐야?", "카즈하 원소랑 좋아하는 음식 알려줘"):
+            self.assertEqual(ROUTER.route(q).route, "lookup", q)
+
+    def test_build_and_patch_unchanged(self):
+        self.assertEqual(ROUTER.route("카즈하 성유물 추천해줘").route, "build")
+        self.assertEqual(ROUTER.route("7.0에서 카즈하 뭐 바뀌었어?").route, "patch")
 
 
 class RecommendItemTest(unittest.TestCase):

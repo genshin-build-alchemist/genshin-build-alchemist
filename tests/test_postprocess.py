@@ -34,8 +34,9 @@ class PostprocessTest(unittest.TestCase):
     def test_chatbot_uses_postprocess(self):
         kb = load_kb()
         raw = '["라이デン 쇼군", "쿠피시노부", "베티"]'
-        on = Chatbot(kb, LLMAnswerer(lambda prompt: raw, name="fake"))
-        off = Chatbot(kb, LLMAnswerer(lambda prompt: raw, name="fake", postprocess=False))
+        # 모델이 조건 검색에 답하는 방식(rag_v5)으로 후처리를 본다. rag_v5_data는 조건 검색에 모델을 안 쓴다
+        on = Chatbot(kb, LLMAnswerer(lambda prompt: raw, name="fake", method="rag_v5"))
+        off = Chatbot(kb, LLMAnswerer(lambda prompt: raw, name="fake", method="rag_v5", postprocess=False))
         question = "이나즈마 출신 번개 원소 캐릭터를 모두 알려줘"
         self.assertEqual(on.ask(question)["answer"], ["라이덴 쇼군", "쿠키 시노부"])
         self.assertEqual(off.ask(question)["answer"], ["라이デン 쇼군", "쿠피시노부", "베티"])

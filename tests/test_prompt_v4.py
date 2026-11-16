@@ -65,8 +65,14 @@ class PromptV4Test(unittest.TestCase):
         changed = {q["type"] for q in NB["questions"] if NB["make_prompt"](q, "rag_v4") != NB["make_prompt"](q, "rag_v5")}
         self.assertEqual(changed, {"filter"})
 
-    def test_chatbot_uses_rag_v5_by_default(self):
-        self.assertEqual(LLMAnswerer(lambda prompt: "[]").method, "rag_v5")
+    def test_chatbot_uses_rag_v5_data_by_default(self):
+        self.assertEqual(LLMAnswerer(lambda prompt: "[]").method, "rag_v5_data")
+
+    def test_rag_v5_data_prompt_is_rag_v5_prompt(self):
+        for q in NB["questions"][:50]:
+            evidence = retrieve(ROUTER.route(q["question"]), KB)
+            self.assertEqual(build_prompt(q["question"], evidence, "rag_v5_data"),
+                             build_prompt(q["question"], evidence, "rag_v5"))
 
 
 if __name__ == "__main__":
