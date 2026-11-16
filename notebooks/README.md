@@ -57,6 +57,8 @@
 - 노트북은 방법마다 근거 방식을 고릅니다: rag_v5만 `filter_mode="all"`, rag ~ rag_v4는 예전 결과가 그대로 나오도록 `"any"` (셀 4의 `filter_mode_for`)
 - 순서: 셀 10-1 `DEV_METHODS = ["rag_v5"]`로 DEV 실행 → `dev_rag_v4-V2`와 비교 → 좋으면 셀 10(`EVAL_METHODS = ["rag_v5"]`)으로 평가 문항 한 번
 - 보조 지표(03)는 rag_v5 결과면 자동으로 '조건 모두 만족' 근거로 환각을 셉니다
+- rag_v5_data = rag_v5 + 조건 검색은 근거 이름을 그대로 답, 근거가 없으면 모델 없이 `[]` (셀 7의 `data_answer`, 챗봇과 같은 규칙)
+  - 지금 셀 10-1 `DEV_METHODS`, 셀 10 `EVAL_METHODS`는 `["rag_v5_data"]`. DEV 결과를 보고 평가 문항은 한 번만
 
 ## 프롬프트 개선할 때 (DEV 세트)
 

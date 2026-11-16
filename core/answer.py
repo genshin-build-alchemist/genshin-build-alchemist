@@ -38,8 +38,10 @@ from core.kb import slot_label
 #         예: Qwen2.5-1.5B(빠름) / Qwen2.5-7B 4bit(정확) / 한국어 모델 1개. 결과는 드라이브 results/ JSON
 #         -> 보고서에 '왜 Qwen2.5-3B를 골랐는지' 근거로 쓴다
 #  10. [ ] rag_v5(rag_v4 프롬프트 + '조건 모두 만족' 검색)를 DEV로 확인 -> 좋으면 평가 문항 한 번
-#         노트북 01_eval_info-V2 셀 10-1의 DEV_METHODS = ["rag_v5"]. 프롬프트·예시는 rag_v4와 글자까지 같다
-#  11. [ ] rag_v5 조건 검색 프롬프트 점검: 근거가 곧 정답 목록이 됐는데 '골라라' 지시·예시 때문에 빠뜨리는지 DEV로 확인
+#         노트북 01_eval_info_V2 셀 10-1의 DEV_METHODS. 프롬프트·예시는 rag_v4와 글자까지 같다
+#         -> 11/16 DEV: 정답률 0.717 -> 0.900, 조건 검색 F1 0.297 -> 0.898 (근거 정밀도 1.0). 남은 건 모델이 근거 이름을 빠뜨림
+#  11. [x] rag_v5 조건 검색 누락 (DEV 5문항 8명, '나타 출신 4성'은 근거 3명인데 []) -> 프롬프트 대신 rag_v5_data:
+#         조건 검색은 근거 이름을 그대로 답한다 (패치·빌드처럼 목록은 데이터 그대로). 노트북도 근거 없으면 모델 없이 []
 #  12. [x] 빌드 이유 빈말 차단: 카드 설명의 핵심 낱말이 하나도 없으면 설명 원문 (clean_build_explain, rag_v5)
 #  규칙: 평가 문항, 사람 질문, style_questions_v1.csv 결과는 프롬프트 고를 때 보지 않는다
 
@@ -80,16 +82,19 @@ def examples_block_v4():
     return "\n\n".join(blocks)
 
 
-LIST_METHODS = ("baseline", "rag", "rag_v4", "rag_v5")
+LIST_METHODS = ("baseline", "rag", "rag_v4", "rag_v5", "rag_v5_data")
+# 조건 검색(filter) 답을 모델 없이 근거 이름 그대로 내는 방법 (11/16 팀 결정, DEV 결과로 확인)
+DATA_FILTER_METHODS = ("rag_v5_data",)
 
 
-def build_prompt(question, evidence, method="rag_v5"):
-    """method: baseline(질문만) / rag(규칙 + 근거) / rag_v4·rag_v5(규칙 + 근거가 붙은 예시 5개 + 근거, 기본값).
-    rag_v5는 프롬프트가 rag_v4와 같고 근거(조건 검색)만 다르다 -> 근거는 core/retrieval.py가 만든다."""
+def build_prompt(question, evidence, method="rag_v5_data"):
+    """method: baseline(질문만) / rag(규칙 + 근거) / rag_v4·rag_v5·rag_v5_data(규칙 + 근거가 붙은 예시 5개 + 근거).
+    rag_v5는 프롬프트가 rag_v4와 같고 근거(조건 검색)만 다르다 -> 근거는 core/retrieval.py가 만든다.
+    rag_v5_data도 프롬프트는 같다 (조건 검색은 모델을 안 부를 뿐)."""
     if method == "baseline":
         return f"{question}\nJSON 배열로만 답하세요."
     context = context_text([e["text"] for e in evidence])
-    if method in ("rag_v4", "rag_v5"):
+    if method in ("rag_v4", "rag_v5", "rag_v5_data"):
         return "\n\n".join([RULES_V4, examples_block_v4(),
                             f"[근거]\n{context}\n{RAG_NOTE_V4}",
                             f"[질문]\n{question}\n답:"])
@@ -464,7 +469,7 @@ def clean_answer(pred, texts, cutoff=POST_CUTOFF):
 class LLMAnswerer:
     sentence_routes = TEXT_ROUTES + ("build",)   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
 
-    def __init__(self, generate_fn, name="llm", method="rag_v5", postprocess=True, explain_build=True):
+    def __init__(self, generate_fn, name="llm", method="rag_v5_data", postprocess=True, explain_build=True):
         self.generate_fn = generate_fn
         self.name = name
         self.method = method
@@ -516,7 +521,8 @@ class LLMAnswerer:
                 answer = item_fallback_answer(question, evidence) or []
             return answer
         names = [e["title"] for e in evidence if e["kind"] == "character"]
-        if rr.route == "filter" and len(names) > FILTER_MODEL_MAX:   # 긴 목록은 데이터 그대로 (모델 없이)
+        # 조건 검색: rag_v5_data는 항상, 그 밖에는 긴 목록(FILTER_MODEL_MAX 초과)만 데이터 그대로 (모델 없이)
+        if rr.route == "filter" and (self.method in DATA_FILTER_METHODS or len(names) > FILTER_MODEL_MAX):
             self.last_raw = ""
             return names
         self.last_raw = self._generate(build_prompt(question, evidence, self.method))
