@@ -16,7 +16,7 @@ route() 의 반환 형식(RouteResult)만 지키면 나머지 코드는 그대�
 import re
 from dataclasses import dataclass, field
 
-from core.aliases import CONDITION_ALIASES, character_aliases
+from core.aliases import CONDITION_ALIASES, character_aliases, item_aliases
 
 ROUTES = ("patch", "build", "lookup", "item", "filter", "unknown")
 
@@ -94,9 +94,14 @@ class Router:
         self.name_patterns = [(full, re.compile(start + re.escape(w) + (NAME_END_LOOSE if exact and len(w) >= 2
                                                                         else NAME_END)))
                               for w, full, exact in words]
-        items = [(n, "weapon") for n in kb.weapon_by_name] + [(n, "artifact") for n in kb.artifact_by_name]
+        # (찾을 낱말, 정식 이름, 종류). 별명('회광')은 core/aliases.py ITEM_ALIASES
+        items = [(n, n, "weapon") for n in kb.weapon_by_name] + [(n, n, "artifact") for n in kb.artifact_by_name]
+        char_words = {w for w, _, _ in words}
+        items += [(a, full, k) for a, (full, k) in item_aliases(kb.weapon_by_name, kb.artifact_by_name,
+                                                                 exclude=char_words).items()]
         items.sort(key=lambda x: len(x[0]), reverse=True)              # 긴 이름부터 ('페보니우스 검' > '검')
-        self.item_patterns = [(n, k, re.compile(r"(?:^|[\s\"'“‘(「])" + re.escape(n) + NAME_END)) for n, k in items]
+        self.item_patterns = [(full, k, re.compile(r"(?:^|[\s\"'“‘(「])" + re.escape(w) + NAME_END))
+                              for w, full, k in items]
         self.condition_patterns = []
         for f in ("region", "weapon", "rarity", "element"):
             for value in sorted({c[f] for c in kb.characters if c[f]}):

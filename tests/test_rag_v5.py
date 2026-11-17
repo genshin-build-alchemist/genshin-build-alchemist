@@ -5,7 +5,7 @@ import re
 import unittest
 from pathlib import Path
 
-from core.aliases import character_aliases
+from core.aliases import ITEM_ALIASES, character_aliases, item_aliases
 from core.answer import FILTER_MODEL_MAX, LLMAnswerer, clean_build_explain
 from core.kb import load_kb
 from core.pipeline import Chatbot
@@ -157,6 +157,35 @@ class OutOfDataTest(unittest.TestCase):
     def test_build_and_patch_unchanged(self):
         self.assertEqual(ROUTER.route("카즈하 성유물 추천해줘").route, "build")
         self.assertEqual(ROUTER.route("7.0에서 카즈하 뭐 바뀌었어?").route, "patch")
+
+
+class ItemAliasTest(unittest.TestCase):
+    """아이템 별명 표 (core/aliases.py ITEM_ALIASES). 표를 채운 뒤 이 테스트만 통과하면 된다."""
+
+    def test_every_alias_points_to_real_item(self):
+        names = set(KB.weapon_by_name) | set(KB.artifact_by_name)
+        self.assertEqual([a for a, full in ITEM_ALIASES.items() if full not in names], [],
+                         "정식 이름이 데이터에 없음 (오타?)")
+
+    def test_alias_does_not_clash(self):
+        items = set(KB.weapon_by_name) | set(KB.artifact_by_name)
+        chars = set(KB.char_by_name) | set(character_aliases(KB.char_by_name))
+        self.assertEqual([a for a in ITEM_ALIASES if a in items or a in chars], [],
+                         "별명이 다른 아이템·캐릭터 이름과 같음")
+
+    def test_every_alias_is_used(self):
+        self.assertEqual(set(item_aliases(KB.weapon_by_name, KB.artifact_by_name)), set(ITEM_ALIASES))
+
+    def test_alias_question_finds_item(self):
+        for alias, full in ITEM_ALIASES.items():
+            rr = ROUTER.route(f"{alias} 효과 뭐야?")
+            self.assertEqual((rr.route, rr.item), ("item", full), alias)
+
+    def test_examples(self):
+        self.assertEqual(ROUTER.route("회광 주옵션 뭐야?").item, "안개를 가르는 회광")
+        rr = ROUTER.route("절연 4세트 효과 알려줘")
+        self.assertEqual((rr.item, rr.item_kind), ("절연의 기치", "artifact"))
+        self.assertEqual(ROUTER.route("안개를 가르는 회광 효과 뭐야?").item, "안개를 가르는 회광")   # 정식 이름 그대로
 
 
 class RecommendItemTest(unittest.TestCase):
