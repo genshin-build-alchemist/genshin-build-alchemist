@@ -270,7 +270,8 @@ class BuildAnswerTest(unittest.TestCase):
         self.assertEqual(r["answer"][-1], "이유: 원소 마스터리를 올리면 확산으로 팀 피해를 키울 수 있어서 마스터리 위주로 맞춘다.")
         self.assertEqual(len(gen.prompts), 1)
         self.assertIn(self.CARD["notes"], gen.prompts[0])
-        self.assertNotIn("오래된 자유의 서약", gen.prompts[0])           # 목록은 모델에게 주지 않는다
+        # 목록은 모델에게 주지 않는다 (설명에 1순위 무기 이름은 들어갈 수 있으니 목록 전체로 확인)
+        self.assertNotIn(", ".join(self.CARD["weapons"]), gen.prompts[0])
 
     def test_made_up_number_falls_back_to_notes(self):
         notes = "원소 마스터리를 최대한 올린다."
