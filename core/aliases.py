@@ -4,6 +4,10 @@
   - 성 + 이름 꼴(이나즈마 캐릭터 등)은 이름만 불러도 알아듣는다: '카즈하' -> '카에데하라 카즈하' (자동)
   - 자동으로 못 만드는 별명은 CHARACTER_ALIASES에 직접 적는다: '라이덴' -> '라이덴 쇼군'
   - 같은 줄임 이름이 두 캐릭터에 걸리면(예: '카미사토' = 아야카/아야토) 쓰지 않는다
+아이템 (무기·성유물, rag_v5)
+  - 줄임 이름은 ITEM_ALIASES에 직접 적는다: '회광' -> '안개를 가르는 회광' (담당: 한동우)
+  - 한 별명은 아이템 하나만: '천공'처럼 여러 개(천공의 검·날·활 ...)에 걸리는 말은 넣지 않는다
+  - 정식 이름이 데이터(data/items_ko.json)에 없거나, 캐릭터 이름·별명과 겹치면 테스트가 실패한다 (tests/test_rag_v5.py)
 조건 (filter)
   - 무기 종류 동의어: '창' -> 장병기, '대검' -> 양손검, '카탈리스트' -> 법구
   - 성급·원소·지역은 표기 차이가 거의 없어서 아직 표가 없다
@@ -16,6 +20,12 @@
 CHARACTER_ALIASES = {
     "라이덴": "라이덴 쇼군",
     "야에": "야에 미코",
+}
+
+# 아이템 별명 -> 정식 이름 (무기·성유물 data/items_ko.json의 name). 무기 '종류' 동의어는 아래 CONDITION_ALIASES
+ITEM_ALIASES = {
+    "회광": "안개를 가르는 회광",
+    "절연": "절연의 기치",
 }
 
 # 줄임 이름이 다른 뜻으로 더 자주 쓰여서 자동 별명에서 빼는 낱말
@@ -46,4 +56,19 @@ def character_aliases(names):
     for alias, full in CHARACTER_ALIASES.items():
         if full in names and alias not in names:
             out[alias] = full
+    return out
+
+
+def item_aliases(weapon_names, artifact_names, exclude=()):
+    """ITEM_ALIASES -> {별명: (정식 이름, 'weapon'/'artifact')}. 데이터에 없는 이름, 정식 이름과 같은 별명,
+    exclude(캐릭터 이름·별명)와 겹치는 별명은 뺀다. 빠진 것은 tests/test_rag_v5.py가 잡는다."""
+    weapons, artifacts, exclude = set(weapon_names), set(artifact_names), set(exclude)
+    out = {}
+    for alias, full in ITEM_ALIASES.items():
+        if alias in weapons or alias in artifacts or alias in exclude:
+            continue
+        if full in weapons:
+            out[alias] = (full, "weapon")
+        elif full in artifacts:
+            out[alias] = (full, "artifact")
     return out
