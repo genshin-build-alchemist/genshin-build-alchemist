@@ -55,7 +55,7 @@ class ItemRetrieveTest(unittest.TestCase):
 
     def test_vector_failure_does_not_crash(self):
         original = vector.item_vector_search
-        vector.item_vector_search = lambda q, k=5: (_ for _ in ()).throw(RuntimeError("DB 없음"))
+        vector.item_vector_search = lambda q, k=5, **kw: (_ for _ in ()).throw(RuntimeError("DB 없음"))
         try:
             r = Chatbot(KB).ask("마스터리 올려주는 창 뭐 있어?")
         finally:
@@ -64,7 +64,7 @@ class ItemRetrieveTest(unittest.TestCase):
 
     def test_vector_results_become_evidence(self):
         original = vector.item_vector_search
-        vector.item_vector_search = lambda q, k=5: ["weapon:dragonsbane", "없는:문서", "artifact:wandererstroupe"]
+        vector.item_vector_search = lambda q, k=5, **kw: ["weapon:dragonsbane", "없는:문서", "artifact:wandererstroupe"]
         try:
             ev = retrieve(ROUTER.route("마스터리 올려주는 무기 뭐 있어?"), KB)
         finally:
@@ -117,3 +117,43 @@ class ItemVectorSearchTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ItemFilterWireTest(unittest.TestCase):
+    """질문에서 뽑은 조건(무기 종류·주옵션·성급)이 벡터 검색에 넘어가는지 (가짜 임베딩 + 실제 메타데이터)."""
+
+    @classmethod
+    def setUpClass(cls):
+        import json
+        import numpy as np
+        from core.retrieval import DOCS_PATH
+        docs = [json.loads(l) for l in DOCS_PATH.read_text(encoding="utf-8").splitlines() if l.strip()]
+        docs = [d for d in docs if d.get("kind") in ("weapon", "artifact")]
+        rng = np.random.default_rng(0)
+        vecs = rng.normal(size=(len(docs), 8)).astype("float32")
+        vecs /= np.linalg.norm(vecs, axis=1, keepdims=True)
+        vector.set_item_index(lambda texts: vecs[:1], vecs, [d["doc_id"] for d in docs], [d["metadata"] for d in docs])
+
+    @classmethod
+    def tearDownClass(cls):
+        vector._clear_item_index()
+
+    def _weapons(self, q):
+        ev = retrieve(ROUTER.route(q), KB)
+        self.assertTrue(ev, q)
+        return [e["data"] for e in ev]
+
+    def test_bow_with_crit(self):
+        for w in self._weapons("치명타 올려주는 활 뭐 있어?"):
+            self.assertEqual(w["weapon"], "활")
+            self.assertIn(w["main_stat"], ("치명타 확률", "치명타 피해"))
+            self.assertIn(w["rarity"], ("4성", "5성"))
+
+    def test_spear_synonym_and_rarity(self):
+        for w in self._weapons("원충 올려주는 4성 창 뭐 있어?"):
+            self.assertEqual((w["weapon"], w["main_stat"], w["rarity"]), ("장병기", "원소 충전 효율", "4성"))
+
+    def test_artifact_question_returns_artifacts(self):
+        ev = retrieve(ROUTER.route("보호막 성유물 뭐 있어?"), KB)
+        self.assertTrue(ev)
+        self.assertTrue(all(e["kind"] == "artifact" for e in ev))

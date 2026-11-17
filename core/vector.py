@@ -364,7 +364,10 @@ def item_vector_search(
                     continue
 
                 # 주옵션 필터
-                if main_stat and meta.get("main_stat") != main_stat:
+                # 주옵션 필터 (문자열 하나 또는 목록: '치명타' -> ['치명타 확률', '치명타 피해'])
+                if main_stat and meta.get("main_stat") not in (
+                    {main_stat} if isinstance(main_stat, str) else set(main_stat)
+                ):
                     continue
 
                 item_rarities = _rarity_tokens(meta.get("rarity"))
