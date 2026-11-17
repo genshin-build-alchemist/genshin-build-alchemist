@@ -141,6 +141,46 @@ def filter_characters(conditions, pool, mode=FILTER_MODE):
     return picked if mode == "all" else picked[:FILTER_TOP_K]
 
 
+# 아이템 벡터 검색에 넘길 조건 (질문에서 뽑음). core/vector.py item_vector_search의 kind·weapon_type·main_stat·rarity
+#   '치명타 올려주는 활' -> 무기, 활, 주옵션 치명타 확률/피해 -> 그 안에서만 벡터 점수 순 (기본 4~5성, 모자라면 3성)
+ITEM_WEAPON_TYPES = {"한손검": "한손검", "양손검": "양손검", "장병기": "장병기", "법구": "법구", "활": "활",
+                     "창": "장병기", "대검": "양손검", "카탈리스트": "법구", "카탈": "법구"}
+ITEM_MAIN_STATS = (     # (질문 낱말, 무기 주옵션 값들). 앞에서부터 처음 맞는 것 하나
+    (r"치명타 ?확률|치확", ("치명타 확률",)),
+    (r"치명타 ?피해|치피", ("치명타 피해",)),
+    (r"치명", ("치명타 확률", "치명타 피해")),
+    (r"원소 ?마스터리|마스터리|원마", ("원소 마스터리",)),
+    (r"원소 ?충전|충전 ?효율|원충", ("원소 충전 효율",)),
+    (r"물리", ("물리 피해 보너스",)),
+    (r"공격력", ("공격력",)),
+    (r"방어력", ("방어력",)),
+    (r"HP|체력", ("HP",)),
+)
+
+
+def item_filters(question):
+    """아이템 질문 -> item_vector_search 조건 dict. 못 뽑은 조건은 넣지 않는다."""
+    q = str(question)
+    out = {}
+    for word, value in sorted(ITEM_WEAPON_TYPES.items(), key=lambda x: -len(x[0])):
+        if re.search(r"(?<![가-힣])" + re.escape(word) + r"(?=$|[^가-힣]|을|를|이|은|는|도|으로|로|에|중|만|쓰|들|류)", q):
+            out["weapon_type"] = value
+            break
+    if "성유물" in q and "weapon_type" not in out:
+        out["kind"] = "artifact"
+    elif "weapon_type" in out or "무기" in q:
+        out["kind"] = "weapon"
+    if out.get("kind") == "weapon":      # 성유물은 주옵션이 부위마다 달라 문서에 없다 -> 무기만
+        for pattern, values in ITEM_MAIN_STATS:
+            if re.search(pattern, q):
+                out["main_stat"] = list(values)
+                break
+    m = re.search(r"([345])\s*성", q)
+    if m:
+        out["rarity"] = f"{m.group(1)}성"
+    return out
+
+
 def retrieve(rr, kb, pool=None, filter_mode=None):
     """rr: router.RouteResult. pool: 검색 대상 캐릭터 목록 (평가 때 학습/평가 분리용, 기본은 전체).
     filter_mode: 'all'(기본, rag_v5) / 'any'(rag ~ rag_v4 재현용). 위 FILTER_MODE 설명 참고."""
@@ -185,7 +225,10 @@ def retrieve(rr, kb, pool=None, filter_mode=None):
             return [item_evidence(rr.item_kind, info)] if info else []
         try:                                            # 이름이 없으면 벡터 검색 (core/vector.py)
             from core.vector import item_vector_search
-            doc_ids = item_vector_search(rr.question, k=ITEM_TOP_K)
+            filters = item_filters(rr.question)
+            doc_ids = item_vector_search(rr.question, k=ITEM_TOP_K, **filters)
+            if not doc_ids and filters:                 # 조건이 너무 좁으면 조건 없이 다시 (근거 0개보다 낫다)
+                doc_ids = item_vector_search(rr.question, k=ITEM_TOP_K)
         except Exception:   # 벡터 검색이 실패해도 API는 멈추지 않는다 -> 근거 없음
             doc_ids = []
         by_doc = {doc_id_for("weapon", w): ("weapon", w) for w in kb.weapons}
