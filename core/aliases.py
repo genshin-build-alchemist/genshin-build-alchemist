@@ -1,3 +1,4 @@
+
 """동의어·줄임 이름 표 (rag_v5). 라우터가 질문을 판별할 때 정식 이름으로 바꿔 읽는다.
 
 캐릭터
@@ -24,8 +25,34 @@ CHARACTER_ALIASES = {
 
 # 아이템 별명 -> 정식 이름 (무기·성유물 data/items_ko.json의 name). 무기 '종류' 동의어는 아래 CONDITION_ALIASES
 ITEM_ALIASES = {
+    # 무기
+    "매검": "매의 검",
+    "천공검": "천공의 검",
     "회광": "안개를 가르는 회광",
+    "페보검": "페보니우스 검",
+    "용포": "용의 포효",
+    "늑말": "늑대의 말로",
+    "송뢰": "송뢰가 울릴 무렵",
+    "휴지": "천공의 두루마리",
+    "사풍": "사풍 원서",
+    "호마창": "호마의 지팡이",
+    "호마봉": "호마의 지팡이",
+    "천날": "천공의 날개",
+    "예초": "예초의 번개",
+    "예초기": "예초의 번개",
+    "비뢰": "비뢰의 고동",
+
+    # 성유물
     "절연": "절연의 기치",
+    "시메": "추억의 시메나와",
+    "청록": "청록색 그림자",
+    "악단": "대지를 유랑하는 악단",
+    "검투": "검투사의 피날레",
+    "소녀": "사랑받는 소녀",
+    "마녀": "불타오르는 화염의 마녀",
+    "번분": "번개 같은 분노",
+    "왕실": "옛 왕실의 의식",
+    "천암": "견고한 천암",
 }
 
 # 줄임 이름이 다른 뜻으로 더 자주 쓰여서 자동 별명에서 빼는 낱말
@@ -49,7 +76,7 @@ def character_aliases(names):
     candidates = {}
     for name in names:
         parts = name.split()
-        if len(parts) == 2 and "(" not in name:      # '카에데하라 카즈하' -> '카즈하' ('여행자 (얼음 원소)'는 제외)
+        if len(parts) == 2 and "(" not in name:
             candidates.setdefault(parts[1], set()).add(name)
     out = {alias: next(iter(full)) for alias, full in candidates.items()
            if len(full) == 1 and alias not in names and alias not in ALIAS_STOPWORDS and len(alias) >= 2}
