@@ -61,6 +61,7 @@ class AskResponse(BaseModel):
 
 @app.get("/health")
 def health():
+    """서버 상태 확인: 불러온 데이터 수, 모델·답 방식. 코랩 서버가 떴는지 볼 때 쓴다."""
     kb = bot.kb
     return {"status": "ok", "characters": len(kb.characters), "patch_versions": kb.versions,
             "build_cards": len(kb.build_cards), "model": bot.answerer.name,
@@ -70,6 +71,7 @@ def health():
 
 @app.post("/ask", response_model=AskResponse)
 def ask(req: AskRequest, background_tasks: BackgroundTasks):
+    """질문을 받아 챗봇 답을 돌려준다. 걸린 시간을 재고, 대화 기록 저장은 응답 뒤에 따로 한다."""
     # 대화 기록 저장 (FR-09): api/chat_log.py
     #  - seconds: 답을 만드는 데 걸린 시간 (DB 저장 시간은 넣지 않는다)
     #  - 저장은 응답을 보낸 뒤 실행 (Neon이 깨어나는 동안 사용자가 기다리지 않게)
