@@ -9,7 +9,7 @@ from pathlib import Path
 
 import streamlit as st
 
-BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parent     # dashboard/ 폴더. 여기를 import 경로에 넣어야 `from lib import ...`가 된다
 if str(BASE) not in sys.path:
     sys.path.insert(0, str(BASE))
 
@@ -42,9 +42,10 @@ RECORD_BOXES = {
 def tab_bar(selected):
     """와이어프레임 모양의 탭 버튼 줄. 누르면 session_state['tab']이 바뀌고 화면이 다시 그려진다."""
     def pick(i):
+        """버튼을 누르면 Streamlit이 부르는 함수(on_click): 고른 탭 번호를 기억한다."""
         st.session_state["tab"] = i
 
-    st.markdown(ui.selected_css(f"tab_{selected}"), unsafe_allow_html=True)
+    st.markdown(ui.selected_css(f"tab_{selected}"), unsafe_allow_html=True)   # 지금 탭 버튼만 선택된 색으로
     with st.container(key="tabbar", horizontal=True):
         for i, spec in enumerate(TABS):
             st.button(spec["label"], key=f"tab_{i}", on_click=pick, args=(i,))
@@ -83,10 +84,11 @@ def stage_findings(content, key):
         return
     state = f"pick_{key}"
     picked = st.session_state.get(state)
-    if picked not in findings:
+    if picked not in findings:            # 처음이거나 고른 단계가 없어졌으면 마지막(최신) 단계
         picked = stages[-1]
 
     def pick(stage):
+        """단계 칩을 누르면 고른 단계를 기억한다 (탭마다 key가 달라 따로 기억)."""
         st.session_state[state] = stage
 
     st.markdown(ui.selected_css(f"chip_{key}_{picked}"), unsafe_allow_html=True)
@@ -110,6 +112,7 @@ def record_boxes(spec, content):
 
 
 def _joined(values):
+    """값 목록 -> 중복·빈 값을 빼고 정렬해서 "`a`, `b`" 모양 글자로 (실험 조건 표에 씀)."""
     return ", ".join(f"`{v}`" for v in sorted({str(v) for v in values if v is not None}))
 
 
@@ -120,7 +123,7 @@ def conditions_box(content, folder_result):
     runs = [r["data"] for r in folder_result["runs"]]
     if runs:
         datasets = {d.get("dataset_version") for d in runs}
-        eval_sets = {str(v).removesuffix("-dev") for v in datasets}
+        eval_sets = {str(v).removesuffix("-dev") for v in datasets}   # "info_v2-dev" -> "info_v2"
         model = _joined(d.get("model") for d in runs)
         tokens = _joined(f"max_new_tokens={(d.get('config') or {}).get('max_new_tokens')}" for d in runs)
         ns = sorted({(d.get("metrics") or {}).get("n") for d in runs}, key=str)
@@ -165,14 +168,16 @@ def time_rows(folder_result, stages):
 
 
 def render_response_time(spec, content, folder_result, stages):
+    """② 응답 시간 탭: 숫자 카드 5개 -> 그래프 3개(F1·시간, 빈 답↔시간, 유형별 시간) -> 실험 기록."""
     tab_top(content, folder_result)
     rows = time_rows(folder_result, stages)
     if not rows:
         st.info("dev 폴더에 쓸 수 있는 결과 파일이 없어요.")
         return
-    first, last = rows[0], rows[-1]
+    first, last = rows[0], rows[-1]         # 첫 단계(baseline)와 마지막 단계
 
     # 숫자 카드: 마지막 단계 기준, 첫 단계 대비 변화 (시간·빈 답은 줄어야 좋아짐)
+    # 아래 묶음 = (카드 이름, rows 칸 이름, 단위, 클수록 좋은가)
     cards = []
     for label, key, unit, higher in (("평균", "avg", "초", False), ("중앙값", "median", "초", False),
                                      ("최대", "max", "초", False), ("Macro F1", "f1", "", True),
@@ -181,6 +186,7 @@ def render_response_time(spec, content, folder_result, stages):
                       "delta": ui.delta(last[key], first[key], higher_is_better=higher, unit=unit)})
     ui.show(ui.cards_html(cards, note=ui.delta_note_html(last["stage"], first["stage"])))
 
+    # 범례 항목 = (이름, 색, 모양, 마우스를 올리면 보일 설명)
     gray = [("평균", ui.COLOR["avg"], "square", None), ("중앙값", ui.COLOR["median"], "square", None)]
     types = [(ui.TYPE_LABEL[t], ui.COLOR[t], "square", None) for t in ("lookup", "filter")]
     r_value = loader.pearson_r([r["empty"] for r in rows], [r["avg"] for r in rows])
@@ -217,6 +223,7 @@ AUX_DEF_KEY = {"acc": "accuracy", "ref": "refusal_accuracy", "hal": "hallucinati
 
 
 def render_aux(spec, content, folder_result, stages):
+    """③ 보조 지표 탭: 숫자 카드 3개(정답률·거절 정확도·환각률) -> 그래프 3개 -> 실험 기록(지표 정의 포함)."""
     tab_top(content, folder_result)
     rows = aux_rows(folder_result, stages)
     if not rows:
@@ -234,7 +241,7 @@ def render_aux(spec, content, folder_result, stages):
     rate_legend = [(name, color, "line", defs.get(AUX_DEF_KEY[k])) for k, name, color in charts.AUX_SERIES]
     stack_legend = [("근거 안에서 답함", ui.COLOR["unknown"], "square", None), ("환각 포함", ui.COLOR["filter"], "square", None)]
     type_legend = [(ui.TYPE_LABEL[t], ui.COLOR[t], "square", None) for t in loader.TYPES]
-    if any(r["types"] is None for r in rows):
+    if any(r["types"] is None for r in rows):     # 환각 목록이 없는 단계가 있으면 범례에 '유형 구분 없음' 추가
         type_legend.append(("유형 구분 없음", "transparent", "dashed", None))
     chart_panel(content, "c3a", charts.aux_rates(rows), legend=rate_legend)
     chart_panel(content, "c3b", charts.answered_stack(rows), legend=stack_legend,
@@ -275,6 +282,8 @@ def model_rows(folder_result, content):
 
 
 def render_model_compare(spec, content, folder_result, stages):
+    """④ 모델 비교 탭: 1위 카드 4개 -> 기준 조합(L4·fp16) 그래프 3개 -> 8가지 조합 막대 2개 -> 실험 기록.
+    모델끼리 공정하게 비교하려고 위 그래프는 GPU·정밀도가 같은 조합(base)만 쓴다."""
     tab_top(content, folder_result)
     rows = model_rows(folder_result, content)
     if not rows:
@@ -305,6 +314,7 @@ def render_model_compare(spec, content, folder_result, stages):
         chart_panel(content, "c4b", charts.precision_recall(base), legend=pr_legend)
         chart_panel(content, "c4c", charts.model_time(base), legend=time_legend)
     chart_panel(content, "c4d", charts.combo_bars(rows, "f1", tickvals=[0, 0.25, 0.5, 0.75, 1], axis_title="Macro F1"))
+    # 시간 축 눈금: 가장 느린 값보다 조금 더 길게, 6초가 넘으면 2초 간격
     top_t = max(r["avg"] or 0 for r in rows)
     t_ticks = list(range(0, int(top_t) + 2, 2 if top_t > 6 else 1))
     chart_panel(content, "c4e", charts.combo_bars(rows, "avg", unit="초", tickvals=t_ticks, axis_title="평균 응답 시간"))
@@ -335,6 +345,7 @@ def perf_rows(folder_result, stages):
 
 
 def render_performance(spec, content, folder_result, stages):
+    """① 성능 변화 탭: 마지막 단계 점수 카드 4개 -> 단계별 F1 꺾은선 -> 실험 기록(단계별 개선점 표)."""
     tab_top(content, folder_result)
     rows = perf_rows(folder_result, stages)
     if not rows:
@@ -358,31 +369,35 @@ def render_performance(spec, content, folder_result, stages):
         record_boxes(spec, content)
 
 
+# 탭(content 이름) -> 그 탭을 그리는 함수
 RENDERERS = {"performance": render_performance, "response_time": render_response_time, "aux": render_aux,
              "model_compare": render_model_compare}
 
 
 def render_tab(spec, content, folder_result, stages):
+    """탭에 맞는 그리기 함수를 골라 부른다. 표에 없는 탭은 render_placeholder(자리만)."""
     RENDERERS.get(spec["content"], render_placeholder)(spec, content, folder_result, stages)
 
 
 # ---------- 화면 ----------
 
 def main():
+    """대시보드 전체 순서: 화면 설정 -> 데이터·글 읽기 -> 머리말 -> 탭 버튼 -> 고른 탭 그리기.
+    Streamlit은 버튼을 누를 때마다 이 함수를 처음부터 다시 실행한다 (고른 탭은 session_state에 기억)."""
     st.set_page_config(page_title=TITLE, page_icon="📊", layout="centered")
     st.markdown(ui.CSS, unsafe_allow_html=True)
     st.html(ui.TIP_SCRIPT, unsafe_allow_javascript=True)   # 마우스를 따라다니는 그래프 툴팁 (lib/ui.py)
 
-    order = text.stage_order()
-    results = loader.load_all(order=order)
-    contents = {t["content"]: text.load_content(t["content"]) for t in TABS}
-    stages = text.load_content("stages").get("stages") or {}
+    order = text.stage_order()                                                  # 단계 순서 (stages.yaml)
+    results = loader.load_all(order=order)                                      # 4개 폴더 JSON 읽기 + 검증
+    contents = {t["content"]: text.load_content(t["content"]) for t in TABS}    # 탭별 설명 글 (yaml)
+    stages = text.load_content("stages").get("stages") or {}                    # 단계별 개선점 (툴팁·표)
 
     versions = sorted({str(r["data"].get("dataset_version")) for r in results["official"]["runs"]})
     data_version = (contents["performance"].get("header") or {}).get("data_version")
     meta = f"평가셋 {', '.join(versions) or '결과 없음'}" + (f" · {data_version}" if data_version else "")
 
-    selected = st.session_state.get("tab", 0)
+    selected = st.session_state.get("tab", 0)     # 고른 탭 번호 (처음엔 0 = ① 성능 변화)
     spec = TABS[selected]
     content = contents[spec["content"]]
     with st.container(key="dk"):   # 대시보드 전체 상자 (와이어프레임 .dk)

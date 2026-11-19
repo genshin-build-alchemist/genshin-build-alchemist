@@ -36,10 +36,13 @@ bot = Chatbot(load_kb(), answerer_from_env())
 
 
 class AskRequest(BaseModel):
+    """POST /ask 로 받는 요청 본문. 예: {"question": "알베도 원소가 뭐야?"}
+    글자 수가 1~300자를 벗어나면 FastAPI가 자동으로 422 오류를 돌려준다."""
     question: str = Field(..., min_length=1, max_length=300, examples=["알베도 원소가 뭐야?"])
 
 
 class Evidence(BaseModel):
+    """답의 근거 1개. kind = 근거 종류(character, patch, build_card 등), title = 이름, text = 근거 내용."""
     kind: str
     title: str
     text: str
@@ -47,6 +50,8 @@ class Evidence(BaseModel):
 
 
 class AskResponse(BaseModel):
+    """POST /ask 응답 형식 (팀 고정 형식, 칸 이름을 바꾸지 않는다: docs/AI_CONTEXT.md 5장).
+    answer = 채점용 목록, message = 화면에 보여 줄 문장, found = 근거를 찾았는지."""
     question: str
     route: str
     answer: list[str]
@@ -61,6 +66,8 @@ class AskResponse(BaseModel):
 
 @app.get("/health")
 def health():
+    """서버가 살아 있는지 확인하는 주소 (GET /health).
+    데이터 개수와 지금 쓰는 답변기(model, method)를 함께 알려 줘서, 실제 모델로 떴는지도 여기서 확인한다."""
     kb = bot.kb
     return {"status": "ok", "characters": len(kb.characters), "patch_versions": kb.versions,
             "build_cards": len(kb.build_cards), "model": bot.answerer.name,
@@ -70,13 +77,16 @@ def health():
 
 @app.post("/ask", response_model=AskResponse)
 def ask(req: AskRequest, background_tasks: BackgroundTasks):
+    """질문 1개를 받아 챗봇 답(AskResponse)을 돌려준다 (POST /ask).
+    답을 만든 시간을 재고, 대화 기록 저장은 응답을 보낸 뒤 백그라운드에서 한다."""
     # 대화 기록 저장 (FR-09): api/chat_log.py
     #  - seconds: 답을 만드는 데 걸린 시간 (DB 저장 시간은 넣지 않는다)
     #  - 저장은 응답을 보낸 뒤 실행 (Neon이 깨어나는 동안 사용자가 기다리지 않게)
     #  - 저장이 실패해도 답에는 영향 없음 (log_chat_safely 안에서 오류만 출력)
     #  - retrieved_doc_ids: 응답 근거(evidence)의 doc_id 목록 (api/chat_log.py)
-    start = time.perf_counter()
-    response = bot.ask(req.question)
+    start = time.perf_counter()                          # 시간 재기 시작 (perf_counter = 짧은 시간 재는 정밀한 시계)
+    response = bot.ask(req.question)                     # 경로 판별 -> 근거 검색 -> 답 만들기 (core/pipeline.py)
     seconds = round(time.perf_counter() - start, 4)
+    # add_task: 지금 바로 실행하지 않고, return 으로 응답을 보낸 "뒤에" 실행하도록 예약한다
     background_tasks.add_task(chat_log.log_chat_safely, response, seconds)
     return response

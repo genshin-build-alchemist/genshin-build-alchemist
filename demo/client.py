@@ -26,6 +26,8 @@ SERVER_OFF_CODES = {404, 502, 503, 504}
 
 
 def _result(ok, seconds, data=None, error=None):
+    """ask_api 가 돌려주는 결과 dict 를 한 가지 모양으로 만든다 (성공·실패 모두 같은 칸).
+    이름 앞의 _ 는 "이 파일 안에서만 쓰는 함수"라는 파이썬 관례다."""
     return {"ok": ok, "data": data, "error": error, "seconds": round(seconds, 2)}
 
 
@@ -35,14 +37,17 @@ def ask_api(api_url, question, timeout=TIMEOUT):
     돌려주는 값: {"ok": bool, "data": API 응답 dict 또는 None, "error": 안내 문구 또는 None,
                  "seconds": 화면에서 잰 응답 시간(요청 보낸 시각 ~ 받은 시각)}
     """
+    # 1) 서버에 보내기 전에 질문부터 검사 (빈 질문, 너무 긴 질문)
     question = (question or "").strip()
     if not question:
         return _result(False, 0.0, error=MSG_EMPTY)
     if len(question) > MAX_QUESTION:
         return _result(False, 0.0, error=MSG_TOO_LONG)
 
+    # 2) 주소 끝의 / 를 지우고 /ask 를 붙인다 ("https://x.app/" -> "https://x.app/ask")
     url = (api_url or "").strip().rstrip("/") + "/ask"
     start = time.perf_counter()
+    # 3) 요청 보내기. 네트워크 오류는 종류별로 잡아서 사람이 읽을 안내 문구로 바꾼다
     try:
         r = httpx.post(url, json={"question": question}, headers=HEADERS, timeout=timeout)
     except (httpx.UnsupportedProtocol, httpx.InvalidURL):
@@ -55,12 +60,14 @@ def ask_api(api_url, question, timeout=TIMEOUT):
         return _result(False, time.perf_counter() - start, error=MSG_SERVER_OFF)
     seconds = time.perf_counter() - start
 
+    # 4) 답은 왔지만 상태 코드가 정상(200)이 아닌 경우 (422 = 서버가 요청 형식을 거부함)
     if r.status_code in SERVER_OFF_CODES:
         return _result(False, seconds, error=MSG_SERVER_OFF)
     if r.status_code == 422:
         return _result(False, seconds, error=MSG_BAD_QUESTION)
     if r.status_code != 200:
         return _result(False, seconds, error=f"서버에서 오류가 났어요 (오류 코드 {r.status_code}).")
+    # 5) 200이어도 내용이 챗봇 응답 모양인지 확인 (다른 서버 주소를 넣은 경우 대비)
     try:
         data = r.json()
     except ValueError:                      # HTML 경고 페이지 등 JSON이 아닌 응답
@@ -72,7 +79,8 @@ def ask_api(api_url, question, timeout=TIMEOUT):
 
 def format_evidence(ev):
     """근거 1개를 화면용 dict로. doc_id가 null이거나 칸이 없어도 오류 없이 표시한다."""
-    ev = ev if isinstance(ev, dict) else {}
+    ev = ev if isinstance(ev, dict) else {}       # dict가 아니면 빈 dict로 (아래 .get 이 오류 나지 않게)
+    # `값 or 기본값`: 값이 None이거나 빈 글자면 기본값을 쓴다
     return {
         "kind": ev.get("kind") or "",
         "title": ev.get("title") or "(제목 없음)",
@@ -84,7 +92,7 @@ def format_evidence(ev):
 def status_notes(data):
     """found / needs_recheck에 따라 보여 줄 안내 목록. [(종류, 문구)], 종류는 "info" 또는 "warning"."""
     notes = []
-    if not data.get("found", True):
+    if not data.get("found", True):           # found 칸이 없으면 True(찾음)로 본다
         notes.append(("info", "찾지 못했어요. 지금 가진 데이터에는 이 질문의 근거가 없어요."))
     if data.get("needs_recheck"):
         notes.append(("warning", "재확인 필요: 빌드 정보는 패치에 따라 바뀔 수 있어 게임에서 한 번 더 확인해 주세요."))

@@ -22,7 +22,7 @@ def load_content(name, content_dir=CONTENT_DIR):
     if not path.exists():
         return {}
     with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+        return yaml.safe_load(f) or {}     # safe_load: 글·숫자·목록만 읽고, 파일 속 코드를 실행하지 않는 안전한 방식
 
 
 def stage_order(content_dir=CONTENT_DIR):
@@ -31,7 +31,9 @@ def stage_order(content_dir=CONTENT_DIR):
 
 
 def based_on_status(content, folder_result):
-    """yaml의 based_on이 지금 데이터와 같으면 None, 다르면 회색 안내 문구."""
+    """yaml의 based_on이 지금 데이터와 같으면 None, 다르면 회색 안내 문구.
+    비교 기준: 폴더 이름 + 그 폴더에서 쓰는 파일 중 가장 늦은 created_at.
+    새 실험 결과가 들어오면 created_at 이 바뀌어서 "글 속 숫자를 다시 확인하라"는 안내가 뜬다."""
     based = (content or {}).get("based_on") or {}
     if not based:
         return "이 글에는 based_on이 없어요. " + STALE_MSG
@@ -49,7 +51,7 @@ def _iso(value):
 def rich(text):
     """yaml 글 -> 화면용 HTML 조각. 특수문자는 이스케이프하고,
     **굵게**는 <b>, `코드`는 <code>, 줄바꿈은 <br>로 바꾼다."""
-    out = html.escape(str(text).strip(), quote=False)
-    out = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", out)
+    out = html.escape(str(text).strip(), quote=False)       # 먼저 < > & 를 글자로 바꿔서, 글에 섞인 태그가 실행되지 않게
+    out = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", out)       # **내용** -> <b>내용</b> (\1 = 괄호 안에 잡힌 내용)
     out = re.sub(r"`(.+?)`", r"<code>\1</code>", out)
     return out.replace("\n", "<br>")

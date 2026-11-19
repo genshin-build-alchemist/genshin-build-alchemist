@@ -5,10 +5,13 @@
 
 // Chrome·Edge 등도 user agent에 "Safari"가 들어 있어서, 크롬 계열 표시가 없을 때만 Safari로 본다
 const isSafari = (ua) => /safari/i.test(ua) && !/chrome|chromium|crios|fxios|edg|opr|android/i.test(ua);
+// UID 모양(숫자 9~10자리)인지. 파이썬 chat_logic.is_uid 와 같은 규칙
 const isUid = (s) => /^\d{9,10}$/.test(String(s || "").trim());
 // 서버 답·근거는 LLM이 만든 글이라 HTML로 해석되지 않게 바꾼다
+// 예: "<b>" -> "&lt;b&gt;" (화면에 글자 그대로 "<b>"가 보이고, 태그로 실행되지 않음)
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+// 대화가 하나도 없을 때 보여 주는 첫 화면 (큰 제목 + 기능 소개 카드 4개)
 const HERO = `<div class="hero"><div class="big">✦</div>
   <h1>여행자 가이드봇</h1>
   <p>캐릭터·무기·성유물·패치 정보·빌드 조합 추천까지! 원신에 대해 궁금한 모든 것을 물어보세요.</p>
@@ -21,6 +24,8 @@ const HERO = `<div class="hero"><div class="big">✦</div>
   </div>`;
 
 // 사용법·안내 카드 (고정 문구, 기록·DB 저장 안 함)
+// 메시지의 kind(help / build_guide / build_ready)로 골라 쓰는 HTML 만드는 함수 모음.
+// 버튼의 data-act 값은 init()의 S.col.onclick 에서 받아 처리한다
 const GUIDE = {
   help: () => `<span class="gtag">사용법</span>
    <div class="ans">👋🏻 반가워요, 여행자님! 여행자 가이드봇은 이렇게 사용해 주세요.</div>
@@ -50,18 +55,22 @@ const GUIDE = {
    <div class="actions"><button class="act primary" data-act="qa-mode">💬 질문 모드로 돌아가기</button></div>`,
 };
 
+// 답 카드 맨 아래 줄: "📚 출처 N개" 버튼 (근거가 없으면 "출처 없음" 글자). extra = 옆에 붙일 버튼 HTML
 function srcFoot(src, extra = "") {
   if (!src.length) return `<div class="foot"><span class="src-none">출처 없음 — 자료에서 찾지 못했어요</span>${extra}</div>`;
   return `<div class="foot"><button class="src-btn" data-act="src">📚 출처 ${src.length}개 ›</button>${extra}</div>`;
 }
 
+// 파티 카드 4장 (가짜 모드 빌드 추천). 첫 장(i === 0)을 선택된 상태(on)로 시작하고,
+// 아래 .detail 칸은 비워 두었다가 partyDetail 이 채운다
 function partyHtml(party) {
   return `<div class="party">${party.map((p, i) => `<div class="pc${i === 0 ? " on" : ""}" data-act="pc" data-i="${i}"><div class="face" style="background:${esc(p.c)}">${esc(p.n[0])}</div><b>${esc(p.n)}</b><small>${esc(p.el)} · Lv.${esc(p.lv)}</small><br><span class="role">${esc(p.role)}</span></div>`).join("")}</div>
         <div class="detail"></div>`;
 }
 
+// 파티 카드 i번째를 눌렀을 때: 그 카드만 선택 표시하고, 아래에 그 캐릭터의 빌드를 보여 준다
 function partyDetail(card, party, i) {
-  card.querySelectorAll(".pc").forEach((x, j) => x.classList.toggle("on", j === i));
+  card.querySelectorAll(".pc").forEach((x, j) => x.classList.toggle("on", j === i));   // toggle(이름, 조건): 조건이 참이면 붙이고 거짓이면 뗀다
   const p = party[i];
   card.querySelector(".detail").innerHTML = `<h5>${esc(p.n)} <span class="role">${esc(p.role)}</span></h5>
         <div class="drow"><span>성유물</span><span>${esc(p.set)}</span></div><div class="drow"><span>무기</span><span>${esc(p.w)}</span></div>
@@ -69,7 +78,10 @@ function partyDetail(card, party, i) {
         <div class="drow"><span>💡 한마디</span><span>${esc(p.tip)}</span></div>`;
 }
 
-// 답 카드 안쪽 HTML
+// 답 카드 안쪽 HTML. 상태별로 모양이 다르다:
+//   pending(대기) -> "답을 찾고 있어요…" / error -> 빨간 안내만 / orange(UID 확인 필요) -> 안내 + 버튼
+//   ok -> 답 문장 + (파티 카드) + 안내 + 출처 버튼
+// m.rich 가 true(가짜 모드 고정 문구)일 때만 HTML 그대로, 서버 답은 항상 esc()로 글자 처리
 function answerBody(m) {
   const notes = (m.notes || []).map((n) => `<div class="note ${esc(n.level)}">${esc(n.text)}</div>`).join("");
   if (m.status === "pending") {
@@ -86,7 +98,10 @@ function answerBody(m) {
   return ans + party + notes + srcFoot(m.sources || [], extra);
 }
 
+// 화면을 처음 한 번 준비한다: 자주 쓰는 요소를 찾아 두고, 버튼·입력창에 동작을 연결한다.
+// 돌려주는 S(state) = 화면 상태 보관함. 파이썬이 다시 불러도 S는 그대로 남는다 (맨 아래 export 참고)
 function init(root) {
+  // $("id") = id로 요소 찾기. root가 Shadow DOM이어도 동작하게 두 방법을 모두 준비
   const $ = (id) => root.getElementById ? root.getElementById(id) : root.querySelector("#" + id);
   const S = {
     root, $, el: $("gbRoot"), col: $("col"), scroll: $("scroll"), box: $("box"), inp: $("inp"), send: $("send"),
@@ -95,12 +110,15 @@ function init(root) {
   };
   const { inp, send } = S;
 
+  // 파이썬에 신호 보내기 (S.trigger = Streamlit이 준 setTriggerValue)
   S.fire = (name, value) => S.trigger(name, value);
+  // 보내기 버튼을 켤지 끌지 + 글자 수 표시 갱신 (UID 모드는 UID 모양일 때만 켬)
   S.refresh = () => {
     const v = inp.value.trim();
     send.disabled = S.busy || (S.build ? !isUid(v) : !v);
     $("cnt").textContent = S.build ? `${inp.value.length} / 9` : `${inp.value.length} / 300`;
   };
+  // 입력창 위 예시 질문 칩 그리기 (빌드 칩은 UID 모드일 때 켜진 모양)
   S.renderEx = () => {
     $("exRow").innerHTML = S.examples.map((e, i) => `<button class="ex${e.build ? " build" : ""}${e.build && S.build ? " on" : ""}" data-i="${i}">${e.cat ? `<span class="cat">${esc(e.cat)}</span>` : ""}${esc(e.q)}</button>`).join("");
   };
@@ -113,20 +131,26 @@ function init(root) {
     S.renderEx(); S.refresh(); inp.focus();
     if (on && showGuide && !S.busy) S.fire("build_guide", true);
   };
+  // 보낸 직후 입력 막기 (파이썬이 busy 를 보내기 전에 한 번 더 눌리는 것 방지)
   S.lock = () => { S.localBusy = true; S.busy = true; S.refresh(); };
+  // 질문 보내기: 빈 글자거나 답을 기다리는 중이면 무시
   S.askQA = (text) => {
     text = String(text || "").trim(); if (!text || S.busy) return;
     if (S.build) S.setBuild(false);
     inp.value = ""; S.lock(); S.fire("ask", text);
   };
+  // UID 보내기: UID 모양이 아니면 무시
   S.askBuild = (uid) => {
     uid = String(uid || "").trim(); if (S.busy || !isUid(uid)) return;
     if (!S.build) S.setBuild(true, false);
     inp.value = ""; S.lock(); S.fire("build", uid);
   };
+  // 보내기 버튼·엔터: UID 모드이거나 숫자 9~10자리만 입력했으면 빌드, 아니면 질문
   S.submit = () => { const v = inp.value.trim(); if (S.build || isUid(v)) S.askBuild(v); else S.askQA(v); };
 
+  // 입력할 때마다: UID 모드면 숫자가 아닌 글자(\D)를 지운다
   inp.oninput = () => { if (S.build) inp.value = inp.value.replace(/\D/g, ""); S.refresh(); };
+  // 엔터로 보내기. isComposing = 한글 조합 중(예: "ㅎ"->"하") 엔터는 무시해서 두 번 보내지 않게
   inp.onkeydown = (e) => { if (e.key === "Enter" && !e.isComposing && !send.disabled) { e.preventDefault(); S.submit(); } };
   send.onclick = S.submit;
   $("preX").onclick = () => S.setBuild(false);
@@ -142,6 +166,8 @@ function init(root) {
   });
 
   // 카드 안 버튼들 (다시 그려도 동작하도록 한 곳에서 받음)
+  // "이벤트 위임": 버튼마다 따로 연결하지 않고, 대화 영역(col) 하나에서 클릭을 받아
+  // 눌린 요소의 data-act 값으로 할 일을 고른다. data-mid = 그 버튼이 속한 메시지 번호
   S.col.onclick = (e) => {
     const t = e.target.closest("[data-act]"); if (!t) return;
     const wrap = t.closest("[data-mid]"); const m = wrap && S.msgs.find((x) => String(x.id) === wrap.dataset.mid);
@@ -166,6 +192,8 @@ function init(root) {
 }
 
 /* ----- 출처 패널 ----- */
+// "📚 출처" 버튼: 같은 답의 패널이 열려 있으면 닫고, 아니면 그 답의 근거 목록으로 오른쪽 패널을 연다.
+// 첫 번째 근거만 펼친 상태로 시작 (<details name="src">: 하나를 펼치면 나머지는 접힘)
 function toggleSrc(S, m, wrap) {
   if (S.activeSrc === m.id) { closeSrc(S); return; }
   closeSrc(S);
@@ -179,6 +207,7 @@ function toggleSrc(S, m, wrap) {
     <div class="si-body"><div class="id">${esc(s.id)}</div>${esc(s.x)}</div></details>`).join("");
   S.$("sp").classList.add("open");
 }
+// 출처 패널 닫기 + 강조 표시(active, on) 모두 지우기
 function closeSrc(S) {
   S.$("sp").classList.remove("open");
   S.root.querySelectorAll(".card.active").forEach((c) => c.classList.remove("active"));
@@ -187,6 +216,8 @@ function closeSrc(S) {
 }
 
 /* ----- 메시지 1개 -> 화면 요소 ----- */
+// 돌려주는 값은 요소 목록: [날짜 구분선(날짜가 바뀔 때만), 말풍선]
+// user = 오른쪽 말풍선, assistant = 답 카드 + 응답 시간, guide = 안내 카드
 function buildNodes(m, showDate) {
   const out = [];
   if (showDate) {
@@ -211,6 +242,7 @@ function buildNodes(m, showDate) {
 }
 
 // 빌드 추천 대기 중 단계 표시 (가짜 모드)
+// 0.5초마다 한 줄씩 늘리고, 지난 줄은 완료(ok) 모양으로 바꾼다. 그사이 카드가 사라졌으면(isConnected=false) 멈춤
 function animateSteps(w, st) {
   const L = w.querySelector(".loading");
   st.forEach((_, i) => setTimeout(() => {
@@ -220,6 +252,8 @@ function animateSteps(w, st) {
 }
 
 /* ----- data -> 화면 ----- */
+// 파이썬이 보낸 data 로 화면을 맞춘다. 매번 전부 지우고 다시 그리면 깜빡이고 출처 패널이 닫히므로,
+// 메시지마다 내용(JSON 글자 = sig)을 기억해 두고 "새로 생겼거나 내용이 바뀐 메시지만" 다시 그린다
 function update(S, data) {
   const msgs = Array.isArray(data.messages) ? data.messages : [];
   S.msgs = msgs;
@@ -245,21 +279,23 @@ function update(S, data) {
     const showDate = !!m.date && m.date !== lastDate;
     if (m.date) lastDate = m.date;
     const old = S.nodes.get(key);
-    if (old && old.sig === sig) continue;
+    if (old && old.sig === sig) continue;          // 내용이 같으면 그대로 둔다
     const els = buildNodes(m, showDate);
-    if (old) { old.els[0].before(...els); old.els.forEach((e) => e.remove()); }
-    else S.col.append(...els);
+    if (old) { old.els[0].before(...els); old.els.forEach((e) => e.remove()); }   // 바뀐 메시지: 같은 자리에서 교체 (대기 카드 -> 답)
+    else S.col.append(...els);                                                      // 새 메시지: 맨 아래에 추가
     S.nodes.set(key, { sig, els });
     changed = true;
   }
   if (S.activeSrc !== null && !ids.has(String(S.activeSrc))) closeSrc(S);
-  if (changed) S.scroll.scrollTop = 1e9;
+  if (changed) S.scroll.scrollTop = 1e9;           // 바뀐 게 있으면 맨 아래로 스크롤 (1e9 = 아주 큰 수)
 
   renderHist(S, msgs);
   S.refresh();
 }
 
 /* ----- 사이드바: 이번 대화 기록 (최신이 위) ----- */
+// 사용자 질문만 모아 목록으로 보여 주고, 누르면 그 질문 위치로 부드럽게 스크롤한다.
+// 기록이 있을 때만 "새로고침하면 사라져요" 안내(histNote)를 목록 맨 아래에 보여 준다
 function renderHist(S, msgs) {
   const users = msgs.filter((m) => m.role === "user").reverse();
   const h = S.$("hist");
@@ -276,6 +312,9 @@ function renderHist(S, msgs) {
   h.append(note);
 }
 
+// Streamlit이 부르는 입구 함수. 처음 한 번 + 파이썬이 data 를 바꿀 때마다 다시 불린다.
+// 화면 상태 S를 parentElement.__gb 에 붙여 두고 재사용한다 (매번 init 하면 입력 중인 글자 등이 사라짐).
+// 화면이 통째로 새로 만들어졌으면(isConnected=false) 그때만 다시 init 한다
 export default function (component) {
   const { parentElement, data, setTriggerValue } = component;
   let S = parentElement.__gb;

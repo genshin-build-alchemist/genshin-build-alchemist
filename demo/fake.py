@@ -1,7 +1,7 @@
 """가짜 모드 (환경변수 CHAT_UI_FAKE=1일 때만): 서버 대신 와이어프레임 v10의 가짜 답변을 쓴다.
 
 화면 확인·시연 연습용. 답의 숫자와 빌드 결과는 예시이고 실제 데이터가 아니다.
-streamlit을 import하지 않는다 -> unittest로 검사한다 (tests/test_demo_fake.py).
+streamlit을 import하지 않는다 -> unittest로 검사한다 (tests/test_demo_chat_logic.py 의 FakeTest).
 """
 try:                                    # tests: from demo import fake
     from . import chat_logic as cl
@@ -62,7 +62,8 @@ PARTY = [
 
 
 def build_answer(mid, uid):
-    """가짜 빌드 추천 카드와 기다릴 시간(초). UID 끝이 000이면 '확인 안 된 UID'를 흉내 낸다."""
+    """가짜 빌드 추천 카드와 기다릴 시간(초). UID 끝이 000이면 '확인 안 된 UID'를 흉내 낸다.
+    돌려주는 값은 (카드, 초) 두 개 묶음(튜플)이다. app.py 가 그 시간만큼 기다린 뒤 카드를 보여 준다."""
     question = f"UID {uid} 빌드 추천"
     if uid.endswith("000"):
         return cl.assistant_message(mid, question, kind="build", uid=uid, seconds=1.04,
@@ -84,11 +85,12 @@ def build_answer(mid, uid):
 
 
 def answer(mid, question):
-    """가짜 답 카드와 기다릴 시간(초). 질문에 '서버'가 있으면 서버 무응답을 흉내 낸다."""
+    """가짜 답 카드와 기다릴 시간(초). 질문에 '서버'가 있으면 서버 무응답을 흉내 낸다.
+    빨간 오류 화면을 서버를 끄지 않고도 확인·시연하기 위한 장치다."""
     if "서버" in question:
         return cl.error_message(mid, question), DELAY_SERVER_DOWN
-    r = QA.get(question.strip(), DEFAULT)
-    notes = [cl.note("warn", r["warn"])] if r.get("warn") else []
+    r = QA.get(question.strip(), DEFAULT)      # 예시 칩 질문이면 그 답, 아니면 DEFAULT 답
+    notes = [cl.note("warn", r["warn"])] if r.get("warn") else []   # 노란 "찾지 못했어요"가 있는 답만
     msg = cl.assistant_message(mid, question, message=r["a"], rich=True, notes=notes,
                                sources=r["src"], seconds=r["rt"])
     return msg, DELAY_QA
