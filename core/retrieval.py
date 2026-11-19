@@ -31,12 +31,15 @@ PATCH_DETAIL_MAX = 5      # 기록이 이 개수 이하이면 근거에 바뀌�
 
 
 def character_line(c):
+    """캐릭터 한 명 -> 근거 문장 한 줄. 예: '알베도: 원소 바위 / 무기 한손검 / 5성 / 지역 몬드' (빈 값은 '정보 없음')"""
     def v(f):
+        """빈 값이면 '정보 없음'."""
         return c[f] or "정보 없음"
     return f"{c['name']}: 원소 {v('element')} / 무기 {v('weapon')} / {v('rarity')} / 지역 {v('region')}"
 
 
 def patch_line(r):
+    """패치 기록 하나 -> 한 줄 요약. 예: '카즈하: 캐릭터 수정, 바뀐 부분 = 원소 폭발'"""
     name, kind = r["entity_name"], KIND_KO.get(r["folder"], r["folder"])
     if r["change_type"] == "added":
         if r["folder"] in ("characters", "weapons"):
@@ -122,6 +125,7 @@ def item_evidence(kind, info):
 
 
 def _ev(kind, title, text, data):
+    """근거 하나를 dict로 만든다 (kind·title·text·data·doc_id). 화면의 출처와 검색 평가가 이 형식을 쓴다."""
     return {"kind": kind, "title": title, "text": text, "data": data, "doc_id": doc_id_for(kind, data)}
 
 
@@ -239,6 +243,7 @@ def retrieve(rr, kb, pool=None, filter_mode=None):
 
 
 def build_card_line(card):
+    """빌드 카드 -> 근거 문장 한 줄 (추천 무기·성유물·주옵션, 출처와 확인 버전)."""
     ms = card.get("main_stats") or {}
     main = " / ".join(f"{k} {v}" for k, v in (("시간의 모래", ms.get("sands")), ("공간의 성배", ms.get("goblet")),
                                                ("이성의 왕관", ms.get("circlet"))) if v)

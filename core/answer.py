@@ -71,10 +71,12 @@ def load_examples_v4():
 
 
 def context_text(lines):
+    """근거 문장 목록 -> 프롬프트에 넣을 '- 근거' 줄들. 근거가 없으면 '(관련 근거 없음)'."""
     return "\n".join(f"- {line}" for line in lines) or "(관련 근거 없음)"
 
 
 def examples_block_v4():
+    """rag_v4 예시 5개(근거·질문·답)를 프롬프트 글로 만든다."""
     blocks = []
     for ex in load_examples_v4():
         answer = json.dumps(ex["answer"], ensure_ascii=False)
@@ -136,11 +138,13 @@ BULLET = re.compile(r"^\s*(?:[-*•]|\d+[.)](?!\d))\s*")       # "- ", "1. ", "2
 
 
 def load_text_examples():
+    """문장 답(패치·아이템) 프롬프트 예시를 core/text_examples.json에서 읽는다."""
     with open(TEXT_EXAMPLES_PATH, encoding="utf-8") as f:
         return json.load(f)["examples"]
 
 
 def _cut(text, limit):
+    """글이 limit보다 길면 자르고 ' …'을 붙인다."""
     return text if len(text) <= limit else text[:limit] + " …"   # '(생략)'이라고 쓰면 모델이 '생략된 내용이 있다'를 답에 따라 썼다
 
 
@@ -268,6 +272,7 @@ def build_card_lines(question, card, rechecks=()):
 
 
 def build_explain_prompt(card):
+    """빌드 카드 메모 -> '이 빌드를 맞추는 이유' 한 문장을 쓰게 하는 프롬프트."""
     return ("아래는 원신 캐릭터 빌드 설명입니다.\n\n"
             f"[설명]\n{card['notes']}\n\n"
             f"규칙: 위 설명만 보고 {card['character']}의 빌드를 이렇게 맞추는 이유를 쉬운 한국어 한 문장으로 쓰세요. "
@@ -364,6 +369,7 @@ class MockAnswerer:
     name = "mock-rule"
 
     def answer(self, question, rr, evidence):
+        """모델 없이 근거에서 바로 답을 만든다 (테스트·데모용). 조회는 값, 조건은 이름, 패치·빌드는 근거 문장."""
         data = [e["data"] for e in evidence]
         if rr.route == "lookup":
             c = data[0]
@@ -454,6 +460,7 @@ def evidence_words(texts):
 
 
 def clean_answer(pred, texts, cutoff=POST_CUTOFF):
+    """후처리: 모델 답 중 근거에 있는 낱말만 남긴다 (표기가 조금 다르면 가장 비슷한 근거 낱말로 맞춘다)."""
     allowed = {canonical(w): w for w in evidence_words(texts)}
     cleaned = []
     for item in pred:
@@ -470,6 +477,7 @@ class LLMAnswerer:
     sentence_routes = TEXT_ROUTES + ("build",)   # 이 경로의 답은 문장 목록 (pipeline이 한 줄에 하나씩 보여 준다)
 
     def __init__(self, generate_fn, name="llm", method="rag_v5_data", postprocess=True, explain_build=True):
+        """generate_fn: 프롬프트 -> 모델 글 함수 (core/llm.py). method: 프롬프트·답 방식 (기본 rag_v5_data)."""
         self.generate_fn = generate_fn
         self.name = name
         self.method = method
@@ -504,6 +512,8 @@ class LLMAnswerer:
         return lines
 
     def answer(self, question, rr, evidence):
+        """경로별로 답을 만든다. 빌드: 카드 목록 + 모델 이유 / 패치·아이템: 모델 요약 문장
+        / 조건: rag_v5_data는 모델 없이 근거 이름 그대로 / 조회: 모델이 근거에서 값을 JSON 배열로."""
         if rr.route == "build":
             return self._build_answer(question, evidence)
         if rr.route in TEXT_ROUTES:     # 패치·아이템: 문장 답

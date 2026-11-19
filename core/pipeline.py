@@ -22,11 +22,14 @@ PATCH_FOLDER_KO = {"characters": "캐릭터", "weapons": "무기", "talents": "�
 
 class Chatbot:
     def __init__(self, kb, answerer=None):
+        """데이터(kb)로 라우터를 만들고 답 생성기를 정한다. answerer가 없으면 모델 없는 MockAnswerer."""
         self.kb = kb
         self.router = Router(kb)
         self.answerer = answerer or MockAnswerer()
 
     def ask(self, question, pool=None):
+        """질문 하나를 처리한다: 경로 판별 -> 근거 검색 -> (근거가 있을 때만) 답 생성.
+        답·경로·근거·안내 문장·재확인 필요 여부를 dict로 돌려준다 (api/main.py /ask 응답)."""
         self._last_question = question
         rr = self.router.route(question)
         evidence = retrieve(rr, self.kb, pool)
@@ -48,6 +51,7 @@ class Chatbot:
         }
 
     def _sentence_message(self, rr, answer, evidence=()):
+        """문장 답(패치·아이템·빌드)을 화면에 보여 줄 안내 문장으로 묶는다. 빌드는 출처·확인 버전을 앞에 붙인다."""
         lines = "\n".join(f"- {a}" for a in answer)
         if rr.route == "build":
             card = next((e["data"] for e in evidence if e["kind"] == "build_card"), {})
@@ -62,6 +66,7 @@ class Chatbot:
         return lines
 
     def _message(self, rr, answer, evidence, found):
+        """화면에 보여 줄 안내 문장. 근거가 없으면 경로별 '찾지 못했어요' 문장, 있으면 답을 문장으로 만든다."""
         if not found:
             if rr.route == "build":
                 return f"{rr.character}의 빌드 가이드가 아직 없어요."

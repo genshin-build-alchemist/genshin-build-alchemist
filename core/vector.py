@@ -212,6 +212,7 @@ def load_item_index(folder):
         )
 
         def encode(texts):
+            """글 목록 -> 길이 1로 맞춘 임베딩 (내적이 곧 코사인 유사도)."""
             return model.encode(
                 texts,
                 normalize_embeddings=True,
@@ -282,6 +283,7 @@ def item_vector_search(
     import numpy as np
 
     def empty_result():
+        """검색 결과가 없을 때 돌려줄 값 (return_info면 dict, 아니면 빈 목록)."""
         if return_info:
             return {
                 "doc_ids": [],
