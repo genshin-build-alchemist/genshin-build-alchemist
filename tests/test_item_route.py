@@ -157,3 +157,27 @@ class ItemFilterWireTest(unittest.TestCase):
         ev = retrieve(ROUTER.route("보호막 성유물 뭐 있어?"), KB)
         self.assertTrue(ev)
         self.assertTrue(all(e["kind"] == "artifact" for e in ev))
+
+
+class ItemFiltersMainStatTest(unittest.TestCase):
+    """주옵션 필터는 질문이 주옵션을 직접 말할 때만 건다 (11/19 아이템 검색 평가: 효과 질문에서 정답이 빠지던 문제)."""
+
+    def test_main_stat_when_asked_directly(self):
+        from core.retrieval import item_filters
+        cases = {
+            "치명타 올려주는 활 추천해줘": ["치명타 확률", "치명타 피해"],
+            "원소 충전 효율 올려 주는 장병기": ["원소 충전 효율"],
+            "공격력 높여 주는 대검 뭐 있어?": ["공격력"],
+            "주옵션이 원충인 한손검": ["원소 충전 효율"],
+        }
+        for q, stats in cases.items():
+            self.assertEqual(item_filters(q).get("main_stat"), stats, q)
+
+    def test_no_main_stat_for_effect_words(self):
+        from core.retrieval import item_filters
+        for q, wtype in (("치명타가 발생하면 확률적으로 원소 구슬을 생성하는 한손검은?", "한손검"),
+                         ("일반 공격과 강공격으로 부적을 모아 파티의 공격 속도와 공격력을 높이는 대검은?", "양손검"),
+                         ("HP 최대치가 증가하고 HP가 절반 미만이면 추가 공격력을 얻는 장병기는?", "장병기")):
+            f = item_filters(q)
+            self.assertNotIn("main_stat", f, q)
+            self.assertEqual(f.get("weapon_type"), wtype, q)     # 무기 종류 필터는 그대로
