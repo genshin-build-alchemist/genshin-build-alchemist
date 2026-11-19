@@ -160,6 +160,9 @@ ITEM_MAIN_STATS = (     # (질문 낱말, 무기 주옵션 값들). 앞에서부
     (r"방어력", ("방어력",)),
     (r"HP|체력", ("HP",)),
 )
+# 주옵션을 직접 말할 때만 주옵션 필터를 건다. '치명타 올려주는 활'은 걸고,
+# '치명타가 발생하면 원소 구슬을 생성하는 한손검'처럼 효과를 설명하는 낱말은 걸지 않는다 (효과 질문에서 정답이 빠지던 문제)
+ITEM_MAIN_STAT_CUE = r"주 ?옵션|올려 ?주|높여 ?주|늘려 ?주"
 
 
 def item_filters(question):
@@ -174,7 +177,7 @@ def item_filters(question):
         out["kind"] = "artifact"
     elif "weapon_type" in out or "무기" in q:
         out["kind"] = "weapon"
-    if out.get("kind") == "weapon":      # 성유물은 주옵션이 부위마다 달라 문서에 없다 -> 무기만
+    if out.get("kind") == "weapon" and re.search(ITEM_MAIN_STAT_CUE, q):   # 성유물은 주옵션이 부위마다 달라 문서에 없다 -> 무기만
         for pattern, values in ITEM_MAIN_STATS:
             if re.search(pattern, q):
                 out["main_stat"] = list(values)
