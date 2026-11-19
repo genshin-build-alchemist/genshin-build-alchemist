@@ -85,6 +85,7 @@ class RouteResult:
 
 class Router:
     def __init__(self, kb):
+        """캐릭터·아이템 이름(별명 포함)과 조건 값을 찾는 정규식을 미리 만들어 둔다. 긴 이름부터 찾는다."""
         self.kb = kb
         # 긴 이름부터 (예: '카에데하라 카즈하'가 별명 '카즈하'보다 먼저). (찾을 낱말, 정식 이름, 정식 이름인지)
         words = [(n, n, True) for n in kb.char_by_name]
@@ -111,6 +112,7 @@ class Router:
 
     @staticmethod
     def _condition_pattern(field_name, value):
+        """조건 값 하나를 찾는 정규식. 원소는 '불 원소', 성급은 '5성'처럼 붙는 말까지 본다."""
         v = re.escape(value)
         if field_name == "element":            # '불 원소', '불원소', '불 속성'
             return re.compile(r"(?<![가-힣])" + v + r"\s?(원소|속성)")
@@ -124,6 +126,7 @@ class Router:
     #  [o] 무기 종류 동의어 ('창' -> 장병기, '대검' -> 양손검, '카탈리스트' -> 법구): core/aliases.py
     #  평가용(style_questions_v1.csv)은 고친 뒤 한 번만 확인한다
     def find_character(self, text):
+        """질문에서 캐릭터를 찾아 정식 이름을 돌려준다 (별명 '카즈하'도 정식 이름으로). 없으면 None."""
         for name, pattern in self.name_patterns:
             if pattern.search(text):
                 return name
@@ -137,9 +140,11 @@ class Router:
         return None, None
 
     def find_conditions(self, text):
+        """질문에서 조건(원소·무기·성급·지역)을 모두 찾는다. 예: '몬드 5성' -> {'region': '몬드', 'rarity': '5성'}"""
         return {f: v for f, v, p in self.condition_patterns if p.search(text)}
 
     def find_field(self, text, character=None):
+        """질문이 묻는 항목(element/weapon/rarity/region)을 찾는다. 못 찾으면 None."""
         # 이름 안의 글자가 낱말로 잡히지 않게 이름을 지우고 본다 ('클레어디사람임'의 '레어')
         if character:
             for pattern in [p for full, p in self.name_patterns if full == character]:
@@ -150,6 +155,8 @@ class Router:
         return None
 
     def route(self, text):
+        """질문 -> RouteResult. 위에서부터 먼저 맞는 경로로 보낸다:
+        패치(버전·패치 낱말) > 빌드 > 모름(데이터 밖 질문) > 조회 > 아이템(이름) > 조건 > 아이템(종류·옵션) > 모름"""
         text = text.strip()
         character = self.find_character(text)
         m = VERSION_RE.search(text)
