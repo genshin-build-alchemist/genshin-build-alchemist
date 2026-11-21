@@ -7,9 +7,11 @@ import json
 import os
 from pathlib import Path
 
-ENV_FILE = Path(__file__).resolve().parent.parent / ".env"
+ENV_FILE = Path(__file__).resolve().parent.parent / ".env"   # 이 파일(api/) 기준 한 단계 위 = 프로젝트 루트
 CONNECT_TIMEOUT = 10     # 초. Neon 무료 요금제는 잠들었다 깨어나는 데 몇 초 걸린다
 
+# %s 자리에 값이 순서대로 들어간다 (psycopg가 안전하게 채워 줘서 SQL 주입 공격을 막는다).
+# ::jsonb = 글자로 보낸 JSON을 DB의 JSON 칸 형식으로 바꾼다
 INSERT_SQL = """
 INSERT INTO chat_logs (question, route, answer, message, evidence, found, needs_recheck,
                        model, method, data_version, seconds, retrieved_doc_ids)
@@ -35,15 +37,18 @@ def doc_ids_of(response):
 
 
 def save_chat_log(response, seconds, retrieved_doc_ids=None):
-    """응답(dict) 1개를 chat_logs 에 1줄 저장한다. 저장했으면 True, 주소가 없어 건너뛰면 False."""
+    """응답(dict) 1개를 chat_logs 에 1줄 저장한다. 저장했으면 True, 주소가 없어 건너뛰면 False.
+
+    seconds: 답을 만드는 데 걸린 시간. retrieved_doc_ids: 따로 안 주면 응답 근거에서 뽑는다.
+    접속·저장에 실패하면 예외가 난다 -> 그래서 실제로는 log_chat_safely 를 통해 부른다."""
     url = database_url()
     if not url:
         return False
     import psycopg      # 설치 안 된 환경에서도 api.main 을 불러올 수 있게 여기서 불러온다
-    params = (
+    params = (                       # INSERT_SQL 의 %s 순서와 똑같이 맞춘다
         response["question"],
         response["route"],
-        json.dumps(response["answer"], ensure_ascii=False),
+        json.dumps(response["answer"], ensure_ascii=False),     # 목록 -> JSON 글자 (ensure_ascii=False: 한글을 그대로)
         response["message"],
         json.dumps(response["evidence"], ensure_ascii=False),
         response["found"],

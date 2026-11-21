@@ -250,12 +250,14 @@ def esc(value):
 
 
 def wrap(inner):
+    """HTML 조각을 대시보드 공통 상자(.gd)로 감싼다. ui.CSS 의 스타일은 이 상자 안에만 적용된다."""
     return f'<div class="gd">{inner}</div>'
 
 
 def show(inner, width="auto"):
-    """HTML 조각을 화면에 그린다 (Streamlit은 여기서만 부른다)."""
-    import streamlit as st
+    """HTML 조각을 화면에 그린다 (Streamlit은 여기서만 부른다).
+    나머지 함수는 HTML 글자만 만들어 돌려주므로, Streamlit 없이 unittest로 검사할 수 있다."""
+    import streamlit as st          # 함수 안에서 import: 테스트가 이 파일을 불러올 때 streamlit 이 필요 없게
     if inner:
         st.markdown(wrap(inner), unsafe_allow_html=True, width=width)
 
@@ -288,10 +290,12 @@ def checks_html(checks):
 
 
 def cond_html(cond):
+    """머리말 오른쪽 노란 조건 칩 (예: 어떤 평가셋·문항 기준인지). 글이 없으면 빈 글자."""
     return f'<span class="cond">{text.rich(cond)}</span>' if cond else ""
 
 
 def notice_html(msg):
+    """회색 ℹ️ 안내 한 줄 (예: '글 작성 이후 데이터가 바뀌었어요'). msg가 없으면 빈 글자."""
     return f'<div class="notice">ℹ️ {esc(msg)}</div>' if msg else ""
 
 
@@ -365,6 +369,7 @@ def chart_title_html(chart):
 
 
 def hint_html(chart):
+    """그래프 아래 작은 안내 글 (yaml charts.cXX.hint, 예: 그래프 읽는 법). 없으면 빈 글자."""
     return f'<div class="hint">{text.rich(chart["hint"])}</div>' if chart and chart.get("hint") else ""
 
 

@@ -19,6 +19,8 @@ DEFAULT_ORDER = ["baseline", "prompt_v2", "rag", "rag_v3", "rag_v4"]
 TYPES = ("lookup", "filter", "unknown")
 
 MACRO_TOLERANCE = 0.00005   # 파일 값은 소수 4자리 반올림이라, 반올림 오차보다 크게 다를 때만 경고
+# experiment_id 끝부분에서 모델 크기·정밀도·GPU를 뽑는 정규식. 괄호 3개가 뽑을 자리다:
+#   "qwen2.5-" + (크기: 7 또는 1.5) + "b-" + (정밀도: fp16) + "-" + (GPU: T4), $ = 문자열 끝
 MODEL_ID = re.compile(r"qwen2\.5-(\d+(?:\.\d+)?)b-([a-z0-9]+)-([a-z0-9]+)$", re.IGNORECASE)
 
 RED, YELLOW = "red", "yellow"
@@ -61,10 +63,11 @@ def recompute_macro_f1(per_question):
 
 
 def _file_checks(name, data):
-    """파일 하나의 검사: n과 문항 수, macro F1 재계산. -> [(level, msg)]"""
+    """파일 하나의 검사: n과 문항 수, macro F1 재계산. -> [(level, msg)]
+    파일에 적힌 점수를 그대로 믿지 않고, 문항별 결과로 다시 계산해서 맞는지 확인한다."""
     out = []
     pq = data.get("per_question")
-    if pq is None:
+    if pq is None:            # aux 파일처럼 문항별 결과가 없으면 검사할 게 없다
         return out
     n = data.get("metrics", {}).get("n")
     if n != len(pq):
@@ -93,6 +96,7 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
     is_model = folder == "model_compare"
     checks, excluded, candidates = [], [], []
 
+    # 1) 파일마다: 쓰지 않을 파일(후처리본, 일부 문항만 돌린 결과 등)을 거르고, 나머지는 후보로 모은다
     for path in sorted(folder_dir.glob("*.json")) if folder_dir.is_dir() else []:
         data = read_json(path)
         name = path.name
@@ -120,7 +124,7 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
         key = (model["size"], model["gpu"], model["precision"]) if is_model else data.get("method")
         candidates.append({"file": name, "key": key, "method": data.get("method"), "data": data, "model": model})
 
-    # 같은 key가 여럿이면 created_at이 늦은 파일
+    # 2) 같은 key가 여럿이면 created_at이 늦은 파일 (같은 실험을 다시 돌린 경우 최신 결과를 쓴다)
     chosen = {}
     for run in candidates:
         old = chosen.get(run["key"])
@@ -133,7 +137,7 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
         checks.append((YELLOW, f"같은 단계 {run['key']}가 두 개: 늦게 만든 {newer['file']}를 써요"))
     runs = list(chosen.values())
 
-    # 순서: model_compare는 크기 -> GPU -> 정밀도, 나머지는 stages 순서 (없는 단계는 맨 뒤)
+    # 3) 순서: model_compare는 크기 -> GPU -> 정밀도, 나머지는 stages 순서 (없는 단계는 맨 뒤)
     if is_model:
         runs.sort(key=lambda r: (r["model"]["size_num"], r["model"]["gpu"], r["model"]["precision"]))
     else:
@@ -143,6 +147,7 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
         runs = sorted([r for r in runs if r["key"] in order], key=lambda r: order.index(r["key"])) + \
             sorted(unknown, key=lambda r: r["data"].get("created_at", ""))
 
+    # 4) 폴더 전체 검사: 평가셋 버전이 다르면 점수를 나란히 비교하면 안 되므로 빨간 경고
     versions = sorted({r["data"].get("dataset_version") for r in runs}, key=str)
     if len(versions) > 1:
         checks.append((RED, f"dataset_version이 섞여 있어요: {', '.join(map(str, versions))}"))
@@ -165,12 +170,14 @@ def load_all(data_dir=DATA_DIR, order=None):
 # ---------- 계산 ----------
 
 def metric(data, key, qtype=None):
-    """metrics.key 또는 by_type.qtype.key. 없으면 None."""
+    """metrics.key 또는 by_type.qtype.key. 없으면 None.
+    예: metric(d, "macro_f1") = 전체 점수, metric(d, "macro_f1", "filter") = 조건 검색 문항만의 점수."""
     src = data.get("by_type", {}).get(qtype, {}) if qtype else data.get("metrics", {})
     return src.get(key)
 
 
 def questions(data, qtype=None):
+    """문항별 결과 목록. qtype(lookup / filter / unknown)을 주면 그 유형 문항만, 안 주면 전부."""
     pq = data.get("per_question") or []
     return [x for x in pq if qtype is None or x.get("type") == qtype]
 
@@ -208,13 +215,14 @@ def hallucinations_by_type(aux_data):
     out = {t: 0 for t in TYPES}
     out["other"] = 0
     for h in items:
-        prefix = str(h.get("id", "")).split("_")[0]
+        prefix = str(h.get("id", "")).split("_")[0]     # "filter_012" -> "filter"
         out[prefix if prefix in TYPES else "other"] += 1
     return out
 
 
 def pearson_r(xs, ys):
-    """피어슨 상관계수: 공분산 / (x 표준편차 × y 표준편차). 값이 2개 미만이거나 한쪽이 모두 같으면 None."""
+    """피어슨 상관계수: 공분산 / (x 표준편차 × y 표준편차). 값이 2개 미만이거나 한쪽이 모두 같으면 None.
+    -1 ~ 1 사이 값. 1에 가까우면 "x가 클수록 y도 크다" (② 탭: 빈 답이 많을수록 빨라지는지 확인)."""
     if len(xs) != len(ys) or len(xs) < 2:
         return None
     mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
@@ -239,7 +247,7 @@ def best_of(items, higher=True):
     items = [(n, v) for n, v in items if v is not None]
     if not items:
         return [], None
-    shown = [(n, round_half_up(v)) for n, v in items]
+    shown = [(n, round_half_up(v)) for n, v in items]    # 화면에 보이는 값으로 비교해야 "왜 같은데 1위가 하나지?"가 안 생긴다
     top = max(v for _, v in shown) if higher else min(v for _, v in shown)
     names = [n for n, v in shown if v == top]
     value = next(v for n, v in items if n == names[0])
@@ -250,7 +258,7 @@ def fmt(value, digits=3, missing="기록 없음"):
     """화면 표시: 소수 3자리까지 반올림(5 이상 올림), 원래 3자리 이하면 그대로 (1.0, 6.59). 없으면 '기록 없음'."""
     if value is None:
         return missing
-    if isinstance(value, bool) or isinstance(value, int):
+    if isinstance(value, bool) or isinstance(value, int):     # 정수(문항 수 등)는 반올림 없이 그대로
         return str(value)
     return str(round_half_up(value, digits))
 
