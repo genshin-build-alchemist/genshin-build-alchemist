@@ -133,108 +133,7 @@ def _rarity_tokens(value):
 
 
 # ============================================================
-# 3. 임베딩 및 메타데이터 로드
-# ============================================================
-
-def load_item_index(folder):
-    """저장된 무기·성유물 임베딩과 원본 문서 메타데이터를 불러온다."""
-    import numpy as np
-
-    _clear_item_index()
-
-    try:
-        folder = Path(folder)
-
-        vector_path = folder / "doc__granite-r2__weapon-artifact.npy"
-        doc_path = folder / "doc__granite-r2__weapon-artifact.jsonl"
-        documents_path = folder.parent / "documents_ko.jsonl"
-
-        if not all(
-            path.exists()
-            for path in (vector_path, doc_path, documents_path)
-        ):
-            return False
-
-        vectors = np.load(vector_path, allow_pickle=False)
-
-        doc_ids = []
-
-        with open(doc_path, "r", encoding="utf-8") as f:
-            for line in f:
-                if line.strip():
-                    doc_ids.append(json.loads(line)["doc_id"])
-
-        if vectors.ndim != 2 or len(vectors) != len(doc_ids):
-            return False
-
-        if not np.isfinite(vectors).all():
-            return False
-
-        # 원본 documents_ko.jsonl에서 메타데이터 수집
-        metadata_by_id = {}
-
-        with open(documents_path, "r", encoding="utf-8") as f:
-            for line in f:
-                if not line.strip():
-                    continue
-
-                doc = json.loads(line)
-
-                if doc.get("kind") not in ("weapon", "artifact"):
-                    continue
-
-                doc_id = doc.get("doc_id")
-                metadata = doc.get("metadata")
-
-                if not doc_id or not isinstance(metadata, dict):
-                    return False
-
-                if doc_id in metadata_by_id:
-                    return False
-
-                metadata_by_id[doc_id] = metadata
-
-        # 임베딩과 원본 문서 ID 일치 확인
-        if set(doc_ids) != set(metadata_by_id):
-            return False
-
-        # 임베딩 JSONL 순서에 맞춰 메타데이터 정렬
-        metadata = [
-            metadata_by_id[doc_id]
-            for doc_id in doc_ids
-        ]
-
-        # 무거운 라이브러리는 실제 로드 시점에 import
-        from sentence_transformers import SentenceTransformer
-
-        model = SentenceTransformer(
-            "ibm-granite/granite-embedding-311m-multilingual-r2"
-        )
-
-        def encode(texts):
-            """글 목록 -> 길이 1로 맞춘 임베딩 (내적이 곧 코사인 유사도)."""
-            return model.encode(
-                texts,
-                normalize_embeddings=True,
-                convert_to_numpy=True,
-            )
-
-        set_item_index(
-            encode,
-            vectors,
-            doc_ids,
-            metadata,
-        )
-
-        return True
-
-    except Exception:
-        _clear_item_index()
-        return False
-
-
-# ============================================================
-# 4. 인덱스 정보
+# 3. 인덱스 정보
 # ============================================================
 
 def item_index_size():
@@ -250,7 +149,7 @@ def item_metadata_size():
 
 
 # ============================================================
-# 5. 아이템 벡터 검색 및 필터링
+# 4. 아이템 벡터 검색 및 필터링
 # ============================================================
 
 def item_vector_search(
@@ -266,11 +165,9 @@ def item_vector_search(
     조건에 맞는 무기·성유물 후보를 필터링한 뒤 벡터 유사도로 검색한다.
 
     기본 검색:
-        1. 5성 우선
-        2. 4성 다음
-        3. 4~5성 결과가 부족하면 3성으로 보충
-
-    동일 성급에서는 벡터 유사도가 높은 순서로 반환한다.
+        1. 5성 후보에 0.005 보너스를 적용한다.
+        2. 5성·4성 후보는 보너스 적용 점수 순으로 정렬한다.
+        3. 결과가 부족하면 3성 후보로 보충한다.
 
     rarity를 명시하면 해당 성급만 검색하고 3성 자동 확장은 하지 않는다.
 
@@ -443,26 +340,40 @@ def item_vector_search(
             fallback_used = False
 
         # ----------------------------------------------------
-        # 성급 우선순위 검색
+        # 5성 우대 보너스 정렬
         # ----------------------------------------------------
 
         else:
-            ranked_primary = []
+            FIVE_STAR_BONUS = 0.005
 
-            for tier in sorted(primary_groups, reverse=True):
-                group = primary_groups[tier]
+            # 5성·4성 후보를 하나로 합친다.
+            primary_indices = [
+                i
+                for group in primary_groups.values()
+                for i in group
+            ]
 
-                group.sort(
-                    key=lambda i: score_by_index[i],
-                    reverse=True,
-                )
+            # 각 후보의 성급을 인덱스로 조회할 수 있게 만든다.
+            tier_by_index = {
+                i: tier
+                for tier, group in primary_groups.items()
+                for i in group
+            }
 
-                ranked_primary.extend(group)
+            # 유사도 점수에 5성 보너스를 더해 최종 정렬한다.
+            ranked_primary = sorted(
+                primary_indices,
+                key=lambda i: (
+                    score_by_index[i]
+                    + (FIVE_STAR_BONUS if tier_by_index[i] == 5 else 0.0)
+                ),
+                reverse=True,
+            )
 
-            # 우선 5성·4성 결과를 반환
+            # 우선 5성·4성 후보에서 상위 k개를 선택한다.
             selected = ranked_primary[:k]
 
-            # 결과가 부족하면 3성으로 나머지 개수 보충
+            # 결과가 부족하면 3성 후보로 나머지 개수를 보충한다.
             fallback_used = False
 
             if rarity is None and len(selected) < k and fallback_indices:
@@ -475,7 +386,6 @@ def item_vector_search(
                 fallback_results = fallback_indices[:remaining]
 
                 selected.extend(fallback_results)
-
                 fallback_used = bool(fallback_results)
 
             results = selected
