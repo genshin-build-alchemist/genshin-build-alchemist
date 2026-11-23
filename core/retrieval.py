@@ -163,6 +163,11 @@ ITEM_MAIN_STATS = (     # (질문 낱말, 무기 주옵션 값들). 앞에서부
 # 주옵션을 직접 말할 때만 주옵션 필터를 건다. '치명타 올려주는 활'은 걸고,
 # '치명타가 발생하면 원소 구슬을 생성하는 한손검'처럼 효과를 설명하는 낱말은 걸지 않는다 (효과 질문에서 정답이 빠지던 문제)
 ITEM_MAIN_STAT_CUE = r"주 ?옵션|올려 ?주|높여 ?주|늘려 ?주"
+# 무기인지 성유물인지 알려 주는 말. 둘 다 없으면 종류를 정하지 않고 무기·성유물을 함께 찾는다
+#   '…증가하는 검은?' -> 무기 / '4세트 효과로 …', '…세트는?' -> 성유물 ('검투사'의 '검', 세트 이름 속 글자는 안 잡음)
+_PARTICLE = r"(?=$|[^가-힣]|은|는|이|가|을|를|으로|로|도|만|중|에)"
+ITEM_ARTIFACT_CUE = r"성유물|[24] ?세트|세트 ?효과|(?<![가-힣])세트" + _PARTICLE
+ITEM_WEAPON_CUE = r"무기|재련|기초 ?공격력|(?<![가-힣])검" + _PARTICLE
 
 
 def item_filters(question):
@@ -173,10 +178,12 @@ def item_filters(question):
         if re.search(r"(?<![가-힣])" + re.escape(word) + r"(?=$|[^가-힣]|을|를|이|은|는|도|으로|로|에|중|만|쓰|들|류)", q):
             out["weapon_type"] = value
             break
-    if "성유물" in q and "weapon_type" not in out:
-        out["kind"] = "artifact"
-    elif "weapon_type" in out or "무기" in q:
+    artifact_cue = re.search(ITEM_ARTIFACT_CUE, q)
+    weapon_cue = re.search(ITEM_WEAPON_CUE, q)
+    if "weapon_type" in out or (weapon_cue and not artifact_cue):
         out["kind"] = "weapon"
+    elif artifact_cue and not weapon_cue:
+        out["kind"] = "artifact"
     if out.get("kind") == "weapon" and re.search(ITEM_MAIN_STAT_CUE, q):   # 성유물은 주옵션이 부위마다 달라 문서에 없다 -> 무기만
         for pattern, values in ITEM_MAIN_STATS:
             if re.search(pattern, q):
