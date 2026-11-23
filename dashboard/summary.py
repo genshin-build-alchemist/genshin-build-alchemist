@@ -19,16 +19,19 @@ TYPE_KO = {"lookup": "조회", "filter": "조건", "unknown": "없음"}
 
 
 def table(header, rows):
+    """머리글과 줄 목록 -> 마크다운 표 글자 (| 단계 | F1 | ... 모양). 깃허브·노션에 그대로 붙여 넣을 수 있다."""
     lines = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
     lines += ["| " + " | ".join(str(c) for c in row) + " |" for row in rows]
     return "\n".join(lines)
 
 
 def type_cells(data, key):
+    """유형별(조회 / 조건 / 없음) 값 3칸을 화면용 글자로. 예: key="macro_f1" -> 유형별 점수 3개."""
     return [fmt(metric(data, key, t)) for t in loader.TYPES]
 
 
 def official(result):
+    """official(공식 평가) 폴더 요약: 단계별 점수 표 + 마지막 단계의 '데이터 없음' 오답 목록 (① 탭 글 쓰기용)."""
     rows = []
     for r in result["runs"]:
         d = r["data"]
@@ -50,6 +53,7 @@ def official(result):
 
 
 def dev(result):
+    """dev 폴더 요약: 단계별 응답 시간 표 + 빈 답 수와 평균 시간의 상관계수 (② 탭 글 쓰기용)."""
     rows = []
     for r in result["runs"]:
         d = r["data"]
@@ -58,13 +62,14 @@ def dev(result):
                      *type_cells(d, "avg_seconds")])
     empties = [metric(r["data"], "empty_answers") for r in result["runs"]]
     avgs = [metric(r["data"], "avg_seconds") for r in result["runs"]]
-    r_value = loader.pearson_r(empties, avgs) if None not in empties + avgs else None
+    r_value = loader.pearson_r(empties, avgs) if None not in empties + avgs else None   # 값이 하나라도 비면 계산하지 않음
     return "\n".join([
         table(["단계", "Macro F1", "빈 답", "평균(초)", "중앙값", "최대", "조회 평균", "조건 평균", "없음 평균"], rows),
         "", f"빈 답 수 ↔ 평균 응답 시간 상관계수 r = {fmt(r_value)} ({len(result['runs'])}개 단계)"])
 
 
 def aux(result):
+    """aux 폴더 요약: 정답률·거절 정확도·환각률과 환각 유형 (③ 탭 글 쓰기용)."""
     rows = []
     for r in result["runs"]:
         d = r["data"]
@@ -77,6 +82,7 @@ def aux(result):
 
 
 def model_compare(result):
+    """model_compare 폴더 요약: 모델·GPU·정밀도 조합별 점수와 속도 (④ 탭 글 쓰기용)."""
     rows = []
     for r in result["runs"]:
         d, m = r["data"], r["model"]
@@ -88,10 +94,12 @@ def model_compare(result):
                   "평균(초)", "중앙값", "조회 평균", "조건 평균"], rows)
 
 
+# 폴더 이름 -> 그 폴더를 요약하는 함수 (위 4개). report 가 폴더에 맞는 함수를 골라 부른다
 FORMATTERS = {"official": official, "dev": dev, "aux": aux, "model_compare": model_compare}
 
 
 def report(folder, result):
+    """폴더 하나의 전체 출력: 검증 경고 -> 안 쓰는 파일 -> yaml에 붙여 넣을 based_on -> 요약표."""
     lines = [f"## {folder}", ""]
     if result["checks"]:
         lines += [f"- [{c['level']}] {c['msg']}" for c in result["checks"]] + [""]
@@ -106,6 +114,8 @@ def report(folder, result):
 
 
 def main(argv):
+    """명령줄에서 받은 폴더 이름들(argv)을 요약해 출력한다. 없으면 4개 폴더 전부.
+    돌려주는 값은 종료 코드: 0 = 정상, 2 = 모르는 폴더 이름."""
     folders = argv or list(loader.FOLDERS)
     bad = [f for f in folders if f not in loader.FOLDERS]
     if bad:
@@ -116,5 +126,6 @@ def main(argv):
     return 0
 
 
+# 이 파일을 직접 실행할 때만 동작 (다른 파일이 import 할 때는 실행 안 됨). argv[1:] = 파일 이름 뒤의 단어들
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))

@@ -36,10 +36,13 @@ bot = Chatbot(load_kb(), answerer_from_env())
 
 
 class AskRequest(BaseModel):
+    """POST /ask 로 받는 요청 본문. 예: {"question": "알베도 원소가 뭐야?"}
+    글자 수가 1~300자를 벗어나면 FastAPI가 자동으로 422 오류를 돌려준다."""
     question: str = Field(..., min_length=1, max_length=300, examples=["알베도 원소가 뭐야?"])
 
 
 class Evidence(BaseModel):
+    """답의 근거 1개. kind = 근거 종류(character, patch, build_card 등), title = 이름, text = 근거 내용."""
     kind: str
     title: str
     text: str
@@ -47,6 +50,8 @@ class Evidence(BaseModel):
 
 
 class AskResponse(BaseModel):
+    """POST /ask 응답 형식 (팀 고정 형식, 칸 이름을 바꾸지 않는다: docs/AI_CONTEXT.md 5장).
+    answer = 채점용 목록, message = 화면에 보여 줄 문장, found = 근거를 찾았는지."""
     question: str
     route: str
     answer: list[str]
@@ -77,8 +82,9 @@ def ask(req: AskRequest, background_tasks: BackgroundTasks):
     #  - 저장은 응답을 보낸 뒤 실행 (Neon이 깨어나는 동안 사용자가 기다리지 않게)
     #  - 저장이 실패해도 답에는 영향 없음 (log_chat_safely 안에서 오류만 출력)
     #  - retrieved_doc_ids: 응답 근거(evidence)의 doc_id 목록 (api/chat_log.py)
-    start = time.perf_counter()
-    response = bot.ask(req.question)
+    start = time.perf_counter()                          # 시간 재기 시작 (perf_counter = 짧은 시간 재는 정밀한 시계)
+    response = bot.ask(req.question)                     # 경로 판별 -> 근거 검색 -> 답 만들기 (core/pipeline.py)
     seconds = round(time.perf_counter() - start, 4)
+    # add_task: 지금 바로 실행하지 않고, return 으로 응답을 보낸 "뒤에" 실행하도록 예약한다
     background_tasks.add_task(chat_log.log_chat_safely, response, seconds)
     return response

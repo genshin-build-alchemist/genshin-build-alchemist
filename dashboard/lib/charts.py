@@ -98,6 +98,7 @@ def time_tip_parts(r):
 
 
 def time_tip(r):
+    """② 단계 1개의 툴팁을 HTML 글자 하나로 (time_tip_parts 의 줄 목록 + 개선점을 tip 으로 합침)."""
     return tip(*time_tip_parts(r))
 
 
@@ -216,6 +217,7 @@ def dot(color):
 
 
 def _esc(value):
+    """툴팁에 넣을 값의 < > & 를 글자로 바꾼다 (값 안의 기호가 HTML 태그로 해석되지 않게)."""
     return html.escape(str(value))
 
 
@@ -252,6 +254,7 @@ def aux_rates(rows):
 
 
 def answered_tip_parts(r):
+    """c3b 툴팁: 답한 문항 / 빈 답 수, 그중 환각 포함·근거 안에서 답함 건수, 개선점. -> (줄 목록, 아래 한 줄)"""
     lines = [f"<b>{_esc(r['stage'])}</b>",
              f"답한 문항 <b>{fmt(r['answered'])}개</b> · 빈 답 <b>{fmt(r['n'] - r['answered'])}개</b>",
              f"{dot(COLOR['filter'])}환각 포함 <b>{fmt(r['hn'])}건</b>",
@@ -284,7 +287,8 @@ def answered_stack(rows):
 
 
 def hal_tip_parts(r):
-    from .ui import TYPE_LABEL
+    """c3c 툴팁: 환각률과 질문 유형별 환각 건수 (유형 구분이 없으면 '유형별 내역 없음')."""
+    from .ui import TYPE_LABEL      # 유형 이름표 (lookup -> 캐릭터 조회 등)
     lines = [f"<b>{_esc(r['stage'])}</b>",
              f"환각률 <b>{fmt(r['hal'])}</b> ({fmt(r['hn'])}건 / 답한 {fmt(r['answered'])}개)"]
     if r["types"] is None:
@@ -338,6 +342,7 @@ PREC_COLOR, RECALL_COLOR = "#AFA9EC", "#5DCAA5"   # 와이어프레임 c4b
 
 
 def _model_head(r):
+    """④ 툴팁 맨 윗줄: 'Qwen2.5-3B · L4 · fp16' (굵게)."""
     return f"<b>Qwen2.5-{_esc(r['size'])} · {_esc(r['gpu'])} · {_esc(r['precision'])}</b>"
 
 
@@ -491,6 +496,7 @@ PERF_SERIES = [("f1", "전체", COLOR["all"]), ("lookup", "캐릭터 조회", CO
 
 
 def perf_tip_parts(r):
+    """c1a 툴팁: 단계 이름 + 전체·유형별 Macro F1 + 개선점. -> (줄 목록, 아래 한 줄)"""
     lines = [f"<b>{_esc(r['stage'])}</b>"] + [f"{dot(c)}{name} <b>{fmt(r[k])}</b>" for k, name, c in PERF_SERIES]
     return lines, (f"개선점: {_esc(r['change'])}" if r.get("change") else None)
 
