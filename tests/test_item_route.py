@@ -181,3 +181,28 @@ class ItemFiltersMainStatTest(unittest.TestCase):
             f = item_filters(q)
             self.assertNotIn("main_stat", f, q)
             self.assertEqual(f.get("weapon_type"), wtype, q)     # 무기 종류 필터는 그대로
+
+
+class ItemFiltersKindTest(unittest.TestCase):
+    """질문에 '성유물'·'무기'가 없어도 무기인지 성유물인지 알아본다 (무기 질문에 성유물이 나오던 문제)."""
+
+    def test_kind_from_cue_words(self):
+        from core.retrieval import item_filters
+        cases = {
+            "원소폭발 발동 후 이동 속도와 공격 속도가 증가하는 검은?": "weapon",
+            "재련하면 효과가 좋아지는 무기": "weapon",
+            "치명타 올려주는 활": "weapon",
+            "4세트 효과로 원소폭발 피해가 증가하는 세트는?": "artifact",
+            "2세트 효과가 원소 충전 효율 20%인 거 뭐야?": "artifact",
+            "HP 기반 캐릭터한테 좋은 세트 추천해줘": "artifact",
+            "확산 반응 피해 올려주는 성유물": "artifact",
+        }
+        for q, kind in cases.items():
+            self.assertEqual(item_filters(q).get("kind"), kind, q)
+
+    def test_no_kind_when_unclear(self):
+        from core.retrieval import item_filters
+        for q in ("원소 마스터리 올려주는 거 추천해줘", "성유물이랑 무기 같이 추천해줘"):
+            self.assertNotIn("kind", item_filters(q), q)
+        self.assertNotEqual(item_filters("검투사 4세트 효과").get("kind"), "weapon")   # 세트 이름 속 '검'
+
