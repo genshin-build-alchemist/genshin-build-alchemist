@@ -215,3 +215,45 @@ class ItemFiltersKindTest(unittest.TestCase):
         self.assertEqual(f.get("kind"), "artifact")
         self.assertNotIn("weapon_type", f)       # 성유물에는 무기 종류가 없어서 남기면 아무것도 못 찾는다
 
+
+
+class ItemAliasTest(unittest.TestCase):
+    """커뮤니티 별명·스탯 줄임말 (core/aliases.py ITEM_ALIASES, retrieval.ITEM_MAIN_STATS)"""
+
+    def test_alias_questions_from_item_eval(self):
+        # 아이템 평가(60문항)에서 이름 찾기가 놓쳤던 별명 질문
+        cases = {
+            "안개회광 효과 알려줘": "안개를 가르는 회광",
+            "호마 효과 알려줘": "호마의 지팡이",
+            "검투사 4세트 효과 뭐야": "검투사의 피날레",
+            "추억의 세트 옵션 알려줘": "추억의 시메나와",
+            "얼음바람 4세트 뭐야": "얼음바람 속에서 길잃은 용사",
+        }
+        for q, item in cases.items():
+            rr = ROUTER.route(q)
+            self.assertEqual((rr.route, rr.item), ("item", item), q)
+
+    def test_risky_words_are_not_aliases(self):
+        # 한 글자, 원소 이름, 두 아이템에 걸리는 말은 넣지 않는다
+        from core.aliases import ITEM_ALIASES
+        for word in ("검", "번", "청", "왕", "얼", "얼음", "반암", "진사", "달빛", "두루마리", "제사"):
+            self.assertNotIn(word, ITEM_ALIASES, word)
+
+    def test_element_question_is_not_item(self):
+        rr = ROUTER.route("얼음 원소 캐릭터 누구 있어?")
+        self.assertNotEqual(rr.route, "item")
+
+    def test_stat_abbreviations(self):
+        from core.retrieval import item_filters
+        cases = {
+            "공퍼 올려주는 한손검": ["공격력"],
+            "체퍼 주옵션 무기": ["HP"],
+            "방퍼 올려주는 대검": ["방어력"],
+            "물피 높여주는 양손검": ["물리 피해 보너스"],
+        }
+        for q, stat in cases.items():
+            self.assertEqual(item_filters(q).get("main_stat"), stat, q)
+
+    def test_base_attack_is_weapon_cue(self):
+        from core.retrieval import item_filters
+        self.assertEqual(item_filters("기초공 높은 거 뭐 있어?").get("kind"), "weapon")
