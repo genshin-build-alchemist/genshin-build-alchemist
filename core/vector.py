@@ -266,11 +266,9 @@ def item_vector_search(
     조건에 맞는 무기·성유물 후보를 필터링한 뒤 벡터 유사도로 검색한다.
 
     기본 검색:
-        1. 5성 우선
-        2. 4성 다음
-        3. 4~5성 결과가 부족하면 3성으로 보충
-
-    동일 성급에서는 벡터 유사도가 높은 순서로 반환한다.
+        - 무기: 4~5성을 유사도 기준으로 정렬하고 5성에 0.001 보너스 적용
+        - 성유물: 4~5성을 순수 벡터 유사도순으로 정렬
+        - 두 종류 모두 4~5성 결과가 부족할 때만 3성으로 보충
 
     rarity를 명시하면 해당 성급만 검색하고 3성 자동 확장은 하지 않는다.
 
@@ -337,7 +335,7 @@ def item_vector_search(
             fallback_indices = []
 
             # ------------------------------------------------
-            # 기본 검색: 5성 → 4성
+            # 기본 검색: 4~5성 후보를 함께 수집
             # 3성은 부족한 결과를 채울 때만 사용
             # ------------------------------------------------
 
@@ -429,7 +427,7 @@ def item_vector_search(
         }
 
         # ----------------------------------------------------
-        # 기존 메타데이터 없는 검색: 유사도순
+        # 정렬: 무기는 5성 보너스, 성유물은 4~5성 유사도순
         # ----------------------------------------------------
 
         if legacy_mode:
@@ -442,43 +440,56 @@ def item_vector_search(
             results = ranked_indices[:k]
             fallback_used = False
 
-        # ----------------------------------------------------
-        # 성급 우선순위 검색
-        # ----------------------------------------------------
-
         else:
-            ranked_primary = []
+            FIVE_STAR_BONUS = 0.001
 
-            for tier in sorted(primary_groups, reverse=True):
-                group = primary_groups[tier]
+            # 기본 검색에서는 4~5성을 먼저 정렬하고 3성은 보충 후보로 분리
+            primary_indices = [
+                i
+                for tier in sorted(primary_groups, reverse=True)
+                for i in primary_groups[tier]
+            ]
 
-                group.sort(
+            # rarity를 직접 지정한 경우에는 지정 성급만 검색
+            if rarity is None:
+                ranked_fallback = sorted(
+                    fallback_indices,
                     key=lambda i: score_by_index[i],
                     reverse=True,
                 )
+            else:
+                ranked_fallback = []
 
-                ranked_primary.extend(group)
+            tier_by_index = {
+                i: tier
+                for tier, indices in primary_groups.items()
+                for i in indices
+            }
 
-            # 우선 5성·4성 결과를 반환
-            selected = ranked_primary[:k]
+            def adjusted_score(index):
+                score = score_by_index[index]
+                meta = metadata[index]
 
-            # 결과가 부족하면 3성으로 나머지 개수 보충
+                # 무기에만 5성 보너스 적용. 성유물은 순수 유사도 사용.
+                if meta.get("kind") == "weapon" and tier_by_index.get(index) == 5:
+                    score += FIVE_STAR_BONUS
+
+                return score
+
+            ranked_primary = sorted(
+                primary_indices,
+                key=adjusted_score,
+                reverse=True,
+            )
+
+            # 4~5성 결과를 먼저 채우고, 모자란 개수만 3성으로 보충
+            results = ranked_primary[:k]
             fallback_used = False
 
-            if rarity is None and len(selected) < k and fallback_indices:
-                fallback_indices.sort(
-                    key=lambda i: score_by_index[i],
-                    reverse=True,
-                )
-
-                remaining = k - len(selected)
-                fallback_results = fallback_indices[:remaining]
-
-                selected.extend(fallback_results)
-
+            if rarity is None and len(results) < k and ranked_fallback:
+                fallback_results = ranked_fallback[: k - len(results)]
+                results.extend(fallback_results)
                 fallback_used = bool(fallback_results)
-
-            results = selected
 
         # ----------------------------------------------------
         # doc_id 반환 및 중복 제거
