@@ -180,10 +180,12 @@ def item_filters(question):
             break
     artifact_cue = re.search(ITEM_ARTIFACT_CUE, q)
     weapon_cue = re.search(ITEM_WEAPON_CUE, q)
-    if "weapon_type" in out or (weapon_cue and not artifact_cue):
-        out["kind"] = "weapon"
-    elif artifact_cue and not weapon_cue:
+    if artifact_cue and not weapon_cue:
+        # 성유물 질문의 무기 종류는 '착용 캐릭터'를 말한다: '법구 또는 활을 사용하는 캐릭터의 … 성유물 세트는?'
+        out.pop("weapon_type", None)
         out["kind"] = "artifact"
+    elif "weapon_type" in out or (weapon_cue and not artifact_cue):
+        out["kind"] = "weapon"
     if out.get("kind") == "weapon" and re.search(ITEM_MAIN_STAT_CUE, q):   # 성유물은 주옵션이 부위마다 달라 문서에 없다 -> 무기만
         for pattern, values in ITEM_MAIN_STATS:
             if re.search(pattern, q):

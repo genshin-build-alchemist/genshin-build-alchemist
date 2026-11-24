@@ -196,6 +196,9 @@ class ItemFiltersKindTest(unittest.TestCase):
             "2세트 효과가 원소 충전 효율 20%인 거 뭐야?": "artifact",
             "HP 기반 캐릭터한테 좋은 세트 추천해줘": "artifact",
             "확산 반응 피해 올려주는 성유물": "artifact",
+            # 성유물 질문 속 무기 종류는 착용 캐릭터 설명 (11/23 동우님 평가에서 무기로 잘못 분류)
+            "원소 마스터리를 높이고 법구 또는 활을 사용하는 캐릭터의 강공격 피해를 강화하는 성유물 세트는?": "artifact",
+            "한손검 캐릭터한테 좋은 4세트 뭐야?": "artifact",
         }
         for q, kind in cases.items():
             self.assertEqual(item_filters(q).get("kind"), kind, q)
@@ -205,4 +208,10 @@ class ItemFiltersKindTest(unittest.TestCase):
         for q in ("원소 마스터리 올려주는 거 추천해줘", "성유물이랑 무기 같이 추천해줘"):
             self.assertNotIn("kind", item_filters(q), q)
         self.assertNotEqual(item_filters("검투사 4세트 효과").get("kind"), "weapon")   # 세트 이름 속 '검'
+
+    def test_artifact_question_drops_weapon_type(self):
+        from core.retrieval import item_filters
+        f = item_filters("원소 마스터리를 높이고 법구 또는 활을 사용하는 캐릭터의 강공격 피해를 강화하는 성유물 세트는?")
+        self.assertEqual(f.get("kind"), "artifact")
+        self.assertNotIn("weapon_type", f)       # 성유물에는 무기 종류가 없어서 남기면 아무것도 못 찾는다
 
