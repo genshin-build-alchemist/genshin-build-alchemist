@@ -307,7 +307,7 @@
   },
   {
     "id": "w11",
-    "question": "원소전투 스킬 사용 후 일반 공격이 강화되고 추가 원소 피해를 주는 5성 활은?",
+    "question": "확산 반응 후 공격력이 증가하고 파티 원소 구성에 따라 강공격과 원소폭발 피해가 증가하는 5성 활은?",
     "gold_docs": [
       "weapon:astralvulturescrimsonplumage"
     ],
@@ -316,7 +316,7 @@
   },
   {
     "id": "w12",
-    "question": "보호막이 있을 때 공격력이 상승하고 보호막 강도도 높아지는 4성 장병기는?",
+    "question": "치유를 받으면 원소 에너지를 회복하는 4성 장병기는?",
     "gold_docs": [
       "weapon:rightfulreward"
     ],
@@ -334,7 +334,7 @@
   },
   {
     "id": "a02",
-    "question": "일반 공격이 치명타를 내면 강공격 피해가 증가하는 성유물은?",
+    "question": "적을 처치한 후 강공격이 스태미나를 쓰지 않고 피해도 증가하는 성유물은?",
     "gold_docs": [
       "artifact:bloodstainedchivalry"
     ],
@@ -343,7 +343,7 @@
   },
   {
     "id": "a03",
-    "question": "원소 마스터리가 높을수록 과부하, 초전도, 감전, 연소 반응이 강해지는 성유물은?",
+    "question": "과부하, 감전, 초전도, 만개 반응 피해가 증가하고 원소전투 스킬 재사용 대기시간이 줄어드는 성유물은?",
     "gold_docs": [
       "artifact:thunderingfury"
     ],
@@ -352,7 +352,7 @@
   },
   {
     "id": "a04",
-    "question": "물 원소 영향을 받은 적에게 주는 피해가 증가하는 성유물은?",
+    "question": "원소전투 스킬 발동 후 일반 공격과 강공격 피해가 증가하는 성유물은?",
     "gold_docs": [
       "artifact:heartofdepth"
     ],
@@ -379,7 +379,7 @@
   },
   {
     "id": "a07",
-    "question": "바위 원소 영향을 받은 적에게 주는 피해가 증가하는 성유물은?",
+    "question": "결정 조각을 획득하면 파티 전체가 해당 원소 피해 보너스를 얻는 성유물은?",
     "gold_docs": [
       "artifact:archaicpetra"
     ],
@@ -397,7 +397,7 @@
   },
   {
     "id": "a09",
-    "question": "풀 원소 영향을 받은 적에게 주는 피해가 증가하는 성유물은?",
+    "question": "원소전투 스킬이나 원소폭발에 맞은 적의 풀 원소 내성을 낮추는 성유물은?",
     "gold_docs": [
       "artifact:deepwoodmemories"
     ],
@@ -406,7 +406,7 @@
   },
   {
     "id": "a10",
-    "question": "바람 원소 영향을 받은 적에게 주는 피해가 증가하는 성유물은?",
+    "question": "확산 반응 피해가 증가하고 확산된 원소의 적 내성을 낮추는 성유물은?",
     "gold_docs": [
       "artifact:viridescentvenerer"
     ],
@@ -424,7 +424,7 @@
   },
   {
     "id": "a12",
-    "question": "보호막이 있을 때 공격력이 상승하는 성유물은?",
+    "question": "보호막이 있을 때 일반 공격과 강공격 피해가 증가하는 성유물은?",
     "gold_docs": [
       "artifact:retracingbolide"
     ],
