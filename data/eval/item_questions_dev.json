@@ -1,0 +1,542 @@
+[
+  {
+    "id": "name-01",
+    "question": "사면 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:absolution"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-02",
+    "question": "흑암 홍옥 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:blackcliffagate"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-03",
+    "question": "붉은 달의 형상 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:crimsonmoonssemblance"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-04",
+    "question": "페보니우스 비전 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:favoniuscodex"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-05",
+    "question": "충만의 열매 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:fruitoffulfillment"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-06",
+    "question": "잎을 가르는 빛 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:lightoffoliarincision"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-07",
+    "question": "밤을 엮는 거울 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:nightweaverslookingglass"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-08",
+    "question": "쇄석의 붉은 뿔 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:redhornstonethresher"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-09",
+    "question": "이무기 검 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:serpentspine"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-10",
+    "question": "참봉의 칼날 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:summitshaper"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-11",
+    "question": "비뢰의 고동 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:thunderingpulse"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "name-12",
+    "question": "크시포스의 달빛 무기 효과 알려줘",
+    "gold_docs": [
+      "weapon:xiphosmoonlight"
+    ],
+    "kind": "weapon",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "n-w01",
+    "question": "안개회광 효과 알려줘",
+    "gold_docs": [
+      "weapon:mistsplitterreforged"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-w02",
+    "question": "무공의 검 옵션 뭐야",
+    "gold_docs": [
+      "weapon:theunforged"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-w03",
+    "question": "반암결록 특징 설명해줘",
+    "gold_docs": [
+      "weapon:primordialjadecutter"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-w04",
+    "question": "호마 효과 알려줘",
+    "gold_docs": [
+      "weapon:staffofhoma"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-w05",
+    "question": "천공의 날개 옵션은?",
+    "gold_docs": [
+      "weapon:skywardharp"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-w06",
+    "question": "늑대의 말로 효과 알려줘",
+    "gold_docs": [
+      "weapon:wolfsgravestone"
+    ],
+    "kind": "weapon",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a01",
+    "question": "검투사 4세트 효과 뭐야",
+    "gold_docs": [
+      "artifact:gladiatorsfinale"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a02",
+    "question": "추억의 세트 옵션 알려줘",
+    "gold_docs": [
+      "artifact:shimenawasreminiscence"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a03",
+    "question": "절연 4세트 설명해줘",
+    "gold_docs": [
+      "artifact:emblemofseveredfate"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a04",
+    "question": "현인 효과 알려줘",
+    "gold_docs": [
+      "artifact:lavawalker"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a05",
+    "question": "얼음바람 4세트 뭐야",
+    "gold_docs": [
+      "artifact:blizzardstrayer"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "n-a06",
+    "question": "누각 세트 옵션 알려줘",
+    "gold_docs": [
+      "artifact:desertpavilionchronicle"
+    ],
+    "kind": "artifact",
+    "qtype": "별명"
+  },
+  {
+    "id": "w01",
+    "question": "생명의 계약 수치가 늘어날 때 착용자의 피해 보너스도 단계별로 쌓이는 5성 한손검은?",
+    "gold_docs": [
+      "weapon:absolution"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w02",
+    "question": "적을 쓰러뜨릴 때 공격력이 일정 시간 강화되고 이 효과가 여러 번 중첩되는 4성 한손검은?",
+    "gold_docs": [
+      "weapon:blackclifflongsword"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w03",
+    "question": "강공격과 원소전투 스킬을 각각 적중시키면 원소 마스터리가 상승하는 4성 법구는?",
+    "gold_docs": [
+      "weapon:dawningfrost"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w04",
+    "question": "치명타가 발생했을 때 확률적으로 원소 구슬을 생성해 에너지를 회복시키는 4성 양손검은?",
+    "gold_docs": [
+      "weapon:favoniusgreatsword"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w05",
+    "question": "공격 속도 증가와 함께 일반 공격, 스킬, 강공격으로 전투 중 피해 증가 중첩을 쌓는 5성 양손검은?",
+    "gold_docs": [
+      "weapon:gestofthemightywolf"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w06",
+    "question": "불 또는 번개 원소의 영향을 받은 적을 상대할 때 추가 피해를 주는 4성 한손검은?",
+    "gold_docs": [
+      "weapon:lionsroar"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w07",
+    "question": "달빛 관련 원소 반응을 일으킬 때 에너지를 회복하고 해당 반응의 치명타 피해까지 높이는 5성 법구는?",
+    "gold_docs": [
+      "weapon:nocturnescurtaincall"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w08",
+    "question": "치유로 표식을 모은 뒤 원소전투 스킬이나 폭발을 사용하면 공격력과 원소 피해가 증가하는 4성 활은?",
+    "gold_docs": [
+      "weapon:rangegauge"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w09",
+    "question": "원소 반응 후 최대 HP가 증가하며 특정 달빛 상태에서는 HP 증가 효과가 더 커지는 4성 한손검은?",
+    "gold_docs": [
+      "weapon:serenityscall"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w10",
+    "question": "질주에 필요한 스태미나를 줄이고 대시 이후 일반 공격을 강화하는 4성 한손검은?",
+    "gold_docs": [
+      "weapon:sturdybone"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w11",
+    "question": "확산 반응 후 공격력이 증가하고 파티 원소 구성에 따라 강공격과 원소폭발 피해가 증가하는 5성 활은?",
+    "gold_docs": [
+      "weapon:astralvulturescrimsonplumage"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "w12",
+    "question": "치유를 받으면 원소 에너지를 회복하는 4성 장병기는?",
+    "gold_docs": [
+      "weapon:rightfulreward"
+    ],
+    "kind": "weapon",
+    "qtype": "효과"
+  },
+  {
+    "id": "a01",
+    "question": "한손검·양손검·장병기를 사용할 때 일반 공격 피해가 35% 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:gladiatorsfinale"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a02",
+    "question": "적을 처치한 후 강공격이 스태미나를 쓰지 않고 피해도 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:bloodstainedchivalry"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a03",
+    "question": "과부하, 감전, 초전도, 만개 반응 피해가 증가하고 원소전투 스킬 재사용 대기시간이 줄어드는 성유물은?",
+    "gold_docs": [
+      "artifact:thunderingfury"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a04",
+    "question": "원소전투 스킬 발동 후 일반 공격과 강공격 피해가 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:heartofdepth"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a05",
+    "question": "얼음 원소 영향을 받은 적을 공격하면 치명타 확률이 증가하고 빙결 상태면 추가로 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:blizzardstrayer"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a06",
+    "question": "불 원소의 영향을 받은 적에게 주는 피해가 35% 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:lavawalker"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a07",
+    "question": "결정 조각을 획득하면 파티 전체가 해당 원소 피해 보너스를 얻는 성유물은?",
+    "gold_docs": [
+      "artifact:archaicpetra"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a08",
+    "question": "번개 원소 영향을 받은 적에게 주는 피해가 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:thundersoother"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a09",
+    "question": "원소전투 스킬이나 원소폭발에 맞은 적의 풀 원소 내성을 낮추는 성유물은?",
+    "gold_docs": [
+      "artifact:deepwoodmemories"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a10",
+    "question": "확산 반응 피해가 증가하고 확산된 원소의 적 내성을 낮추는 성유물은?",
+    "gold_docs": [
+      "artifact:viridescentvenerer"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a11",
+    "question": "법구나 활을 사용할 때 강공격 피해가 35% 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:wandererstroupe"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "a12",
+    "question": "보호막이 있을 때 일반 공격과 강공격 피해가 증가하는 성유물은?",
+    "gold_docs": [
+      "artifact:retracingbolide"
+    ],
+    "kind": "artifact",
+    "qtype": "효과"
+  },
+  {
+    "id": "aname-01",
+    "question": "바람이 시작되는 날 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:adaycarvedfromrisingwinds"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-02",
+    "question": "유구한 반암 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:archaicpetra"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-03",
+    "question": "샛별과 달의 여명 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:aubadeofmorningstarandmoon"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-04",
+    "question": "전투광 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:berserker"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-05",
+    "question": "얼음바람 속에서 길잃은 용사 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:blizzardstrayer"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-06",
+    "question": "피에 물든 기사도 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:bloodstainedchivalry"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-07",
+    "question": "용사의 마음 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:braveheart"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-08",
+    "question": "하늘의 은총 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:celestialgift"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-09",
+    "question": "불타오르는 화염의 마녀 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:crimsonwitchofflames"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-10",
+    "question": "숲의 기억 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:deepwoodmemories"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-11",
+    "question": "수호자의 마음 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:defenderswill"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  },
+  {
+    "id": "aname-12",
+    "question": "모래 위 누각의 역사 성유물 효과 알려줘",
+    "gold_docs": [
+      "artifact:desertpavilionchronicle"
+    ],
+    "kind": "artifact",
+    "qtype": "정식 이름"
+  }
+]
