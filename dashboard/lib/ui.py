@@ -249,7 +249,7 @@ CSS = """
 /* 실험 단계 버튼 (화면 왼쪽에 떠 있음). 위치(top)는 스크립트가 탭 아래 선에 맞춘다 */
 .st-key-fab {position:fixed; top:150px; left:max(8px, calc(50% - 490px - 141px)); width:120px !important; z-index:50; gap:12px !important;
   padding:14px 10px 10px; background:#1E1E1D; border:0.5px solid #3A3A38; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.45); box-sizing:border-box;}
-.st-key-fab .gd {margin:0;} .st-key-fab .fab-l {display:block; font-size:11px; color:#888780; text-align:center;}
+.st-key-fab .gd {margin:0;} .st-key-fab .fab-l {display:block; font-size:11px; color:#888780; text-align:center; margin-bottom:15px;}
 .st-key-fab button {width:100%; height:auto; min-height:0; padding:10px 6px; border-radius:9px; border:0.5px solid #444441; background:transparent; color:#B4B2A9; box-shadow:none;}
 .st-key-fab button p {font-size:13px; font-weight:600; white-space:nowrap; margin:0;}
 .st-key-fab button:hover {color:#F1EFE8; border-color:#444441; background:transparent;}
