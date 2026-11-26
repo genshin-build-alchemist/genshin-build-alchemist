@@ -4,6 +4,7 @@
 - 경로는 모두 이 파일 위치 기준이다 (로컬·Streamlit Cloud 어디서 실행해도 같은 파일을 찾는다).
 - 검증 규칙은 dashboard/README.md 2장, 계산 방법은 3-1을 따른다.
 """
+import csv
 import json
 import re
 from decimal import ROUND_HALF_UP, Decimal
@@ -15,13 +16,16 @@ DATA_DIR = DASHBOARD_DIR / "data"
 FOLDERS = ("official", "dev", "aux", "model_compare")
 
 # stages.yaml이 없을 때만 쓰는 기본 단계 순서 (화면에서는 stages.yaml의 order를 넘겨 받는다)
-DEFAULT_ORDER = ["baseline", "prompt_v2", "rag", "rag_v3", "rag_v4"]
+DEFAULT_ORDER = ["baseline", "prompt_v2", "rag", "rag_v3", "rag_v4", "rag_v5", "rag_v5_data"]
 TYPES = ("lookup", "filter", "unknown")
 
 MACRO_TOLERANCE = 0.00005   # 파일 값은 소수 4자리 반올림이라, 반올림 오차보다 크게 다를 때만 경고
-# experiment_id 끝부분에서 모델 크기·정밀도·GPU를 뽑는 정규식. 괄호 3개가 뽑을 자리다:
-#   "qwen2.5-" + (크기: 7 또는 1.5) + "b-" + (정밀도: fp16) + "-" + (GPU: T4), $ = 문자열 끝
-MODEL_ID = re.compile(r"qwen2\.5-(\d+(?:\.\d+)?)b-([a-z0-9]+)-([a-z0-9]+)$", re.IGNORECASE)
+# experiment_id에서 모델 크기를 뽑는 정규식: "qwen2.5-" + (크기: 7 또는 1.5) + "b"
+#   파일마다 뒷부분 순서가 달라서(…-7b-fp16-L4 / …-7b-L4-fp16 / …-1.5b-L4) GPU·정밀도는 따로 찾는다
+MODEL_ID = re.compile(r"qwen2\.5-(\d+(?:\.\d+)?)b", re.IGNORECASE)
+# 크기 뒤에서 GPU 이름 찾기: 영문 1글자 + 숫자 (L4, T4, A100). 앞뒤가 영문·숫자가 아니어야 한다 (fp16은 안 잡힘)
+GPU_TOKEN = re.compile(r"(?<![a-z0-9])([a-z]\d{1,3})(?![a-z0-9])", re.IGNORECASE)
+PRECISIONS = ("bf16", "fp16", "fp32", "8bit", "4bit")   # 이름에 적힌 정밀도 (config.load_4bit가 우선)
 
 RED, YELLOW = "red", "yellow"
 
@@ -39,14 +43,23 @@ def is_post(path, data):
     return Path(path).stem.endswith("_post") or "+post" in str(data.get("method", ""))
 
 
-def parse_model_id(experiment_id):
-    """'dev_rag_v4_qwen2.5-7b-bf16-l4' -> {'size': '7B', 'precision': 'bf16', 'gpu': 'L4', 'size_num': 7.0}.
-    형식이 다르면 None."""
-    m = MODEL_ID.search(str(experiment_id))
+def parse_model_id(experiment_id, config=None):
+    """'dev_rag_v4_qwen2.5-7b-fp16-L4' -> {'size': '7B', 'precision': 'fp16', 'gpu': 'L4', 'size_num': 7.0}.
+    - 크기: 'qwen2.5-7b', GPU: 크기 뒤의 'L4'·'T4' 같은 글자 (순서는 상관없음)
+    - 정밀도: config.load_4bit가 True면 '4bit', 아니면 이름에 적힌 정밀도, 둘 다 없으면 'fp16'
+    크기나 GPU를 못 찾으면 None."""
+    eid = str(experiment_id)
+    m = MODEL_ID.search(eid)
     if not m:
         return None
-    size, precision, gpu = m.groups()
-    return {"size": f"{size}B", "precision": precision.lower(), "gpu": gpu.upper(), "size_num": float(size)}
+    rest = eid[m.end():]
+    gpu = GPU_TOKEN.search(rest)
+    if not gpu:
+        return None
+    named = next((p for p in PRECISIONS if re.search(rf"(?<![a-z0-9]){p}(?![a-z0-9])", rest, re.IGNORECASE)), None)
+    precision = "4bit" if (config or {}).get("load_4bit") is True else (named or "fp16")
+    size = m.group(1)
+    return {"size": f"{size}B", "precision": precision, "gpu": gpu.group(1).upper(), "size_num": float(size)}
 
 
 def model_label(run):
@@ -79,7 +92,53 @@ def _file_checks(name, data):
     return out
 
 
-def load_folder(folder, data_dir=DATA_DIR, order=None):
+AUX_SUMMARY = "보조지표_요약-info-v2.csv"      # 보조 지표 요약 (단계마다 한 줄)
+AUX_CASES = "보조지표_환각사례-info-v2.csv"    # 환각 사례 (문항마다 한 줄, 유형별 건수를 셀 때 씀)
+
+
+def read_csv(path):
+    """CSV 하나를 읽는다 (읽기 전용). 엑셀에서 저장한 BOM이 있어도 칸 이름이 깨지지 않게 utf-8-sig."""
+    with open(path, "r", encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def _num(row, key, kind=float):
+    """CSV 칸 -> 숫자. 비었으면 None."""
+    value = (row.get(key) or "").strip()
+    return kind(value) if value else None
+
+
+def aux_csv_candidates(folder_dir, ref=None):
+    """보조 지표 CSV 2개 -> 단계별 결과 (aux JSON과 같은 모양) + 검사 목록.
+    날짜·평가셋 버전은 CSV에 없어서 같은 단계의 공식 결과(ref: method -> official data)에서 가져온다."""
+    ref = ref or {}
+    checks, candidates = [], []
+    cases_path = Path(folder_dir) / AUX_CASES
+    cases = read_csv(cases_path) if cases_path.exists() else None
+    if cases is None:
+        checks.append((YELLOW, f"{AUX_CASES}가 없어서 환각을 유형별로 나누지 못해요"))
+    for row in read_csv(Path(folder_dir) / AUX_SUMMARY):
+        method = (row.get("방법") or "").strip()
+        base = ref.get(method) or {}
+        hal = None if cases is None else [{"id": c.get("id"), "type": c.get("유형")} for c in cases
+                                          if (c.get("방법") or "").strip() == method]
+        hn = _num(row, "환각 문항 수", int)
+        if hal is not None and hn is not None and len(hal) != hn:
+            checks.append((YELLOW, f"{method}: 환각 사례 {len(hal)}건과 요약의 환각 문항 수 {hn}이 달라요"))
+        data = {
+            "method": method, "model": row.get("모델"), "experiment_id": row.get("실험 ID"), "notes": row.get("비고"),
+            "dataset_version": base.get("dataset_version"), "created_at": base.get("created_at"),
+            "metrics": {"n": _num(row, "전체 문항 수", int), "accuracy": _num(row, "정답률"),
+                        "correct": _num(row, "정답 문항 수", int), "refusal_accuracy": _num(row, "거절 정확도"),
+                        "hallucination_rate": _num(row, "환각률"), "hallucinated_questions": hn,
+                        "answered": _num(row, "답한 문항 수", int)},
+            "hallucinations": hal,
+        }
+        candidates.append({"file": AUX_SUMMARY, "key": method, "method": method, "data": data, "model": None})
+    return candidates, checks
+
+
+def load_folder(folder, data_dir=DATA_DIR, order=None, ref=None):
     """폴더 하나를 읽고 검증한다.
 
     반환: {
@@ -96,8 +155,14 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
     is_model = folder == "model_compare"
     checks, excluded, candidates = [], [], []
 
+    # 0) 보조 지표는 팀이 만든 CSV를 그대로 읽는다 (있으면 같은 폴더의 JSON은 쓰지 않음)
+    use_csv = folder == "aux" and (folder_dir / AUX_SUMMARY).exists()
+    if use_csv:
+        candidates, csv_checks = aux_csv_candidates(folder_dir, ref)
+        checks += csv_checks
+
     # 1) 파일마다: 쓰지 않을 파일(후처리본, 일부 문항만 돌린 결과 등)을 거르고, 나머지는 후보로 모은다
-    for path in sorted(folder_dir.glob("*.json")) if folder_dir.is_dir() else []:
+    for path in sorted(folder_dir.glob("*.json")) if folder_dir.is_dir() and not use_csv else []:
         data = read_json(path)
         name = path.name
         if is_post(path, data):
@@ -115,13 +180,13 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
                 continue
         model = None
         if is_model:
-            model = parse_model_id(data.get("experiment_id", ""))
+            model = parse_model_id(data.get("experiment_id", ""), data.get("config"))
             if model is None:
                 excluded.append({"file": name, "reason": "experiment_id 형식이 다름"})
                 checks.append((YELLOW, f"{name}: experiment_id에서 모델·GPU·정밀도를 읽지 못해 뺐어요"))
                 continue
         checks += _file_checks(name, data)
-        key = (model["size"], model["gpu"], model["precision"]) if is_model else data.get("method")
+        key = (data.get("method"), model["size"], model["gpu"], model["precision"]) if is_model else data.get("method")
         candidates.append({"file": name, "key": key, "method": data.get("method"), "data": data, "model": model})
 
     # 2) 같은 key가 여럿이면 created_at이 늦은 파일 (같은 실험을 다시 돌린 경우 최신 결과를 쓴다)
@@ -137,9 +202,10 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
         checks.append((YELLOW, f"같은 단계 {run['key']}가 두 개: 늦게 만든 {newer['file']}를 써요"))
     runs = list(chosen.values())
 
-    # 3) 순서: model_compare는 크기 -> GPU -> 정밀도, 나머지는 stages 순서 (없는 단계는 맨 뒤)
+    # 3) 순서: model_compare는 단계 -> 크기 -> GPU -> 정밀도, 나머지는 stages 순서 (없는 단계는 맨 뒤)
     if is_model:
-        runs.sort(key=lambda r: (r["model"]["size_num"], r["model"]["gpu"], r["model"]["precision"]))
+        rank = lambda m: order.index(m) if m in order else len(order)   # noqa: E731
+        runs.sort(key=lambda r: (rank(r["method"]), r["model"]["size_num"], r["model"]["gpu"], r["model"]["precision"]))
     else:
         unknown = [r for r in runs if r["key"] not in order]
         for r in unknown:
@@ -163,8 +229,14 @@ def load_folder(folder, data_dir=DATA_DIR, order=None):
 
 
 def load_all(data_dir=DATA_DIR, order=None):
-    """{'official': {...}, 'dev': {...}, 'aux': {...}, 'model_compare': {...}}"""
-    return {f: load_folder(f, data_dir, order) for f in FOLDERS}
+    """{'official': {...}, 'dev': {...}, 'aux': {...}, 'model_compare': {...}}
+    보조 지표 CSV에는 날짜·평가셋 버전이 없어서, 공식 결과를 먼저 읽어 단계별로 넘겨 준다."""
+    out = {"official": load_folder("official", data_dir, order)}
+    ref = {r["key"]: r["data"] for r in out["official"]["runs"]}
+    for f in FOLDERS:
+        if f not in out:
+            out[f] = load_folder(f, data_dir, order, ref=ref if f == "aux" else None)
+    return out
 
 
 # ---------- 계산 ----------
@@ -204,6 +276,44 @@ def wrong_questions(data, qtype=None):
     """f1이 1이 아닌 문항 -> [{'id', 'question', 'gold', 'pred'}]"""
     return [{"id": x["id"], "question": x["question"], "gold": x["gold"], "pred": x["pred"]}
             for x in questions(data, qtype) if x["f1"] < 1]
+
+
+def exact_counts(data, qtype=None, examples=2):
+    """완전 정답(f1 = 1) 수 · 오답 수 · 오답 문항 예시 -> {'n', 'correct', 'wrong', 'examples': [질문, ...]}.
+    예시는 결과 파일의 문항 순서대로 앞에서 examples개."""
+    qs = questions(data, qtype)
+    wrong = [x for x in qs if x["f1"] < 1]
+    return {"n": len(qs), "correct": len(qs) - len(wrong), "wrong": len(wrong),
+            "examples": [x["question"] for x in wrong[:examples]]}
+
+
+def slowest(data, k=3):
+    """응답 시간이 가장 긴 문항 k개 -> [{'question', 'seconds', 'pred_n', 'gold_n'}] (느린 순)."""
+    qs = sorted((x for x in questions(data) if "seconds" in x), key=lambda x: -x["seconds"])[:k]
+    return [{"question": x["question"], "seconds": x["seconds"], "pred_n": len(x["pred"]), "gold_n": len(x["gold"])}
+            for x in qs]
+
+
+def short_date(created_at):
+    """'2026-11-17T06:23:47' -> '11/17'. 형식이 다르면 None."""
+    m = re.match(r"\d{4}-(\d{2})-(\d{2})", str(created_at or ""))
+    return f"{int(m.group(1))}/{int(m.group(2))}" if m else None
+
+
+def data_badge(data, data_version=None):
+    """데이터 배지 글: 'Info_v2 · 평가 121문항 · 데이터 7.2' (DEV면 'Info_v2 · Dev · 60문항 · 데이터 7.2')."""
+    ds = str(data.get("dataset_version") or "")
+    dev = ds.endswith("-dev")
+    name = ds.removesuffix("-dev")
+    parts = [name[:1].upper() + name[1:]] if name else []
+    n = metric(data, "n")
+    if dev:
+        parts += ["Dev"] + ([f"{n}문항"] if n else [])
+    elif n:
+        parts.append(f"평가 {n}문항")
+    if data_version:
+        parts.append(str(data_version))
+    return " · ".join(parts)
 
 
 def hallucinations_by_type(aux_data):
@@ -261,6 +371,20 @@ def fmt(value, digits=3, missing="기록 없음"):
     if isinstance(value, bool) or isinstance(value, int):     # 정수(문항 수 등)는 반올림 없이 그대로
         return str(value)
     return str(round_half_up(value, digits))
+
+
+def fix(value, digits=3, missing="기록 없음"):
+    """표·카드용 고정 자릿수 표시: 0.75 -> '0.750', 1.43 -> '1.430' (5 이상 올림). 정수는 그대로."""
+    if value is None:
+        return missing
+    if isinstance(value, bool) or isinstance(value, int):
+        return str(value)
+    return f"{round_half_up(value, digits):.{digits}f}"
+
+
+def pct(value, digits=1, missing="기록 없음"):
+    """비율(0~1) -> 퍼센트 글자: 0.76 -> '76.0%'."""
+    return missing if value is None else f"{round_half_up(value * 100, digits):.{digits}f}%"
 
 
 def all_checks(results):

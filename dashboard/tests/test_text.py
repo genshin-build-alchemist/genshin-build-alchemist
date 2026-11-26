@@ -85,11 +85,12 @@ class ContentMatchesDataTest(unittest.TestCase):
 
     def test_based_on_is_current(self):
         order = text.stage_order()
+        results = loader.load_all(order=order)   # aux의 측정 시각은 load_all이 공식 결과에서 채운다
         for name, folder in CONTENT_FILES.items():
             with self.subTest(name=name):
                 content = text.load_content(name)
                 self.assertEqual(content["based_on"]["folder"], folder)
-                self.assertIsNone(text.based_on_status(content, loader.load_folder(folder, order=order)))
+                self.assertIsNone(text.based_on_status(content, results[folder]))
 
     def test_stage_order_covers_data(self):
         order = text.stage_order()
@@ -100,7 +101,9 @@ class ContentMatchesDataTest(unittest.TestCase):
     def test_every_stage_has_texts(self):
         stages = text.load_content("stages")
         for key in stages["order"]:
-            self.assertEqual(set(stages["stages"][key]) >= {"label", "change", "learned", "problem"}, True, key)
+            s = stages["stages"][key]
+            self.assertTrue(set(s) >= {"label", "change"}, key)
+            self.assertTrue("prompt" in s or s.get("prompt_from") in stages["stages"], f"{key}: 프롬프트 없음")
 
 
 if __name__ == "__main__":

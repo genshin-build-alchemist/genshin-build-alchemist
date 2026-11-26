@@ -128,9 +128,9 @@ class CheckRulesTest(unittest.TestCase):
         self.assertEqual(levels(res), ["yellow"])
 
     def test_unregistered_method_goes_last(self):
-        res = self.run_folder({"a.json": result("rag_v5"), "b.json": result("rag")})
-        self.assertEqual([r["key"] for r in res["runs"]], ["rag", "rag_v5"])
-        self.assertIn("rag_v5", res["checks"][0]["msg"])
+        res = self.run_folder({"a.json": result("rag_v9"), "b.json": result("rag")})
+        self.assertEqual([r["key"] for r in res["runs"]], ["rag", "rag_v9"])
+        self.assertIn("rag_v9", res["checks"][0]["msg"])
 
     def test_custom_order(self):
         res = self.run_folder({"a.json": result("rag_v5"), "b.json": result("rag")}, order=["rag", "rag_v5"])
@@ -149,6 +149,20 @@ class CheckRulesTest(unittest.TestCase):
         self.assertEqual([loader.model_label(r) for r in res["runs"]],
                          ["1.5B · L4 · fp16", "7B · L4 · bf16", "7B · T4 · fp16"])
         self.assertEqual(res["checks"], [])   # method가 모두 rag_v4여도 중복이 아님
+
+    def test_model_compare_same_model_other_stage_is_not_duplicate(self):
+        # 같은 모델 조합이라도 단계(method)가 다르면 다른 결과 (key = method, 크기, GPU, 정밀도)
+        files = {"a.json": result("rag_v4", experiment_id="dev_rag_v4_qwen2.5-3b-fp16-L4"),
+                 "b.json": result("rag_v5", experiment_id="dev_rag_v5_qwen2.5-3b-L4")}
+        res = self.run_folder(files, folder="model_compare", order=["rag_v4", "rag_v5"])
+        self.assertEqual([r["key"] for r in res["runs"]], [("rag_v4", "3B", "L4", "fp16"), ("rag_v5", "3B", "L4", "fp16")])
+        self.assertEqual(res["checks"], [])
+
+    def test_model_compare_precision_from_config(self):
+        # 정밀도는 config.load_4bit가 True면 4bit (실험 ID에 4bit가 없어도)
+        data = result("rag_v5", experiment_id="dev_rag_v5_qwen2.5-7b-L4", config={"load_4bit": True})
+        res = self.run_folder({"a.json": data}, folder="model_compare", order=["rag_v5"])
+        self.assertEqual(loader.model_label(res["runs"][0]), "7B · L4 · 4bit")
 
     def test_model_compare_bad_id_excluded(self):
         res = self.run_folder({"x.json": result("rag_v4", experiment_id="dev_rag_v4_llama")}, folder="model_compare")
@@ -183,6 +197,10 @@ class CalcTest(unittest.TestCase):
                          {"size": "7B", "precision": "bf16", "gpu": "L4", "size_num": 7.0})
         self.assertEqual(loader.parse_model_id("dev_rag_v4_qwen2.5-1.5b-fp16-T4")["size"], "1.5B")
         self.assertIsNone(loader.parse_model_id("dev_rag_v4"))
+        self.assertEqual(loader.parse_model_id("dev_rag_v5_qwen2.5-7b-L4", {"load_4bit": True})["precision"], "4bit")
+        self.assertEqual(loader.parse_model_id("dev_rag_v5_qwen2.5-3b-T4", {"load_4bit": False})["precision"], "fp16")
+        # 이름이 조금 깨진 파일도 GPU를 읽는다 (dev_rag_v5_qwen2.5-7b-fp16.-L4json.json)
+        self.assertEqual(loader.parse_model_id("dev_rag_v5_qwen2.5-7b-fp16.-L4")["gpu"], "L4")
 
     def test_best_of_tie(self):
         self.assertEqual(loader.best_of([("1.5B", 1.0), ("3B", 1.0), ("7B", 0.975)]), (["1.5B", "3B"], 1.0))
@@ -220,26 +238,33 @@ class RealDataTest(unittest.TestCase):
 
     def test_runs_count(self):
         self.assertEqual({f: len(r["runs"]) for f, r in self.all.items()},
-                         {"official": 5, "dev": 5, "aux": 5, "model_compare": 8})
+                         {"official": 7, "dev": 7, "aux": 7, "model_compare": 24})   # 모델 비교 = 3단계 × 8조합
 
     def test_dev_numbers(self):
         d = self.run_of("dev", "rag_v4")["data"]
-        self.assertEqual(fmt(loader.median_seconds(d)), "1.482")
-        self.assertEqual(fmt(loader.metric(d, "avg_seconds", "filter")), "4.713")
+        # response_time.yaml rag_v4 글의 숫자 (DEV 60문항, 11/17)
+        self.assertEqual(fmt(loader.median_seconds(d)), "1.409")
+        self.assertEqual(fmt(loader.metric(d, "avg_seconds", "filter")), "4.72")
+        d5 = self.run_of("dev", "rag_v5_data")["data"]
+        self.assertEqual(fmt(loader.metric(d5, "avg_seconds")), "1.004")
+        self.assertEqual(fmt(loader.metric(d5, "avg_seconds", "lookup")), "1.505")
         runs = self.all["dev"]["runs"]
         r = loader.pearson_r([loader.metric(x["data"], "empty_answers") for x in runs],
                              [loader.metric(x["data"], "avg_seconds") for x in runs])
-        self.assertEqual(fmt(r), "-0.904")
+        self.assertEqual(fmt(r), "-0.353")
 
     def test_model_compare_numbers(self):
-        by = {loader.model_label(r): r["data"] for r in self.all["model_compare"]["runs"]}
-        self.assertEqual([fmt(loader.avg_answer_len(by[f"{s} · L4 · fp16"]), 1) for s in ("1.5B", "3B", "7B")],
-                         ["3.1", "12.8", "8.1"])
-        self.assertEqual(fmt(loader.metric(by["7B · T4 · 4bit"], "macro_f1")), "0.812")
+        by = {(r["method"], loader.model_label(r)): r["data"] for r in self.all["model_compare"]["runs"]}
+        # rag_v4 · L4 · fp16의 조건 검색 정밀도 / 재현율 / Macro F1 (c4b 그래프 = 피드백 표와 같은 값)
+        got = [[fmt(loader.metric(by[("rag_v4", f"{s} · L4 · fp16")], k, "filter"))
+                for k in ("micro_precision", "micro_recall", "macro_f1")] for s in ("1.5B", "3B", "7B")]
+        self.assertEqual(got, [["0.526", "0.5", "0.537"], ["0.208", "0.75", "0.297"], ["0.279", "0.517", "0.336"]])
+        self.assertEqual(fmt(loader.metric(by[("rag_v5", "7B · L4 · 4bit")], "macro_f1")), "0.913")
+        self.assertEqual(fmt(loader.metric(by[("rag_v5_data", "3B · L4 · fp16")], "macro_f1")), "1.0")
 
     def test_aux_hallucination_types(self):
         aux = self.run_of("aux", "rag_v4")["data"]
-        self.assertEqual(loader.hallucinations_by_type(aux), {"lookup": 0, "filter": 4, "unknown": 1, "other": 0})
+        self.assertEqual(loader.hallucinations_by_type(aux), {"lookup": 0, "filter": 7, "unknown": 2, "other": 0})
 
     def test_official_unknown_wrong(self):
         wrong = loader.wrong_questions(self.run_of("official", "rag_v4")["data"], "unknown")
@@ -261,7 +286,7 @@ class RealDataTest(unittest.TestCase):
                 res = loader.load_folder("official")
             finally:
                 os.chdir(old)
-        self.assertEqual(len(res["runs"]), 5)
+        self.assertEqual(len(res["runs"]), 7)
 
 
 if __name__ == "__main__":
