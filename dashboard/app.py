@@ -52,7 +52,7 @@ def stage_fab(picks, selected):
     with st.container(key="fab"):
         ui.show('<span class="fab-l">실험 단계</span>')
         for s in reversed(picks):
-            st.button(s, key=f"fab_{s}", on_click=pick, args=(s,))
+            st.button(s, key=f"fab_{s}", on_click=pick, args=(s,), width="stretch")   # 세 버튼 너비를 상자에 맞춤
 
 
 def runs_upto(folder_result, stage):
