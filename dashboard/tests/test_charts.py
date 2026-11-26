@@ -25,15 +25,15 @@ class TimeChartsTest(unittest.TestCase):
         lines, footer = charts.time_tip_parts(ROWS[1])
         html = charts.tip_html(lines, footer)
         self.assertTrue(html.startswith('<div class="h"><b>rag_v4</b></div>'))
-        self.assertIn("<div>Macro F1 <b>0.796</b> · 빈 답 <b>4개</b></div>", html)
+        self.assertIn("<div>Macro F1 <b>0.796</b> · 빈 응답 <b>4개</b></div>", html)
         self.assertIn("평균 <b>2.384초</b>", html)
-        self.assertTrue(html.endswith('<div class="c">개선점: 성급·지역 예시</div>'))
+        self.assertTrue(html.endswith('<div class="c">변경 사항: 성급·지역 예시</div>'))
         self.assertNotIn('class="c"', charts.tip_html(["제목"]))           # 개선점 없으면 구분선도 없음
 
     def test_tooltip_escapes_text(self):
         lines, footer = charts.time_tip_parts(dict(ROWS[1], stage="<x>", change="a&b"))
         self.assertIn("&lt;x&gt;", lines[0])
-        self.assertEqual(footer, "개선점: a&amp;b")
+        self.assertEqual(footer, "변경 사항: a&amp;b")
 
     def test_hover_has_both(self):
         """customdata = 우리 툴팁, hovertext = Plotly 기본 툴팁(스크립트가 안 돌 때)."""
@@ -45,7 +45,7 @@ class TimeChartsTest(unittest.TestCase):
         fig = charts.f1_and_time(ROWS)
         self.assertEqual([t.type for t in fig.data], ["scatter", "bar", "bar"])
         self.assertEqual(list(fig.data[0].text), ["0.011", "0.796"])        # 점 위 값 라벨
-        self.assertEqual(list(fig.data[2].text), ["1.1", "1.482"])          # 중앙값 막대 라벨
+        self.assertEqual(list(fig.data[2].text), ["1.100", "1.482"])        # 중앙값 막대 라벨 (소수 3자리)
         self.assertFalse(fig.layout.showlegend)                             # 범례는 HTML로 따로
         # 두 칸이 x축 하나를 같이 씀 -> 점선 하나, 툴팁 하나 (막대는 툴팁 건너뜀)
         self.assertEqual([t.yaxis for t in fig.data], ["y", "y2", "y2"])
@@ -67,7 +67,7 @@ class TimeChartsTest(unittest.TestCase):
         fig = charts.empty_vs_time(ROWS, -0.904, 60)
         self.assertEqual(len(fig.data), 2)                                  # 추세선 + 점
         self.assertIn("r ≈ -0.904 (2개 단계)", fig.layout.annotations[0].text)
-        self.assertEqual(fig.layout.xaxis.title.text, "빈 답 (개, 60문항 중)")
+        self.assertEqual(fig.layout.xaxis.title.text, "빈 응답 (개, 60문항 중)")
         self.assertEqual(list(fig.layout.xaxis.range), [0, 60])             # 0이 맨 왼쪽
         self.assertFalse(fig.layout.xaxis.showgrid)                         # 세로 눈금선 없음
         self.assertTrue(fig.layout.yaxis.showgrid)                          # 가로 눈금선은 남김
@@ -76,8 +76,9 @@ class TimeChartsTest(unittest.TestCase):
 
     def test_time_by_type(self):
         fig = charts.time_by_type(ROWS)
-        self.assertEqual(len(fig.data), 2)                                  # 조회 · 조건 (데이터 없음 제외)
+        self.assertEqual(len(fig.data), 3)                                  # 조회 · 조건 · 데이터 없음
         self.assertEqual(list(fig.data[1].y), [4.01, 4.713])
+        self.assertEqual(list(fig.data[2].y), [1.275, 1.42])
         self.assertEqual(fig.layout.barmode, "group")
         self.assertIsNone(fig.layout.yaxis.title.text)                      # 왼쪽 축 제목 없음
         self.assertEqual(fig.layout.yaxis.ticksuffix, "초")                 # '2초' 형식
@@ -111,9 +112,9 @@ class AuxChartsTest(unittest.TestCase):
         self.assertIsNotNone(fig.data[0].customdata)            # 툴팁은 첫 선에만
         self.assertEqual(fig.data[1].hoverinfo, "skip")
         tip = fig.data[0].customdata[1]
-        self.assertIn("정답률 <b>0.717</b>", tip)
-        self.assertIn("환각 <b>5건</b> / 답한 문항 <b>56개</b>", tip)
-        self.assertIn('<div class="c">개선점: 성급·지역 예시</div>', tip)
+        self.assertIn("정답률 <b>71.7%</b>", tip)                     # 비율은 % (소수 1자리)
+        self.assertIn("환각 <b>5건</b> / 응답 문항 <b>56개</b>", tip)
+        self.assertIn('<div class="c">변경 사항: 성급·지역 예시</div>', tip)
 
     def test_answered_stack(self):
         fig = charts.answered_stack(AUX)
@@ -121,14 +122,14 @@ class AuxChartsTest(unittest.TestCase):
         self.assertEqual(list(fig.data[0].y), [4, 51])             # 근거 안에서 답함 = 답함 - 환각
         self.assertEqual(list(fig.data[1].y), [45, 5])
         self.assertEqual(list(fig.data[1].text), ["45 / 49", "5 / 56"])
-        self.assertIn("빈 답 <b>4개</b>", fig.data[1].customdata[1])
+        self.assertIn("빈 응답 <b>4개</b>", fig.data[1].customdata[1])
 
     def test_hal_by_type(self):
         fig = charts.hal_by_type(AUX)
         lookup, filt, unknown, total = fig.data
         self.assertAlmostEqual(lookup.x[0] + filt.x[0] + unknown.x[0], 0.9184)   # 유형 칸을 합치면 환각률
         self.assertAlmostEqual(filt.x[0], 0.9184 * 16 / 45)
-        self.assertEqual(list(total.text), ["  <b>0.918</b>", "  <b>0.089</b>"])
+        self.assertEqual(list(total.text), ["  <b>91.8%</b>", "  <b>8.9%</b>"])
         self.assertEqual(len(fig.layout.shapes), 2)              # 둥근 박스 + 유형 없는 단계의 점선 테두리
         self.assertIn("유형별 내역 없음", total.customdata[1])
         self.assertIn("조건 검색 <b>16건</b>", total.customdata[0])
@@ -137,7 +138,7 @@ class AuxChartsTest(unittest.TestCase):
 def _model(size, gpu, prec, f1, avg, color="#378ADD"):
     return {"size": size, "gpu": gpu, "precision": prec, "label": f"{size} · {gpu} · {prec}", "f1": f1, "lookup": 1.0,
             "filter": 0.483, "avg": avg, "median": 1.043, "lookup_t": 1.036, "filter_t": 1.462, "precision_v": 0.7528,
-            "recall": 0.67, "ans_len": 3.0625, "memory": "2.9GB", "color": color}
+            "recall": 0.67, "f_prec": 0.5263, "f_recall": 0.5, "ans_len": 3.0625, "memory": "2.9GB", "color": color}
 
 
 MODELS = [_model("1.5B", "L4", "fp16", 0.8621, 1.142), _model("3B", "T4", "fp16", 0.814, 2.543)]
@@ -151,13 +152,16 @@ class ModelChartsTest(unittest.TestCase):
         self.assertIn("Qwen2.5-1.5B · L4 · fp16", fig.data[0].customdata[0])
 
     def test_precision_recall(self):
+        """c4b: 전체 60문항이 아니라 조건 검색 문항의 정밀도·재현율 + 오른쪽 막대는 조건 검색 Macro F1."""
         fig = charts.precision_recall(MODELS)
-        self.assertEqual(list(fig.data[1].text), ["0.753", "0.753"])          # 정밀도 라벨 (위)
+        self.assertEqual(list(fig.data[1].text), ["0.526", "0.526"])          # 조건 검색 정밀도 라벨 (위)
+        self.assertEqual(list(fig.data[2].x), [0.5, 0.5])                     # 조건 검색 재현율
         self.assertEqual(fig.data[2].textposition, "bottom center")           # 재현율 라벨은 아래 (겹치지 않게)
         self.assertEqual((fig.data[1].textfont.color, fig.data[2].textfont.color), (charts.PREC_COLOR, charts.RECALL_COLOR))
-        self.assertEqual(fig.data[3].text[0], "<b>3.1명</b>")                 # 답 길이는 소수 1자리
+        self.assertEqual(fig.data[3].name, "조건 검색 F1")
+        self.assertEqual(fig.data[3].text[0], "<b>0.483</b>")
         self.assertEqual(fig.data[3].xaxis, "x2")
-        self.assertIn("조건 검색 평균 답 길이 <b>3.1명</b>", fig.data[1].customdata[0])
+        self.assertIn("조건 검색 정밀도 <b>0.526</b>", fig.data[1].customdata[0])
 
     def test_model_time(self):
         rows = [MODELS[0], dict(MODELS[1], filter_t=3.977)]                   # 실제처럼 7B 조건 검색이 느릴 때
@@ -189,7 +193,7 @@ class PerfChartsTest(unittest.TestCase):
         self.assertLess(tip.index("전체"), tip.index("데이터 없음"))     # 툴팁은 전체 → 유형 순
         self.assertIn("전체 <b>0.817</b>", tip)
         self.assertIn("캐릭터 조회 <b>0.989</b>", tip)
-        self.assertIn('<div class="c">개선점: 성급·지역 예시</div>', tip)
+        self.assertIn('<div class="c">변경 사항: 성급·지역 예시</div>', tip)
 
 
 if __name__ == "__main__":

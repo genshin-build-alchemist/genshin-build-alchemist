@@ -1,118 +1,121 @@
 {
-  "experiment_id": "dev_prompt_v2-V2",
-  "method": "prompt_v2",
+  "experiment_id": "dev_rag_v5_qwen2.5-3b-L4",
+  "method": "rag_v5",
   "model": "Qwen/Qwen2.5-3B-Instruct",
   "dataset_version": "info_v2-dev",
-  "created_at": "2026-11-10T06:01:20",
-  "seconds": 63.4,
+  "created_at": "2026-11-19T04:58:07",
+  "seconds": 76.1,
   "limit": null,
   "config": {
-    "code_version": "main@af0c97c",
+    "code_version": "main@ab603eb",
     "max_new_tokens": 160,
-    "split": "dev"
+    "split": "dev",
+    "load_4bit": false,
+    "gpu_memory_gb": 5.75,
+    "notebook": "02_model_compare"
   },
   "metrics": {
     "n": 60,
-    "macro_f1": 0.0667,
-    "micro_precision": 0.0,
-    "micro_recall": 0.0,
-    "micro_f1": 0.0,
-    "empty_answers": 52,
-    "avg_seconds": 1.055,
-    "max_seconds": 2.107
+    "macro_f1": 0.9562,
+    "micro_precision": 0.9892,
+    "micro_recall": 0.92,
+    "micro_f1": 0.9534,
+    "empty_answers": 4,
+    "avg_seconds": 1.268,
+    "max_seconds": 2.73
   },
   "by_type": {
     "filter": {
       "n": 16,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 8,
-      "avg_seconds": 1.188,
-      "max_seconds": 2.107
+      "macro_f1": 0.8983,
+      "micro_precision": 1.0,
+      "micro_recall": 0.8667,
+      "micro_f1": 0.9286,
+      "empty_answers": 1,
+      "avg_seconds": 1.678,
+      "max_seconds": 2.73
     },
     "lookup": {
       "n": 40,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 40,
-      "avg_seconds": 1.02,
-      "max_seconds": 1.552
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "empty_answers": 0,
+      "avg_seconds": 1.128,
+      "max_seconds": 1.201
     },
     "unknown": {
       "n": 4,
-      "macro_f1": 1.0,
+      "macro_f1": 0.75,
       "micro_precision": 0.0,
       "micro_recall": 0.0,
       "micro_f1": 0.0,
-      "empty_answers": 4,
-      "avg_seconds": 0.885,
-      "max_seconds": 0.899
+      "empty_answers": 3,
+      "avg_seconds": 1.023,
+      "max_seconds": 1.163
     }
   },
   "by_field": {
     "element": {
       "n": 11,
-      "macro_f1": 0.0909,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 11,
-      "avg_seconds": 0.966,
-      "max_seconds": 1.49
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "empty_answers": 1,
+      "avg_seconds": 1.095,
+      "max_seconds": 1.124
     },
     "element+rarity": {
       "n": 1,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
       "empty_answers": 0,
-      "avg_seconds": 2.107,
-      "max_seconds": 2.107
+      "avg_seconds": 2.515,
+      "max_seconds": 2.515
     },
     "element+weapon": {
       "n": 9,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 4,
-      "avg_seconds": 1.094,
-      "max_seconds": 1.751
+      "macro_f1": 0.9377,
+      "micro_precision": 1.0,
+      "micro_recall": 0.8519,
+      "micro_f1": 0.92,
+      "empty_answers": 0,
+      "avg_seconds": 1.543,
+      "max_seconds": 1.848
     },
     "rarity": {
       "n": 12,
-      "macro_f1": 0.1667,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 12,
-      "avg_seconds": 1.047,
-      "max_seconds": 1.54
+      "macro_f1": 0.9167,
+      "micro_precision": 0.9091,
+      "micro_recall": 1.0,
+      "micro_f1": 0.9524,
+      "empty_answers": 1,
+      "avg_seconds": 1.115,
+      "max_seconds": 1.166
     },
     "region": {
       "n": 11,
-      "macro_f1": 0.0909,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 11,
-      "avg_seconds": 1.003,
-      "max_seconds": 1.517
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "empty_answers": 1,
+      "avg_seconds": 1.12,
+      "max_seconds": 1.201
     },
     "region+element": {
       "n": 3,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 1,
-      "avg_seconds": 1.456,
-      "max_seconds": 1.702
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "empty_answers": 0,
+      "avg_seconds": 1.418,
+      "max_seconds": 1.543
     },
     "region+rarity": {
       "n": 1,
@@ -121,28 +124,28 @@
       "micro_recall": 0.0,
       "micro_f1": 0.0,
       "empty_answers": 1,
-      "avg_seconds": 0.895,
-      "max_seconds": 0.895
+      "avg_seconds": 1.005,
+      "max_seconds": 1.005
     },
     "weapon": {
       "n": 10,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 10,
-      "avg_seconds": 1.011,
-      "max_seconds": 1.552
+      "macro_f1": 1.0,
+      "micro_precision": 1.0,
+      "micro_recall": 1.0,
+      "micro_f1": 1.0,
+      "empty_answers": 0,
+      "avg_seconds": 1.145,
+      "max_seconds": 1.167
     },
     "weapon+rarity": {
       "n": 2,
-      "macro_f1": 0.0,
-      "micro_precision": 0.0,
-      "micro_recall": 0.0,
-      "micro_f1": 0.0,
-      "empty_answers": 2,
-      "avg_seconds": 0.893,
-      "max_seconds": 0.897
+      "macro_f1": 0.9667,
+      "micro_precision": 1.0,
+      "micro_recall": 0.9375,
+      "micro_f1": 0.9677,
+      "empty_answers": 0,
+      "avg_seconds": 2.595,
+      "max_seconds": 2.73
     }
   },
   "per_question": [
@@ -156,15 +159,19 @@
         "쿠키 시노부",
         "클로린드"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "각청",
+        "쿠키 시노부",
+        "클로린드"
+      ],
+      "raw": "[\"각청\", \"쿠키 시노부\", \"클로린드\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
       "fp": 0,
-      "fn": 3,
-      "seconds": 0.896
+      "fn": 0,
+      "seconds": 1.759
     },
     {
       "id": "lookup_region_barbara",
@@ -174,15 +181,17 @@
       "gold": [
         "몬드"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "몬드"
+      ],
+      "raw": "[\"몬드\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.881
+      "fn": 0,
+      "seconds": 1.127
     },
     {
       "id": "filter_element-얼음_weapon-한손검",
@@ -197,16 +206,18 @@
         "카미사토 아야카"
       ],
       "pred": [
-        "아르셀리아"
+        "레일라",
+        "치치",
+        "카미사토 아야카"
       ],
-      "raw": "[\"아르셀리아\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 5,
-      "seconds": 1.133
+      "raw": "[\"레일라\", \"치치\", \"카미사토 아야카\"]",
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.75,
+      "tp": 3,
+      "fp": 0,
+      "fn": 2,
+      "seconds": 1.741
     },
     {
       "id": "unknown_06",
@@ -222,7 +233,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "seconds": 0.877
+      "seconds": 0.979
     },
     {
       "id": "lookup_region_lisa",
@@ -232,15 +243,17 @@
       "gold": [
         "몬드"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "몬드"
+      ],
+      "raw": "[\"몬드\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.955
+      "fn": 0,
+      "seconds": 1.105
     },
     {
       "id": "lookup_region_citlali",
@@ -250,15 +263,17 @@
       "gold": [
         "나타"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "나타"
+      ],
+      "raw": "[\" 나타 \"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.498
+      "fn": 0,
+      "seconds": 1.073
     },
     {
       "id": "filter_element-번개_rarity-4성",
@@ -275,17 +290,22 @@
         "쿠키 시노부"
       ],
       "pred": [
-        "레오나르도",
-        "마이클"
+        "도리",
+        "레이저",
+        "리사",
+        "세토스",
+        "얀사",
+        "쿠죠 사라",
+        "쿠키 시노부"
       ],
-      "raw": "[\"레오나르도\", \"마이클\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 2,
-      "fn": 7,
-      "seconds": 2.107
+      "raw": "[\"도리\", \"레이저\", \"리사\", \"세토스\", \"얀사\", \"쿠죠 사라\", \"쿠키 시노부\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 2.515
     },
     {
       "id": "lookup_rarity_sethos",
@@ -295,15 +315,17 @@
       "gold": [
         "4성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "4성"
+      ],
+      "raw": "[\"4성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.065
+      "fn": 0,
+      "seconds": 1.129
     },
     {
       "id": "filter_element-바람_weapon-한손검",
@@ -316,16 +338,17 @@
         "진"
       ],
       "pred": [
-        "히에로니موس"
+        "리넷",
+        "진"
       ],
-      "raw": "[\"히에로니موس\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 3,
-      "seconds": 1.137
+      "raw": "[\"리넷\", \"진\"]",
+      "precision": 1.0,
+      "recall": 0.6667,
+      "f1": 0.8,
+      "tp": 2,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.269
     },
     {
       "id": "lookup_region_lauma",
@@ -335,15 +358,17 @@
       "gold": [
         "노드크라이"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "노드크라이"
+      ],
+      "raw": "[\"노드크라이\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.873
+      "fn": 0,
+      "seconds": 1.201
     },
     {
       "id": "lookup_region_navia",
@@ -353,15 +378,17 @@
       "gold": [
         "폰타인"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "폰타인"
+      ],
+      "raw": "[\"폰타인\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.878
+      "fn": 0,
+      "seconds": 1.155
     },
     {
       "id": "lookup_element_kachina",
@@ -371,15 +398,17 @@
       "gold": [
         "바위"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바위"
+      ],
+      "raw": "[\"바위\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.872
+      "fn": 0,
+      "seconds": 1.107
     },
     {
       "id": "lookup_rarity_lyney",
@@ -389,15 +418,17 @@
       "gold": [
         "5성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.889
+      "fn": 0,
+      "seconds": 1.109
     },
     {
       "id": "lookup_element_albedo",
@@ -407,15 +438,17 @@
       "gold": [
         "바위"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바위"
+      ],
+      "raw": "[\"바위\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.869
+      "fn": 0,
+      "seconds": 1.111
     },
     {
       "id": "lookup_element_sandrone",
@@ -425,15 +458,17 @@
       "gold": [
         "얼음"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "얼음"
+      ],
+      "raw": "[\"얼음\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.857
+      "fn": 0,
+      "seconds": 1.115
     },
     {
       "id": "lookup_element_mona",
@@ -443,15 +478,17 @@
       "gold": [
         "물"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "물"
+      ],
+      "raw": "[\"물\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.873
+      "fn": 0,
+      "seconds": 1.06
     },
     {
       "id": "lookup_region_sucrose",
@@ -461,15 +498,17 @@
       "gold": [
         "몬드"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "몬드"
+      ],
+      "raw": "[\"몬드\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.884
+      "fn": 0,
+      "seconds": 1.135
     },
     {
       "id": "lookup_element_prune",
@@ -479,15 +518,17 @@
       "gold": [
         "바람"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바람"
+      ],
+      "raw": "[\"바람\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.878
+      "fn": 0,
+      "seconds": 1.118
     },
     {
       "id": "lookup_rarity_amber",
@@ -497,15 +538,17 @@
       "gold": [
         "4성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "4성"
+      ],
+      "raw": "[\"4성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.148
+      "fn": 0,
+      "seconds": 1.128
     },
     {
       "id": "filter_region-몬드_element-물",
@@ -517,16 +560,17 @@
         "바바라"
       ],
       "pred": [
-        "아리아"
+        "모나",
+        "바바라"
       ],
-      "raw": "[\"아리아\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 2,
-      "seconds": 1.702
+      "raw": "[\"모나\", \"바바라\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 1.352
     },
     {
       "id": "lookup_rarity_baizhu",
@@ -536,15 +580,17 @@
       "gold": [
         "5성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.457
+      "fn": 0,
+      "seconds": 1.166
     },
     {
       "id": "lookup_rarity_gorou",
@@ -554,15 +600,17 @@
       "gold": [
         "4성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "4성"
+      ],
+      "raw": "[\"4성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.952
+      "fn": 0,
+      "seconds": 1.114
     },
     {
       "id": "lookup_weapon_kinich",
@@ -572,15 +620,17 @@
       "gold": [
         "양손검"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "양손검"
+      ],
+      "raw": "[\"양손검\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.89
+      "fn": 0,
+      "seconds": 1.16
     },
     {
       "id": "unknown_07",
@@ -596,7 +646,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "seconds": 0.87
+      "seconds": 0.979
     },
     {
       "id": "lookup_element_mika",
@@ -606,15 +656,17 @@
       "gold": [
         "얼음"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "얼음"
+      ],
+      "raw": "[\"얼음\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.86
+      "fn": 0,
+      "seconds": 1.112
     },
     {
       "id": "lookup_weapon_hutao",
@@ -624,15 +676,17 @@
       "gold": [
         "장병기"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "장병기"
+      ],
+      "raw": "[\"장병기\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.877
+      "fn": 0,
+      "seconds": 1.152
     },
     {
       "id": "lookup_weapon_emilie",
@@ -642,15 +696,17 @@
       "gold": [
         "장병기"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "장병기"
+      ],
+      "raw": "[\"장병기\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.879
+      "fn": 0,
+      "seconds": 1.158
     },
     {
       "id": "lookup_element_keqing",
@@ -660,15 +716,17 @@
       "gold": [
         "번개"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "번개"
+      ],
+      "raw": "[\"번개\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.887
+      "fn": 0,
+      "seconds": 1.124
     },
     {
       "id": "filter_element-풀_weapon-법구",
@@ -680,15 +738,19 @@
         "라우마",
         "백출"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "네페르",
+        "라우마",
+        "백출"
+      ],
+      "raw": "[\"네페르\", \"라우마\", \"백출\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
       "fp": 0,
-      "fn": 3,
-      "seconds": 0.884
+      "fn": 0,
+      "seconds": 1.699
     },
     {
       "id": "lookup_weapon_aether",
@@ -698,15 +760,17 @@
       "gold": [
         "한손검"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "한손검"
+      ],
+      "raw": "[\"한손검\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.88
+      "fn": 0,
+      "seconds": 1.167
     },
     {
       "id": "lookup_weapon_clorinde",
@@ -716,15 +780,17 @@
       "gold": [
         "한손검"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "한손검"
+      ],
+      "raw": "[\"한손검\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.876
+      "fn": 0,
+      "seconds": 1.165
     },
     {
       "id": "lookup_region_tighnari",
@@ -734,15 +800,17 @@
       "gold": [
         "수메르"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "수메르"
+      ],
+      "raw": "[\"수메르\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.892
+      "fn": 0,
+      "seconds": 1.159
     },
     {
       "id": "lookup_weapon_kirara",
@@ -752,15 +820,17 @@
       "gold": [
         "한손검"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "한손검"
+      ],
+      "raw": "[\"한손검\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.224
+      "fn": 0,
+      "seconds": 1.163
     },
     {
       "id": "lookup_rarity_albedo",
@@ -770,15 +840,17 @@
       "gold": [
         "5성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.54
+      "fn": 0,
+      "seconds": 1.117
     },
     {
       "id": "lookup_weapon_noelle",
@@ -788,15 +860,17 @@
       "gold": [
         "양손검"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "양손검"
+      ],
+      "raw": "[\"양손검\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.552
+      "fn": 0,
+      "seconds": 1.16
     },
     {
       "id": "lookup_weapon_zhongli",
@@ -806,15 +880,17 @@
       "gold": [
         "장병기"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "장병기"
+      ],
+      "raw": "[\"장병기\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.133
+      "fn": 0,
+      "seconds": 1.156
     },
     {
       "id": "filter_region-나타_rarity-4성",
@@ -834,7 +910,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 3,
-      "seconds": 0.895
+      "seconds": 1.005
     },
     {
       "id": "lookup_region_mika",
@@ -844,15 +920,17 @@
       "gold": [
         "몬드"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "몬드"
+      ],
+      "raw": "[\"몬드\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.896
+      "fn": 0,
+      "seconds": 1.118
     },
     {
       "id": "lookup_rarity_mika",
@@ -862,15 +940,17 @@
       "gold": [
         "4성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "4성"
+      ],
+      "raw": "[\"4성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.893
+      "fn": 0,
+      "seconds": 1.142
     },
     {
       "id": "lookup_region_xiao",
@@ -880,15 +960,17 @@
       "gold": [
         "리월"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "리월"
+      ],
+      "raw": "[\"리월\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.889
+      "fn": 0,
+      "seconds": 1.113
     },
     {
       "id": "lookup_weapon_kujousara",
@@ -898,15 +980,17 @@
       "gold": [
         "활"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "활"
+      ],
+      "raw": "[\"활\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.897
+      "fn": 0,
+      "seconds": 1.068
     },
     {
       "id": "unknown_04",
@@ -922,7 +1006,7 @@
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "seconds": 0.895
+      "seconds": 0.972
     },
     {
       "id": "filter_element-물_weapon-활",
@@ -934,17 +1018,17 @@
         "타르탈리아"
       ],
       "pred": [
-        "히라가나 아키하라",
-        "히라가나 히로시"
+        "시그윈",
+        "타르탈리아"
       ],
-      "raw": "[\"히라가나 아키하라\", \"히라가나 히로시\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 2,
-      "fn": 2,
-      "seconds": 1.751
+      "raw": "[\"시그윈\", \"타르탈리아\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 1.499
     },
     {
       "id": "filter_weapon-활_rarity-4성",
@@ -961,15 +1045,23 @@
         "쿠죠 사라",
         "파루잔"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "고로",
+        "디오나",
+        "세토스",
+        "야호다",
+        "엠버",
+        "쿠죠 사라",
+        "파루잔"
+      ],
+      "raw": "[\"고로\", \"디오나\", \"세토스\", \"야호다\", \"엠버\", \"쿠죠 사라\", \"파루잔\"]",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333,
+      "tp": 7,
       "fp": 0,
-      "fn": 8,
-      "seconds": 0.897
+      "fn": 1,
+      "seconds": 2.459
     },
     {
       "id": "lookup_weapon_lisa",
@@ -979,15 +1071,17 @@
       "gold": [
         "법구"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "법구"
+      ],
+      "raw": "[\"법구\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.899
+      "fn": 0,
+      "seconds": 1.105
     },
     {
       "id": "lookup_element_sucrose",
@@ -997,15 +1091,17 @@
       "gold": [
         "바람"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바람"
+      ],
+      "raw": "[\"바람\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.235
+      "fn": 0,
+      "seconds": 1.11
     },
     {
       "id": "lookup_region_charlotte",
@@ -1015,15 +1111,17 @@
       "gold": [
         "폰타인"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "폰타인"
+      ],
+      "raw": "[\"폰타인\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.517
+      "fn": 0,
+      "seconds": 1.159
     },
     {
       "id": "lookup_element_faruzan",
@@ -1033,15 +1131,17 @@
       "gold": [
         "바람"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바람"
+      ],
+      "raw": "[\"바람\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.49
+      "fn": 0,
+      "seconds": 1.109
     },
     {
       "id": "lookup_rarity_candace",
@@ -1051,15 +1151,17 @@
       "gold": [
         "4성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "4성"
+      ],
+      "raw": "[\"4성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 1.04
+      "fn": 0,
+      "seconds": 1.112
     },
     {
       "id": "filter_element-불_weapon-양손검",
@@ -1074,16 +1176,19 @@
         "신염"
       ],
       "pred": [
-        "히어로"
+        "신염",
+        "다이루크",
+        "데히야",
+        "마비카"
       ],
-      "raw": "[\"히어로\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 5,
-      "seconds": 1.085
+      "raw": "[\"신염\", \"다이루크\", \"데히야\", \"마비카\"]",
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.8889,
+      "tp": 4,
+      "fp": 0,
+      "fn": 1,
+      "seconds": 1.848
     },
     {
       "id": "lookup_rarity_yaemiko",
@@ -1093,15 +1198,17 @@
       "gold": [
         "5성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.9
+      "fn": 0,
+      "seconds": 1.107
     },
     {
       "id": "lookup_element_noelle",
@@ -1111,15 +1218,17 @@
       "gold": [
         "바위"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "바위"
+      ],
+      "raw": "[\"바위\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.912
+      "fn": 0,
+      "seconds": 1.11
     },
     {
       "id": "lookup_rarity_aether",
@@ -1129,15 +1238,17 @@
       "gold": [
         "5성"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.9
+      "fn": 0,
+      "seconds": 1.115
     },
     {
       "id": "unknown_02",
@@ -1145,15 +1256,17 @@
       "field": "rarity",
       "question": "미르하젤은 몇 성 캐릭터야?",
       "gold": [],
-      "pred": [],
-      "raw": "[]",
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "pred": [
+        "5성"
+      ],
+      "raw": "[\"5성\"]",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
       "tp": 0,
-      "fp": 0,
+      "fp": 1,
       "fn": 0,
-      "seconds": 0.899
+      "seconds": 1.163
     },
     {
       "id": "filter_element-얼음_weapon-활",
@@ -1165,15 +1278,19 @@
         "디오나",
         "에일로이"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "감우",
+        "디오나",
+        "에일로이"
+      ],
+      "raw": "[\"감우\", \"디오나\", \"에일로이\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
       "fp": 0,
-      "fn": 3,
-      "seconds": 0.889
+      "fn": 0,
+      "seconds": 1.619
     },
     {
       "id": "filter_element-바위_weapon-활",
@@ -1183,15 +1300,17 @@
       "gold": [
         "고로"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "고로"
+      ],
+      "raw": "[\"고로\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "seconds": 0.895
+      "fn": 0,
+      "seconds": 1.108
     },
     {
       "id": "filter_element-풀_weapon-양손검",
@@ -1203,16 +1322,17 @@
         "키니치"
       ],
       "pred": [
-        "아르셀리아"
+        "카베",
+        "키니치"
       ],
-      "raw": "[\"아르셀리아\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 2,
-      "seconds": 1.174
+      "raw": "[\"카베\", \"키니치\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 1.348
     },
     {
       "id": "filter_weapon-활_rarity-5성",
@@ -1229,15 +1349,24 @@
         "타르탈리아",
         "타이나리"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "감우",
+        "리니",
+        "벤티",
+        "시그윈",
+        "에일로이",
+        "차스카",
+        "타르탈리아",
+        "타이나리"
+      ],
+      "raw": "[\"감우\", \"리니\", \"벤티\", \"시그윈\", \"에일로이\", \"차스카\", \"타르탈리아\", \"타이나리\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 8,
       "fp": 0,
-      "fn": 8,
-      "seconds": 0.89
+      "fn": 0,
+      "seconds": 2.73
     },
     {
       "id": "filter_region-나타_element-바람",
@@ -1249,16 +1378,17 @@
         "차스카"
       ],
       "pred": [
-        "나타"
+        "이파",
+        "차스카"
       ],
-      "raw": "[\"나타\"]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 1,
-      "fn": 2,
-      "seconds": 1.117
+      "raw": "[\"이파\", \"차스카\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "seconds": 1.358
     },
     {
       "id": "filter_region-수메르_element-번개",
@@ -1270,16 +1400,20 @@
         "사이노",
         "세토스"
       ],
-      "pred": [],
-      "raw": "[]",
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
+      "pred": [
+        "도리",
+        "사이노",
+        "세토스"
+      ],
+      "raw": "[\"도리\", \"사이노\", \"세토스\"]",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
       "fp": 0,
-      "fn": 3,
-      "seconds": 1.55
+      "fn": 0,
+      "seconds": 1.543
     }
   ],
-  "notes": "규칙 + 예시 3개 (근거 없음)"
+  "notes": "모델 비교: rag_v5 프롬프트 고정, 모델만 Qwen/Qwen2.5-3B-Instruct"
 }

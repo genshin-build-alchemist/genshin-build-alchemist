@@ -78,20 +78,22 @@ def aux(result):
         rows.append([r["key"], fmt(metric(d, "accuracy")), fmt(metric(d, "refusal_accuracy")),
                      fmt(metric(d, "hallucination_rate")),
                      f"{metric(d, 'hallucinated_questions')} / {metric(d, 'answered')}", types])
-    return table(["단계", "정답률", "거절 정확도", "환각률", "환각 / 답한 문항", "환각 유형 (조회/조건/없음)"], rows)
+    return table(["단계", "정답률", "거절 정확도", "환각률", "환각 / 응답 문항", "환각 유형 (조회/조건/없음)"], rows)
 
 
 def model_compare(result):
-    """model_compare 폴더 요약: 모델·GPU·정밀도 조합별 점수와 속도 (④ 탭 글 쓰기용)."""
+    """model_compare 폴더 요약: 단계 · 모델 · GPU · 정밀도 조합별 점수와 속도 (④ 탭 글 쓰기용).
+    정밀도·재현율은 c4b 그래프와 같은 조건 검색 기준, GPU 메모리는 config.gpu_memory_gb."""
     rows = []
     for r in result["runs"]:
         d, m = r["data"], r["model"]
-        rows.append([m["size"], f"{m['gpu']} · {m['precision']}", fmt(metric(d, "macro_f1")),
-                     *type_cells(d, "macro_f1")[:2], fmt(metric(d, "micro_precision")), fmt(metric(d, "micro_recall")),
-                     fmt(loader.avg_answer_len(d)), fmt(metric(d, "avg_seconds")), fmt(loader.median_seconds(d)),
-                     *type_cells(d, "avg_seconds")[:2]])
-    return table(["모델", "GPU · 정밀도", "Macro F1", "조회", "조건", "정밀도", "재현율", "조건 답 길이",
-                  "평균(초)", "중앙값", "조회 평균", "조건 평균"], rows)
+        rows.append([r["method"], m["size"], f"{m['gpu']} · {m['precision']}", fmt(metric(d, "macro_f1")),
+                     *type_cells(d, "macro_f1")[:2],
+                     fmt(metric(d, "micro_precision", "filter")), fmt(metric(d, "micro_recall", "filter")),
+                     fmt(loader.avg_answer_len(d, "filter"), 1), fmt(metric(d, "avg_seconds")), fmt(loader.median_seconds(d)),
+                     *type_cells(d, "avg_seconds")[:2], fmt((d.get("config") or {}).get("gpu_memory_gb"))])
+    return table(["단계", "모델", "GPU · 정밀도", "Macro F1", "조회", "조건", "조건 정밀도", "조건 재현율", "조건 답 길이",
+                  "평균(초)", "중앙값", "조회 평균", "조건 평균", "GPU 메모리(GB)"], rows)
 
 
 # 폴더 이름 -> 그 폴더를 요약하는 함수 (위 4개). report 가 폴더에 맞는 함수를 골라 부른다
@@ -122,7 +124,8 @@ def main(argv):
         print(f"모르는 폴더: {', '.join(bad)} (가능: {', '.join(loader.FOLDERS)})")
         return 2
     order = text.stage_order()   # content/stages.yaml의 order
-    print("\n\n".join(report(f, loader.load_folder(f, order=order)) for f in folders))
+    results = loader.load_all(order=order)   # aux의 측정 시각은 공식 결과에서 채워지므로 폴더를 함께 읽는다
+    print("\n\n".join(report(f, results[f]) for f in folders))
     return 0
 
 

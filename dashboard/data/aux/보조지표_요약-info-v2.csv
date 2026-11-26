@@ -1,0 +1,8 @@
+방법,정답률,정답 문항 수,거절 정확도,환각률,환각 문항 수,답한 문항 수,전체 문항 수,모델,실험 ID,비고
+baseline,0.0165,2,0.25,0.951,97,102,121,Qwen/Qwen2.5-3B-Instruct,info10_baseline-V2,근거 없이 질문만. 모르는 질문에도 답을 지어냄
+prompt_v2,0.0661,8,1.0,0.8125,13,16,121,Qwen/Qwen2.5-3B-Instruct,info11_prompt_v2-V2,근거 없이 질문만. 환각률은 rag 방식 근거를 기준으로 계산
+rag,0.3471,42,1.0,0.1356,8,59,121,Qwen/Qwen2.5-3B-Instruct,info12_rag-V2,
+rag_v3,0.438,53,1.0,0.0714,5,70,121,Qwen/Qwen2.5-3B-Instruct,info13_rag_v3-V2,
+rag_v4,0.7603,92,0.75,0.0796,9,113,121,Qwen/Qwen2.5-3B-Instruct,info14_rag_v4-V2,
+rag_v5,0.9091,110,0.75,0.0354,4,113,121,Qwen/Qwen2.5-3B-Instruct,info15_rag_v5-V2,조건 검색 근거를 '조건 모두 만족'으로 (실험 코드 main@1d1f8c0)
+rag_v5_data,0.9917,120,1.0,0.0,0,112,121,Qwen/Qwen2.5-3B-Instruct,info16_rag_v5_data-V2,"rag_v5 + 조건 검색은 근거 이름 그대로, 근거 없으면 [] (모델 없이)"

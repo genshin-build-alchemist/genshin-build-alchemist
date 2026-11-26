@@ -9,7 +9,7 @@ import html
 
 import plotly.graph_objects as go
 
-from .loader import fmt
+from .loader import fix, fmt, pct
 from .ui import COLOR
 
 INK = "#B4B2A9"        # 축 글자
@@ -27,7 +27,7 @@ Y_TITLE_GAP = 12                        # y축 숫자 ↔ y축 제목 간격 (ti
 X_LABEL_GAP = 15                        # x축 범주명(단계 이름·숫자) 위 여백 (px)
 X_TITLE_GAP = 15                        # x축 이름('개선 단계' 등) 위 여백 = 범주명과의 간격 (px)
 MARGIN = dict(l=60, r=16, t=12, b=34 + X_LABEL_GAP + X_TITLE_GAP)   # 그래프마다 같게 -> 막대 너비가 같아진다 (b: x축 이름까지)
-BARGAP = 0.55                           # 막대 묶음 사이 빈칸 비율 (클수록 막대가 좁다)
+BARGAP = 0.4                            # 막대 묶음 사이 빈칸 비율 (클수록 막대가 좁다)
 
 
 def _layout(fig, height):
@@ -92,9 +92,9 @@ def hover(parts_list):
 def time_tip_parts(r):
     """② 툴팁 내용 (lines, footer). 단계 이름·개선점은 사람이 쓴 글이라 이스케이프한다."""
     lines = [f"<b>{html.escape(str(r['stage']))}</b>",
-             f"Macro F1 <b>{fmt(r['f1'])}</b> · 빈 답 <b>{fmt(r['empty'])}개</b>",
-             f"평균 <b>{fmt(r['avg'])}초</b> · 중앙값 <b>{fmt(r['median'])}초</b> · 최대 <b>{fmt(r['max'])}초</b>"]
-    return lines, (f"개선점: {html.escape(str(r['change']))}" if r.get("change") else None)
+             f"Macro F1 <b>{fix(r['f1'])}</b> · 빈 응답 <b>{fmt(r['empty'])}개</b>",
+             f"평균 <b>{fix(r['avg'])}초</b> · 중앙값 <b>{fix(r['median'])}초</b> · 최대 <b>{fix(r['max'])}초</b>"]
+    return lines, (f"변경 사항: {html.escape(str(r['change']))}" if r.get("change") else None)
 
 
 def time_tip(r):
@@ -117,12 +117,12 @@ def f1_and_time(rows):
     fig.add_trace(go.Scatter(
         x=x, y=[r["f1"] for r in rows], yaxis="y", mode="lines+markers+text",
         line=dict(color=COLOR["all"], width=2.5), marker=dict(size=9, color=COLOR["all"], line=dict(color=BOX_BG, width=2)),
-        text=[fmt(r["f1"]) for r in rows], textposition="top center", textfont=dict(size=11, color=LABEL),
+        text=[fix(r["f1"]) for r in rows], textposition="top center", textfont=dict(size=11, color=LABEL),
         cliponaxis=False, **hover([time_tip_parts(r) for r in rows])))
     for key, color in (("avg", COLOR["avg"]), ("median", COLOR["median"])):
         fig.add_trace(go.Bar(
             x=x, y=[r[key] for r in rows], yaxis="y2", marker=dict(color=color, cornerradius=3),
-            text=[fmt(r[key]) for r in rows], textposition="outside", textfont=dict(size=10, color=LABEL),
+            text=[fix(r[key]) for r in rows], textposition="outside", textfont=dict(size=10, color=LABEL),
             hoverinfo="skip", cliponaxis=False))
     _layout(fig, C2A_HEIGHT)
     top = max(r["avg"] for r in rows)
@@ -175,7 +175,7 @@ def empty_vs_time(rows, r_value, n_questions):
         fig.add_annotation(xref="paper", yref="paper", x=0.99, y=0.97, xanchor="right", yanchor="top", showarrow=False,
                            text=f"r ≈ {fmt(r_value)} ({len(rows)}개 단계)", font=dict(size=11, color="#9C9A92"))
     # 가로축은 0에서 시작(그래프 맨 왼쪽), 세로 눈금선 없음. 가로 눈금선과 y 숫자는 남긴다 (점에 시간 라벨이 없어서)
-    fig.update_xaxes(title_text=f"빈 답 (개, {n_questions}문항 중)", title_font=dict(size=11, color=MUTED), title_standoff=X_TITLE_GAP,
+    fig.update_xaxes(title_text=f"빈 응답 (개, {n_questions}문항 중)", title_font=dict(size=11, color=MUTED), title_standoff=X_TITLE_GAP,
                      range=[0, n_questions], showgrid=False)
     fig.update_yaxes(title_text="평균 응답 시간 (초)", range=[min(ys) * 0.8, max(ys) * 1.12], title_standoff=12 + 8,
                      showgrid=True, gridcolor=GRID, gridwidth=0.5, showticklabels=True, ticksuffix="초")
@@ -183,7 +183,7 @@ def empty_vs_time(rows, r_value, n_questions):
     return fig
 
 
-def time_by_type(rows, types=("lookup", "filter")):
+def time_by_type(rows, types=("lookup", "filter", "unknown")):
     """c2c: 단계 × 질문 유형별 평균 응답 시간 묶음 막대."""
     from .ui import TYPE_LABEL
     x = [r["stage"] for r in rows]
@@ -191,9 +191,9 @@ def time_by_type(rows, types=("lookup", "filter")):
     for t in types:
         fig.add_trace(go.Bar(
             x=x, y=[r["type_avg"].get(t) for r in rows], marker=dict(color=COLOR[t], cornerradius=3),
-            text=[fmt(r["type_avg"].get(t)) for r in rows], textposition="outside", textfont=dict(size=10, color=LABEL),
+            text=[fix(r["type_avg"].get(t)) for r in rows], textposition="outside", textfont=dict(size=10, color=LABEL),
             cliponaxis=False, **hover([([f"<b>{html.escape(str(r['stage']))}</b> · {TYPE_LABEL[t]}",
-                                         f"평균 <b>{fmt(r['type_avg'].get(t))}초</b>"], None) for r in rows])))
+                                         f"평균 <b>{fix(r['type_avg'].get(t))}초</b>"], None) for r in rows])))
     _layout(fig, 250)
     top = max((r["type_avg"].get(t) or 0) for r in rows for t in types)
     fig.update_layout(barmode="group", margin=dict(MARGIN, b=24 + X_LABEL_GAP))   # x축 이름이 없어서 아래 여백을 줄임
@@ -208,7 +208,7 @@ def time_by_type(rows, types=("lookup", "filter")):
 AUX_SERIES = [("acc", "정답률", COLOR["all"]),
               ("ref", "거절 정확도", COLOR["unknown"]),
               ("hal", "환각률", COLOR["filter"])]
-SINGLE_BAR_W = 0.21   # 막대 하나짜리 그래프의 막대 너비 (②의 묶음 막대 한 개 너비와 비슷하게)
+SINGLE_BAR_W = 0.3    # 막대 하나짜리 그래프의 막대 너비 (②의 묶음 막대 한 개 너비와 비슷하게)
 
 
 def dot(color):
@@ -224,9 +224,9 @@ def _esc(value):
 def aux_tip_parts(r):
     """c3a 툴팁: 비율 세 개 + 환각 건수 / 답한 문항, 개선점."""
     lines = [f"<b>{_esc(r['stage'])}</b>"]
-    lines += [f"{dot(c)}{name} <b>{fmt(r[k])}</b>" for k, name, c in AUX_SERIES]
-    lines.append(f"환각 <b>{fmt(r['hn'])}건</b> / 답한 문항 <b>{fmt(r['answered'])}개</b>")
-    return lines, (f"개선점: {_esc(r['change'])}" if r.get("change") else None)
+    lines += [f"{dot(c)}{name} <b>{pct(r[k])}</b>" for k, name, c in AUX_SERIES]
+    lines.append(f"환각 <b>{fmt(r['hn'])}건</b> / 응답 문항 <b>{fmt(r['answered'])}개</b>")
+    return lines, (f"변경 사항: {_esc(r['change'])}" if r.get("change") else None)
 
 
 def aux_rates(rows):
@@ -246,7 +246,8 @@ def aux_rates(rows):
     fig.update_xaxes(showline=False, title_text="개선 단계", title_font=dict(size=11, color=MUTED),
                      title_standoff=X_TITLE_GAP)
     # 점에 숫자 라벨이 없어서 y 숫자(0, 0.5, 1)와 가로 눈금선을 남긴다
-    fig.update_yaxes(title_text="비율 (0~1)", title_standoff=Y_TITLE_GAP, range=[-0.06, 1.08], tickvals=[0, 0.5, 1], showticklabels=True,
+    fig.update_yaxes(title_text="비율", title_standoff=Y_TITLE_GAP, range=[-0.06, 1.08], tickvals=[0, 0.5, 1],
+                     ticktext=["0%", "50%", "100%"], showticklabels=True,
                      showgrid=True, gridcolor=GRID, gridwidth=0.5)
     fig.update_layout(margin=dict(MARGIN, l=MARGIN["l"] + Y_TITLE_PAD))   # y 숫자와 축 제목 사이 여백
     round_box(fig, "paper", height - MARGIN["t"] - MARGIN["b"])
@@ -256,10 +257,10 @@ def aux_rates(rows):
 def answered_tip_parts(r):
     """c3b 툴팁: 답한 문항 / 빈 답 수, 그중 환각 포함·근거 안에서 답함 건수, 개선점. -> (줄 목록, 아래 한 줄)"""
     lines = [f"<b>{_esc(r['stage'])}</b>",
-             f"답한 문항 <b>{fmt(r['answered'])}개</b> · 빈 답 <b>{fmt(r['n'] - r['answered'])}개</b>",
+             f"응답 문항 <b>{fmt(r['answered'])}개</b> · 빈 응답 <b>{fmt(r['n'] - r['answered'])}개</b>",
              f"{dot(COLOR['filter'])}환각 포함 <b>{fmt(r['hn'])}건</b>",
              f"{dot(COLOR['unknown'])}근거 안에서 답함 <b>{fmt(r['answered'] - r['hn'])}건</b>"]
-    return lines, (f"개선점: {_esc(r['change'])}" if r.get("change") else None)
+    return lines, (f"변경 사항: {_esc(r['change'])}" if r.get("change") else None)
 
 
 def answered_stack(rows):
@@ -290,7 +291,7 @@ def hal_tip_parts(r):
     """c3c 툴팁: 환각률과 질문 유형별 환각 건수 (유형 구분이 없으면 '유형별 내역 없음')."""
     from .ui import TYPE_LABEL      # 유형 이름표 (lookup -> 캐릭터 조회 등)
     lines = [f"<b>{_esc(r['stage'])}</b>",
-             f"환각률 <b>{fmt(r['hal'])}</b> ({fmt(r['hn'])}건 / 답한 {fmt(r['answered'])}개)"]
+             f"환각률 <b>{pct(r['hal'])}</b> ({fmt(r['hn'])}건 / 응답 {fmt(r['answered'])}개)"]
     if r["types"] is None:
         lines.append("유형별 내역 없음")
     else:
@@ -311,11 +312,11 @@ def hal_by_type(rows, types=("lookup", "filter", "unknown")):
         for r in rows:
             total = sum((r["types"] or {}).values())
             xs.append(r["hal"] * r["types"][t] / total if r["types"] and total else 0)
-        fig.add_trace(go.Bar(y=y, x=xs, orientation="h", name=TYPE_LABEL[t], width=0.56,
+        fig.add_trace(go.Bar(y=y, x=xs, orientation="h", name=TYPE_LABEL[t], width=0.66,
                              marker=dict(color=COLOR[t], line=dict(color=BOX_BG, width=2)), hoverinfo="skip"))   # 칸 사이 2px 틈
     # 끝의 환각률 숫자 + 툴팁 (보이지 않는 점: 줄 어디에 올려도 그 단계 툴팁)
     fig.add_trace(go.Scatter(y=y, x=[r["hal"] for r in rows], mode="markers+text", marker=dict(size=1, opacity=0),
-                             text=[f"  <b>{fmt(r['hal'])}</b>" for r in rows], textposition="middle right",
+                             text=[f"  <b>{pct(r['hal'])}</b>" for r in rows], textposition="middle right",
                              textfont=dict(size=12, color="#F1EFE8"), cliponaxis=False,
                              **hover([hal_tip_parts(r) for r in rows])))
     for i, r in enumerate(rows):
@@ -325,7 +326,8 @@ def hal_by_type(rows, types=("lookup", "filter", "unknown")):
     height = 64 + 38 * len(rows) + X_LABEL_GAP + X_TITLE_GAP
     _layout(fig, height)
     fig.update_layout(barmode="stack", hovermode="y", hoverdistance=-1, margin=dict(MARGIN, l=90, r=40))
-    fig.update_xaxes(showline=False, range=[0, 1], tickvals=[0, 0.25, 0.5, 0.75, 1], showgrid=True,
+    fig.update_xaxes(showline=False, range=[0, 1], tickvals=[0, 0.25, 0.5, 0.75, 1],
+                     ticktext=["0%", "25%", "50%", "75%", "100%"], showgrid=True,
                      gridcolor=GRID, gridwidth=0.5, title_text="환각률", title_font=dict(size=11, color=MUTED),
                      title_standoff=X_TITLE_GAP, tickfont=dict(size=11, color="#888780"))
     fig.update_yaxes(autorange="reversed", showticklabels=True, tickfont=dict(size=12, color=LABEL),
@@ -371,7 +373,7 @@ def model_f1(rows):
                              cliponaxis=False, **hover(tips)))
     height = 300
     _layout(fig, height)
-    fig.update_layout(barmode="group", bargap=0.45, hovermode="x", hoverdistance=-1)
+    fig.update_layout(barmode="group", bargap=0.3, hovermode="x", hoverdistance=-1)
     fig.update_xaxes(showline=False, tickvals=x, ticktext=_size_ticks(rows), title_text="모델 (Qwen2.5)",
                      title_font=dict(size=11, color=MUTED), title_standoff=X_TITLE_GAP)
     fig.update_yaxes(title_text="Macro F1", title_standoff=Y_TITLE_GAP, range=[0, 1.15], tickvals=[0, 0.5, 1], showticklabels=True,
@@ -382,32 +384,31 @@ def model_f1(rows):
 
 
 def precision_recall(rows):
-    """c4b: 왼쪽 = 정밀도↔재현율 아령(같은 줄의 두 점 + 사이 선), 오른쪽 = 조건 검색 평균 답 길이 막대.
+    """c4b: 조건 검색 문항만. 왼쪽 = 정밀도↔재현율 아령(같은 줄의 두 점 + 사이 선), 오른쪽 = 조건 검색 Macro F1 막대.
     y축(모델) 하나를 두 칸이 같이 쓴다 -> 줄 어디에 올려도 그 모델 툴팁 하나."""
     y = [r["size"] for r in rows]
     tips = [([_model_head(r),
-              f"{dot(PREC_COLOR)}정밀도 <b>{fmt(r['precision_v'])}</b> · {dot(RECALL_COLOR)}재현율 <b>{fmt(r['recall'])}</b>",
-              f"조건 검색 평균 답 길이 <b>{fmt(r['ans_len'], 1)}명</b> · 조건 검색 Macro F1 <b>{fmt(r['filter'])}</b>"], None)
+              f"{dot(PREC_COLOR)}조건 검색 정밀도 <b>{fmt(r['f_prec'])}</b> · {dot(RECALL_COLOR)}재현율 <b>{fmt(r['f_recall'])}</b>",
+              f"조건 검색 Macro F1 <b>{fmt(r['filter'])}</b> · 평균 답 길이 <b>{fmt(r['ans_len'], 1)}명</b>"], None)
             for r in rows]
     fig = go.Figure()
     seg_x, seg_y = [], []
     for r in rows:
-        seg_x += [r["precision_v"], r["recall"], None]
+        seg_x += [r["f_prec"], r["f_recall"], None]
         seg_y += [r["size"], r["size"], None]
     fig.add_trace(go.Scatter(x=seg_x, y=seg_y, mode="lines", line=dict(color="#5F5E5A", width=3), hoverinfo="skip"))
-    fig.add_trace(go.Scatter(x=[r["precision_v"] for r in rows], y=y, mode="markers+text", name="정밀도",
+    fig.add_trace(go.Scatter(x=[r["f_prec"] for r in rows], y=y, mode="markers+text", name="정밀도",
                              marker=dict(size=13, color=PREC_COLOR, line=dict(color=BOX_BG, width=2)),
-                             text=[fmt(r["precision_v"]) for r in rows], textposition="top center",
+                             text=[fmt(r["f_prec"]) for r in rows], textposition="top center",
                              textfont=dict(size=11, color=PREC_COLOR),   # 숫자 색 = 점 색 (와이어프레임)
                              cliponaxis=False, **hover(tips)))
-    fig.add_trace(go.Scatter(x=[r["recall"] for r in rows], y=y, mode="markers+text", name="재현율",
+    fig.add_trace(go.Scatter(x=[r["f_recall"] for r in rows], y=y, mode="markers+text", name="재현율",
                              marker=dict(size=13, color=RECALL_COLOR, line=dict(color=BOX_BG, width=2)),
-                             text=[fmt(r["recall"]) for r in rows], textposition="bottom center",
+                             text=[fmt(r["f_recall"]) for r in rows], textposition="bottom center",
                              textfont=dict(size=11, color=RECALL_COLOR), cliponaxis=False, hoverinfo="skip"))
-    top_len = max(r["ans_len"] or 0 for r in rows)
-    fig.add_trace(go.Bar(x=[r["ans_len"] for r in rows], y=y, orientation="h", xaxis="x2", name="평균 답 길이",
-                         width=0.36, marker=dict(color=COLOR["avg"], cornerradius=3),
-                         text=[f"<b>{fmt(r['ans_len'], 1)}명</b>" for r in rows], textposition="outside",
+    fig.add_trace(go.Bar(x=[r["filter"] for r in rows], y=y, orientation="h", xaxis="x2", name="조건 검색 F1",
+                         width=0.46, marker=dict(color=COLOR["filter"], cornerradius=3),
+                         text=[f"<b>{fmt(r['filter'])}</b>" for r in rows], textposition="outside",
                          textfont=dict(size=12, color="#F1EFE8"), cliponaxis=False, hoverinfo="skip"))
     height = 60 + 62 * len(rows) + X_LABEL_GAP
     _layout(fig, height)
@@ -416,12 +417,12 @@ def precision_recall(rows):
         hovermode="y", hoversubplots="axis", hoverdistance=-1, margin=dict(MARGIN, l=60, t=34, b=30 + X_LABEL_GAP),
         xaxis=dict(domain=left, range=[-0.05, 1.05], tickvals=[0, 0.5, 1], showgrid=True, gridcolor=GRID, gridwidth=0.5,
                    showline=False, tickfont=dict(size=11, color="#888780")),
-        xaxis2=dict(domain=[0.7, 1], anchor="y", range=[0, top_len * 1.3], showticklabels=False, showgrid=False,
+        xaxis2=dict(domain=[0.7, 1], anchor="y", range=[0, 1.3], showticklabels=False, showgrid=False,
                     showline=False, zeroline=False, fixedrange=True),
         yaxis=dict(autorange="reversed", showticklabels=True, tickfont=dict(size=13, color="#E4E2DA"),
                    ticklabelstandoff=12),
     )
-    for x0, text in ((sum(left) / 2, "정밀도 ↔ 재현율 (60문항 전체)"), (0.85, "조건 검색 평균 답 길이")):
+    for x0, text in ((sum(left) / 2, "조건 검색 정밀도 ↔ 재현율"), (0.85, "조건 검색 Macro F1")):
         fig.add_annotation(xref="paper", yref="paper", x=x0, y=1, yshift=22, showarrow=False, text=text,
                            font=dict(size=11, color=MUTED))
     plot_h = height - 34 - (30 + X_LABEL_GAP)
@@ -433,17 +434,19 @@ TIME_SERIES = [("filter_t", "조건 검색", COLOR["filter"]), ("avg", "전체 �
                ("lookup_t", "캐릭터 조회", COLOR["lookup"])]
 
 
-def model_time(rows):
-    """c4c: 모델 크기별 평균 응답 시간 꺾은선 (전체 평균 · 캐릭터 조회 · 조건 검색). 점마다 숫자 라벨."""
+def model_time(rows, keys=None):
+    """c4c: 모델 크기별 평균 응답 시간 꺾은선 (전체 평균 · 캐릭터 조회 · 조건 검색). 점마다 숫자 라벨.
+    keys = 그릴 선만 (예: ['lookup_t'] = 조건 검색을 모델 없이 답한 단계에서 캐릭터 조회만)."""
+    series = [s for s in TIME_SERIES if keys is None or s[0] in keys]
     x = [r["size"] for r in rows]
     tips = [([_model_head(r),
               f"전체 평균 <b>{fmt(r['avg'])}초</b> · 중앙값 <b>{fmt(r['median'])}초</b>",
               f"{dot(COLOR['lookup'])}캐릭터 조회 <b>{fmt(r['lookup_t'])}초</b>",
               f"{dot(COLOR['filter'])}조건 검색 <b>{fmt(r['filter_t'])}초</b> · 평균 답 길이 <b>{fmt(r['ans_len'], 1)}명</b>"],
              None) for r in rows]
-    top = max(max(r[k] or 0 for k, _, _ in TIME_SERIES) for r in rows)
+    top = max(max(r[k] or 0 for k, _, _ in series) for r in rows)
     fig = go.Figure()
-    for i, (k, name, color) in enumerate(TIME_SERIES):
+    for i, (k, name, color) in enumerate(series):
         if k == "avg":   # 전체 평균 라벨: 조건 검색 점과 가까우면 왼쪽에 (겹치지 않게)
             pos = ["middle left" if abs((r["filter_t"] or 0) - (r["avg"] or 0)) < top * 0.12 else "top center" for r in rows]
         else:
@@ -465,14 +468,16 @@ def model_time(rows):
     return fig
 
 
-def combo_bars(rows, key, unit="", tickvals=None, axis_title=""):
-    """c4d·c4e: 모델·GPU·정밀도 조합별 가로 막대. 색 = 모델, T4는 흐리게(투명도 0.6). 끝에 값(굵게)."""
+def combo_bars(rows, key, unit="", tickvals=None, axis_title="", time_key="avg", time_label="평균 응답"):
+    """c4d·c4e: 모델·GPU·정밀도 조합별 가로 막대. 색 = 모델, T4는 흐리게(투명도 0.6). 끝에 값(굵게).
+    툴팁의 시간 = time_key (rag_v5_data는 캐릭터 조회 평균)."""
     y = [r["label"] for r in rows]
-    tips = [([_model_head(r), f"Macro F1 <b>{fmt(r['f1'])}</b> · 평균 응답 <b>{fmt(r['avg'])}초</b>"], None) for r in rows]
+    tips = [([_model_head(r), f"Macro F1 <b>{fmt(r['f1'])}</b> · {_esc(time_label)} <b>{fmt(r[time_key])}초</b>"], None)
+            for r in rows]
     top = max(r[key] or 0 for r in rows)
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        y=y, x=[r[key] for r in rows], orientation="h", width=0.6,
+        y=y, x=[r[key] for r in rows], orientation="h", width=0.72,
         marker=dict(color=[r["color"] for r in rows], opacity=[0.6 if r["gpu"] == "T4" else 1 for r in rows],
                     cornerradius=3),
         text=[f"  <b>{fmt(r[key])}{unit}</b>" for r in rows], textposition="outside",
@@ -497,8 +502,8 @@ PERF_SERIES = [("f1", "전체", COLOR["all"]), ("lookup", "캐릭터 조회", CO
 
 def perf_tip_parts(r):
     """c1a 툴팁: 단계 이름 + 전체·유형별 Macro F1 + 개선점. -> (줄 목록, 아래 한 줄)"""
-    lines = [f"<b>{_esc(r['stage'])}</b>"] + [f"{dot(c)}{name} <b>{fmt(r[k])}</b>" for k, name, c in PERF_SERIES]
-    return lines, (f"개선점: {_esc(r['change'])}" if r.get("change") else None)
+    lines = [f"<b>{_esc(r['stage'])}</b>"] + [f"{dot(c)}{name} <b>{fix(r[k])}</b>" for k, name, c in PERF_SERIES]
+    return lines, (f"변경 사항: {_esc(r['change'])}" if r.get("change") else None)
 
 
 def perf_lines(rows):
